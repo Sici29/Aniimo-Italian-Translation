@@ -1,0 +1,25 @@
+name: Problema installazione
+about: Segnala errori dell'installer, gioco non trovato o patch non applicata
+labels: [installazione]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Che problema hai avuto?
+      description: Incolla il messaggio dell'installer o descrivi cosa succede.
+    validations:
+      required: true
+  - type: input
+    id: percorso
+    attributes:
+      label: Percorso del gioco
+      placeholder: es. F:\Pawprint\Aniimo\game
+  - type: input
+    id: versione
+    attributes:
+      label: Versione del gioco/launcher
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot o log
+      description: Se puoi, allega uno screenshot della finestra dell'installer.

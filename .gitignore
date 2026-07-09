@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+*.zip
+*.7z
+*.rar
+.DS_Store
+Thumbs.db

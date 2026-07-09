@@ -1,0 +1,40 @@
+name: Errore di traduzione
+about: Segnala testi strani, inglese rimasto, accenti mancanti o problemi di genere
+labels: [traduzione]
+body:
+  - type: textarea
+    id: descrizione
+    attributes:
+      label: Cosa non va?
+      description: Scrivi il testo visto in gioco e cosa ti aspetteresti.
+    validations:
+      required: true
+  - type: textarea
+    id: contesto
+    attributes:
+      label: Dove appare?
+      description: Menu, missione, dialogo, oggetto, skill, mappa, ecc.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Trascina qui uno screenshot se puoi.
+  - type: input
+    id: versione
+    attributes:
+      label: Versione del gioco
+      placeholder: es. hot update 3036569
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: Tipo di problema
+      options:
+        - Testo inglese rimasto
+        - Frase poco naturale
+        - Termine incoerente
+        - Accento mancante
+        - Maschile/femminile errato
+        - Testo tagliato nella UI
+        - Altro

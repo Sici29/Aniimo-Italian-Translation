@@ -1,0 +1,189 @@
+{
+  "source_master_with_accents": "F:\\Traduzione\\90_LAVORO_TECNICO_CODEX\\Aniimo_I18N\\exports\\translation_work_beta_update_20260709-182116_merged100_it.csv",
+  "local_archived_master_with_accents": "F:\\Traduzione\\90_LAVORO_TECNICO_CODEX\\Aniimo_I18N\\master_accented\\translation_it_master_accents_20260709.csv",
+  "english_slot_csv": "F:\\Traduzione\\90_LAVORO_TECNICO_CODEX\\Aniimo_I18N\\exports\\translation_work_beta_update_20260709-182116_merged100_it_ascii_en_slot.csv",
+  "public_translation_csv": "F:\\Traduzione\\90_LAVORO_TECNICO_CODEX\\Aniimo_I18N\\public_repo\\Aniimo-Italian-Translation\\data\\translation_it.csv",
+  "rows": 92954,
+  "rows_changed_for_english_slot": 17981,
+  "replacement_count": 27140,
+  "accent_policy": "English slot uses apostrophes for accented Italian vowels; accented master is preserved separately.",
+  "punctuation_policy": "Typographic punctuation is simplified for the English-slot font; original zero-width layout separators are preserved.",
+  "top_replacements": [
+    [
+      "U+00E0 \\xe0 -> a'",
+      9511
+    ],
+    [
+      "U+00E8 \\xe8 -> e'",
+      5553
+    ],
+    [
+      "U+00F9 \\xf9 -> u'",
+      2932
+    ],
+    [
+      "U+00F2 \\xf2 -> o'",
+      2648
+    ],
+    [
+      "U+00EC \\xec -> i'",
+      1701
+    ],
+    [
+      "U+00E9 \\xe9 -> e'",
+      957
+    ],
+    [
+      "U+00C8 \\xc8 -> E'",
+      933
+    ],
+    [
+      "U+2014 \\u2014 -> -",
+      743
+    ],
+    [
+      "U+2019 \\u2019 -> '",
+      475
+    ],
+    [
+      "U+00C9 \\xc9 -> E'",
+      458
+    ],
+    [
+      "U+201C \\u201c -> \"",
+      433
+    ],
+    [
+      "U+201D \\u201d -> \"",
+      432
+    ],
+    [
+      "U+00B7 \\xb7 -> -",
+      77
+    ],
+    [
+      "U+3010 \\u3010 -> [",
+      37
+    ],
+    [
+      "U+3011 \\u3011 -> ]",
+      37
+    ],
+    [
+      "U+FF0E \\uff0e -> .",
+      36
+    ],
+    [
+      "U+2026 \\u2026 -> ...",
+      26
+    ],
+    [
+      "U+00D7 \\xd7 -> x",
+      22
+    ],
+    [
+      "U+2219 \\u2219 -> -",
+      20
+    ],
+    [
+      "U+00B0 \\xb0 ->  gradi",
+      8
+    ],
+    [
+      "U+FF1F \\uff1f -> ?",
+      8
+    ],
+    [
+      "U+2013 \\u2013 -> -",
+      8
+    ],
+    [
+      "U+FFE5 \\uffe5 -> Y",
+      8
+    ],
+    [
+      "U+00E3 \\xe3 -> a'",
+      8
+    ],
+    [
+      "U+20AC \\u20ac -> EUR",
+      8
+    ],
+    [
+      "U+FF01 \\uff01 -> !",
+      6
+    ],
+    [
+      "U+2018 \\u2018 -> '",
+      6
+    ],
+    [
+      "U+00A5 \\xa5 -> Y",
+      6
+    ],
+    [
+      "U+202F \\u202f ->  ",
+      6
+    ],
+    [
+      "U+FF08 \\uff08 -> (",
+      5
+    ],
+    [
+      "U+FF09 \\uff09 -> )",
+      4
+    ],
+    [
+      "U+3014 \\u3014 -> [",
+      4
+    ],
+    [
+      "U+3015 \\u3015 -> ]",
+      4
+    ],
+    [
+      "U+226A \\u226a -> <<",
+      4
+    ],
+    [
+      "U+226B \\u226b -> >>",
+      4
+    ],
+    [
+      "U+00BA \\xba -> o",
+      3
+    ],
+    [
+      "U+00AA \\xaa -> a",
+      2
+    ],
+    [
+      "U+2264 \\u2264 -> <=",
+      1
+    ],
+    [
+      "U+2163 \\u2163 -> IV",
+      1
+    ],
+    [
+      "U+2160 \\u2160 -> I",
+      1
+    ],
+    [
+      "U+2164 \\u2164 -> V",
+      1
+    ],
+    [
+      "U+00EA \\xea -> e'",
+      1
+    ],
+    [
+      "U+FF1A \\uff1a -> :",
+      1
+    ],
+    [
+      "U+2103 \\u2103 ->  C",
+      1
+    ]
+  ]
+}

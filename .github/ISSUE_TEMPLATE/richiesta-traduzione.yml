@@ -1,0 +1,48 @@
+name: Richiesta traduzione
+about: Proponi un altro gioco da tradurre in italiano
+labels: [richiesta-traduzione]
+body:
+  - type: input
+    id: gioco
+    attributes:
+      label: Nome del gioco
+      placeholder: es. Nome Gioco
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link del gioco
+      description: Steam, Epic, GOG, sito ufficiale o pagina store.
+  - type: input
+    id: piattaforma
+    attributes:
+      label: Piattaforma o launcher
+      placeholder: es. Steam, Epic, launcher proprietario
+  - type: dropdown
+    id: motore
+    attributes:
+      label: Motore grafico, se lo sai
+      options:
+        - Non lo so
+        - Unreal Engine
+        - Unity
+        - Godot
+        - Altro
+  - type: checkboxes
+    id: contenuti
+    attributes:
+      label: Cosa vorresti tradurre?
+      options:
+        - label: Menu e interfaccia
+        - label: Oggetti, skill e descrizioni
+        - label: Missioni
+        - label: Dialoghi e sottotitoli
+        - label: Terminali, log o testi lunghi
+        - label: Texture, poster o immagini con testo
+        - label: Altro
+  - type: textarea
+    id: note
+    attributes:
+      label: Note utili
+      description: Scrivi se esistono già traduzioni amatoriali, file estratti, tool noti o esempi di testi.
