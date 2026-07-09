@@ -2,6 +2,14 @@
 
 Traduzione italiana amatoriale per **Aniimo**, pensata per essere semplice da installare e facile da aggiornare quando il gioco riceve nuove patch.
 
+## Sostieni La Traduzione
+
+Se la traduzione ti è utile e vuoi contribuire a mantenerla aggiornata, puoi offrirmi un caffè. Anche un piccolo sostegno aiuta a portare avanti il progetto e le future traduzioni italiane.
+
+[![Offrimi un caffè e sostieni la traduzione italiana](https://img.shields.io/badge/Offrimi_un_caff%C3%A8-Sostieni_la_traduzione-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000000)](https://buymeacoffee.com/sici29)
+
+**Grazie di cuore a chi sceglierà di supportare il progetto.**
+
 ## Stato
 
 - Copertura: **92.954 / 92.954** stringhe note.
@@ -95,12 +103,6 @@ Apri una Issue usando il template **Richiesta traduzione** e indica:
 - se esiste già una traduzione amatoriale da cui prendere spunto.
 
 Non posso promettere che ogni gioco sia traducibile o pubblicabile, ma una richiesta fatta bene aiuta tantissimo a capire se il lavoro è realistico.
-
-## Supporto
-
-Se la traduzione ti è utile e vuoi offrirmi un caffè:
-
-[buymeacoffee.com/sici29](https://buymeacoffee.com/sici29)
 
 ## Note
 
