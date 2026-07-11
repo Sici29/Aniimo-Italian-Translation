@@ -11,9 +11,14 @@
     "modern_key_sha256": "96be065e856b547226ea93cd7ce33d7671214a45c16783362a58da5bf9de6617",
     "english_zero_values": 364,
     "recovered_meaningful_fallbacks": 359,
+    "runtime_fallback_allow_list_entries": 359,
+    "single_line_notifications_checked": 726,
+    "single_line_notifications_shortened": 78,
+    "floating_clues_checked": 14,
+    "floating_clues_shortened": 4,
     "confirmed_technical_zero_values": 5,
     "empty_italian_values": 0,
-    "direct_english_residue_fixes": 220,
+    "direct_english_residue_fixes": 371,
     "glossary_and_consistency_fixes": 651,
     "gender_audit_fixes": 419,
     "player_gender_placeholders_preserved": 9,
@@ -30,6 +35,6 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "1A7FF2AAB17FA768250251908987908E2FF70B90D63C45769128AB20F501D9CE"
+    "production": "E0840E9E3A900866CA03A31FC8C7B03CA6B8DC3B25DE4242844C8AEAF2A9277F"
   }
 }

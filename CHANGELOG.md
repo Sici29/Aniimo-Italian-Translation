@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.7 Beta - 2026-07-11
+
+- Tradotta in `Tre...` la battuta `Three...` rimasta in inglese nel conto alla rovescia del dialogo di Jaeger.
+- Verificate anche le altre sequenze numeriche brevi: `One`, `Two` e i conti alla rovescia completi risultano già tradotti.
+- Eseguito un nuovo audit globale dei residui inglesi: corrette 151 voci aggiuntive fra UI, didascalie, mesi, impostazioni, titoli funzionali, oggetti, cosmetici, anglicismi generici e testi misti.
+- Uniformate `Hall of Memories` in `Sala dei Ricordi` e `Old Town` in `Città Vecchia`; tradotto il minigioco `Roll Out` in `Palla di fango rotolante` dopo il confronto con giapponese, cinese e coreano.
+- Conservati i toponimi che il glossario dichiara ufficiali e invariabili, fra cui `Sea of Flowers`.
+- Tradotte altre 24 etichette brevi rimaste identiche all'inglese, comprese `Hot Cocoa`, `Mouse Pad`, `Ice Storm`, la famiglia Gull e `Chat in {0}`.
+- Distinti secondo il contesto i quattro `Build` e i tre `Record`; conservati nomi propri, abilità ufficiali, brand e prestiti standard come `Open Beta` e `open world`.
+- Accorciata la notifica sul livello del Ramo collegato alla Fioritura, che superava la larghezza del riquadro e appariva troncata.
+- Compattate le notifiche per Aniimo volanti, da nuoto e da arrampicata non equipaggiati, mantenendo l'indicazione della scheda Esplorazione.
+- Identificate automaticamente 726 notifiche a riga singola e accorciate 78 traduzioni che superavano la larghezza sicura del riquadro.
+- Aggiunto un controllo automatico: testo visibile, tag esclusi, massimo 80 caratteri per tutte le notifiche note.
+- Identificati separatamente i 14 testi delle bolle `Indizio`: accorciati i 4 che venivano tagliati e imposto un limite automatico di 34 caratteri visibili.
+- Rifinite le traduzioni delle scelte `The timing is weird...` e `Her character seems off...`.
+- L'installer registra ora come tradotte le 359 voci recuperate che nell'English ufficiale valgono `0`, impedendo al percorso runtime speciale di sostituirle nuovamente con frasi inglesi.
+- Aggiunto un controllo automatico per impedire la ricomparsa della stringa inglese.
+
 ## 0.3.6 Beta - 2026-07-11
 
 - Corretto il genere di Lunara nelle battute e nelle didascalie confermate dal giapponese, compresi `Sono troppo emozionata` e `Lunara sembra sorpresa`.
