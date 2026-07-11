@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+from collections import Counter
+import json
 import re
 import unittest
 from pathlib import Path
@@ -8,6 +10,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PRODUCTION_CSV = ROOT / "data" / "translation_it.csv"
+SINGLE_LINE_NOTIFICATIONS = ROOT / "data" / "single_line_notifications.json"
+FLOATING_CLUES = ROOT / "data" / "floating_clues.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -65,6 +69,7 @@ class TranslationDataTests(unittest.TestCase):
         self.assertEqual(by_key["1351062798"], "Sposta lotto")
         self.assertEqual(by_key["1268800582"], "Nuovo Mondo")
         self.assertEqual(by_key["1471560215"], "Vietnamita")
+        self.assertEqual(by_key["1631125284"], "Tre...")
         text = "\n".join(by_key.values())
         for residue in (
             "Roar of the Bouldus",
@@ -73,6 +78,77 @@ class TranslationDataTests(unittest.TestCase):
             "[Song of Ice and Fire]",
         ):
             self.assertNotIn(residue, text)
+
+    def test_v037_global_english_residue_audit(self) -> None:
+        audited = [
+            row for row in self.production if row["note"] == "review_v0.3.7_english_residue"
+        ]
+        self.assertEqual(151, len(audited))
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual("Tre...", by_key["1631125284"])
+        self.assertEqual("Maggio", by_key["1091429581"])
+        self.assertEqual("Marzo", by_key["1600061307"])
+        self.assertEqual("Costruisci", by_key["1192241871"])
+        self.assertEqual("Configurazione", by_key["1832531669"])
+        self.assertEqual("Registra", by_key["1753058341"])
+        self.assertEqual("Frequenza fotogrammi", by_key["1486528807"])
+        self.assertEqual("Timoroso", by_key["2131735144"])
+        self.assertEqual("Palla di fango rotolante", by_key["1393914635"])
+        self.assertEqual("Città Vecchia", by_key["1275514751"])
+        self.assertIn("Sala dei Ricordi", by_key["1840485426"])
+        self.assertEqual("Cioccolata Calda", by_key["1137332435"])
+        self.assertEqual("Tempesta di Ghiaccio", by_key["1505371280"])
+        self.assertEqual("Tappetino per Mouse", by_key["1528377006"])
+        self.assertEqual("Chat: {0}", by_key["1629777850"])
+
+        text = "\n".join(row["it"] for row in self.production)
+        self.assertIsNone(
+            re.search(r"(?i)\b(?:sigh|yawn|sniff|sob)\b", text),
+            "Didascalia inglese rimasta nel testo italiano",
+        )
+        for residue in (
+            "Three...",
+            "*cough cough*",
+            "open house",
+            "open day",
+            "max two lines",
+            "<Affected by",
+            "Upload completato",
+            "must-have",
+            "Workload",
+            "Skittish",
+            "Seal-off",
+            "ricompensa follow",
+            "community ufficiale",
+            "Manager Ben",
+            "Director Ling",
+            "Hall of Memories",
+            "Old Town",
+            "Roll Out",
+            "Gull Dad",
+            "Gull Mom",
+            "Gull Jr.",
+            "Hot Cocoa",
+            "Ice Burst",
+            "Ice Storm",
+            "Mouse Pad",
+            "Hype crew",
+        ):
+            self.assertNotIn(residue, text)
+
+        # I toponimi autorizzati dal glossario restano invariati.
+        for key in (
+            "485845125",
+            "1156222793",
+            "1411042912",
+            "1455411606",
+            "1745545241",
+            "1877102031",
+            "1975904113",
+            "2055027862",
+            "2067297521",
+        ):
+            self.assertEqual("Sea of Flowers", by_key[key])
 
     def test_repaired_effect_brackets(self) -> None:
         accented_by_key = {row["key"]: row["it"] for row in self.production}
@@ -158,6 +234,73 @@ class TranslationDataTests(unittest.TestCase):
             by_key["1863202957"],
         )
 
+    def test_reported_choice_fallbacks_and_branch_notice_are_natural(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual("Il tempismo è strano...", by_key["1409838404"])
+        self.assertEqual(
+            "Il suo comportamento sembra strano...", by_key["1832874807"]
+        )
+        notice = by_key["1166609928"]
+        self.assertEqual(
+            "Il Ramo di questa Fioritura è di livello basso. "
+            "Vitalizzazione non disponibile.",
+            notice,
+        )
+        self.assertLessEqual(len(notice), 80)
+
+        mobility_notices = {
+            "1693628054": "Equipaggia un Aniimo da nuoto nella scheda Esplorazione.",
+            "1703220940": "Equipaggia un Aniimo volante nella scheda Esplorazione.",
+            "1776315852": "Equipaggia un Aniimo da arrampicata nella scheda Esplorazione.",
+        }
+        for key, expected in mobility_notices.items():
+            self.assertEqual(expected, by_key[key])
+            self.assertLessEqual(len(by_key[key]), 80)
+
+    def test_single_line_notifications_fit_the_toast(self) -> None:
+        config = json.loads(SINGLE_LINE_NOTIFICATIONS.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row["it"] for row in self.production}
+        tag_pattern = re.compile(r"<[^>]+>")
+        limit = int(config["max_visible_characters"])
+        self.assertEqual(726, len(config["keys"]))
+        for key in config["keys"]:
+            visible = tag_pattern.sub("", by_key[key]).replace("\n", " ")
+            self.assertLessEqual(
+                len(visible), limit, f"Notifica troppo lunga: {key} ({len(visible)})"
+            )
+
+    def test_shortened_notifications_preserve_markup(self) -> None:
+        audited = [
+            row
+            for row in self.production
+            if row["note"]
+            in {
+                "review_v0.3.7_ui_length",
+                "review_v0.3.7_toast_length",
+                "review_v0.3.7_clue_length",
+            }
+        ]
+        tag_pattern = re.compile(r"<[^>]+>")
+        self.assertEqual(82, len(audited))
+        for row in audited:
+            self.assertEqual(
+                Counter(tag_pattern.findall(row["source_en"])),
+                Counter(tag_pattern.findall(row["it"])),
+                f"Tag alterati nella notifica {row['key']}",
+            )
+
+    def test_floating_clues_fit_the_bubble(self) -> None:
+        config = json.loads(FLOATING_CLUES.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row["it"] for row in self.production}
+        tag_pattern = re.compile(r"<[^>]+>")
+        limit = int(config["max_visible_characters"])
+        self.assertEqual(14, len(config["keys"]))
+        for key in config["keys"]:
+            visible = tag_pattern.sub("", by_key[key]).replace("\n", " ")
+            self.assertLessEqual(
+                len(visible), limit, f"Indizio troppo lungo: {key} ({len(visible)})"
+            )
+
     def test_confirmed_glossary_and_placeholder_residues_are_absent(self) -> None:
         text = "\n".join(row["it"] for row in self.production)
         for residue in (
@@ -196,7 +339,8 @@ class TranslationDataTests(unittest.TestCase):
         audited = [
             row for row in self.production if row["note"] == "review_v0.3.6_gender_audit"
         ]
-        self.assertEqual(419, len(audited))
+        # Due delle 419 righe storiche sono state nuovamente revisionate nella v0.3.7.
+        self.assertEqual(417, len(audited))
 
         self.assertEqual(
             "Uff... Sono troppo emozionata, non riesco ancora a dormire...",

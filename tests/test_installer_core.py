@@ -68,6 +68,20 @@ class BuildMapAndBinTests(unittest.TestCase):
             bundle.write_bytes(b"bundle")
             self.assertEqual(installer.find_font_bundle(game), bundle)
 
+    def test_recovered_english_fallbacks_are_marked_as_translated(self) -> None:
+        raw = json.dumps([10, 20]).encode("utf-8")
+        updated, added = installer.mark_english_fallbacks_as_translated(
+            raw, ["20", "30", "40"]
+        )
+        self.assertEqual(2, added)
+        self.assertEqual([10, 20, 30, 40], json.loads(updated))
+
+    def test_production_has_359_recovered_english_fallbacks(self) -> None:
+        keys = installer.recovered_english_fallback_keys()
+        self.assertEqual(359, len(keys))
+        self.assertIn("1409838404", keys)
+        self.assertIn("1832874807", keys)
+
 
 class RestoreTests(unittest.TestCase):
     def test_restore_removes_only_files_created_by_the_patch(self) -> None:

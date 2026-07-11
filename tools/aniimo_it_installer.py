@@ -42,6 +42,7 @@ XDF_NAME = "LuaScripts.xdf"
 XDT_NAME = "LuaScripts.xdt"
 TEXT_MAP = "xfs/luascripts/Data/I18N/NewTextMap_{lang}.json"
 COMPRESS = "xfs/luascripts/Data/I18N/Compress_{lang}.bin"
+AI_TRANSLATED_EN = "xfs/luascripts/Data/I18N/AITranslatedItems/AITranslatedItems_en.json"
 FONT_CACHE_RELS = (
     Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
     Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
@@ -271,6 +272,38 @@ def load_translations(slot: str | None = None) -> dict[str, str]:
             if key and text:
                 translations[key] = text
     return translations
+
+
+def recovered_english_fallback_keys() -> list[str]:
+    """Keys whose official English value is 0 but whose Italian text is complete."""
+    csv_path = translation_csv_for_slot("en")
+    recovered: list[str] = []
+    with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            key = (row.get("key") or "").strip()
+            source = (row.get("source_en") or "").strip()
+            text = (row.get("it") or "").strip()
+            if key and source == "0" and text and text != "0":
+                recovered.append(key)
+    return recovered
+
+
+def mark_english_fallbacks_as_translated(raw: bytes, keys: list[str]) -> tuple[bytes, int]:
+    """Make Aniimo accept locally recovered English-slot fallbacks as translations.
+
+    Aniimo keeps a separate allow-list for texts considered available in the
+    English locale. Without these entries, some official 0 values bypass the
+    patched text map and the runtime injects an English sentence instead.
+    """
+    values = json.loads(raw.decode("utf-8-sig"))
+    if not isinstance(values, list) or any(not isinstance(value, int) for value in values):
+        raise ValueError("Elenco delle traduzioni English di Aniimo non valido.")
+    existing = set(values)
+    additions = sorted(
+        (int(key) for key in keys if int(key) not in existing),
+    )
+    values.extend(additions)
+    return (json.dumps(values, ensure_ascii=False, indent=2).encode("utf-8"), len(additions))
 
 
 def parse_steam_libraries() -> list[Path]:
@@ -1067,6 +1100,16 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             (out_i18n / f"NewTextMap_{lang}.json").write_bytes(map_bytes)
             (out_i18n / f"Compress_{lang}.bin").write_bytes(bin_bytes)
             stats["languages"][lang] = lang_stats
+        if "en" in target_langs:
+            fallback_keys = recovered_english_fallback_keys()
+            translated_items, added = mark_english_fallbacks_as_translated(
+                zf.read(AI_TRANSLATED_EN), fallback_keys
+            )
+            replacements[AI_TRANSLATED_EN] = translated_items
+            stats["english_runtime_fallbacks"] = {
+                "recovered_keys": len(fallback_keys),
+                "allow_list_entries_added": added,
+            }
     repack_xdf(paths.xdf, paths.xdt, replacements, patch_dir / XDF_NAME, patch_dir / XDT_NAME)
     stats["font"] = patch_font_bundle(
         find_font_bundle(paths.game_dir), patch_dir / FONT_PATCH_DIR / "cdata.uab"
