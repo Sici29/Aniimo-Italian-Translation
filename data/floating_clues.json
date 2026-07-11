@@ -1,6 +1,7 @@
 {
-  "description": "Localization keys used by Aniimo floating Clue bubbles.",
-  "max_visible_characters": 34,
+  "description": "Localization keys used by Aniimo floating Clue bubbles. Content must wrap safely below the fixed Indizio title.",
+  "max_visible_characters_per_line": 15,
+  "max_lines": 2,
   "keys": [
     "1170021545",
     "1174985584",

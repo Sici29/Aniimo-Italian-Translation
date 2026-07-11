@@ -279,6 +279,7 @@ class TranslationDataTests(unittest.TestCase):
                 "review_v0.3.7_ui_length",
                 "review_v0.3.7_toast_length",
                 "review_v0.3.7_clue_length",
+                "review_v0.3.9_clue_bubble_wrap",
             }
         ]
         tag_pattern = re.compile(r"<[^>]+>")
@@ -294,12 +295,33 @@ class TranslationDataTests(unittest.TestCase):
         config = json.loads(FLOATING_CLUES.read_text(encoding="utf-8"))
         by_key = {row["key"]: row["it"] for row in self.production}
         tag_pattern = re.compile(r"<[^>]+>")
-        limit = int(config["max_visible_characters"])
+        line_limit = int(config["max_visible_characters_per_line"])
+        max_lines = int(config["max_lines"])
         self.assertEqual(14, len(config["keys"]))
+        self.assertEqual("Flutternym vivacissimo!", by_key["1299869420"])
+        self.assertEqual("Fragranza misteriosa!", by_key["2018801363"])
         for key in config["keys"]:
             visible = tag_pattern.sub("", by_key[key]).replace("\n", " ")
+            lines: list[str] = []
+            current = ""
+            for word in visible.split():
+                self.assertLessEqual(
+                    len(word), line_limit, f"Parola troppo larga nella bolla {key}: {word}"
+                )
+                candidate = word if not current else f"{current} {word}"
+                if len(candidate) <= line_limit:
+                    current = candidate
+                else:
+                    lines.append(current)
+                    current = word
+            if current:
+                lines.append(current)
             self.assertLessEqual(
-                len(visible), limit, f"Indizio troppo lungo: {key} ({len(visible)})"
+                len(lines), max_lines, f"Bolla su troppe righe: {key} ({lines})"
+            )
+            self.assertTrue(
+                all(len(line) <= line_limit for line in lines),
+                f"Riga troppo larga nella bolla {key}: {lines}",
             )
 
     def test_clue_panel_instructions_fit_the_header(self) -> None:
