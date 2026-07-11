@@ -17,6 +17,7 @@
     "single_line_notifications_shortened": 78,
     "floating_clues_checked": 14,
     "floating_clues_shortened": 4,
+    "floating_clues_revised_for_line_wrap": 2,
     "clue_ui_short_texts_checked": 32,
     "clue_ui_short_texts_shortened": 6,
     "confirmed_technical_zero_values": 5,
@@ -38,6 +39,6 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "A8876888B4082B5E498FABBA117154F4A2BB6C3C90C08762252380308BF75768"
+    "production": "75646EF4D340FC140E5AA8D78500F0DBE5DF2D2024822B1797C5C5F08FBC2E5A"
   }
 }

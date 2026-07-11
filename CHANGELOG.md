@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.9 Beta - 2026-07-11
+
+- Corretto l'audit delle 14 bolle `Indizio`: il precedente limite sulla lunghezza totale non rappresentava la larghezza effettiva delle singole righe.
+- Imposto un controllo conservativo di massimo 2 righe e 15 caratteri visibili per riga su tutte le bolle note.
+- `Un profumo floreale misterioso!`, ancora troncata in gioco, diventa `Fragranza misteriosa!`.
+- `Quel Flutternym era vivacissimo!`, che con il nuovo criterio avrebbe occupato tre righe, diventa `Flutternym vivacissimo!`.
+- Verificate nuovamente le altre 12 bolle, già compatibili con il nuovo criterio per riga.
+
 ## 0.3.8 Beta - 2026-07-11
 
 - Registrata come verificata la revisione hot update `4eb81a98d0e3934af67064cbde06218e`, compatibile con tutte le 92.954 chiavi note.
