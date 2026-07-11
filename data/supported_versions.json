@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.2.0-beta",
+  "translation_version": "0.2.1-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -10,7 +10,7 @@
   "tested_game_update": "hot update 3036569",
   "tested_date": "2026-07-11",
   "coverage": "92954/92954 known text keys",
-  "install_hint": "Copy Aniimo-Italian-Translation.exe into the Aniimo game root, next to Aniimo_Data, then run it and select English in game.",
+  "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. If automatic detection fails, place the EXE next to Aniimo_Data.",
   "notes": [
     "Default install replaces English because it is always visible in the game language menu.",
     "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."

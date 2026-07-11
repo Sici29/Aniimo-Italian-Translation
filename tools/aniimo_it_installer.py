@@ -593,12 +593,12 @@ def cmd_restore(args: argparse.Namespace) -> int:
 def run_menu() -> int:
     print("Aniimo - Traduzione Italiana")
     print()
-    print("1. Installa / aggiorna traduzione")
-    print("2. Ripristina ultimo backup")
-    print("3. Controlla aggiornamenti")
+    print("1. Installa o aggiorna la traduzione (consigliato)")
+    print("2. Ripristina i file originali")
+    print("3. Controlla se esiste una nuova versione")
     print("0. Esci")
     print()
-    choice = input("Scelta [1]: ").strip() or "1"
+    choice = input("Scelta [Invio = installa]: ").strip() or "1"
     if choice == "0":
         return 0
     if choice == "2":
@@ -610,6 +610,9 @@ def run_menu() -> int:
         class Args:
             pass
         return cmd_update(Args())
+    if choice != "1":
+        print("Scelta non valida. Riapri l'installer e digita 1, 2, 3 oppure 0.")
+        return 1
     class Args:
         game_dir = None
         force = False
