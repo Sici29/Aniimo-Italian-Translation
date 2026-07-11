@@ -659,7 +659,10 @@ def apply_update_payload(
             shutil.copy2(source, staging)
             os.replace(staging, target)
             if launch:
-                subprocess.Popen([str(target), *(launch_args or [])], cwd=str(target.parent))
+                launch_kwargs: dict[str, object] = {"cwd": str(target.parent)}
+                if os.name == "nt":
+                    launch_kwargs["creationflags"] = getattr(subprocess, "CREATE_NEW_CONSOLE", 0)
+                subprocess.Popen([str(target), *(launch_args or [])], **launch_kwargs)
             return True
         except (PermissionError, OSError) as exc:
             last_error = exc

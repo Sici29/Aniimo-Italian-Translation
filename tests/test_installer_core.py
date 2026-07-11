@@ -160,7 +160,24 @@ class VersionAndUpdaterTests(unittest.TestCase):
             args = [installer.UPDATE_COMPLETE_COMMAND, "0.3.1-beta"]
             with patch.object(installer.subprocess, "Popen") as launched:
                 installer.apply_update_payload(source, target, retries=1, delay=0, launch_args=args)
-            launched.assert_called_once_with([str(target.resolve()), *args], cwd=str(target.resolve().parent))
+            expected_kwargs = {"cwd": str(target.resolve().parent)}
+            if installer.os.name == "nt":
+                expected_kwargs["creationflags"] = getattr(installer.subprocess, "CREATE_NEW_CONSOLE", 0)
+            launched.assert_called_once_with([str(target.resolve()), *args], **expected_kwargs)
+
+    def test_windows_update_restart_requests_a_visible_console(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            source = root / "downloaded.exe"
+            target = root / "installed.exe"
+            source.write_bytes(b"new")
+            target.write_bytes(b"old")
+            with patch.object(installer.os, "name", "nt"), patch.object(installer.subprocess, "Popen") as launched:
+                installer.apply_update_payload(source, target, retries=1, delay=0)
+            self.assertEqual(
+                launched.call_args.kwargs["creationflags"],
+                getattr(installer.subprocess, "CREATE_NEW_CONSOLE", 0),
+            )
 
     def test_update_completion_message_reports_versions(self) -> None:
         output = io.StringIO()
