@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 Beta - 2026-07-11
+
+- Il pannello indica se il percorso di Aniimo è stato trovato automaticamente o recuperato da quello salvato.
+- Il pannello rileva dalle risorse reali se la traduzione italiana è già installata.
+- Se Aniimo non viene trovato, l'installer permette di scegliere la cartella con la finestra di Windows oppure di incollare il percorso.
+- Aggiunte istruzioni immediate per riconoscere la cartella corretta contenente `Aniimo_Data`.
+- Il percorso verificato viene salvato e può essere modificato in qualsiasi momento con la nuova opzione `4`.
+- Estesi i controlli automatici per rilevamento traduzione, percorso salvato e pannello di stato.
+
 ## 0.3.0 Beta - 2026-07-11
 
 - Aggiunto l'aggiornamento automatico direttamente da GitHub Releases.

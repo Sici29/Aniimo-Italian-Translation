@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import importlib.util
 import json
 import struct
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
@@ -166,12 +168,67 @@ class VersionAndUpdaterTests(unittest.TestCase):
             self.assertFalse(target.with_suffix(".exe.download").exists())
 
 
+class DetectionTests(unittest.TestCase):
+    def test_translation_is_detected_from_actual_text_matches(self) -> None:
+        translations = {str(i): f"Italiano {i}" for i in range(200)}
+        installed = [{"key": str(i), "text": f"Italiano {i}"} for i in range(200)]
+        original = [{"key": str(i), "text": f"English {i}"} for i in range(200)]
+        self.assertTrue(installer.translation_match_status(installed, translations)["installed"])
+        self.assertFalse(installer.translation_match_status(original, translations)["installed"])
+
+    def test_saved_game_path_is_reused(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "Aniimo" / "game"
+            (game / "Aniimo_Data").mkdir(parents=True)
+            work = root / "work"
+            with patch.object(installer, "USER_WORK_DIR", work), patch.object(
+                installer, "candidate_game_dirs", return_value=[]
+            ):
+                installer.save_game_dir(game)
+                found, source = installer.resolve_game_dir_with_source(None)
+            self.assertEqual(found, game.resolve())
+            self.assertEqual(source, "salvato")
+
+    def test_chosen_parent_folder_is_validated_and_saved(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "Aniimo" / "game"
+            (game / "Aniimo_Data").mkdir(parents=True)
+            work = root / "work"
+            with patch.object(installer, "USER_WORK_DIR", work), patch.object(
+                installer, "choose_game_dir_windows", return_value=str(game.parent)
+            ):
+                selected = installer.configure_game_dir()
+                settings = installer.load_settings()
+            self.assertEqual(selected, game.resolve())
+            self.assertEqual(Path(settings["game_dir"]), game.resolve())
+
+    def test_status_panel_reports_path_and_installation(self) -> None:
+        status = {
+            "manifest": {"supported_game_updates": [3032670]},
+            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_path_source": "automatico",
+            "detected_game_update": "3032670",
+            "translation_installed": True,
+            "update": {"current": "0.3.1-beta", "latest": "v0.3.1-beta", "update_available": False},
+        }
+        output = io.StringIO()
+        with redirect_stdout(output):
+            installer.print_status_panel(status, colors=False)
+        self.assertIn("TROVATO AUTOMATICAMENTE", output.getvalue())
+        self.assertIn("INSTALLATA", output.getvalue())
+
+
 class MenuTests(unittest.TestCase):
     def setUp(self) -> None:
         self.status = {
             "manifest": {"supported_game_updates": [3032670]},
+            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_path_source": "automatico",
             "detected_game_update": "3032670",
-            "update": {"current": "0.3.0-beta", "latest": "v0.3.0-beta", "update_available": False},
+            "translation_installed": True,
+            "update": {"current": "0.3.1-beta", "latest": "v0.3.1-beta", "update_available": False},
         }
 
     def test_enter_uses_recommended_install_action(self) -> None:

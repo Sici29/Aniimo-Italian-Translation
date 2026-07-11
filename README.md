@@ -33,6 +33,8 @@ Fai doppio clic su `Aniimo-Italian-Translation.exe`, poi premi **Invio**.
 All'apertura compare un riepilogo semplice con:
 
 - versione del gioco supportata e versione rilevata;
+- percorso del gioco trovato automaticamente o inserito dall'utente;
+- traduzione italiana già installata oppure non installata;
 - stato di compatibilità evidenziato a colori;
 - versione dell'installer in uso;
 - eventuale nuova versione disponibile.
@@ -47,13 +49,28 @@ Avvia Aniimo e scegli **English** dal menu della lingua. La traduzione italiana 
 
 ## Se l'installer non trova Aniimo
 
-Copia `Aniimo-Italian-Translation.exe` nella cartella del gioco, accanto a `Aniimo_Data`, quindi riaprilo:
+Se il percorso non viene trovato, l'installer propone subito di selezionarlo con una normale finestra di Windows. Scegli la cartella che contiene `Aniimo_Data`:
 
 ```text
 Aniimo\game\
 ├── Aniimo_Data\
 └── Aniimo-Italian-Translation.exe
 ```
+
+Per recuperare il percorso:
+
+1. apri la cartella in cui **Pawprint** ha installato Aniimo;
+2. entra nella sottocartella `game`, se presente;
+3. verifica che al suo interno sia presente `Aniimo_Data`;
+4. seleziona quella cartella nella finestra dell'installer.
+
+Esempio:
+
+```text
+F:\Pawprint\Aniimo\game
+```
+
+È anche possibile incollare direttamente il percorso. Dopo la verifica verrà salvato e riutilizzato automaticamente. Per cambiarlo successivamente, apri l'installer e scegli l'opzione `4`.
 
 ## Ripristina i file originali
 
@@ -71,7 +88,7 @@ Documenti\AniimoItalianTranslation\backups
 
 - Copertura: **92.954 / 92.954 stringhe**.
 - Versione del gioco verificata: **3032670**.
-- Versione della traduzione: **0.3.0 beta**.
+- Versione della traduzione: **0.3.1 beta**.
 - Lingua da selezionare nel gioco: **English**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 
