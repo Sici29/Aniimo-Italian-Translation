@@ -114,6 +114,21 @@ def supported_game_updates(manifest: dict) -> list[str]:
     return [str(value) for value in values if str(value).isdigit()]
 
 
+def load_settings() -> dict:
+    path = USER_WORK_DIR / "settings.json"
+    if not path.is_file():
+        return {}
+    try:
+        data = read_json(path)
+        return data if isinstance(data, dict) else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def save_game_dir(game_dir: Path) -> None:
+    write_json(USER_WORK_DIR / "settings.json", {"game_dir": str(game_dir.resolve())})
+
+
 def write_json(path: Path, data: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -203,21 +218,79 @@ def candidate_game_dirs() -> list[Path]:
     return list(dict.fromkeys(candidates))
 
 
-def resolve_game_dir(raw: str | None) -> Path:
+def resolve_game_dir_with_source(raw: str | None) -> tuple[Path, str]:
     if raw:
         p = Path(raw).expanduser().resolve()
         if looks_like_game_dir(p):
-            return p
+            return p, "manuale"
         if looks_like_game_dir(p / "game"):
-            return p / "game"
+            return (p / "game").resolve(), "manuale"
         raise FileNotFoundError(f"Invalid Aniimo folder: {p}")
+    saved = str(load_settings().get("game_dir") or "").strip()
+    if saved:
+        p = Path(saved).expanduser().resolve()
+        if looks_like_game_dir(p):
+            return p, "salvato"
+        if looks_like_game_dir(p / "game"):
+            return (p / "game").resolve(), "salvato"
     for candidate in candidate_game_dirs():
         if looks_like_game_dir(candidate):
-            return candidate.resolve()
+            return candidate.resolve(), "automatico"
     raise FileNotFoundError(
         "Cartella di Aniimo non trovata. Metti questo eseguibile nella root del gioco, "
         "accanto ad Aniimo_Data, oppure avvialo con --game-dir \"PERCORSO\\game\"."
     )
+
+
+def resolve_game_dir(raw: str | None) -> Path:
+    return resolve_game_dir_with_source(raw)[0]
+
+
+def choose_game_dir_windows() -> str | None:
+    if os.name != "nt":
+        return None
+    script = (
+        "Add-Type -AssemblyName System.Windows.Forms; "
+        "$dialog=New-Object System.Windows.Forms.FolderBrowserDialog; "
+        "$dialog.Description='Seleziona la cartella di Aniimo che contiene Aniimo_Data'; "
+        "$dialog.ShowNewFolderButton=$false; "
+        "if($dialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK){$dialog.SelectedPath}"
+    )
+    try:
+        output = subprocess.check_output(
+            ["powershell", "-NoProfile", "-STA", "-Command", script],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        return output or None
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def print_game_path_help() -> None:
+    print("Come trovare la cartella giusta:")
+    print("  1. Apri la cartella in cui Pawprint ha installato Aniimo.")
+    print("  2. Apri la sottocartella 'game', se presente.")
+    print("  3. Seleziona la cartella che contiene 'Aniimo_Data'.")
+    print(r"     Esempio: F:\Pawprint\Aniimo\game")
+
+
+def configure_game_dir() -> Path | None:
+    print_game_path_help()
+    print()
+    raw = choose_game_dir_windows()
+    if not raw:
+        raw = input("Incolla qui il percorso, oppure premi Invio per annullare: ").strip().strip('"')
+    if not raw:
+        return None
+    try:
+        game_dir, _ = resolve_game_dir_with_source(raw)
+    except FileNotFoundError:
+        print("La cartella scelta non contiene Aniimo_Data. Nessun percorso è stato salvato.")
+        return None
+    save_game_dir(game_dir)
+    print("Percorso verificato e salvato:", game_dir)
+    return game_dir
 
 
 def resolve_paths(game_dir: Path) -> GamePaths:
@@ -252,6 +325,33 @@ def decode_map(map_data: bytes, bin_data: bytes) -> tuple[dict, list[dict], byte
 
 def load_language(zf: zipfile.ZipFile, lang: str) -> tuple[dict, list[dict], bytes]:
     return decode_map(zf.read(TEXT_MAP.format(lang=lang)), zf.read(COMPRESS.format(lang=lang)))
+
+
+def translation_match_status(source_records: list[dict], translations: dict[str, str]) -> dict:
+    comparable = 0
+    matched = 0
+    for record in source_records:
+        expected = translations.get(record["key"])
+        if expected is None:
+            continue
+        comparable += 1
+        if record["text"] == expected:
+            matched += 1
+    ratio = matched / comparable if comparable else 0.0
+    return {
+        "installed": comparable >= 100 and ratio >= 0.90,
+        "matched": matched,
+        "comparable": comparable,
+        "ratio": ratio,
+    }
+
+
+def detect_translation_installation(game_dir: Path) -> dict:
+    paths = resolve_paths(game_dir)
+    translations = load_translations()
+    with zipfile.ZipFile(paths.xdf, "r") as zf:
+        _, source_records, _ = load_language(zf, "en")
+    return translation_match_status(source_records, translations)
 
 
 def check_supported(source_records: list[dict], force: bool) -> dict:
@@ -773,14 +873,24 @@ def collect_startup_status() -> dict:
     result: dict[str, object] = {
         "manifest": manifest,
         "game_dir": None,
+        "game_path_source": None,
         "detected_game_update": None,
+        "translation_installed": None,
+        "translation_match_ratio": None,
         "update": check_for_updates(silent=True),
     }
     try:
-        game_dir = resolve_game_dir(None)
+        game_dir, source = resolve_game_dir_with_source(None)
         result["game_dir"] = game_dir
+        result["game_path_source"] = source
         result["detected_game_update"] = read_game_update(game_dir)
     except (FileNotFoundError, OSError):
+        return result
+    try:
+        translation = detect_translation_installation(game_dir)
+        result["translation_installed"] = translation["installed"]
+        result["translation_match_ratio"] = translation["ratio"]
+    except (FileNotFoundError, OSError, ValueError, KeyError, zipfile.BadZipFile, json.JSONDecodeError):
         pass
     return result
 
@@ -791,6 +901,9 @@ def print_status_panel(status: dict, colors: bool) -> None:
     supported = supported_game_updates(manifest)
     supported_label = ", ".join(supported) or "Non specificata"
     detected = status.get("detected_game_update")
+    game_dir = status.get("game_dir")
+    path_source = status.get("game_path_source")
+    installed = status.get("translation_installed")
     current = f"v{str(update.get('current', '0.0.0')).lstrip('v')}"
     latest = str(update.get("latest") or current)
 
@@ -808,8 +921,25 @@ def print_status_panel(status: dict, colors: bool) -> None:
     else:
         latest_label = color_text("Nessuna  ✓ AGGIORNATO", ConsoleColor.GREEN, colors)
 
+    if game_dir:
+        if path_source == "automatico":
+            path_label = color_text("✓ TROVATO AUTOMATICAMENTE", ConsoleColor.GREEN, colors)
+        else:
+            path_label = color_text("✓ TROVATO (PERCORSO SALVATO)", ConsoleColor.GREEN, colors)
+    else:
+        path_label = color_text("✗ NON TROVATO", ConsoleColor.RED, colors)
+
+    if installed is True:
+        installed_label = color_text("✓ INSTALLATA", ConsoleColor.GREEN, colors)
+    elif installed is False:
+        installed_label = color_text("✗ NON INSTALLATA", ConsoleColor.YELLOW, colors)
+    else:
+        installed_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
+
     print(color_text("Aniimo - Traduzione Italiana", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
+    print(f"Percorso del gioco         : {path_label}")
+    print(f"Traduzione italiana        : {installed_label}")
     print(f"Versione gioco supportata  : {color_text(supported_label, ConsoleColor.CYAN, colors)}")
     print(f"Versione gioco rilevata    : {detected_label}")
     print(f"Versione installer attuale : {color_text(current, ConsoleColor.CYAN, colors)}")
@@ -821,6 +951,14 @@ def run_menu() -> int:
     colors = enable_console_colors()
     startup = collect_startup_status()
     print_status_panel(startup, colors)
+    if not startup.get("game_dir"):
+        print()
+        print("Aniimo non è stato trovato automaticamente.")
+        answer = input("Vuoi indicare adesso la cartella del gioco? [S/n]: ").strip().lower()
+        if answer in {"", "s", "si", "sì", "y", "yes"} and configure_game_dir():
+            print()
+            startup = collect_startup_status()
+            print_status_panel(startup, colors)
     update = startup["update"]
     if update.get("update_available"):
         print()
@@ -837,6 +975,7 @@ def run_menu() -> int:
     print("1. Installa o aggiorna la traduzione (consigliato)")
     print("2. Ripristina i file originali")
     print("3. Controlla se esiste una nuova versione")
+    print("4. Indica o modifica la cartella di Aniimo")
     print("0. Esci")
     print()
     choice = input("Scelta [Invio = installa]: ").strip() or "1"
@@ -851,8 +990,10 @@ def run_menu() -> int:
         class Args:
             pass
         return cmd_update(Args())
+    if choice == "4":
+        return run_menu() if configure_game_dir() else 1
     if choice != "1":
-        print("Scelta non valida. Riapri l'installer e digita 1, 2, 3 oppure 0.")
+        print("Scelta non valida. Riapri l'installer e digita 1, 2, 3, 4 oppure 0.")
         return 1
     class Args:
         game_dir = None
