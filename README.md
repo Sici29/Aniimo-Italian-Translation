@@ -43,9 +43,11 @@ All'apertura compare un riepilogo semplice con:
 
 L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
-### 4. Seleziona English nel gioco
+### 4. Seleziona Inglese nel gioco
 
-Avvia Aniimo e scegli **English** dal menu della lingua. La traduzione italiana sostituisce temporaneamente quello slot.
+Avvia Aniimo e scegli **Inglese** dal menu della lingua.
+
+La traduzione continua a usare lo slot English, sempre disponibile nel gioco. L'installer gli assegna automaticamente il font vietnamita già incluso in Aniimo, che comprende tutte le lettere accentate italiane. Le altre lingue non vengono modificate.
 
 > Non servono Python, programmi aggiuntivi, archivi da estrarre o configurazioni manuali.
 
@@ -89,23 +91,21 @@ Documenti\AniimoItalianTranslation\backups
 ## Stato della traduzione
 
 - Copertura: **92.954 / 92.954 stringhe**.
-- Versione del gioco verificata: **3032670**.
+- Versioni del gioco verificate: **3032670** e hot update **3036569**.
 - Revisione hot update verificata: **7113f88e39827a2d13591a55b395f1c6**.
 - Versione della traduzione: **0.3.4 beta**.
-- Lingua da selezionare nel gioco: **English**.
+- Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 
-## Perché alcune parole usano l'apostrofo?
+## Accenti italiani completi
 
-Il font associato allo slot English non mostra correttamente molte lettere accentate italiane. Per evitare parole troncate come `Qualit`, la versione installata usa temporaneamente forme come:
+La versione consigliata usa accenti italiani reali:
 
 ```text
-qualita'   perche'   puo'   gia'   piu'
+qualità   perché   può   già   più
 ```
 
-L'apostrofo sostituisce soltanto un accento italiano finale. Non viene inserito dentro le parole: termini come `Elite` e nomi come `Timothee` restano leggibili e non diventano `E'lite` o `Timothe'e`.
-
-Il progetto conserva anche il master completo con accenti reali (`qualità`, `perché`, `può`, `già`, `più`). È già pronto per sostituire la versione attuale non appena il gioco offrirà un font compatibile.
+Il gioco contiene già un font vietnamita completo, ma normalmente lo slot English usa un font base privo di accenti. L'installer modifica soltanto questa associazione: i testi restano nello slot English, mentre la visualizzazione usa il font vietnamita incluso in Aniimo. Non vengono installati font esterni e rimangono corretti anche nomi e termini ufficiali come `Timothée`, `Déjà Vu`, `Molière`, `Café` e `Português`.
 
 ## Aggiornamenti
 
@@ -156,9 +156,9 @@ Se possibile, allega uno screenshot e indica dove appare il testo.
 Il repository contiene due file sincronizzati:
 
 - `data/translation_it_accented.csv`: master editoriale con accenti e punteggiatura italiana reali;
-- `data/translation_it.csv`: versione derivata per il font dello slot English.
+- `data/translation_it.csv`: versione completa installata nello slot English.
 
-Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Il repository non contiene archivi originali di Aniimo: la patch viene generata localmente dai file della copia installata dall'utente.
+I due file sono identici: la traduzione pubblica usa direttamente accenti e punteggiatura italiana corretti. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Il repository non contiene archivi originali di Aniimo: testi e modifica del font vengono generati localmente dai file della copia installata dall'utente.
 
 </details>
 

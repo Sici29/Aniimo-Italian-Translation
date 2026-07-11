@@ -4,7 +4,10 @@
 
 - Tradotta la forma `Sea of Flowers Form` come `Forma Fiorita`, evitando il testo misto inglese/italiano e il taglio nell'interfaccia Aspetto.
 - Uniformate 475 occorrenze di `élite` in `Elite`/`elite`, eliminando la resa errata `E'lite` nello slot English.
-- Gli accenti interni a nomi e forestierismi vengono ora rimossi nella variante compatibile (`Timothee`, `Deja`, `Moliere`, `Portugues`) invece di essere sostituiti da apostrofi.
+- Lo slot English usa ora il font vietnamita già incluso in Aniimo, completo di tutti gli accenti italiani.
+- Attivati gli accenti reali nell'intera traduzione e conservati correttamente `Timothée`, `Déjà Vu`, `Molière`, `Café` e `Português`.
+- Verificata direttamente in gioco l'associazione `English → UI_Font_Vietnamese`.
+- Il backup e il ripristino includono anche il pacchetto font modificato.
 - Ripristinate le parentesi decorative corrotte nelle descrizioni degli effetti `Parassitico` e `Maturo`.
 - Corretto il riavvio post-aggiornamento che poteva ereditare la modalità nascosta dell'assistente in background.
 - Il nuovo installer viene ora avviato esplicitamente in una console Windows visibile e indipendente.
