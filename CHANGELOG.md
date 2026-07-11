@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.8 Beta - 2026-07-11
+
+- Registrata come verificata la revisione hot update `4eb81a98d0e3934af67064cbde06218e`, compatibile con tutte le 92.954 chiavi note.
+- Corretto il pannello dell'installer, che la mostrava erroneamente come `⚠ NUOVA` pur avendo già superato l'audit e l'installazione reale.
+- Conservata anche la precedente revisione `7113f88e39827a2d13591a55b395f1c6` nell'elenco delle revisioni supportate.
+- Aggiunto un test di regressione specifico per impedire che la revisione corrente torni a essere segnalata come nuova.
+- Controllati tutti i 32 testi UI brevi del sistema Indizi e accorciati i 6 che superavano la larghezza sicura.
+- `Clicca sugli indizi esistenti da analizzare` diventa `Analizza gli indizi già trovati`; compattati anche due segnaposto e l'avviso di sblocco dell'indizio comune.
+- Aggiunto un limite automatico di 34 caratteri visibili per l'intera categoria compatta del sistema Indizi.
+
 ## 0.3.7 Beta - 2026-07-11
 
 - Tradotta in `Tre...` la battuta `Three...` rimasta in inglese nel conto alla rovescia del dialogo di Jaeger.
