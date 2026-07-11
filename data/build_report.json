@@ -6,6 +6,16 @@
   "font_strategy": "The installer keeps the visible English localization slot and maps language type 2 to Aniimo's bundled UI_Font_Vietnamese asset, which contains every required Italian accented glyph.",
   "verified_game_update": 3036569,
   "verified_in_game": true,
+  "language_audit": {
+    "modern_key_count": 92954,
+    "modern_key_sha256": "96be065e856b547226ea93cd7ce33d7671214a45c16783362a58da5bf9de6617",
+    "english_zero_values": 364,
+    "recovered_meaningful_fallbacks": 359,
+    "confirmed_technical_zero_values": 5,
+    "empty_italian_values": 0,
+    "direct_english_residue_fixes": 220,
+    "glossary_and_consistency_fixes": 651
+  },
   "font_mapping": "English -> UI_Font_Vietnamese",
   "preserved_official_terms": [
     "Timothée",
@@ -16,7 +26,7 @@
   ],
   "policy": "The editorial master and production translation are identical and use standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "accented": "81025AB7E6986E1A202ED537047FCE3C29DDFEE5FCA035DA75B33F401338DEF4",
-    "production": "81025AB7E6986E1A202ED537047FCE3C29DDFEE5FCA035DA75B33F401338DEF4"
+    "accented": "3B10CDA15B6A50D9B72AE199AD7518DDA969BCF432F9BFA36F6877DB07498245",
+    "production": "3B10CDA15B6A50D9B72AE199AD7518DDA969BCF432F9BFA36F6877DB07498245"
   }
 }

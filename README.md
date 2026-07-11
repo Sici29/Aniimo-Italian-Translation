@@ -90,12 +90,17 @@ Documenti\AniimoItalianTranslation\backups
 
 ## Stato della traduzione
 
-- Copertura: **92.954 / 92.954 stringhe**.
+- Copertura: **92.954 / 92.954 chiavi**, comprese le voci di fallback mancanti nello slot English.
 - Versioni del gioco verificate: **3032670** e hot update **3036569**.
 - Revisione hot update verificata: **7113f88e39827a2d13591a55b395f1c6**.
-- Versione della traduzione: **0.3.4 beta**.
+- Versione della traduzione: **0.3.5 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
+- Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
+
+La verifica non si limita più a controllare che ogni chiave abbia un valore. La versione 0.3.5 recupera anche le voci che la localizzazione English ufficiale espone come `0`: il gioco le sostituiva a runtime con frasi inglesi di fallback, pur facendo risultare completa la normale tabella dei testi.
+
+I conteggi e il confronto con tutte le lingue ufficiali sono documentati nell'[audit completo delle lingue](LANGUAGE_AUDIT.md).
 
 ## Accenti italiani completi
 
