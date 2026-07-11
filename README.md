@@ -91,7 +91,7 @@ Documenti\AniimoItalianTranslation\backups
 - Copertura: **92.954 / 92.954 stringhe**.
 - Versione del gioco verificata: **3032670**.
 - Revisione hot update verificata: **7113f88e39827a2d13591a55b395f1c6**.
-- Versione della traduzione: **0.3.2 beta**.
+- Versione della traduzione: **0.3.3 beta**.
 - Lingua da selezionare nel gioco: **English**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 
@@ -115,6 +115,8 @@ L'installer controlla automaticamente GitHub Releases a ogni avvio. Quando trova
 4. sostituisce il vecchio installer e riapre automaticamente quello nuovo.
 
 Al termine viene mostrata una conferma verde con versione precedente, versione attuale e indicazione che il riavvio automatico è riuscito.
+
+L'installer impedisce l'apertura contemporanea di più finestre. Ogni tentativo di aggiornamento usa inoltre un file temporaneo distinto, evitando conflitti con download precedenti rimasti nella cache. Se il vecchio EXE è ancora occupato, compare un avviso visibile per chiudere le altre finestre e riprovare senza perdere il download verificato.
 
 Questa funzione è disponibile dalla versione **0.3.0 beta** in poi. Se il controllo non è disponibile, per esempio perché il PC è offline, installazione e ripristino continuano a funzionare normalmente.
 

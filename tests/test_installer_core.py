@@ -164,14 +164,77 @@ class VersionAndUpdaterTests(unittest.TestCase):
 
     def test_update_completion_message_reports_versions(self) -> None:
         output = io.StringIO()
-        with patch.object(installer, "local_manifest", return_value={"translation_version": "0.3.2-beta"}), patch.object(
+        with patch.object(installer, "local_manifest", return_value={"translation_version": "0.3.3-beta"}), patch.object(
             installer, "enable_console_colors", return_value=False
         ), redirect_stdout(output):
-            installer.print_update_complete("0.3.1-beta")
+            installer.print_update_complete("0.3.2-beta")
         self.assertIn("AGGIORNAMENTO COMPLETATO", output.getvalue())
-        self.assertIn("v0.3.1-beta", output.getvalue())
         self.assertIn("v0.3.2-beta", output.getvalue())
+        self.assertIn("v0.3.3-beta", output.getvalue())
         self.assertIn("riavviato automaticamente", output.getvalue())
+
+    def test_each_update_attempt_uses_a_unique_cache_file(self) -> None:
+        status = {
+            "asset": {"name": installer.INSTALLER_ASSET_NAME},
+            "latest": "v0.3.3-beta",
+            "current": "0.3.2-beta",
+        }
+        with patch.object(installer.sys, "frozen", True, create=True), patch.object(
+            installer.os, "name", "nt"
+        ), patch.object(installer.os, "getpid", return_value=1234), patch.object(
+            installer.time, "time", return_value=5678.9
+        ), patch.object(installer, "download_update_asset", return_value="a" * 64) as download, patch.object(
+            installer.subprocess, "Popen"
+        ):
+            self.assertTrue(installer.schedule_self_update(status))
+        destination = download.call_args.args[1]
+        self.assertEqual(destination.name, "Aniimo-Italian-Translation-1234-5678900.exe")
+
+    def test_locked_target_prompts_then_retries(self) -> None:
+        args = argparse.Namespace(target_exe=r"C:\Temp\old.exe", previous_version="0.3.2-beta")
+        with tempfile.TemporaryDirectory() as temp_dir, patch.object(
+            installer, "USER_WORK_DIR", Path(temp_dir)
+        ), patch.object(installer, "apply_update_payload", side_effect=[RuntimeError("locked"), True]) as apply, patch.object(
+            installer, "prompt_close_other_installers", return_value=True
+        ), patch.object(installer, "show_update_failure_message"):
+            self.assertEqual(installer.cmd_apply_update(args), 0)
+        self.assertEqual(apply.call_count, 2)
+
+    def test_failed_replacement_does_not_launch_cached_exe(self) -> None:
+        args = argparse.Namespace(target_exe=r"C:\Temp\old.exe", previous_version="0.3.2-beta")
+        with tempfile.TemporaryDirectory() as temp_dir, patch.object(
+            installer, "USER_WORK_DIR", Path(temp_dir)
+        ), patch.object(installer, "apply_update_payload", side_effect=RuntimeError("locked")), patch.object(
+            installer, "prompt_close_other_installers", return_value=False
+        ), patch.object(installer, "show_update_failure_message") as warning, patch.object(
+            installer.subprocess, "Popen"
+        ) as launched:
+            self.assertEqual(installer.cmd_apply_update(args), 1)
+        warning.assert_called_once()
+        launched.assert_not_called()
+
+    def test_update_cache_cleanup_only_removes_installer_files(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            work = Path(temp_dir)
+            cache = work / "updates" / "v0.3.3-beta"
+            cache.mkdir(parents=True)
+            stale = cache / "Aniimo-Italian-Translation-123-456.exe"
+            partial = cache / "Aniimo-Italian-Translation.exe.download"
+            unrelated = cache / "keep.txt"
+            stale.write_bytes(b"stale")
+            partial.write_bytes(b"partial")
+            unrelated.write_text("keep", encoding="utf-8")
+            with patch.object(installer, "USER_WORK_DIR", work):
+                self.assertEqual(installer.cleanup_update_cache(), 2)
+            self.assertFalse(stale.exists())
+            self.assertFalse(partial.exists())
+            self.assertTrue(unrelated.exists())
+
+    def test_instance_lock_permission_error_does_not_crash_installer(self) -> None:
+        with patch.object(installer, "_INSTANCE_LOCK_HANDLE", None), patch.object(
+            installer, "USER_WORK_DIR", Path(r"C:\Denied")
+        ), patch.object(Path, "mkdir", side_effect=PermissionError("denied")):
+            self.assertTrue(installer.acquire_installer_instance_lock())
 
     def test_tampered_download_is_deleted_and_rejected(self) -> None:
         payload = b"tampered"
@@ -251,7 +314,7 @@ class DetectionTests(unittest.TestCase):
             "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
             "translation_installed": True,
             "text_resources_supported": True,
-            "update": {"current": "0.3.2-beta", "latest": "v0.3.2-beta", "update_available": False},
+            "update": {"current": "0.3.3-beta", "latest": "v0.3.3-beta", "update_available": False},
         }
         output = io.StringIO()
         with redirect_stdout(output):
@@ -318,7 +381,7 @@ class MenuTests(unittest.TestCase):
             "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
             "translation_installed": True,
             "text_resources_supported": True,
-            "update": {"current": "0.3.2-beta", "latest": "v0.3.2-beta", "update_available": False},
+            "update": {"current": "0.3.3-beta", "latest": "v0.3.3-beta", "update_available": False},
         }
 
     def test_enter_uses_recommended_install_action(self) -> None:
@@ -347,6 +410,13 @@ class MenuTests(unittest.TestCase):
         ), patch.object(installer, "cmd_update", return_value=installer.UPDATE_SCHEDULED) as update:
             self.assertEqual(installer.run_menu(), installer.UPDATE_SCHEDULED)
         update.assert_called_once()
+
+    def test_second_installer_window_is_blocked_before_menu(self) -> None:
+        with patch.object(installer.sys, "argv", ["installer.exe"]), patch.object(
+            installer, "acquire_installer_instance_lock", return_value=False
+        ), patch.object(installer, "pause_if_needed"), patch.object(installer, "run_menu") as menu:
+            self.assertEqual(installer.main(), 4)
+        menu.assert_not_called()
 
 
 if __name__ == "__main__":

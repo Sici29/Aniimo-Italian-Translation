@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.3 Beta - 2026-07-11
+
+- Corretto l'errore Windows `Accesso negato` quando una copia già scaricata era ancora aperta nella cache.
+- Ogni aggiornamento usa ora un nome temporaneo univoco, evitando collisioni tra tentativi successivi.
+- Impedita l'apertura simultanea di più finestre interattive dell'installer.
+- Se il vecchio EXE rimane occupato, compare un avviso in primo piano per chiudere le altre finestre e riprovare.
+- In caso di sostituzione fallita, il nuovo EXE non viene più avviato dalla cache e il vecchio installer resta intatto.
+- I vecchi download dell'installer vengono rimossi automaticamente senza toccare file estranei.
+- Riparata e verificata la copia `v0.3.2-beta` sul Desktop interessata dal problema.
+
 ## 0.3.2 Beta - 2026-07-11
 
 - Aggiunta la revisione dell'hot update separata dal numero principale del gioco.
