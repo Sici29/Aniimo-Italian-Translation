@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.1-beta",
+  "translation_version": "0.3.2-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -11,9 +11,16 @@
     3032670
   ],
   "latest_supported_game_update": 3032670,
+  "supported_game_revisions": [
+    "7113f88e39827a2d13591a55b395f1c6"
+  ],
   "tested_game_update": "3032670",
+  "tested_game_revision": "7113f88e39827a2d13591a55b395f1c6",
   "tested_date": "2026-07-11",
   "coverage": "92954/92954 known text keys",
+  "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
+  "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
+  "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. If automatic detection fails, place the EXE next to Aniimo_Data.",
   "notes": [
     "Default install replaces English because it is always visible in the game language menu.",
