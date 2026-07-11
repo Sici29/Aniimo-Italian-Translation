@@ -93,14 +93,15 @@ Documenti\AniimoItalianTranslation\backups
 - Copertura: **92.954 / 92.954 chiavi**, comprese le voci di fallback mancanti nello slot English.
 - Versioni del gioco verificate: **3032670** e hot update **3036569**.
 - Revisione hot update verificata: **7113f88e39827a2d13591a55b395f1c6**.
-- Versione della traduzione: **0.3.5 beta**.
+- Versione della traduzione: **0.3.6 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
+- Audit v0.3.6: **419 stringhe corrette**, verifica delle concordanze con priorità al giapponese, controllo semantico del russo e 3 vere coppie protagonista maschile/femminile conservate separatamente.
 
 La verifica non si limita più a controllare che ogni chiave abbia un valore. La versione 0.3.5 recupera anche le voci che la localizzazione English ufficiale espone come `0`: il gioco le sostituiva a runtime con frasi inglesi di fallback, pur facendo risultare completa la normale tabella dei testi.
 
-I conteggi e il confronto con tutte le lingue ufficiali sono documentati nell'[audit completo delle lingue](LANGUAGE_AUDIT.md).
+I conteggi e il confronto con tutte le lingue ufficiali sono documentati nell'[audit completo delle lingue](LANGUAGE_AUDIT.md). Il metodo usato per le concordanze è descritto nell'[audit dei generi](GENDER_AUDIT.md).
 
 ## Accenti italiani completi
 
@@ -158,12 +159,11 @@ Se possibile, allega uno screenshot e indica dove appare il testo.
 <details>
 <summary><strong>Informazioni per traduttori e sviluppatori</strong></summary>
 
-Il repository contiene due file sincronizzati:
+Il repository usa un solo master autorevole:
 
-- `data/translation_it_accented.csv`: master editoriale con accenti e punteggiatura italiana reali;
-- `data/translation_it.csv`: versione completa installata nello slot English.
+- `data/translation_it.csv`: traduzione completa con accenti e punteggiatura italiana reali, installata nello slot English.
 
-I due file sono identici: la traduzione pubblica usa direttamente accenti e punteggiatura italiana corretti. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Il repository non contiene archivi originali di Aniimo: testi e modifica del font vengono generati localmente dai file della copia installata dall'utente.
+Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Il repository non contiene archivi originali di Aniimo: testi e modifica del font vengono generati localmente dai file della copia installata dall'utente.
 
 </details>
 

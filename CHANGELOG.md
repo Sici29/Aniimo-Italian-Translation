@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.6 Beta - 2026-07-11
+
+- Corretto il genere di Lunara nelle battute e nelle didascalie confermate dal giapponese, compresi `Sono troppo emozionata` e `Lunara sembra sorpresa`.
+- Eseguito un nuovo audit delle concordanze confrontando inglese, cinese, giapponese e, solo quando semanticamente allineato, russo.
+- Individuato che 92.822 voci russe provengono dall'elenco ufficiale delle traduzioni AI: il russo non viene quindi più usato da solo come autorità sul genere.
+- Conservati i maschili e femminili confermati dei personaggi identificati; neutralizzate le frasi in cui il parlante o il genere del protagonista non sono determinabili con sicurezza.
+- Corrette 419 stringhe e identificate 3 vere coppie duplicate che il gioco seleziona per protagonista maschile o femminile; le due varianti restano distinte.
+- Aggiunti controlli automatici contro le regressioni nelle battute di Lunara e nelle concordanze già revisionate.
+- Unificati i due master identici in `data/translation_it.csv`, ora unica fonte autorevole con accenti italiani reali.
+
 ## 0.3.5 Beta - 2026-07-11
 
 - Individuata la causa delle frasi inglesi ancora visibili: 364 chiavi dello slot English ufficiale contenevano il solo valore `0`, attivando testi inglesi di fallback a runtime.

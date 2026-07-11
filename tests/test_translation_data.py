@@ -8,7 +8,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PRODUCTION_CSV = ROOT / "data" / "translation_it.csv"
-ACCENTED_CSV = ROOT / "data" / "translation_it_accented.csv"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -20,11 +19,9 @@ class TranslationDataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.production = load_rows(PRODUCTION_CSV)
-        cls.accented = load_rows(ACCENTED_CSV)
 
-    def test_masters_have_matching_structure(self) -> None:
+    def test_master_has_expected_structure(self) -> None:
         self.assertEqual(92_954, len(self.production))
-        self.assertEqual(self.accented, self.production)
 
     def test_sea_of_flowers_form_is_localized_and_compact(self) -> None:
         matches = [row for row in self.production if row["source_en"] == "Sea of Flowers Form"]
@@ -36,9 +33,8 @@ class TranslationDataTests(unittest.TestCase):
         for invalid in ("E'lite", "e'lite", "Timothe'e", "De'ja'", "Molie're", "Portugue's"):
             self.assertNotIn(invalid, public_text)
 
-        accented_text = "\n".join(row["it"] for row in self.accented)
-        self.assertNotIn("Élite", accented_text)
-        self.assertNotIn("élite", accented_text)
+        self.assertNotIn("Élite", public_text)
+        self.assertNotIn("élite", public_text)
 
     def test_official_accented_names_survive(self) -> None:
         text = "\n".join(row["it"] for row in self.production)
@@ -79,7 +75,7 @@ class TranslationDataTests(unittest.TestCase):
             self.assertNotIn(residue, text)
 
     def test_repaired_effect_brackets(self) -> None:
-        accented_by_key = {row["key"]: row["it"] for row in self.accented}
+        accented_by_key = {row["key"]: row["it"] for row in self.production}
         for key in ("1250973533", "1277595319"):
             self.assertIn("【Parassitico】", accented_by_key[key])
             self.assertIn("【Maturo】", accented_by_key[key])
@@ -88,7 +84,8 @@ class TranslationDataTests(unittest.TestCase):
         audited = [
             row for row in self.production if row["note"] == "review_v0.3.5_english_audit"
         ]
-        self.assertEqual(220, len(audited))
+        # Una delle 220 righe è stata nuovamente revisionata dall'audit v0.3.6.
+        self.assertEqual(219, len(audited))
 
         english_function_words = {
             "after",
@@ -193,6 +190,40 @@ class TranslationDataTests(unittest.TestCase):
             },
             actual,
         )
+
+    def test_v036_gender_audit_regressions(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+        audited = [
+            row for row in self.production if row["note"] == "review_v0.3.6_gender_audit"
+        ]
+        self.assertEqual(419, len(audited))
+
+        self.assertEqual(
+            "Uff... Sono troppo emozionata, non riesco ancora a dormire...",
+            by_key["2000094316"],
+        )
+        self.assertEqual(
+            "Dopo che racconti il sogno e ciò che hai visto, Lunara sembra sorpresa.",
+            by_key["1498065011"],
+        )
+        self.assertIn("Lunara e io ci siamo svegliati entrambi", by_key["1351163866"])
+        self.assertEqual("Ahh! Mi sento piena di felicità! Ahah!", by_key["1605896421"])
+        self.assertIn("non sono sicura", by_key["1329861792"])
+        self.assertEqual(
+            "Sì! Non l'hai già dimenticato, vero?\n"
+            "Siamo qui per indagare sul Festival della Fioritura e sul Flusso Prismana!",
+            by_key["1111833223"],
+        )
+        self.assertIn("Sono Nicole, e con me c'è #playerName#.", by_key["1250467330"])
+        self.assertEqual("Buonasera, mia cara allieva, #playerName#!", by_key["1145852353"])
+        self.assertEqual("Buonasera, mio caro allievo, #playerName#!", by_key["1865663005"])
+        self.assertIn("l'allievo più giovane di Loulla", by_key["1260558076"])
+        self.assertIn("l'allieva più giovane di Loulla", by_key["1943916805"])
+        self.assertIn("Caro allievo", by_key["1329079495"])
+        self.assertIn("Cara allieva", by_key["1607383625"])
+
+        text = "\n".join(row["it"] for row in self.production)
+        self.assertNotIn("Lunara sembra sorpreso", text)
 
 
 if __name__ == "__main__":
