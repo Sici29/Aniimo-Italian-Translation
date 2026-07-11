@@ -30,7 +30,14 @@ Chiudi **Aniimo** e il suo launcher prima di continuare.
 
 Fai doppio clic su `Aniimo-Italian-Translation.exe`, poi premi **Invio**.
 
-L'installer cerca automaticamente il gioco, controlla che la versione sia compatibile e crea un backup prima di modificare qualsiasi file.
+All'apertura compare un riepilogo semplice con:
+
+- versione del gioco supportata e versione rilevata;
+- stato di compatibilità evidenziato a colori;
+- versione dell'installer in uso;
+- eventuale nuova versione disponibile.
+
+L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
 ### 4. Seleziona English nel gioco
 
@@ -63,8 +70,8 @@ Documenti\AniimoItalianTranslation\backups
 ## Stato della traduzione
 
 - Copertura: **92.954 / 92.954 stringhe**.
-- Versione del gioco verificata: **hot update 3036569**.
-- Versione della traduzione: **0.2.1 beta**.
+- Versione del gioco verificata: **3032670**.
+- Versione della traduzione: **0.3.0 beta**.
 - Lingua da selezionare nel gioco: **English**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 
@@ -80,9 +87,18 @@ Il progetto conserva anche il master completo con accenti reali (`qualità`, `pe
 
 ## Aggiornamenti
 
-L'installer controlla automaticamente se è disponibile una traduzione più recente. Se Aniimo riceve un aggiornamento non ancora supportato, l'installazione viene fermata per evitare di danneggiare i file del gioco.
+L'installer controlla automaticamente GitHub Releases a ogni avvio. Quando trova una versione più recente:
 
-In quel caso, scarica l'ultima release oppure apri una segnalazione.
+1. chiede conferma con **Sì** già selezionato;
+2. scarica il nuovo `Aniimo-Italian-Translation.exe`;
+3. verifica dimensione e hash **SHA-256** pubblicati da GitHub;
+4. sostituisce il vecchio installer e riapre automaticamente quello nuovo.
+
+Questa funzione è disponibile dalla versione **0.3.0 beta** in poi. Se il controllo non è disponibile, per esempio perché il PC è offline, installazione e ripristino continuano a funzionare normalmente.
+
+Se Aniimo riceve un aggiornamento non ancora verificato, il pannello lo segnala chiaramente. Il controllo delle chiavi di testo impedisce l'installazione su risorse incompatibili, salvo uso volontario dell'opzione avanzata `--force`.
+
+Se l'aggiornamento automatico non riesce, l'installer mostra sempre il collegamento per il download manuale.
 
 ## Segnala un problema
 
