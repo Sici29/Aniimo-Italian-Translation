@@ -103,6 +103,8 @@ Il font associato allo slot English non mostra correttamente molte lettere accen
 qualita'   perche'   puo'   gia'   piu'
 ```
 
+L'apostrofo sostituisce soltanto un accento italiano finale. Non viene inserito dentro le parole: termini come `Elite` e nomi come `Timothee` restano leggibili e non diventano `E'lite` o `Timothe'e`.
+
 Il progetto conserva anche il master completo con accenti reali (`qualità`, `perché`, `può`, `già`, `più`). È già pronto per sostituire la versione attuale non appena il gioco offrirà un font compatibile.
 
 ## Aggiornamenti
