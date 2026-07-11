@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.4 Beta - 2026-07-11
+
+- Corretto il riavvio post-aggiornamento che poteva ereditare la modalità nascosta dell'assistente in background.
+- Il nuovo installer viene ora avviato esplicitamente in una console Windows visibile e indipendente.
+- Eliminato il caso in cui il menu restava invisibile in attesa di input mantenendo attivo il blocco della singola istanza.
+- Verificata la chiusura normale della v0.3.3 senza processi residui.
+
 ## 0.3.3 Beta - 2026-07-11
 
 - Corretto l'errore Windows `Accesso negato` quando una copia già scaricata era ancora aperta nella cache.
