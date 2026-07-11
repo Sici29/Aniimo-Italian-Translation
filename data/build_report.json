@@ -1,24 +1,27 @@
 {
-  "translation_version": "0.2.0-beta",
+  "translation_version": "0.2.1-beta",
   "build_date": "2026-07-11",
   "rows": 92954,
   "professional_review_changes": 695,
+  "naturalness_review_changes": 2788,
+  "total_editorial_interventions": 3483,
   "public_variant": {
     "path": "data/translation_it.csv",
     "target_slot": "English",
-    "sha256": "82BE7B91E1C3F72BC62BF60E53B43B03877125F92534E701BF41A07455E08CA0",
-    "rows_changed_for_font_compatibility": 17985,
-    "replacement_count": 27144
+    "sha256": "798DC957AEB8FE50CFE796DA86779DC161D7DEEEF435D8FEB801649A06D1F578",
+    "rows_changed_for_font_compatibility": 17986,
+    "replacement_count": 27181
   },
   "accented_master": {
     "path": "data/translation_it_accented.csv",
-    "sha256": "679D80E69E5EB649AD049ADF167B6107B9DF3528E1B91866F2BE35528FA80221"
+    "sha256": "456E7AB7466DCAD78C4CA5BCC158411D2F5E960C13255EAEFDA7D50DE61DD6CC"
   },
   "validation": {
     "duplicate_keys": 0,
     "blank_translations": 0,
     "tag_or_placeholder_mismatches": 0,
     "edge_whitespace_or_newline_mismatches": 0,
+    "inconsistent_duplicate_sources": 0,
     "public_incompatible_characters": 0
   },
   "policy": "The accented CSV is the editorial source of truth. The public English-slot CSV is deterministically derived with apostrophes and compatible punctuation while preserving keys, tags, placeholders, capitalization, whitespace and newlines."

@@ -81,5 +81,21 @@ class RestoreTests(unittest.TestCase):
             self.assertEqual((live_i18n / "OtherMod.json").read_text(encoding="utf-8"), "keep")
 
 
+class MenuTests(unittest.TestCase):
+    def test_enter_uses_recommended_install_action(self) -> None:
+        with patch("builtins.input", return_value=""), patch.object(
+            installer, "cmd_install", return_value=0
+        ) as install:
+            self.assertEqual(installer.run_menu(), 0)
+        install.assert_called_once()
+
+    def test_unknown_choice_does_not_install(self) -> None:
+        with patch("builtins.input", return_value="abc"), patch.object(
+            installer, "cmd_install", return_value=0
+        ) as install:
+            self.assertEqual(installer.run_menu(), 1)
+        install.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()
