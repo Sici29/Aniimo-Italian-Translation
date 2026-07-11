@@ -8,22 +8,24 @@
   "known_source_key_count": 92954,
   "known_source_key_sha256": "f30399a92c3503189d506a122b7c8eb320cbc1228137a433d96923cc7b540f42",
   "supported_game_updates": [
-    3032670
+    3032670,
+    3036569
   ],
-  "latest_supported_game_update": 3032670,
+  "latest_supported_game_update": 3036569,
   "supported_game_revisions": [
     "7113f88e39827a2d13591a55b395f1c6"
   ],
-  "tested_game_update": "3032670",
+  "tested_game_update": "3036569",
   "tested_game_revision": "7113f88e39827a2d13591a55b395f1c6",
   "tested_date": "2026-07-11",
   "coverage": "92954/92954 known text keys",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
-  "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. If automatic detection fails, place the EXE next to Aniimo_Data.",
+  "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. The installer keeps the English text slot and assigns Aniimo's bundled Vietnamese font, which supports every Italian accent. If automatic detection fails, place the EXE next to Aniimo_Data.",
   "notes": [
-    "Default install replaces English because it is always visible in the game language menu.",
+    "The default installation uses the visible English text slot and redirects only its font to Aniimo's bundled Vietnamese font.",
+    "The public translation uses standard Italian spelling and real accented letters.",
     "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."
   ]
 }

@@ -42,6 +42,20 @@ XDF_NAME = "LuaScripts.xdf"
 XDT_NAME = "LuaScripts.xdt"
 TEXT_MAP = "xfs/luascripts/Data/I18N/NewTextMap_{lang}.json"
 COMPRESS = "xfs/luascripts/Data/I18N/Compress_{lang}.bin"
+FONT_CACHE_RELS = (
+    Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
+    Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
+    Path(r"worldx_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
+)
+FONT_BUNDLE_HASHES = (
+    "e7d36f54529f2284a0d49f91b851242f",  # hot update 3036569
+    "1407a625504745c29c260cd06d634e8c",  # base package 3032670
+)
+FONT_CONFIG_ASSET = "Assets/Res/XGUI/Font/Font_Localization_Config.asset"
+VIETNAMESE_FONT_RESOURCE = "$UI_Font_Vietnamese.asset"
+ENGLISH_LANGUAGE_TYPE = 2
+VIETNAMESE_LANGUAGE_TYPE = 5
+FONT_PATCH_DIR = "FontBundle"
 if getattr(sys, "frozen", False):
     APP_DIR = Path(sys.executable).resolve().parent
     BUNDLE_DIR = Path(getattr(sys, "_MEIPASS", APP_DIR))
@@ -115,9 +129,25 @@ def parse_game_version_info(raw: str) -> dict:
 
 def read_game_version_info(game_dir: Path) -> dict:
     verlist = game_dir / "verlist.txt"
-    if not verlist.is_file():
-        return {"update": None, "revision": None, "manifest_size": None}
-    return parse_game_version_info(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+    if verlist.is_file():
+        result = parse_game_version_info(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+    else:
+        result = {"update": None, "revision": None, "manifest_size": None}
+    package_versions: list[str] = []
+    for relative in (
+        Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\ManifestFiles\PackageManifest_DefaultPackage.version"),
+        Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\PackageManifest_DefaultPackage.version"),
+        Path(r"worldx_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\PackageManifest_DefaultPackage.version"),
+    ):
+        path = game_dir / relative
+        if not path.is_file():
+            continue
+        value = path.read_text(encoding="utf-8-sig", errors="replace").strip()
+        if value.isdigit():
+            package_versions.append(value)
+    if package_versions:
+        result["update"] = max(package_versions, key=int)
+    return result
 
 
 def read_game_update(game_dir: Path) -> str | None:
@@ -219,8 +249,18 @@ def looks_like_game_dir(path: Path) -> bool:
     return (path / "Aniimo_Data").exists() or any((path / rel / XDF_NAME).exists() for rel in LUA_RELS)
 
 
-def load_translations() -> dict[str, str]:
-    csv_path = DATA_DIR / "translation_it.csv"
+def default_target_language_slot() -> str:
+    return "en"
+
+
+def translation_csv_for_slot(slot: str) -> Path:
+    # English remains the visible language slot. Its font is redirected to the
+    # bundled Vietnamese font, so the production master can use real accents.
+    return DATA_DIR / "translation_it.csv"
+
+
+def load_translations(slot: str | None = None) -> dict[str, str]:
+    csv_path = translation_csv_for_slot(slot or default_target_language_slot())
     if not csv_path.exists():
         raise FileNotFoundError(f"Missing translation file: {csv_path}")
     translations: dict[str, str] = {}
@@ -429,11 +469,18 @@ def translation_match_status(source_records: list[dict], translations: dict[str,
 
 def detect_translation_installation(game_dir: Path) -> dict:
     paths = resolve_paths(game_dir)
-    translations = load_translations()
     with zipfile.ZipFile(paths.xdf, "r") as zf:
-        _, source_records, _ = load_language(zf, "en")
-    result = translation_match_status(source_records, translations)
-    compatibility = check_supported(source_records, force=True)
+        _, english_records, _ = load_language(zf, "en")
+    result = translation_match_status(english_records, load_translations("en"))
+    try:
+        font_accented = english_uses_vietnamese_font(find_font_bundle(game_dir))
+    except (FileNotFoundError, OSError, RuntimeError, ValueError):
+        font_accented = False
+    result["font_accented"] = font_accented
+    result["installed"] = result["installed"] and font_accented
+    result["installed_slots"] = ["en"] if result["installed"] else []
+    result["detected_slot"] = "en"
+    compatibility = check_supported(english_records, force=True)
     result["texts_supported"] = compatibility["supported"]
     result["key_count"] = compatibility["key_count"]
     result["key_sha256"] = compatibility["key_sha256"]
@@ -766,6 +813,92 @@ def build_map_and_bin(source_records: list[dict], translations: dict[str, str], 
     }
 
 
+def redirect_english_font_variant(config_tree: dict) -> bool:
+    """Make English use Aniimo's bundled Vietnamese TMP font.
+
+    Aniimo normally has no explicit English variant, so it falls back to the
+    base Chinese font. Reusing the hidden Vietnamese variant preserves every
+    Italian accented glyph without shipping third-party game assets.
+    """
+    entries = config_tree.get("entries") or []
+    variants = entries[0].get("variants") if len(entries) == 1 else None
+    if not isinstance(variants, list):
+        raise ValueError("Configurazione dei font di Aniimo inattesa.")
+    english = [row for row in variants if row.get("language") == ENGLISH_LANGUAGE_TYPE]
+    if english:
+        if len(english) == 1 and english[0].get("fontResID") == VIETNAMESE_FONT_RESOURCE:
+            return False
+        raise ValueError("La lingua English usa già un font diverso e non riconosciuto.")
+    vietnamese = [
+        row
+        for row in variants
+        if row.get("language") == VIETNAMESE_LANGUAGE_TYPE
+        and row.get("fontResID") == VIETNAMESE_FONT_RESOURCE
+    ]
+    if len(vietnamese) != 1:
+        raise ValueError("Font vietnamita di Aniimo non trovato nella configurazione prevista.")
+    vietnamese[0]["language"] = ENGLISH_LANGUAGE_TYPE
+    return True
+
+
+def find_font_bundle(game_dir: Path) -> Path:
+    for relative in FONT_CACHE_RELS:
+        cache = game_dir / relative
+        for digest in FONT_BUNDLE_HASHES:
+            candidate = cache / digest[:2] / digest / "cdata.uab"
+            if candidate.is_file():
+                return candidate
+    raise FileNotFoundError(
+        "Pacchetto font di Aniimo non trovato. Avvia il gioco una volta, attendi il completamento "
+        "del download delle risorse e riprova."
+    )
+
+
+def load_font_config(font_bundle: Path):
+    try:
+        import UnityPy
+    except ImportError as exc:
+        raise RuntimeError("Componente interno per la gestione del font non disponibile.") from exc
+    env = UnityPy.load(str(font_bundle))
+    try:
+        config_obj = env.container[FONT_CONFIG_ASSET].deref()
+    except KeyError as exc:
+        raise ValueError("Configurazione di localizzazione del font non trovata nel pacchetto Aniimo.")
+    return env, config_obj, config_obj.read_typetree()
+
+
+def english_uses_vietnamese_font(font_bundle: Path) -> bool:
+    _, _, tree = load_font_config(font_bundle)
+    entries = tree.get("entries") or []
+    variants = entries[0].get("variants") if len(entries) == 1 else []
+    return any(
+        row.get("language") == ENGLISH_LANGUAGE_TYPE
+        and row.get("fontResID") == VIETNAMESE_FONT_RESOURCE
+        for row in variants
+    )
+
+
+def patch_font_bundle(source: Path, destination: Path) -> dict:
+    env, config_obj, tree = load_font_config(source)
+    changed = redirect_english_font_variant(tree)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    if changed:
+        config_obj.save_typetree(tree)
+        destination.write_bytes(env.file.save(packer="original"))
+    else:
+        shutil.copy2(source, destination)
+    if not english_uses_vietnamese_font(destination):
+        raise RuntimeError("Verifica del font accentato non riuscita dopo la modifica.")
+    return {
+        "changed_now": changed,
+        "source_md5": md5_file(source),
+        "patched_md5": md5_file(destination),
+        "source_size": source.stat().st_size,
+        "patched_size": destination.stat().st_size,
+        "mapping": "English -> UI_Font_Vietnamese",
+    }
+
+
 def local_data_offset(zip_path: Path, info: zipfile.ZipInfo) -> int:
     with zip_path.open("rb") as f:
         f.seek(info.header_offset + 26)
@@ -881,11 +1014,21 @@ def backup_live(paths: GamePaths) -> Path:
         src = paths.game_dir / name
         if src.exists():
             shutil.copy2(src, backup / name)
+    font_bundle = find_font_bundle(paths.game_dir)
+    font_relative = font_bundle.relative_to(paths.game_dir)
+    font_backup = backup / FONT_PATCH_DIR
+    font_backup.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(font_bundle, font_backup / "cdata.uab")
+    font_info = font_bundle.with_name("cinfo.bin")
+    if font_info.is_file():
+        shutil.copy2(font_info, font_backup / "cinfo.bin")
     write_json(backup / "backup_manifest.json", {
         "game_dir": str(paths.game_dir),
         "lua_dir": str(paths.lua_dir),
         "original_i18n_files": sorted(original_i18n_files),
         "created_i18n_files": [],
+        "font_bundle_relative": str(font_relative),
+        "font_info_present": font_info.is_file(),
     })
     return backup
 
@@ -903,7 +1046,6 @@ def record_created_i18n_files(backup: Path, patch_dir: Path) -> list[str]:
 
 
 def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple[Path, dict]:
-    translations = load_translations()
     patch_dir = USER_WORK_DIR / "patches" / time.strftime("%Y%m%d-%H%M%S")
     replacements: dict[str, bytes] = {}
     stats: dict[str, object] = {
@@ -915,6 +1057,7 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
         _, source_records, _ = load_language(zf, "en")
         stats["version_check"] = check_supported(source_records, force)
         for lang in target_langs:
+            translations = load_translations(lang)
             _, _, header = load_language(zf, lang)
             map_bytes, bin_bytes, lang_stats = build_map_and_bin(source_records, translations, header)
             replacements[TEXT_MAP.format(lang=lang)] = map_bytes
@@ -925,6 +1068,9 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             (out_i18n / f"Compress_{lang}.bin").write_bytes(bin_bytes)
             stats["languages"][lang] = lang_stats
     repack_xdf(paths.xdf, paths.xdt, replacements, patch_dir / XDF_NAME, patch_dir / XDT_NAME)
+    stats["font"] = patch_font_bundle(
+        find_font_bundle(paths.game_dir), patch_dir / FONT_PATCH_DIR / "cdata.uab"
+    )
     stats["local_manifests"] = update_local_manifests(paths.game_dir, patch_dir)
     write_json(patch_dir / "patch_stats.json", stats)
     return patch_dir, stats
@@ -939,6 +1085,9 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         live_i18n.mkdir(parents=True, exist_ok=True)
         for file in patch_i18n.glob("*.*"):
             shutil.copy2(file, live_i18n / file.name)
+    patched_font = patch_dir / FONT_PATCH_DIR / "cdata.uab"
+    if patched_font.is_file():
+        shutil.copy2(patched_font, find_font_bundle(paths.game_dir))
     for name in ["md5list.txt", "verlist.txt"]:
         src = patch_dir / name
         if src.exists():
@@ -976,9 +1125,7 @@ def cmd_install(args: argparse.Namespace) -> int:
         return 2
     paths = resolve_paths(resolve_game_dir(args.game_dir))
     official_info = game_info_before_install(paths)
-    target_langs = [args.target]
-    if args.also_english and "en" not in target_langs:
-        target_langs.append("en")
+    target_langs = ["en"]
     print("Cartella gioco:", paths.game_dir)
     print("Creo backup...")
     backup = backup_live(paths)
@@ -989,7 +1136,8 @@ def cmd_install(args: argparse.Namespace) -> int:
     copy_patch_into_game(paths, patch_dir)
     record_installed_state(paths, official_info)
     print("Patch installata.")
-    print("Lingua da selezionare in gioco:", "English" if "en" in target_langs else "Tiếng Việt")
+    print("Lingua da selezionare in gioco: Inglese")
+    print("Font accentato: ✓ English usa il font vietnamita incluso in Aniimo")
     print("Statistiche:", json.dumps(stats.get("languages", {}), ensure_ascii=False))
     return 0
 
@@ -1021,8 +1169,8 @@ def cmd_restore(args: argparse.Namespace) -> int:
     backup_i18n = backup / "LuaScripts" / "Data" / "I18N"
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     manifest_path = backup / "backup_manifest.json"
-    if manifest_path.exists() and live_i18n.exists():
-        manifest = read_json(manifest_path)
+    manifest = read_json(manifest_path) if manifest_path.exists() else {}
+    if live_i18n.exists():
         for name in manifest.get("created_i18n_files", []):
             if Path(name).name != name:
                 raise ValueError(f"Nome file I18N non valido nel backup: {name}")
@@ -1033,6 +1181,18 @@ def cmd_restore(args: argparse.Namespace) -> int:
         live_i18n.mkdir(parents=True, exist_ok=True)
         for file in backup_i18n.glob("*.*"):
             shutil.copy2(file, live_i18n / file.name)
+    font_relative = str(manifest.get("font_bundle_relative") or "")
+    backup_font = backup / FONT_PATCH_DIR / "cdata.uab"
+    if font_relative and backup_font.is_file():
+        font_target = (paths.game_dir / Path(font_relative)).resolve()
+        game_root = paths.game_dir.resolve()
+        if game_root not in font_target.parents:
+            raise ValueError("Percorso font non valido nel backup.")
+        font_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(backup_font, font_target)
+        backup_info = backup / FONT_PATCH_DIR / "cinfo.bin"
+        if manifest.get("font_info_present") and backup_info.is_file():
+            shutil.copy2(backup_info, font_target.with_name("cinfo.bin"))
     for name in ["md5list.txt", "verlist.txt"]:
         src = backup / name
         if src.exists():
@@ -1074,6 +1234,7 @@ def collect_startup_status() -> dict:
         "detected_game_revision": None,
         "translation_installed": None,
         "translation_match_ratio": None,
+        "translation_slot": None,
         "text_resources_supported": None,
         "update": check_for_updates(silent=True),
     }
@@ -1090,6 +1251,7 @@ def collect_startup_status() -> dict:
         translation = detect_translation_installation(game_dir)
         result["translation_installed"] = translation["installed"]
         result["translation_match_ratio"] = translation["ratio"]
+        result["translation_slot"] = translation.get("detected_slot")
         result["text_resources_supported"] = translation["texts_supported"]
         result["detected_game_revision"] = effective_game_revision(
             game_dir, result["detected_game_revision"], translation["installed"]
@@ -1151,7 +1313,7 @@ def print_status_panel(status: dict, colors: bool) -> None:
         path_label = color_text("✗ NON TROVATO", ConsoleColor.RED, colors)
 
     if installed is True:
-        installed_label = color_text("✓ INSTALLATA", ConsoleColor.GREEN, colors)
+        installed_label = color_text("✓ INSTALLATA (English + accenti)", ConsoleColor.GREEN, colors)
     elif installed is False:
         installed_label = color_text("✗ NON INSTALLATA", ConsoleColor.YELLOW, colors)
     else:
@@ -1319,8 +1481,8 @@ def main() -> int:
     check = sub.add_parser("check", parents=[common], help="Check compatibility")
     check.set_defaults(func=cmd_check)
     install = sub.add_parser("install", parents=[common], help="Install Italian translation")
-    install.add_argument("--target", default="en", choices=["en", "vi_VN"], help="Language slot to replace")
-    install.add_argument("--also-english", action="store_true", help="Also replace English; not recommended if accents are missing")
+    install.add_argument("--target", default="en", choices=["en"], help="Language slot used by the Italian translation")
+    install.add_argument("--also-english", action="store_true", help=argparse.SUPPRESS)
     install.add_argument("--force-open", action="store_true", help="Install even if game/launcher seem open")
     install.add_argument("--ignore-update", action="store_true", help="Install this package even if GitHub has a newer release")
     install.set_defaults(func=cmd_install)

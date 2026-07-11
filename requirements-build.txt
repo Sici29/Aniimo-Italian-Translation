@@ -1,0 +1,2 @@
+PyInstaller==6.15.0
+UnityPy==1.25.2

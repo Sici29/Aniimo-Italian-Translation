@@ -42,6 +42,32 @@ class BuildMapAndBinTests(unittest.TestCase):
             with self.subTest(size=size), self.assertRaises(ValueError):
                 installer.build_map_and_bin(rows, {}, b"x" * size)
 
+    def test_english_is_redirected_to_vietnamese_font(self) -> None:
+        tree = {"entries": [{"variants": [
+            {"language": 4, "fontResID": "$UI_Font_Japan.asset"},
+            {"language": 5, "fontResID": installer.VIETNAMESE_FONT_RESOURCE},
+        ]}]}
+        self.assertTrue(installer.redirect_english_font_variant(tree))
+        self.assertEqual(tree["entries"][0]["variants"][1]["language"], 2)
+        self.assertFalse(installer.redirect_english_font_variant(tree))
+
+    def test_unexpected_font_mapping_is_rejected(self) -> None:
+        tree = {"entries": [{"variants": [
+            {"language": 2, "fontResID": "$Some_Other_Font.asset"},
+            {"language": 5, "fontResID": installer.VIETNAMESE_FONT_RESOURCE},
+        ]}]}
+        with self.assertRaises(ValueError):
+            installer.redirect_english_font_variant(tree)
+
+    def test_supported_font_bundle_is_found_in_game_cache(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            game = Path(temp_dir)
+            digest = installer.FONT_BUNDLE_HASHES[0]
+            bundle = game / installer.FONT_CACHE_RELS[0] / digest[:2] / digest / "cdata.uab"
+            bundle.parent.mkdir(parents=True)
+            bundle.write_bytes(b"bundle")
+            self.assertEqual(installer.find_font_bundle(game), bundle)
+
 
 class RestoreTests(unittest.TestCase):
     def test_restore_removes_only_files_created_by_the_patch(self) -> None:
@@ -56,6 +82,10 @@ class RestoreTests(unittest.TestCase):
             (live_i18n / "Existing.json").write_text("patched", encoding="utf-8")
             (live_i18n / "NewTextMap_en.json").write_text("created", encoding="utf-8")
             (live_i18n / "OtherMod.json").write_text("keep", encoding="utf-8")
+            font_relative = Path("Aniimo_Data") / "cvs" / "font" / "cdata.uab"
+            live_font = game / font_relative
+            live_font.parent.mkdir(parents=True)
+            live_font.write_bytes(b"patched-font")
 
             work_dir = root / "user-work"
             backup = work_dir / "backups" / "20260711-000000"
@@ -64,11 +94,15 @@ class RestoreTests(unittest.TestCase):
             (backup / "LuaScripts.xdf").write_bytes(b"original-xdf")
             (backup / "LuaScripts.xdt").write_bytes(b"original-xdt")
             (backup_i18n / "Existing.json").write_text("original", encoding="utf-8")
+            (backup / installer.FONT_PATCH_DIR).mkdir(parents=True)
+            (backup / installer.FONT_PATCH_DIR / "cdata.uab").write_bytes(b"original-font")
             installer.write_json(backup / "backup_manifest.json", {
                 "game_dir": str(game),
                 "lua_dir": str(lua_dir),
                 "original_i18n_files": ["Existing.json"],
                 "created_i18n_files": ["NewTextMap_en.json"],
+                "font_bundle_relative": str(font_relative),
+                "font_info_present": False,
             })
             installer.write_json(work_dir / "installed_state.json", {
                 "game_dir": str(game),
@@ -87,6 +121,7 @@ class RestoreTests(unittest.TestCase):
             self.assertEqual((live_i18n / "Existing.json").read_text(encoding="utf-8"), "original")
             self.assertFalse((live_i18n / "NewTextMap_en.json").exists())
             self.assertEqual((live_i18n / "OtherMod.json").read_text(encoding="utf-8"), "keep")
+            self.assertEqual(live_font.read_bytes(), b"original-font")
             self.assertFalse((work_dir / "installed_state.json").exists())
 
 
@@ -100,6 +135,19 @@ class VersionAndUpdaterTests(unittest.TestCase):
             "revision": "7113f88e39827a2d13591a55b395f1c6",
             "manifest_size": 8110,
         })
+
+    def test_hot_update_manifest_version_takes_priority(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            game = Path(temp_dir)
+            (game / "verlist.txt").write_text("3032670," + "a" * 32 + ",8110\n", encoding="utf-8")
+            manifest_dir = (
+                game / "Aniimo_Data" / "cvs" / "res" / "uab" / "win" / "DefaultPackage" / "ManifestFiles"
+            )
+            manifest_dir.mkdir(parents=True)
+            (manifest_dir / "PackageManifest_DefaultPackage.version").write_text("3036569", encoding="utf-8")
+            info = installer.read_game_version_info(game)
+        self.assertEqual(info["update"], "3036569")
+        self.assertEqual(info["revision"], "a" * 32)
 
     def test_installer_asset_is_selected_by_exact_name(self) -> None:
         release = {"assets": [{"name": "notes.zip"}, {"name": installer.INSTALLER_ASSET_NAME, "id": 7}]}
@@ -407,6 +455,7 @@ class MenuTests(unittest.TestCase):
         ) as install, patch.object(installer, "collect_startup_status", return_value=self.status):
             self.assertEqual(installer.run_menu(), 0)
         install.assert_called_once()
+        self.assertEqual(install.call_args.args[0].target, "en")
 
     def test_unknown_choice_does_not_install(self) -> None:
         with patch("builtins.input", return_value="abc"), patch.object(

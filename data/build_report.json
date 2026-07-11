@@ -1,28 +1,22 @@
 {
-  "translation_version": "0.3.4-beta",
-  "build_date": "2026-07-11",
+  "input": "data/translation_it_accented.csv",
+  "production_output": "data/translation_it.csv",
   "rows": 92954,
-  "professional_review_changes": 695,
-  "naturalness_review_changes": 2788,
-  "total_editorial_interventions": 3483,
-  "public_variant": {
-    "path": "data/translation_it.csv",
-    "target_slot": "English",
-    "sha256": "CF0E80F87E946F06A9E4D94B428DF79914B219449B080E257F12B7C955A0985A",
-    "rows_changed_for_font_compatibility": 17624,
-    "replacement_count": 26693
-  },
-  "accented_master": {
-    "path": "data/translation_it_accented.csv",
-    "sha256": "F42D80E9E3A366726F0385F2ACD08FEA696E5D6EBD516C343C1147E5546642EF"
-  },
-  "validation": {
-    "duplicate_keys": 0,
-    "blank_translations": 0,
-    "tag_or_placeholder_mismatches": 0,
-    "edge_whitespace_or_newline_mismatches": 0,
-    "inconsistent_duplicate_sources": 0,
-    "public_incompatible_characters": 0
-  },
-  "policy": "The accented CSV is the editorial source of truth. The public English-slot CSV is deterministically derived with apostrophes only for final Italian accents, plain letters for internal diacritics, and compatible punctuation while preserving keys, tags, placeholders, capitalization, whitespace and newlines."
+  "default_target_slot": "en",
+  "font_strategy": "The installer keeps the visible English localization slot and maps language type 2 to Aniimo's bundled UI_Font_Vietnamese asset, which contains every required Italian accented glyph.",
+  "verified_game_update": 3036569,
+  "verified_in_game": true,
+  "font_mapping": "English -> UI_Font_Vietnamese",
+  "preserved_official_terms": [
+    "Timothée",
+    "Déjà Vu",
+    "Molière",
+    "Café",
+    "Português"
+  ],
+  "policy": "The editorial master and production translation are identical and use standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
+  "sha256": {
+    "accented": "81025AB7E6986E1A202ED537047FCE3C29DDFEE5FCA035DA75B33F401338DEF4",
+    "production": "81025AB7E6986E1A202ED537047FCE3C29DDFEE5FCA035DA75B33F401338DEF4"
+  }
 }
