@@ -293,8 +293,13 @@ def check_for_updates(silent: bool = False) -> dict:
 
 
 def build_map_and_bin(source_records: list[dict], translations: dict[str, str], header: bytes) -> tuple[bytes, bytes, dict]:
-    blob = bytearray(header)
-    mapping: dict[str, object] = {"_count": len(source_records), "_version": int(time.time())}
+    updated_header = bytearray(header)
+    if len(updated_header) < 4:
+        raise ValueError(f"Header localizzazione non valido: {len(updated_header)} byte")
+    version = int(time.time())
+    updated_header[:4] = struct.pack("<I", version)
+    blob = bytearray(updated_header)
+    mapping: dict[str, object] = {"_count": len(source_records), "_version": version}
     translated = 0
     reused = 0
     seen: dict[str, tuple[int, int]] = {}
@@ -318,6 +323,8 @@ def build_map_and_bin(source_records: list[dict], translations: dict[str, str], 
         "fallback_count": len(source_records) - translated,
         "reused_strings": reused,
         "bin_size": len(blob),
+        "map_version": version,
+        "bin_version": struct.unpack("<I", blob[:4])[0] if len(blob) >= 4 else None,
     }
 
 
@@ -424,9 +431,11 @@ def backup_live(paths: GamePaths) -> Path:
     shutil.copy2(paths.xdf, backup / XDF_NAME)
     shutil.copy2(paths.xdt, backup / XDT_NAME)
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
+    original_i18n_files: list[str] = []
     if live_i18n.exists():
         for file in live_i18n.glob("*.*"):
             if file.is_file():
+                original_i18n_files.append(file.name)
                 target = backup / "LuaScripts" / "Data" / "I18N" / file.name
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(file, target)
@@ -434,8 +443,25 @@ def backup_live(paths: GamePaths) -> Path:
         src = paths.game_dir / name
         if src.exists():
             shutil.copy2(src, backup / name)
-    write_json(backup / "backup_manifest.json", {"game_dir": str(paths.game_dir), "lua_dir": str(paths.lua_dir)})
+    write_json(backup / "backup_manifest.json", {
+        "game_dir": str(paths.game_dir),
+        "lua_dir": str(paths.lua_dir),
+        "original_i18n_files": sorted(original_i18n_files),
+        "created_i18n_files": [],
+    })
     return backup
+
+
+def record_created_i18n_files(backup: Path, patch_dir: Path) -> list[str]:
+    manifest_path = backup / "backup_manifest.json"
+    manifest = read_json(manifest_path)
+    original = set(manifest.get("original_i18n_files", []))
+    patch_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
+    patch_files = {file.name for file in patch_i18n.glob("*.*") if file.is_file()}
+    created = sorted(patch_files - original)
+    manifest["created_i18n_files"] = created
+    write_json(manifest_path, manifest)
+    return created
 
 
 def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple[Path, dict]:
@@ -512,9 +538,10 @@ def cmd_install(args: argparse.Namespace) -> int:
     print("Backup:", backup)
     print("Genero patch italiana...")
     patch_dir, stats = build_patch(paths, target_langs, args.force)
+    record_created_i18n_files(backup, patch_dir)
     copy_patch_into_game(paths, patch_dir)
     print("Patch installata.")
-    print("Lingua consigliata in gioco: Italiano. Se non compare, seleziona Tiếng Việt.")
+    print("Lingua da selezionare in gioco:", "English" if "en" in target_langs else "Tiếng Việt")
     print("Statistiche:", json.dumps(stats.get("languages", {}), ensure_ascii=False))
     return 0
 
@@ -542,6 +569,15 @@ def cmd_restore(args: argparse.Namespace) -> int:
     shutil.copy2(backup / XDT_NAME, paths.xdt)
     backup_i18n = backup / "LuaScripts" / "Data" / "I18N"
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
+    manifest_path = backup / "backup_manifest.json"
+    if manifest_path.exists() and live_i18n.exists():
+        manifest = read_json(manifest_path)
+        for name in manifest.get("created_i18n_files", []):
+            if Path(name).name != name:
+                raise ValueError(f"Nome file I18N non valido nel backup: {name}")
+            target = live_i18n / name
+            if target.is_file():
+                target.unlink()
     if backup_i18n.exists():
         live_i18n.mkdir(parents=True, exist_ok=True)
         for file in backup_i18n.glob("*.*"):
@@ -624,7 +660,7 @@ def main() -> int:
     try:
         return args.func(args)
     except Exception as exc:
-        print("Error:", exc)
+        print("Errore:", exc)
         return 1
 
 

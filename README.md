@@ -14,18 +14,19 @@ Se la traduzione ti è utile e vuoi contribuire a mantenerla aggiornata, puoi of
 
 - Copertura: **92.954 / 92.954** stringhe note.
 - Versione testata: **hot update 3036569**.
-- Versione traduzione: **0.1.0 beta**.
+- Versione traduzione: **0.2.0 beta**.
 - Installazione consigliata: slot **English**.
+
+La versione 0.2.0 include una revisione editoriale professionale completa: terminologia, generi, dialoghi, testi tecnici, tag e spaziature sono stati ricontrollati sull'intero archivio.
 
 La patch sostituisce lo slot inglese perché è sempre visibile nel menu lingua del gioco.
 
 ## Installazione Rapida
 
 1. Chiudi Aniimo e il launcher.
-2. Scarica `Aniimo-Italian-Translation.exe` da **Releases**.
-3. Copia l'eseguibile nella root del gioco, cioè nella cartella dove si trova `Aniimo_Data`.
-4. Avvia `Aniimo-Italian-Translation.exe`.
-5. Apri il gioco e seleziona **English**.
+2. Scarica il solo file `Aniimo-Italian-Translation.exe` da **Releases**.
+3. Avvia `Aniimo-Italian-Translation.exe` e premi **Invio** oppure scegli `1`.
+4. Apri il gioco e seleziona **English**.
 
 Esempio di cartella corretta:
 
@@ -35,7 +36,7 @@ Aniimo\game\
   Aniimo-Italian-Translation.exe
 ```
 
-L'eseguibile contiene già traduzione e installer: non servono Python, cartelle extra o altri file.
+L'eseguibile contiene già traduzione, installer, controllo compatibilità, backup e ripristino: non servono Python, cartelle extra o altri file. Puoi avviarlo anche dalla cartella Download; cerca automaticamente le installazioni più comuni di Aniimo. Se non trova il gioco, copialo nella cartella mostrata nell'esempio e riaprilo.
 
 Se lo avvii fuori dalla cartella del gioco, prova comunque a trovare Aniimo da solo, sia nella versione launcher sia in eventuali librerie Steam. Se non riesce, puoi indicare il percorso manualmente:
 
@@ -61,7 +62,7 @@ Documenti\AniimoItalianTranslation\backups
 
 La patch pubblica usa lo slot **English**. Al momento quel font non mostra bene molte lettere accentate italiane: per evitare parole troncate come `Qualit`, la versione installata converte gli accenti in apostrofi (`qualita'`, `perche'`, `abilita'`, `puo'`, `gia'`, `piu'`).
 
-La traduzione master con accenti reali viene comunque conservata nel progetto di lavoro. Se in futuro Aniimo aggiungera' uno slot con font latino completo, o se sara' possibile usare uno slot come spagnolo/francese/tedesco, la patch potra' tornare agli accenti corretti senza rifare la traduzione da zero.
+La traduzione master con accenti reali viene conservata anche nel repository come `data/translation_it_accented.csv`. Se in futuro Aniimo aggiungerà un font latino completo, la patch potrà usare immediatamente accenti e punteggiatura italiana corretti senza rifare la traduzione da zero.
 
 ## Aggiornamenti Del Gioco
 
