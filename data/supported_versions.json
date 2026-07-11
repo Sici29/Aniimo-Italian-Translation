@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.7-beta",
+  "translation_version": "0.3.8-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -13,10 +13,11 @@
   ],
   "latest_supported_game_update": 3036569,
   "supported_game_revisions": [
-    "7113f88e39827a2d13591a55b395f1c6"
+    "7113f88e39827a2d13591a55b395f1c6",
+    "4eb81a98d0e3934af67064cbde06218e"
   ],
   "tested_game_update": "3036569",
-  "tested_game_revision": "7113f88e39827a2d13591a55b395f1c6",
+  "tested_game_revision": "4eb81a98d0e3934af67064cbde06218e",
   "tested_date": "2026-07-11",
   "coverage": "92954/92954 modern text keys; 359 meaningful English-slot zero fallbacks recovered; 5 technical zeros confirmed",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",

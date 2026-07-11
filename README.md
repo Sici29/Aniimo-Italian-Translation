@@ -92,8 +92,8 @@ Documenti\AniimoItalianTranslation\backups
 
 - Copertura: **92.954 / 92.954 chiavi**, comprese le voci di fallback mancanti nello slot English.
 - Versioni del gioco verificate: **3032670** e hot update **3036569**.
-- Revisione hot update verificata: **7113f88e39827a2d13591a55b395f1c6**.
-- Versione della traduzione: **0.3.7 beta**.
+- Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
+- Versione della traduzione: **0.3.8 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -102,6 +102,8 @@ Documenti\AniimoItalianTranslation\backups
 - Audit notifiche v0.3.7: **726 avvisi a riga singola controllati**, **78 testi accorciati** e limite automatico di 80 caratteri visibili.
 - Audit indizi v0.3.7: **14 bolle controllate**, **4 testi accorciati** e limite automatico di 34 caratteri visibili.
 - Audit inglese v0.3.7: **151 residui aggiuntivi corretti**, inclusi `Three`, didascalie, mesi, impostazioni, titoli funzionali, oggetti, cosmetici, anglicismi generici e denominazioni incoerenti.
+- Correzione v0.3.8: registrata la revisione `4eb81a98d0e3934af67064cbde06218e` come verificata, eliminando l'avviso errato `⚠ NUOVA` dall'installer.
+- Sistema Indizi v0.3.8: **32 testi UI brevi controllati**, **6 accorciati** e limite automatico di 34 caratteri; la frase segnalata è ora `Analizza gli indizi già trovati`.
 
 La verifica non si limita più a controllare che ogni chiave abbia un valore. La versione 0.3.5 recupera anche le voci che la localizzazione English ufficiale espone come `0`. Dalla versione 0.3.7 l'installer le registra inoltre nell'elenco interno delle traduzioni disponibili, evitando che il percorso runtime speciale le sostituisca nuovamente con frasi inglesi.
 

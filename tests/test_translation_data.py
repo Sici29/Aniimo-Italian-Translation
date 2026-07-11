@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PRODUCTION_CSV = ROOT / "data" / "translation_it.csv"
 SINGLE_LINE_NOTIFICATIONS = ROOT / "data" / "single_line_notifications.json"
 FLOATING_CLUES = ROOT / "data" / "floating_clues.json"
+CLUE_PANEL_INSTRUCTIONS = ROOT / "data" / "clue_panel_instructions.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -160,8 +161,8 @@ class TranslationDataTests(unittest.TestCase):
         audited = [
             row for row in self.production if row["note"] == "review_v0.3.5_english_audit"
         ]
-        # Una delle 220 righe è stata nuovamente revisionata dall'audit v0.3.6.
-        self.assertEqual(219, len(audited))
+        # Due delle 220 righe storiche sono state revisionate di nuovo nelle versioni successive.
+        self.assertEqual(218, len(audited))
 
         english_function_words = {
             "after",
@@ -299,6 +300,22 @@ class TranslationDataTests(unittest.TestCase):
             visible = tag_pattern.sub("", by_key[key]).replace("\n", " ")
             self.assertLessEqual(
                 len(visible), limit, f"Indizio troppo lungo: {key} ({len(visible)})"
+            )
+
+    def test_clue_panel_instructions_fit_the_header(self) -> None:
+        config = json.loads(CLUE_PANEL_INSTRUCTIONS.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row["it"] for row in self.production}
+        limit = int(config["max_visible_characters"])
+        self.assertEqual(32, len(config["keys"]))
+        self.assertEqual("Analizza gli indizi già trovati", by_key["1561084673"])
+        self.assertEqual("Analizza gli indizi già trovati", by_key["2122732584"])
+        self.assertEqual("Nome indizio (segnaposto)", by_key["1223374372"])
+        self.assertEqual("Cerca altri indizi (segnaposto)", by_key["1506846237"])
+        self.assertEqual("Indizio comune sbloccato: riprova", by_key["2030211050"])
+        for key in config["keys"]:
+            visible = re.sub(r"<[^>]+>", "", by_key[key]).replace("\n", " ")
+            self.assertLessEqual(
+                len(visible), limit, f"Istruzione indizi troppo lunga: {key} ({len(visible)})"
             )
 
     def test_confirmed_glossary_and_placeholder_residues_are_absent(self) -> None:

@@ -5,6 +5,7 @@
   "default_target_slot": "en",
   "font_strategy": "The installer keeps the visible English localization slot and maps language type 2 to Aniimo's bundled UI_Font_Vietnamese asset, which contains every required Italian accented glyph.",
   "verified_game_update": 3036569,
+  "verified_game_revision": "4eb81a98d0e3934af67064cbde06218e",
   "verified_in_game": true,
   "language_audit": {
     "modern_key_count": 92954,
@@ -16,6 +17,8 @@
     "single_line_notifications_shortened": 78,
     "floating_clues_checked": 14,
     "floating_clues_shortened": 4,
+    "clue_ui_short_texts_checked": 32,
+    "clue_ui_short_texts_shortened": 6,
     "confirmed_technical_zero_values": 5,
     "empty_italian_values": 0,
     "direct_english_residue_fixes": 371,
@@ -35,6 +38,6 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "E0840E9E3A900866CA03A31FC8C7B03CA6B8DC3B25DE4242844C8AEAF2A9277F"
+    "production": "A8876888B4082B5E498FABBA117154F4A2BB6C3C90C08762252380308BF75768"
   }
 }

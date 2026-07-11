@@ -404,6 +404,35 @@ class DetectionTests(unittest.TestCase):
         self.assertIn("Compatibilità testi        : ✓ COMPATIBILE", output.getvalue())
         self.assertIn("github.com/Sici29/Aniimo-Italian-Translation", output.getvalue())
 
+    def test_current_hot_update_revision_is_verified(self) -> None:
+        current_revision = "4eb81a98d0e3934af67064cbde06218e"
+        status = {
+            "manifest": {
+                "supported_game_updates": [3032670, 3036569],
+                "supported_game_revisions": [
+                    "7113f88e39827a2d13591a55b395f1c6",
+                    current_revision,
+                ],
+            },
+            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_path_source": "automatico",
+            "detected_game_update": "3036569",
+            "detected_game_revision": current_revision,
+            "translation_installed": True,
+            "text_resources_supported": True,
+            "update": {
+                "current": "0.3.8-beta",
+                "latest": "v0.3.8-beta",
+                "update_available": False,
+            },
+        }
+        output = io.StringIO()
+        with redirect_stdout(output):
+            installer.print_status_panel(status, colors=False)
+        panel = output.getvalue()
+        self.assertIn("4eb81a98d0e3…  ✓ VERIFICATA", panel)
+        self.assertNotIn("⚠ NUOVA", panel)
+
     def test_official_revision_survives_patched_verlist(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
