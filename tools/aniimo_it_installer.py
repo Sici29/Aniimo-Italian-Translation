@@ -55,6 +55,7 @@ INSTALLER_ASSET_NAME = "Aniimo-Italian-Translation.exe"
 UPDATE_APPLY_COMMAND = "_apply-update"
 UPDATE_COMPLETE_COMMAND = "--update-complete"
 UPDATE_SCHEDULED = 20
+_INSTANCE_LOCK_HANDLE = None
 
 
 class ConsoleColor:
@@ -558,6 +559,86 @@ def download_update_asset(asset: dict, destination: Path) -> str:
             partial.unlink()
 
 
+def acquire_installer_instance_lock() -> bool:
+    """Keep a second interactive installer window from blocking self-update."""
+    global _INSTANCE_LOCK_HANDLE
+    if _INSTANCE_LOCK_HANDLE is not None or os.name != "nt":
+        return True
+    import msvcrt
+
+    try:
+        USER_WORK_DIR.mkdir(parents=True, exist_ok=True)
+        handle = (USER_WORK_DIR / "installer.lock").open("a+b")
+    except OSError:
+        return True
+    handle.seek(0, os.SEEK_END)
+    if handle.tell() == 0:
+        handle.write(b"0")
+        handle.flush()
+    handle.seek(0)
+    try:
+        msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+    except OSError:
+        handle.close()
+        return False
+    _INSTANCE_LOCK_HANDLE = handle
+    return True
+
+
+def prompt_close_other_installers() -> bool:
+    if os.name != "nt":
+        return False
+    try:
+        import ctypes
+
+        message = (
+            "Un'altra finestra di Aniimo - Traduzione Italiana sta usando il vecchio EXE.\n\n"
+            "Chiudi tutte le altre finestre dell'installer, poi premi Riprova."
+        )
+        flags = 0x00000005 | 0x00000030 | 0x00040000  # Retry/Cancel, warning, topmost
+        return ctypes.windll.user32.MessageBoxW(None, message, "Aggiornamento installer", flags) == 4
+    except Exception:
+        return False
+
+
+def show_update_failure_message() -> None:
+    if os.name != "nt":
+        return
+    try:
+        import ctypes
+
+        message = (
+            "Aggiornamento non completato.\n\n"
+            "Chiudi tutte le finestre dell'installer e riprova. "
+            "Il vecchio EXE non è stato modificato."
+        )
+        ctypes.windll.user32.MessageBoxW(None, message, "Aniimo - Traduzione Italiana", 0x00000010 | 0x00040000)
+    except Exception:
+        pass
+
+
+def cleanup_update_cache() -> int:
+    updates = USER_WORK_DIR / "updates"
+    if not updates.is_dir():
+        return 0
+    removed = 0
+    current = Path(sys.executable).resolve()
+    for file in updates.glob("*/*"):
+        if not file.is_file() or not (
+            file.name == INSTALLER_ASSET_NAME
+            or file.name.startswith("Aniimo-Italian-Translation-")
+            or file.name.endswith(".exe.download")
+        ):
+            continue
+        try:
+            if file.resolve() != current:
+                file.unlink()
+                removed += 1
+        except OSError:
+            pass
+    return removed
+
+
 def apply_update_payload(
     source: Path,
     target: Path,
@@ -600,7 +681,8 @@ def schedule_self_update(status: dict) -> bool:
     if not asset:
         raise RuntimeError("La release più recente non contiene l'installer previsto.")
     tag = re.sub(r"[^A-Za-z0-9._-]+", "_", str(status.get("latest") or "latest"))
-    downloaded = USER_WORK_DIR / "updates" / tag / INSTALLER_ASSET_NAME
+    attempt = f"{os.getpid()}-{int(time.time() * 1000)}"
+    downloaded = USER_WORK_DIR / "updates" / tag / f"Aniimo-Italian-Translation-{attempt}.exe"
     print("Scarico il nuovo installer da GitHub...")
     verified_hash = download_update_asset(asset, downloaded)
     print("Download verificato (SHA-256):", verified_hash.upper())
@@ -627,17 +709,21 @@ def cmd_apply_update(args: argparse.Namespace) -> int:
         completion_args = [UPDATE_COMPLETE_COMMAND]
         if args.previous_version:
             completion_args.append(str(args.previous_version))
-        apply_update_payload(Path(sys.executable), Path(args.target_exe), launch_args=completion_args)
+        try:
+            apply_update_payload(
+                Path(sys.executable), Path(args.target_exe), retries=20, delay=0.25, launch_args=completion_args
+            )
+        except RuntimeError:
+            if not prompt_close_other_installers():
+                raise
+            apply_update_payload(Path(sys.executable), Path(args.target_exe), launch_args=completion_args)
         if log_path.exists():
             log_path.unlink()
         return 0
     except Exception as exc:
         USER_WORK_DIR.mkdir(parents=True, exist_ok=True)
         log_path.write_text(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {exc}\n", encoding="utf-8")
-        try:
-            subprocess.Popen([str(Path(sys.executable).resolve())], cwd=str(Path(sys.executable).resolve().parent))
-        except OSError:
-            pass
+        show_update_failure_message()
         return 1
 
 
@@ -1184,6 +1270,12 @@ def print_update_complete(previous_version: str | None) -> None:
 def main() -> int:
     menu_mode = len(sys.argv) == 1
     if menu_mode:
+        if not acquire_installer_instance_lock():
+            print("L'installer è già aperto in un'altra finestra.")
+            print("Chiudi l'altra finestra prima di riaprirlo.")
+            pause_if_needed(True)
+            return 4
+        cleanup_update_cache()
         code = run_menu()
         if code == UPDATE_SCHEDULED:
             return 0
@@ -1191,6 +1283,12 @@ def main() -> int:
         return code
 
     if sys.argv[1] == UPDATE_COMPLETE_COMMAND:
+        if not acquire_installer_instance_lock():
+            print("Aggiornamento completato, ma un'altra finestra dell'installer è ancora aperta.")
+            print("Chiudila e riapri normalmente l'installer aggiornato.")
+            pause_if_needed(True)
+            return 4
+        cleanup_update_cache()
         previous_version = sys.argv[2] if len(sys.argv) > 2 else None
         print_update_complete(previous_version)
         code = run_menu()
