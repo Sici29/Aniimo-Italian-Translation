@@ -1,5 +1,5 @@
 {
-  "input": "data/translation_it_accented.csv",
+  "input": "data/translation_it.csv",
   "production_output": "data/translation_it.csv",
   "rows": 92954,
   "default_target_slot": "en",
@@ -14,7 +14,11 @@
     "confirmed_technical_zero_values": 5,
     "empty_italian_values": 0,
     "direct_english_residue_fixes": 220,
-    "glossary_and_consistency_fixes": 651
+    "glossary_and_consistency_fixes": 651,
+    "gender_audit_fixes": 419,
+    "player_gender_placeholders_preserved": 9,
+    "addressed_duplicate_groups_checked": 559,
+    "gender_variant_duplicate_groups_found": 3
   },
   "font_mapping": "English -> UI_Font_Vietnamese",
   "preserved_official_terms": [
@@ -24,9 +28,8 @@
     "Café",
     "Português"
   ],
-  "policy": "The editorial master and production translation are identical and use standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
+  "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "accented": "3B10CDA15B6A50D9B72AE199AD7518DDA969BCF432F9BFA36F6877DB07498245",
-    "production": "3B10CDA15B6A50D9B72AE199AD7518DDA969BCF432F9BFA36F6877DB07498245"
+    "production": "1A7FF2AAB17FA768250251908987908E2FF70B90D63C45769128AB20F501D9CE"
   }
 }
