@@ -70,6 +70,11 @@ class RestoreTests(unittest.TestCase):
                 "original_i18n_files": ["Existing.json"],
                 "created_i18n_files": ["NewTextMap_en.json"],
             })
+            installer.write_json(work_dir / "installed_state.json", {
+                "game_dir": str(game),
+                "official_game_revision": "a" * 32,
+                "patched_game_revision": "b" * 32,
+            })
 
             args = argparse.Namespace(game_dir=str(game), force_open=True)
             with patch.object(installer, "USER_WORK_DIR", work_dir), patch.object(
@@ -82,12 +87,19 @@ class RestoreTests(unittest.TestCase):
             self.assertEqual((live_i18n / "Existing.json").read_text(encoding="utf-8"), "original")
             self.assertFalse((live_i18n / "NewTextMap_en.json").exists())
             self.assertEqual((live_i18n / "OtherMod.json").read_text(encoding="utf-8"), "keep")
+            self.assertFalse((work_dir / "installed_state.json").exists())
 
 
 class VersionAndUpdaterTests(unittest.TestCase):
     def test_game_update_is_read_from_verlist(self) -> None:
         self.assertEqual(installer.parse_game_update("3032670,abc,8110\n"), "3032670")
         self.assertIsNone(installer.parse_game_update("invalid,abc,8110"))
+        info = installer.parse_game_version_info("3032670,7113f88e39827a2d13591a55b395f1c6,8110\n")
+        self.assertEqual(info, {
+            "update": "3032670",
+            "revision": "7113f88e39827a2d13591a55b395f1c6",
+            "manifest_size": 8110,
+        })
 
     def test_installer_asset_is_selected_by_exact_name(self) -> None:
         release = {"assets": [{"name": "notes.zip"}, {"name": installer.INSTALLER_ASSET_NAME, "id": 7}]}
@@ -137,6 +149,29 @@ class VersionAndUpdaterTests(unittest.TestCase):
             self.assertTrue(installer.apply_update_payload(source, target, retries=1, delay=0, launch=False))
             self.assertEqual(source.read_bytes(), b"new")
             self.assertEqual(target.read_bytes(), b"new")
+
+    def test_updated_installer_is_relaunched_with_completion_message(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            source = root / "downloaded.exe"
+            target = root / "installed.exe"
+            source.write_bytes(b"new")
+            target.write_bytes(b"old")
+            args = [installer.UPDATE_COMPLETE_COMMAND, "0.3.1-beta"]
+            with patch.object(installer.subprocess, "Popen") as launched:
+                installer.apply_update_payload(source, target, retries=1, delay=0, launch_args=args)
+            launched.assert_called_once_with([str(target.resolve()), *args], cwd=str(target.resolve().parent))
+
+    def test_update_completion_message_reports_versions(self) -> None:
+        output = io.StringIO()
+        with patch.object(installer, "local_manifest", return_value={"translation_version": "0.3.2-beta"}), patch.object(
+            installer, "enable_console_colors", return_value=False
+        ), redirect_stdout(output):
+            installer.print_update_complete("0.3.1-beta")
+        self.assertIn("AGGIORNAMENTO COMPLETATO", output.getvalue())
+        self.assertIn("v0.3.1-beta", output.getvalue())
+        self.assertIn("v0.3.2-beta", output.getvalue())
+        self.assertIn("riavviato automaticamente", output.getvalue())
 
     def test_tampered_download_is_deleted_and_rejected(self) -> None:
         payload = b"tampered"
@@ -206,29 +241,84 @@ class DetectionTests(unittest.TestCase):
 
     def test_status_panel_reports_path_and_installation(self) -> None:
         status = {
-            "manifest": {"supported_game_updates": [3032670]},
+            "manifest": {
+                "supported_game_updates": [3032670],
+                "supported_game_revisions": ["7113f88e39827a2d13591a55b395f1c6"],
+            },
             "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
             "game_path_source": "automatico",
             "detected_game_update": "3032670",
+            "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
             "translation_installed": True,
-            "update": {"current": "0.3.1-beta", "latest": "v0.3.1-beta", "update_available": False},
+            "text_resources_supported": True,
+            "update": {"current": "0.3.2-beta", "latest": "v0.3.2-beta", "update_available": False},
         }
         output = io.StringIO()
         with redirect_stdout(output):
             installer.print_status_panel(status, colors=False)
         self.assertIn("TROVATO AUTOMATICAMENTE", output.getvalue())
         self.assertIn("INSTALLATA", output.getvalue())
+        self.assertIn("VERIFICATA", output.getvalue())
+        self.assertIn("Compatibilità testi        : ✓ COMPATIBILE", output.getvalue())
+        self.assertIn("github.com/Sici29/Aniimo-Italian-Translation", output.getvalue())
+
+    def test_official_revision_survives_patched_verlist(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            game.mkdir()
+            work = root / "work"
+            official = "a" * 32
+            patched = "b" * 32
+            with patch.object(installer, "USER_WORK_DIR", work):
+                installer.write_json(work / "installed_state.json", {
+                    "game_dir": str(game),
+                    "official_game_revision": official,
+                    "patched_game_revision": patched,
+                })
+                result = installer.effective_game_revision(game, patched, translation_installed=True)
+            self.assertEqual(result, official)
+
+    def test_reinstall_keeps_previously_recorded_official_revision(self) -> None:
+        game = Path(r"F:\Pawprint\Aniimo\game")
+        official = "a" * 32
+        patched = "b" * 32
+        paths = installer.GamePaths(game, game / "lua", game / "lua" / "LuaScripts.xdf", game / "lua" / "LuaScripts.xdt")
+        with patch.object(
+            installer, "read_game_version_info", return_value={"update": "3032670", "revision": patched, "manifest_size": 8110}
+        ), patch.object(installer, "detect_translation_installation", return_value={"installed": True}), patch.object(
+            installer, "effective_game_revision", return_value=official
+        ):
+            info = installer.game_info_before_install(paths)
+        self.assertEqual(info["revision"], official)
+
+    def test_credits_open_project_github(self) -> None:
+        manifest = {
+            "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
+            "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
+            "support_url": "https://buymeacoffee.com/sici29",
+        }
+        with patch.object(installer, "local_manifest", return_value=manifest), patch(
+            "builtins.input", return_value=""
+        ), patch.object(installer.webbrowser, "open", return_value=True) as opened:
+            self.assertEqual(installer.show_credits(), 0)
+        opened.assert_called_once_with(manifest["github_project_url"])
 
 
 class MenuTests(unittest.TestCase):
     def setUp(self) -> None:
         self.status = {
-            "manifest": {"supported_game_updates": [3032670]},
+            "manifest": {
+                "supported_game_updates": [3032670],
+                "supported_game_revisions": ["7113f88e39827a2d13591a55b395f1c6"],
+            },
             "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
             "game_path_source": "automatico",
             "detected_game_update": "3032670",
+            "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
             "translation_installed": True,
-            "update": {"current": "0.3.1-beta", "latest": "v0.3.1-beta", "update_available": False},
+            "text_resources_supported": True,
+            "update": {"current": "0.3.2-beta", "latest": "v0.3.2-beta", "update_available": False},
         }
 
     def test_enter_uses_recommended_install_action(self) -> None:

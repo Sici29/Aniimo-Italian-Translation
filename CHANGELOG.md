@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.2 Beta - 2026-07-11
+
+- Aggiunta la revisione dell'hot update separata dal numero principale del gioco.
+- La compatibilità viene mostrata separatamente ed è determinata dalle chiavi reali dei testi.
+- Registrata e verificata la nuova revisione `7113f88e39827a2d13591a55b395f1c6`, ancora compatibile con tutte le 92.954 chiavi note.
+- La revisione ufficiale viene conservata prima della patch, evitando che l'hash generato dall'installazione venga scambiato per un nuovo hot update.
+- Aggiunti GitHub visibile nel pannello e menu `5` con crediti, segnalazioni e sostegno al progetto.
+- Confermato che l'ultimo aggiornamento del gioco rimuove la traduzione ma non richiede modifiche ai testi italiani.
+- Dopo un aggiornamento automatico, il nuovo installer mostra una conferma verde e si riavvia direttamente nel menu.
+
 ## 0.3.1 Beta - 2026-07-11
 
 - Il pannello indica se il percorso di Aniimo è stato trovato automaticamente o recuperato da quello salvato.

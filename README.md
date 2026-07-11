@@ -33,6 +33,8 @@ Fai doppio clic su `Aniimo-Italian-Translation.exe`, poi premi **Invio**.
 All'apertura compare un riepilogo semplice con:
 
 - versione del gioco supportata e versione rilevata;
+- revisione dell'hot update, anche quando il numero del gioco non cambia;
+- compatibilità reale verificata confrontando tutte le chiavi dei testi;
 - percorso del gioco trovato automaticamente o inserito dall'utente;
 - traduzione italiana già installata oppure non installata;
 - stato di compatibilità evidenziato a colori;
@@ -88,7 +90,8 @@ Documenti\AniimoItalianTranslation\backups
 
 - Copertura: **92.954 / 92.954 stringhe**.
 - Versione del gioco verificata: **3032670**.
-- Versione della traduzione: **0.3.1 beta**.
+- Revisione hot update verificata: **7113f88e39827a2d13591a55b395f1c6**.
+- Versione della traduzione: **0.3.2 beta**.
 - Lingua da selezionare nel gioco: **English**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 
@@ -111,11 +114,24 @@ L'installer controlla automaticamente GitHub Releases a ogni avvio. Quando trova
 3. verifica dimensione e hash **SHA-256** pubblicati da GitHub;
 4. sostituisce il vecchio installer e riapre automaticamente quello nuovo.
 
+Al termine viene mostrata una conferma verde con versione precedente, versione attuale e indicazione che il riavvio automatico è riuscito.
+
 Questa funzione è disponibile dalla versione **0.3.0 beta** in poi. Se il controllo non è disponibile, per esempio perché il PC è offline, installazione e ripristino continuano a funzionare normalmente.
 
 Se Aniimo riceve un aggiornamento non ancora verificato, il pannello lo segnala chiaramente. Il controllo delle chiavi di testo impedisce l'installazione su risorse incompatibili, salvo uso volontario dell'opzione avanzata `--force`.
 
+Alcuni hot update mantengono lo stesso numero di versione del gioco. Per questo l'installer mostra separatamente la revisione delle risorse e la compatibilità effettiva dei testi. La revisione ufficiale viene conservata anche dopo l'applicazione della traduzione.
+
 Se l'aggiornamento automatico non riesce, l'installer mostra sempre il collegamento per il download manuale.
+
+## Crediti e collegamenti
+
+L'installer mostra il collegamento GitHub direttamente nel pannello. Con l'opzione `5` è possibile visualizzare:
+
+- crediti del progetto e della traduzione italiana: **Sici29**;
+- repository GitHub;
+- pagina per segnalare problemi;
+- collegamento per sostenere il progetto.
 
 ## Segnala un problema
 

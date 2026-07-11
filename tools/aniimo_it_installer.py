@@ -20,6 +20,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+import webbrowser
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -52,6 +53,7 @@ DATA_DIR = BUNDLE_DIR / "data"
 USER_WORK_DIR = Path.home() / "Documents" / "AniimoItalianTranslation"
 INSTALLER_ASSET_NAME = "Aniimo-Italian-Translation.exe"
 UPDATE_APPLY_COMMAND = "_apply-update"
+UPDATE_COMPLETE_COMMAND = "--update-complete"
 UPDATE_SCHEDULED = 20
 
 
@@ -102,16 +104,33 @@ def parse_game_update(raw: str) -> str | None:
     return first if first.isdigit() else None
 
 
-def read_game_update(game_dir: Path) -> str | None:
+def parse_game_version_info(raw: str) -> dict:
+    parts = raw.lstrip("\ufeff").strip().split(",")
+    update = parts[0].strip() if parts and parts[0].strip().isdigit() else None
+    revision = parts[1].strip().lower() if len(parts) > 1 and re.fullmatch(r"[0-9a-fA-F]{32,64}", parts[1].strip()) else None
+    manifest_size = int(parts[2]) if len(parts) > 2 and parts[2].strip().isdigit() else None
+    return {"update": update, "revision": revision, "manifest_size": manifest_size}
+
+
+def read_game_version_info(game_dir: Path) -> dict:
     verlist = game_dir / "verlist.txt"
     if not verlist.is_file():
-        return None
-    return parse_game_update(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+        return {"update": None, "revision": None, "manifest_size": None}
+    return parse_game_version_info(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+
+
+def read_game_update(game_dir: Path) -> str | None:
+    return read_game_version_info(game_dir)["update"]
 
 
 def supported_game_updates(manifest: dict) -> list[str]:
     values = manifest.get("supported_game_updates") or []
     return [str(value) for value in values if str(value).isdigit()]
+
+
+def supported_game_revisions(manifest: dict) -> list[str]:
+    values = manifest.get("supported_game_revisions") or []
+    return [str(value).lower() for value in values if re.fullmatch(r"[0-9a-fA-F]{32,64}", str(value))]
 
 
 def load_settings() -> dict:
@@ -127,6 +146,67 @@ def load_settings() -> dict:
 
 def save_game_dir(game_dir: Path) -> None:
     write_json(USER_WORK_DIR / "settings.json", {"game_dir": str(game_dir.resolve())})
+
+
+def load_installed_state() -> dict:
+    path = USER_WORK_DIR / "installed_state.json"
+    if not path.is_file():
+        return {}
+    try:
+        data = read_json(path)
+        return data if isinstance(data, dict) else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def effective_game_revision(game_dir: Path, current_revision: str | None, translation_installed: bool) -> str | None:
+    if not translation_installed:
+        return current_revision
+    state = load_installed_state()
+    try:
+        same_game = Path(str(state.get("game_dir") or "")).resolve() == game_dir.resolve()
+    except (OSError, ValueError):
+        same_game = False
+    patched_revision = str(state.get("patched_game_revision") or "").lower()
+    official_revision = str(state.get("official_game_revision") or "").lower()
+    if same_game and current_revision == patched_revision and re.fullmatch(r"[0-9a-f]{32,64}", official_revision):
+        return official_revision
+    return current_revision
+
+
+def record_installed_state(paths: GamePaths, official_info: dict) -> None:
+    patched_info = read_game_version_info(paths.game_dir)
+    write_json(USER_WORK_DIR / "installed_state.json", {
+        "game_dir": str(paths.game_dir.resolve()),
+        "translation_version": str(local_manifest().get("translation_version", "")),
+        "game_update": official_info.get("update"),
+        "official_game_revision": official_info.get("revision"),
+        "patched_game_revision": patched_info.get("revision"),
+        "installed_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+    })
+
+
+def game_info_before_install(paths: GamePaths) -> dict:
+    info = read_game_version_info(paths.game_dir)
+    try:
+        installed = detect_translation_installation(paths.game_dir)["installed"]
+        info["revision"] = effective_game_revision(paths.game_dir, info.get("revision"), installed)
+    except (FileNotFoundError, OSError, ValueError, KeyError, zipfile.BadZipFile, json.JSONDecodeError):
+        pass
+    return info
+
+
+def clear_installed_state(game_dir: Path) -> None:
+    path = USER_WORK_DIR / "installed_state.json"
+    if not path.is_file():
+        return
+    state = load_installed_state()
+    try:
+        same_game = Path(str(state.get("game_dir") or "")).resolve() == game_dir.resolve()
+    except (OSError, ValueError):
+        same_game = False
+    if same_game:
+        path.unlink()
 
 
 def write_json(path: Path, data: object) -> None:
@@ -351,7 +431,12 @@ def detect_translation_installation(game_dir: Path) -> dict:
     translations = load_translations()
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, source_records, _ = load_language(zf, "en")
-    return translation_match_status(source_records, translations)
+    result = translation_match_status(source_records, translations)
+    compatibility = check_supported(source_records, force=True)
+    result["texts_supported"] = compatibility["supported"]
+    result["key_count"] = compatibility["key_count"]
+    result["key_sha256"] = compatibility["key_sha256"]
+    return result
 
 
 def check_supported(source_records: list[dict], force: bool) -> dict:
@@ -473,7 +558,14 @@ def download_update_asset(asset: dict, destination: Path) -> str:
             partial.unlink()
 
 
-def apply_update_payload(source: Path, target: Path, retries: int = 120, delay: float = 0.5, launch: bool = True) -> bool:
+def apply_update_payload(
+    source: Path,
+    target: Path,
+    retries: int = 120,
+    delay: float = 0.5,
+    launch: bool = True,
+    launch_args: list[str] | None = None,
+) -> bool:
     """Replace the old EXE after it exits. This runs from the downloaded new EXE."""
     source = source.resolve()
     target = target.resolve()
@@ -486,7 +578,7 @@ def apply_update_payload(source: Path, target: Path, retries: int = 120, delay: 
             shutil.copy2(source, staging)
             os.replace(staging, target)
             if launch:
-                subprocess.Popen([str(target)], cwd=str(target.parent))
+                subprocess.Popen([str(target), *(launch_args or [])], cwd=str(target.parent))
             return True
         except (PermissionError, OSError) as exc:
             last_error = exc
@@ -514,7 +606,14 @@ def schedule_self_update(status: dict) -> bool:
     print("Download verificato (SHA-256):", verified_hash.upper())
     creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
     subprocess.Popen(
-        [str(downloaded), UPDATE_APPLY_COMMAND, "--target-exe", str(Path(sys.executable).resolve())],
+        [
+            str(downloaded),
+            UPDATE_APPLY_COMMAND,
+            "--target-exe",
+            str(Path(sys.executable).resolve()),
+            "--previous-version",
+            str(status.get("current") or ""),
+        ],
         cwd=str(downloaded.parent),
         creationflags=creationflags,
     )
@@ -525,7 +624,10 @@ def schedule_self_update(status: dict) -> bool:
 def cmd_apply_update(args: argparse.Namespace) -> int:
     log_path = USER_WORK_DIR / "update_error.txt"
     try:
-        apply_update_payload(Path(sys.executable), Path(args.target_exe))
+        completion_args = [UPDATE_COMPLETE_COMMAND]
+        if args.previous_version:
+            completion_args.append(str(args.previous_version))
+        apply_update_payload(Path(sys.executable), Path(args.target_exe), launch_args=completion_args)
         if log_path.exists():
             log_path.unlink()
         return 0
@@ -763,7 +865,9 @@ def cmd_check(args: argparse.Namespace) -> int:
         status = check_supported(source_records, args.force)
     print("Cartella gioco:", paths.game_dir)
     print("Risorse Lua:", paths.lua_dir)
-    print("Versione gioco rilevata:", read_game_update(paths.game_dir) or "non disponibile")
+    version_info = read_game_version_info(paths.game_dir)
+    print("Versione gioco rilevata:", version_info["update"] or "non disponibile")
+    print("Revisione hot update:", version_info["revision"] or "non disponibile")
     print("Versioni gioco dichiarate compatibili:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
     print("Stringhe:", status["key_count"])
     print("Versione supportata:", "sì" if status["supported"] else "no")
@@ -782,6 +886,7 @@ def cmd_install(args: argparse.Namespace) -> int:
         print("Chiudi prima gioco/launcher:", ", ".join(running))
         return 2
     paths = resolve_paths(resolve_game_dir(args.game_dir))
+    official_info = game_info_before_install(paths)
     target_langs = [args.target]
     if args.also_english and "en" not in target_langs:
         target_langs.append("en")
@@ -793,6 +898,7 @@ def cmd_install(args: argparse.Namespace) -> int:
     patch_dir, stats = build_patch(paths, target_langs, args.force)
     record_created_i18n_files(backup, patch_dir)
     copy_patch_into_game(paths, patch_dir)
+    record_installed_state(paths, official_info)
     print("Patch installata.")
     print("Lingua da selezionare in gioco:", "English" if "en" in target_langs else "Tiếng Việt")
     print("Statistiche:", json.dumps(stats.get("languages", {}), ensure_ascii=False))
@@ -842,6 +948,7 @@ def cmd_restore(args: argparse.Namespace) -> int:
         src = backup / name
         if src.exists():
             shutil.copy2(src, paths.game_dir / name)
+    clear_installed_state(paths.game_dir)
     print("Backup ripristinato:", backup)
     return 0
 
@@ -875,21 +982,29 @@ def collect_startup_status() -> dict:
         "game_dir": None,
         "game_path_source": None,
         "detected_game_update": None,
+        "detected_game_revision": None,
         "translation_installed": None,
         "translation_match_ratio": None,
+        "text_resources_supported": None,
         "update": check_for_updates(silent=True),
     }
     try:
         game_dir, source = resolve_game_dir_with_source(None)
         result["game_dir"] = game_dir
         result["game_path_source"] = source
-        result["detected_game_update"] = read_game_update(game_dir)
+        version_info = read_game_version_info(game_dir)
+        result["detected_game_update"] = version_info["update"]
+        result["detected_game_revision"] = version_info["revision"]
     except (FileNotFoundError, OSError):
         return result
     try:
         translation = detect_translation_installation(game_dir)
         result["translation_installed"] = translation["installed"]
         result["translation_match_ratio"] = translation["ratio"]
+        result["text_resources_supported"] = translation["texts_supported"]
+        result["detected_game_revision"] = effective_game_revision(
+            game_dir, result["detected_game_revision"], translation["installed"]
+        )
     except (FileNotFoundError, OSError, ValueError, KeyError, zipfile.BadZipFile, json.JSONDecodeError):
         pass
     return result
@@ -899,8 +1014,11 @@ def print_status_panel(status: dict, colors: bool) -> None:
     manifest = status["manifest"]
     update = status["update"]
     supported = supported_game_updates(manifest)
+    supported_revisions = supported_game_revisions(manifest)
     supported_label = ", ".join(supported) or "Non specificata"
     detected = status.get("detected_game_update")
+    revision = status.get("detected_game_revision")
+    texts_supported = status.get("text_resources_supported")
     game_dir = status.get("game_dir")
     path_source = status.get("game_path_source")
     installed = status.get("translation_installed")
@@ -908,7 +1026,7 @@ def print_status_panel(status: dict, colors: bool) -> None:
     latest = str(update.get("latest") or current)
 
     if detected and str(detected) in supported:
-        detected_label = color_text(f"{detected}  ✓ COMPATIBILE", ConsoleColor.GREEN, colors)
+        detected_label = color_text(str(detected), ConsoleColor.CYAN, colors)
     elif detected:
         detected_label = color_text(f"{detected}  ⚠ NON ANCORA VERIFICATA", ConsoleColor.YELLOW, colors)
     else:
@@ -920,6 +1038,20 @@ def print_status_panel(status: dict, colors: bool) -> None:
         latest_label = color_text(f"{latest}  ← NUOVA", ConsoleColor.GREEN, colors)
     else:
         latest_label = color_text("Nessuna  ✓ AGGIORNATO", ConsoleColor.GREEN, colors)
+
+    if revision and str(revision).lower() in supported_revisions:
+        revision_label = color_text(f"{str(revision)[:12]}…  ✓ VERIFICATA", ConsoleColor.GREEN, colors)
+    elif revision:
+        revision_label = color_text(f"{str(revision)[:12]}…  ⚠ NUOVA", ConsoleColor.YELLOW, colors)
+    else:
+        revision_label = color_text("Non rilevata", ConsoleColor.YELLOW, colors)
+
+    if texts_supported is True:
+        compatibility_label = color_text("✓ COMPATIBILE", ConsoleColor.GREEN, colors)
+    elif texts_supported is False:
+        compatibility_label = color_text("✗ NON SUPPORTATA", ConsoleColor.RED, colors)
+    else:
+        compatibility_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
 
     if game_dir:
         if path_source == "automatico":
@@ -942,9 +1074,30 @@ def print_status_panel(status: dict, colors: bool) -> None:
     print(f"Traduzione italiana        : {installed_label}")
     print(f"Versione gioco supportata  : {color_text(supported_label, ConsoleColor.CYAN, colors)}")
     print(f"Versione gioco rilevata    : {detected_label}")
+    print(f"Revisione hot update       : {revision_label}")
+    print(f"Compatibilità testi        : {compatibility_label}")
     print(f"Versione installer attuale : {color_text(current, ConsoleColor.CYAN, colors)}")
     print(f"Nuova versione disponibile : {latest_label}")
     print("=" * 58)
+    print("GitHub: https://github.com/Sici29/Aniimo-Italian-Translation")
+
+
+def show_credits() -> int:
+    manifest = local_manifest()
+    github_url = str(manifest.get("github_project_url") or "https://github.com/Sici29/Aniimo-Italian-Translation")
+    issues_url = str(manifest.get("github_issues_url") or github_url + "/issues")
+    support_url = str(manifest.get("support_url") or "https://buymeacoffee.com/sici29")
+    print("Aniimo - Traduzione Italiana")
+    print("=" * 58)
+    print("Progetto e traduzione : Sici29")
+    print("GitHub                :", github_url)
+    print("Segnala un problema   :", issues_url)
+    print("Sostieni il progetto  :", support_url)
+    print("=" * 58)
+    answer = input("Vuoi aprire la pagina GitHub nel browser? [S/n]: ").strip().lower()
+    if answer in {"", "s", "si", "sì", "y", "yes"}:
+        webbrowser.open(github_url)
+    return 0
 
 
 def run_menu() -> int:
@@ -976,6 +1129,7 @@ def run_menu() -> int:
     print("2. Ripristina i file originali")
     print("3. Controlla se esiste una nuova versione")
     print("4. Indica o modifica la cartella di Aniimo")
+    print("5. Crediti, GitHub e sostieni il progetto")
     print("0. Esci")
     print()
     choice = input("Scelta [Invio = installa]: ").strip() or "1"
@@ -992,8 +1146,10 @@ def run_menu() -> int:
         return cmd_update(Args())
     if choice == "4":
         return run_menu() if configure_game_dir() else 1
+    if choice == "5":
+        return show_credits()
     if choice != "1":
-        print("Scelta non valida. Riapri l'installer e digita 1, 2, 3, 4 oppure 0.")
+        print("Scelta non valida. Riapri l'installer e digita 1, 2, 3, 4, 5 oppure 0.")
         return 1
     class Args:
         game_dir = None
@@ -1014,9 +1170,29 @@ def pause_if_needed(enabled: bool) -> None:
             pass
 
 
+def print_update_complete(previous_version: str | None) -> None:
+    colors = enable_console_colors()
+    current = str(local_manifest().get("translation_version", "versione nuova"))
+    print(color_text("✓ AGGIORNAMENTO COMPLETATO", ConsoleColor.BOLD + ConsoleColor.GREEN, colors))
+    if previous_version:
+        print(f"Versione precedente : v{previous_version.lstrip('v')}")
+    print(f"Versione attuale    : v{current.lstrip('v')}")
+    print("L'installer è stato riavviato automaticamente.")
+    print()
+
+
 def main() -> int:
     menu_mode = len(sys.argv) == 1
     if menu_mode:
+        code = run_menu()
+        if code == UPDATE_SCHEDULED:
+            return 0
+        pause_if_needed(True)
+        return code
+
+    if sys.argv[1] == UPDATE_COMPLETE_COMMAND:
+        previous_version = sys.argv[2] if len(sys.argv) > 2 else None
+        print_update_complete(previous_version)
         code = run_menu()
         if code == UPDATE_SCHEDULED:
             return 0
@@ -1027,6 +1203,7 @@ def main() -> int:
         internal = argparse.ArgumentParser(add_help=False)
         internal.add_argument(UPDATE_APPLY_COMMAND)
         internal.add_argument("--target-exe", required=True)
+        internal.add_argument("--previous-version", default="")
         try:
             return cmd_apply_update(internal.parse_args())
         except Exception:
