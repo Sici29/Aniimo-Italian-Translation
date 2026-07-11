@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 Beta - 2026-07-11
+
+- Aggiunto l'aggiornamento automatico direttamente da GitHub Releases.
+- Il nuovo EXE viene accettato soltanto dopo la verifica di dimensione e hash SHA-256.
+- Aggiunta la sostituzione sicura dell'installer in uso con riavvio automatico su Windows.
+- Nuovo pannello iniziale con versione gioco supportata e rilevata, compatibilità colorata, versione installer attuale e nuova versione disponibile.
+- Aggiunto il rilevamento reale della versione di Aniimo tramite `verlist.txt`.
+- Corretta la versione gioco verificata da `3036569` a `3032670`, riscontrata nell'installazione e nel backup originali.
+- Estesi i test automatici dell'installer da 5 a 12, includendo download alterati, confronto versioni e sostituzione dell'EXE.
+
 ## 0.2.1 Beta - 2026-07-11
 
 - Seconda revisione completa dedicata alla naturalezza dell'italiano.

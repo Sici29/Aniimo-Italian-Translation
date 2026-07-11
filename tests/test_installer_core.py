@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import json
 import struct
@@ -81,20 +82,124 @@ class RestoreTests(unittest.TestCase):
             self.assertEqual((live_i18n / "OtherMod.json").read_text(encoding="utf-8"), "keep")
 
 
+class VersionAndUpdaterTests(unittest.TestCase):
+    def test_game_update_is_read_from_verlist(self) -> None:
+        self.assertEqual(installer.parse_game_update("3032670,abc,8110\n"), "3032670")
+        self.assertIsNone(installer.parse_game_update("invalid,abc,8110"))
+
+    def test_installer_asset_is_selected_by_exact_name(self) -> None:
+        release = {"assets": [{"name": "notes.zip"}, {"name": installer.INSTALLER_ASSET_NAME, "id": 7}]}
+        self.assertEqual(installer.find_installer_asset(release)["id"], 7)
+
+    def test_stable_release_is_newer_than_same_beta(self) -> None:
+        self.assertGreater(installer.normalize_version("v0.3.0"), installer.normalize_version("0.3.0-beta"))
+
+    def test_download_requires_and_verifies_github_sha256(self) -> None:
+        payload = b"new installer bytes"
+
+        class Response:
+            def __init__(self) -> None:
+                self.position = 0
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self, size: int = -1) -> bytes:
+                if self.position:
+                    return b""
+                self.position = len(payload)
+                return payload
+
+        asset = {
+            "browser_download_url": "https://github.com/owner/repo/releases/download/v1/installer.exe",
+            "digest": "sha256:" + hashlib.sha256(payload).hexdigest(),
+            "size": len(payload),
+        }
+        with tempfile.TemporaryDirectory() as temp_dir, patch.object(
+            installer.urllib.request, "urlopen", return_value=Response()
+        ):
+            target = Path(temp_dir) / "installer.exe"
+            installer.download_update_asset(asset, target)
+            self.assertEqual(target.read_bytes(), payload)
+
+    def test_apply_update_keeps_source_and_replaces_target(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            source = root / "downloaded.exe"
+            target = root / "installed.exe"
+            source.write_bytes(b"new")
+            target.write_bytes(b"old")
+            self.assertTrue(installer.apply_update_payload(source, target, retries=1, delay=0, launch=False))
+            self.assertEqual(source.read_bytes(), b"new")
+            self.assertEqual(target.read_bytes(), b"new")
+
+    def test_tampered_download_is_deleted_and_rejected(self) -> None:
+        payload = b"tampered"
+
+        class Response:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self, size: int = -1) -> bytes:
+                returned, payload_holder[0] = payload_holder[0], b""
+                return returned
+
+        payload_holder = [payload]
+        asset = {
+            "browser_download_url": "https://github.com/owner/repo/releases/download/v1/installer.exe",
+            "digest": "sha256:" + ("0" * 64),
+            "size": len(payload),
+        }
+        with tempfile.TemporaryDirectory() as temp_dir, patch.object(
+            installer.urllib.request, "urlopen", return_value=Response()
+        ):
+            target = Path(temp_dir) / "installer.exe"
+            with self.assertRaises(RuntimeError):
+                installer.download_update_asset(asset, target)
+            self.assertFalse(target.exists())
+            self.assertFalse(target.with_suffix(".exe.download").exists())
+
+
 class MenuTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.status = {
+            "manifest": {"supported_game_updates": [3032670]},
+            "detected_game_update": "3032670",
+            "update": {"current": "0.3.0-beta", "latest": "v0.3.0-beta", "update_available": False},
+        }
+
     def test_enter_uses_recommended_install_action(self) -> None:
         with patch("builtins.input", return_value=""), patch.object(
             installer, "cmd_install", return_value=0
-        ) as install:
+        ) as install, patch.object(installer, "collect_startup_status", return_value=self.status):
             self.assertEqual(installer.run_menu(), 0)
         install.assert_called_once()
 
     def test_unknown_choice_does_not_install(self) -> None:
         with patch("builtins.input", return_value="abc"), patch.object(
             installer, "cmd_install", return_value=0
-        ) as install:
+        ) as install, patch.object(installer, "collect_startup_status", return_value=self.status):
             self.assertEqual(installer.run_menu(), 1)
         install.assert_not_called()
+
+    def test_available_update_is_scheduled_with_default_yes(self) -> None:
+        status = dict(self.status)
+        status["update"] = {
+            "current": "0.3.0-beta",
+            "latest": "v0.4.0-beta",
+            "update_available": True,
+        }
+        with patch("builtins.input", return_value=""), patch.object(
+            installer, "collect_startup_status", return_value=status
+        ), patch.object(installer, "cmd_update", return_value=installer.UPDATE_SCHEDULED) as update:
+            self.assertEqual(installer.run_menu(), installer.UPDATE_SCHEDULED)
+        update.assert_called_once()
 
 
 if __name__ == "__main__":

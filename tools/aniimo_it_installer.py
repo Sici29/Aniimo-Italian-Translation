@@ -50,6 +50,18 @@ else:
 
 DATA_DIR = BUNDLE_DIR / "data"
 USER_WORK_DIR = Path.home() / "Documents" / "AniimoItalianTranslation"
+INSTALLER_ASSET_NAME = "Aniimo-Italian-Translation.exe"
+UPDATE_APPLY_COMMAND = "_apply-update"
+UPDATE_SCHEDULED = 20
+
+
+class ConsoleColor:
+    RESET = "\033[0m"
+    BOLD = "\033[1m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    CYAN = "\033[96m"
 
 
 @dataclass(frozen=True)
@@ -82,6 +94,24 @@ def read_json(path: Path) -> dict:
 
 def local_manifest() -> dict:
     return read_json(DATA_DIR / "supported_versions.json")
+
+
+def parse_game_update(raw: str) -> str | None:
+    """Return the numeric Aniimo update stored in verlist.txt."""
+    first = raw.lstrip("\ufeff").strip().split(",", 1)[0].strip()
+    return first if first.isdigit() else None
+
+
+def read_game_update(game_dir: Path) -> str | None:
+    verlist = game_dir / "verlist.txt"
+    if not verlist.is_file():
+        return None
+    return parse_game_update(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+
+
+def supported_game_updates(manifest: dict) -> list[str]:
+    values = manifest.get("supported_game_updates") or []
+    return [str(value) for value in values if str(value).isdigit()]
 
 
 def write_json(path: Path, data: object) -> None:
@@ -246,12 +276,12 @@ def check_supported(source_records: list[dict], force: bool) -> dict:
 
 def normalize_version(version: str) -> tuple[int, ...]:
     raw = version.strip().lower().lstrip("v")
-    raw = raw.replace("-beta", ".0").replace("beta", ".0")
-    nums = []
-    for part in re.split(r"[^0-9]+", raw):
-        if part:
-            nums.append(int(part))
-    return tuple(nums or [0])
+    core, separator, suffix = raw.partition("-")
+    nums = [int(part) for part in re.findall(r"\d+", core)]
+    nums = (nums + [0, 0, 0])[:3]
+    stable_rank = 1 if not separator else 0
+    suffix_nums = [int(part) for part in re.findall(r"\d+", suffix)]
+    return tuple(nums + [stable_rank] + suffix_nums)
 
 
 def fetch_latest_release(manifest: dict) -> dict | None:
@@ -264,12 +294,26 @@ def fetch_latest_release(manifest: dict) -> dict | None:
         return json.loads(response.read().decode("utf-8"))
 
 
+def find_installer_asset(release: dict) -> dict | None:
+    for asset in release.get("assets") or []:
+        if asset.get("name") == INSTALLER_ASSET_NAME:
+            return asset
+    return None
+
+
 def check_for_updates(silent: bool = False) -> dict:
     manifest = local_manifest()
     current = str(manifest.get("translation_version", "0.0.0"))
     repo = manifest.get("github_repo", "")
     releases_url = manifest.get("github_releases_url") or (f"https://github.com/{repo}/releases" if repo else "")
-    result = {"current": current, "latest": current, "update_available": False, "releases_url": releases_url}
+    result = {
+        "current": current,
+        "latest": current,
+        "update_available": False,
+        "releases_url": releases_url,
+        "release": None,
+        "asset": None,
+    }
     try:
         latest = fetch_latest_release(manifest)
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError) as exc:
@@ -280,6 +324,8 @@ def check_for_updates(silent: bool = False) -> dict:
     if not latest:
         return result
     tag = str(latest.get("tag_name") or latest.get("name") or current)
+    result["release"] = latest
+    result["asset"] = find_installer_asset(latest)
     result["latest"] = tag
     result["releases_url"] = latest.get("html_url") or releases_url
     result["update_available"] = normalize_version(tag) > normalize_version(current)
@@ -290,6 +336,107 @@ def check_for_updates(silent: bool = False) -> dict:
         else:
             print("Traduzione aggiornata:", current)
     return result
+
+
+def download_update_asset(asset: dict, destination: Path) -> str:
+    url = str(asset.get("browser_download_url") or "")
+    digest = str(asset.get("digest") or "")
+    if not url.startswith("https://github.com/"):
+        raise RuntimeError("Indirizzo di download GitHub non valido.")
+    if not digest.lower().startswith("sha256:"):
+        raise RuntimeError("GitHub non ha fornito l'hash SHA-256: aggiornamento automatico annullato.")
+    expected_hash = digest.split(":", 1)[1].lower()
+    expected_size = int(asset.get("size") or 0)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    partial = destination.with_suffix(destination.suffix + ".download")
+    request = urllib.request.Request(url, headers={"User-Agent": "AniimoItalianTranslationInstaller"})
+    h = hashlib.sha256()
+    size = 0
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response, partial.open("wb") as output:
+            while True:
+                chunk = response.read(1024 * 1024)
+                if not chunk:
+                    break
+                output.write(chunk)
+                h.update(chunk)
+                size += len(chunk)
+        if expected_size and size != expected_size:
+            raise RuntimeError(f"Dimensione download non valida: attesi {expected_size} byte, ricevuti {size}.")
+        actual_hash = h.hexdigest().lower()
+        if actual_hash != expected_hash:
+            raise RuntimeError("Hash SHA-256 non valido: il file scaricato non verrà eseguito.")
+        os.replace(partial, destination)
+        return actual_hash
+    finally:
+        if partial.exists():
+            partial.unlink()
+
+
+def apply_update_payload(source: Path, target: Path, retries: int = 120, delay: float = 0.5, launch: bool = True) -> bool:
+    """Replace the old EXE after it exits. This runs from the downloaded new EXE."""
+    source = source.resolve()
+    target = target.resolve()
+    if source == target or target.suffix.lower() != ".exe":
+        raise ValueError("Percorso di aggiornamento non valido.")
+    staging = target.with_name(target.name + ".new")
+    last_error: Exception | None = None
+    for _ in range(retries):
+        try:
+            shutil.copy2(source, staging)
+            os.replace(staging, target)
+            if launch:
+                subprocess.Popen([str(target)], cwd=str(target.parent))
+            return True
+        except (PermissionError, OSError) as exc:
+            last_error = exc
+            time.sleep(delay)
+        finally:
+            if staging.exists():
+                try:
+                    staging.unlink()
+                except OSError:
+                    pass
+    raise RuntimeError(f"Impossibile sostituire il vecchio installer: {last_error}")
+
+
+def schedule_self_update(status: dict) -> bool:
+    if os.name != "nt" or not getattr(sys, "frozen", False):
+        print("L'aggiornamento automatico è disponibile nell'installer EXE per Windows.")
+        return False
+    asset = status.get("asset")
+    if not asset:
+        raise RuntimeError("La release più recente non contiene l'installer previsto.")
+    tag = re.sub(r"[^A-Za-z0-9._-]+", "_", str(status.get("latest") or "latest"))
+    downloaded = USER_WORK_DIR / "updates" / tag / INSTALLER_ASSET_NAME
+    print("Scarico il nuovo installer da GitHub...")
+    verified_hash = download_update_asset(asset, downloaded)
+    print("Download verificato (SHA-256):", verified_hash.upper())
+    creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    subprocess.Popen(
+        [str(downloaded), UPDATE_APPLY_COMMAND, "--target-exe", str(Path(sys.executable).resolve())],
+        cwd=str(downloaded.parent),
+        creationflags=creationflags,
+    )
+    print("Aggiornamento pronto. L'installer verrà riaperto automaticamente.")
+    return True
+
+
+def cmd_apply_update(args: argparse.Namespace) -> int:
+    log_path = USER_WORK_DIR / "update_error.txt"
+    try:
+        apply_update_payload(Path(sys.executable), Path(args.target_exe))
+        if log_path.exists():
+            log_path.unlink()
+        return 0
+    except Exception as exc:
+        USER_WORK_DIR.mkdir(parents=True, exist_ok=True)
+        log_path.write_text(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {exc}\n", encoding="utf-8")
+        try:
+            subprocess.Popen([str(Path(sys.executable).resolve())], cwd=str(Path(sys.executable).resolve().parent))
+        except OSError:
+            pass
+        return 1
 
 
 def build_map_and_bin(source_records: list[dict], translations: dict[str, str], header: bytes) -> tuple[bytes, bytes, dict]:
@@ -468,7 +615,11 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
     translations = load_translations()
     patch_dir = USER_WORK_DIR / "patches" / time.strftime("%Y%m%d-%H%M%S")
     replacements: dict[str, bytes] = {}
-    stats: dict[str, object] = {"target_languages": target_langs, "languages": {}}
+    stats: dict[str, object] = {
+        "target_languages": target_langs,
+        "game_update": read_game_update(paths.game_dir),
+        "languages": {},
+    }
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, source_records, _ = load_language(zf, "en")
         stats["version_check"] = check_supported(source_records, force)
@@ -512,6 +663,8 @@ def cmd_check(args: argparse.Namespace) -> int:
         status = check_supported(source_records, args.force)
     print("Cartella gioco:", paths.game_dir)
     print("Risorse Lua:", paths.lua_dir)
+    print("Versione gioco rilevata:", read_game_update(paths.game_dir) or "non disponibile")
+    print("Versioni gioco dichiarate compatibili:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
     print("Stringhe:", status["key_count"])
     print("Versione supportata:", "sì" if status["supported"] else "no")
     return 0
@@ -549,9 +702,12 @@ def cmd_install(args: argparse.Namespace) -> int:
 def cmd_update(args: argparse.Namespace) -> int:
     status = check_for_updates()
     if status.get("update_available"):
-        print("Apri la pagina Releases e scarica l'ultima versione:")
-        print(status.get("releases_url", ""))
-        return 1
+        try:
+            return UPDATE_SCHEDULED if schedule_self_update(status) else 1
+        except Exception as exc:
+            print("Aggiornamento automatico non riuscito:", exc)
+            print("Puoi scaricarlo manualmente da:", status.get("releases_url", ""))
+            return 1
     return 0
 
 
@@ -590,8 +746,93 @@ def cmd_restore(args: argparse.Namespace) -> int:
     return 0
 
 
+def color_text(text: str, color: str, enabled: bool) -> str:
+    return f"{color}{text}{ConsoleColor.RESET}" if enabled else text
+
+
+def enable_console_colors() -> bool:
+    if not sys.stdout.isatty():
+        return False
+    if os.name != "nt":
+        return True
+    try:
+        import ctypes
+
+        kernel32 = ctypes.windll.kernel32
+        handle = kernel32.GetStdHandle(-11)
+        mode = ctypes.c_uint32()
+        if not kernel32.GetConsoleMode(handle, ctypes.byref(mode)):
+            return False
+        return bool(kernel32.SetConsoleMode(handle, mode.value | 0x0004))
+    except Exception:
+        return False
+
+
+def collect_startup_status() -> dict:
+    manifest = local_manifest()
+    result: dict[str, object] = {
+        "manifest": manifest,
+        "game_dir": None,
+        "detected_game_update": None,
+        "update": check_for_updates(silent=True),
+    }
+    try:
+        game_dir = resolve_game_dir(None)
+        result["game_dir"] = game_dir
+        result["detected_game_update"] = read_game_update(game_dir)
+    except (FileNotFoundError, OSError):
+        pass
+    return result
+
+
+def print_status_panel(status: dict, colors: bool) -> None:
+    manifest = status["manifest"]
+    update = status["update"]
+    supported = supported_game_updates(manifest)
+    supported_label = ", ".join(supported) or "Non specificata"
+    detected = status.get("detected_game_update")
+    current = f"v{str(update.get('current', '0.0.0')).lstrip('v')}"
+    latest = str(update.get("latest") or current)
+
+    if detected and str(detected) in supported:
+        detected_label = color_text(f"{detected}  ✓ COMPATIBILE", ConsoleColor.GREEN, colors)
+    elif detected:
+        detected_label = color_text(f"{detected}  ⚠ NON ANCORA VERIFICATA", ConsoleColor.YELLOW, colors)
+    else:
+        detected_label = color_text("Non rilevata", ConsoleColor.YELLOW, colors)
+
+    if update.get("error"):
+        latest_label = color_text("Controllo non disponibile (offline)", ConsoleColor.YELLOW, colors)
+    elif update.get("update_available"):
+        latest_label = color_text(f"{latest}  ← NUOVA", ConsoleColor.GREEN, colors)
+    else:
+        latest_label = color_text("Nessuna  ✓ AGGIORNATO", ConsoleColor.GREEN, colors)
+
+    print(color_text("Aniimo - Traduzione Italiana", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
+    print("=" * 58)
+    print(f"Versione gioco supportata  : {color_text(supported_label, ConsoleColor.CYAN, colors)}")
+    print(f"Versione gioco rilevata    : {detected_label}")
+    print(f"Versione installer attuale : {color_text(current, ConsoleColor.CYAN, colors)}")
+    print(f"Nuova versione disponibile : {latest_label}")
+    print("=" * 58)
+
+
 def run_menu() -> int:
-    print("Aniimo - Traduzione Italiana")
+    colors = enable_console_colors()
+    startup = collect_startup_status()
+    print_status_panel(startup, colors)
+    update = startup["update"]
+    if update.get("update_available"):
+        print()
+        answer = input("Vuoi aggiornare automaticamente ora? [S/n]: ").strip().lower()
+        if answer in {"", "s", "si", "sì", "y", "yes"}:
+            class UpdateArgs:
+                pass
+            result = cmd_update(UpdateArgs())
+            if result == UPDATE_SCHEDULED:
+                return result
+            print()
+            print("Puoi continuare con la versione attuale oppure scaricare manualmente la nuova release.")
     print()
     print("1. Installa o aggiorna la traduzione (consigliato)")
     print("2. Ripristina i file originali")
@@ -636,8 +877,19 @@ def main() -> int:
     menu_mode = len(sys.argv) == 1
     if menu_mode:
         code = run_menu()
+        if code == UPDATE_SCHEDULED:
+            return 0
         pause_if_needed(True)
         return code
+
+    if sys.argv[1] == UPDATE_APPLY_COMMAND:
+        internal = argparse.ArgumentParser(add_help=False)
+        internal.add_argument(UPDATE_APPLY_COMMAND)
+        internal.add_argument("--target-exe", required=True)
+        try:
+            return cmd_apply_update(internal.parse_args())
+        except Exception:
+            return 1
 
     parser = argparse.ArgumentParser(description="Aniimo Italian Translation installer")
     sub = parser.add_subparsers(dest="command", required=True)
