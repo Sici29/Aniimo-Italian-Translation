@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.5 Beta - 2026-07-11
+
+- Individuata la causa delle frasi inglesi ancora visibili: 364 chiavi dello slot English ufficiale contenevano il solo valore `0`, attivando testi inglesi di fallback a runtime.
+- Recuperate e tradotte dalle altre localizzazioni ufficiali 359 voci significative; conservati soltanto 5 zeri realmente tecnici e identici in tutte le lingue.
+- Corrette le tre risposte del dialogo sui solventi: oli, etanolo e acqua pura.
+- Tradotta la sequenza narrativa dell'Istruttore che racconta gli avvenimenti e li confronta con il sogno.
+- Ripulite 220 stringhe inglesi o miste con interventi mirati e uniformate altre 651 voci secondo glossario e coerenza interna.
+- Tradotto sistematicamente il titolo scolastico `Principal` come `Preside`, comprese tutte le occorrenze di `Preside Oswen` in dialoghi, obiettivi e nomi dell'interlocutore.
+- Rafforzati i test automatici per distinguere la copertura delle chiavi dalla reale copertura linguistica.
+
 ## 0.3.4 Beta - 2026-07-11
 
 - Tradotta la forma `Sea of Flowers Form` come `Forma Fiorita`, evitando il testo misto inglese/italiano e il taglio nell'interfaccia Aspetto.

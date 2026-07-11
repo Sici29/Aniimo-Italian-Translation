@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.4-beta",
+  "translation_version": "0.3.5-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -18,7 +18,7 @@
   "tested_game_update": "3036569",
   "tested_game_revision": "7113f88e39827a2d13591a55b395f1c6",
   "tested_date": "2026-07-11",
-  "coverage": "92954/92954 known text keys",
+  "coverage": "92954/92954 modern text keys; 359 meaningful English-slot zero fallbacks recovered; 5 technical zeros confirmed",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
@@ -26,6 +26,7 @@
   "notes": [
     "The default installation uses the visible English text slot and redirects only its font to Aniimo's bundled Vietnamese font.",
     "The public translation uses standard Italian spelling and real accented letters.",
+    "The language audit compares every modern official locale and recovers meaningful entries stored as zero in the English slot.",
     "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."
   ]
 }
