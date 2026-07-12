@@ -32,4 +32,4 @@
 
 ## Da completare durante il rilascio
 
-- [ ] Release GitHub normale, non pre-release, impostata come Latest.
+- [x] Release GitHub normale, non pre-release, impostata come Latest.
