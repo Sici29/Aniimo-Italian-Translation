@@ -17,7 +17,7 @@
 - [x] Tutti i 73 test automatici superati.
 - [x] Build pulita dell'EXE completata.
 - [x] Pannello verificato sulla copia reale: v0.3.11 installata, v0.3.12 proposta, contenuti diversi e data da aggiornare.
-- [ ] Release GitHub normale, non pre-release, impostata come Latest.
+- [x] Release GitHub normale, non pre-release, impostata come Latest.
 
 ## Artefatto
 
