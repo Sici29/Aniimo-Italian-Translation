@@ -97,6 +97,21 @@ class BuildMapAndBinTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             installer.patch_dynamic_date_order(b"script non verificato")
 
+    def test_shared_ui_date_is_changed_from_month_day_to_day_month(self) -> None:
+        original = b"prefix" + installer.DATE_MDY_UI_BYTECODE + b"suffix"
+        patched, changed = installer.patch_localized_date_order(original)
+        self.assertTrue(changed)
+        self.assertTrue(installer.localized_date_is_italian(patched))
+        self.assertNotIn(installer.DATE_MDY_UI_BYTECODE, patched)
+        self.assertIn(installer.DATE_DMY_UI_BYTECODE, patched)
+        repeated, changed_again = installer.patch_localized_date_order(patched)
+        self.assertFalse(changed_again)
+        self.assertEqual(patched, repeated)
+
+    def test_unknown_shared_ui_date_bytecode_is_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            installer.patch_localized_date_order(b"script non verificato")
+
 
 class RestoreTests(unittest.TestCase):
     def test_restore_removes_only_files_created_by_the_patch(self) -> None:
@@ -445,7 +460,7 @@ class DetectionTests(unittest.TestCase):
         self.assertIn("Versione trad. installata  : v0.3.8-beta", output.getvalue())
         self.assertIn("Versione trad. proposta    : v0.3.11-beta", output.getvalue())
         self.assertIn("Confronto contenuti        : ⚠ DIVERSI — AGGIORNAMENTO CONSIGLIATO", output.getvalue())
-        self.assertIn("Formato data dinamico      : ⚠ DA AGGIORNARE (AAAA/MM/GG)", output.getvalue())
+        self.assertIn("Formato date dinamiche     : ⚠ DA AGGIORNARE", output.getvalue())
         self.assertIn("VERIFICATA", output.getvalue())
         self.assertIn("Compatibilità testi        : ✓ COMPATIBILE", output.getvalue())
         self.assertIn("github.com/Sici29/Aniimo-Italian-Translation", output.getvalue())
@@ -473,7 +488,7 @@ class DetectionTests(unittest.TestCase):
             installer.print_status_panel(status, colors=False)
         self.assertIn("Versione trad. installata  : v0.3.11-beta", output.getvalue())
         self.assertIn("Confronto contenuti        : ✓ IDENTICI — nessun aggiornamento necessario", output.getvalue())
-        self.assertIn("Formato data dinamico      : ✓ ITALIANO (GG/MM/AAAA)", output.getvalue())
+        self.assertIn("Formato date dinamiche     : ✓ ITALIANO (GG/MM/AAAA)", output.getvalue())
 
     def test_current_hot_update_revision_is_verified(self) -> None:
         current_revision = "4eb81a98d0e3934af67064cbde06218e"

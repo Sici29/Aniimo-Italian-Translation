@@ -19,6 +19,9 @@ PUNCTUATION_AUDIT_V0312 = ROOT / "data" / "punctuation_audit_v0.3.12.json"
 FLUENCY_AUDIT_V0312 = ROOT / "data" / "fluency_audit_v0.3.12.json"
 DEEP_FLUENCY_AUDIT_V0312 = ROOT / "data" / "deep_fluency_audit_v0.3.12.json"
 POST_EDITORIAL_AUDIT_V0312 = ROOT / "data" / "post_editorial_audit_v0.3.12.json"
+DASH_AUDIT_V0313 = ROOT / "data" / "dash_audit_v0.3.13.json"
+TOPONYM_AUDIT_V0313 = ROOT / "data" / "toponym_audit_v0.3.13.json"
+TOPONYM_FACILITY_AUDIT_V0313 = ROOT / "data" / "toponym_facility_audit_v0.3.13.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -103,8 +106,8 @@ class TranslationDataTests(unittest.TestCase):
         self.assertEqual("Frequenza fotogrammi", by_key["1486528807"])
         self.assertEqual("Timoroso", by_key["2131735144"])
         self.assertEqual("Palla di fango rotolante", by_key["1393914635"])
-        self.assertEqual("Città Vecchia", by_key["1275514751"])
-        self.assertIn("Sala dei Ricordi", by_key["1840485426"])
+        self.assertEqual("Old Town", by_key["1275514751"])
+        self.assertIn("Hall of Memories", by_key["1840485426"])
         self.assertEqual("Cioccolata Calda", by_key["1137332435"])
         self.assertEqual("Tempesta di Ghiaccio", by_key["1505371280"])
         self.assertEqual("Tappetino per Mouse", by_key["1528377006"])
@@ -131,8 +134,6 @@ class TranslationDataTests(unittest.TestCase):
             "community ufficiale",
             "Manager Ben",
             "Director Ling",
-            "Hall of Memories",
-            "Old Town",
             "Roll Out",
             "Gull Dad",
             "Gull Mom",
@@ -362,7 +363,6 @@ class TranslationDataTests(unittest.TestCase):
             "Index Unlock",
             "Carica Debuff",
             "Tutorial Prompt",
-            "Astra Research Institute",
             "Purgatory Fire Wolf",
             "Missioni Objective",
         ):
@@ -454,9 +454,9 @@ class TranslationDataTests(unittest.TestCase):
             for replacement in operation["replacements"]:
                 self.assertNotIn(replacement["old"], row["it"], operation["key"])
                 if replacement["new"] not in row["it"]:
-                    self.assertIn(
-                        "review_v0.3.12_deep_editorial",
-                        notes,
+                    self.assertTrue(
+                        "review_v0.3.12_deep_editorial" in notes
+                        or any(note.startswith("review_v0.3.13_") for note in notes),
                         f"La revisione successiva non è tracciata per {operation['key']}",
                     )
 
@@ -506,7 +506,10 @@ class TranslationDataTests(unittest.TestCase):
             )
             if operation["new_it"] != row["it"]:
                 self.assertTrue(
-                    any(note.startswith("review_v0.3.12_") for note in row["note"].split(";")),
+                    any(
+                        note.startswith(("review_v0.3.12_", "review_v0.3.13_"))
+                        for note in row["note"].split(";")
+                    ),
                     f"La chiave {key} differisce dall'audit v0.3.11 senza una revisione successiva",
                 )
             self.assertEqual(
@@ -604,6 +607,31 @@ class TranslationDataTests(unittest.TestCase):
             by_key["1863202957"],
         )
 
+    def test_v0313_dialogue_dash_audit_is_applied(self) -> None:
+        audit = json.loads(DASH_AUDIT_V0313.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual(92_954, audit["scope_rows"])
+        self.assertEqual(65, audit["accepted_unique_fixes"])
+        self.assertEqual(65, len(audit["entries"]))
+        for entry in audit["entries"]:
+            current = by_key[str(entry["key"])]
+            if entry["proposed_it"] != current:
+                self.assertIn(
+                    "review_v0.3.13_toponym_audit",
+                    next(
+                        row["note"].split(";")
+                        for row in self.production
+                        if row["key"] == str(entry["key"])
+                    ),
+                )
+            self.assertNotRegex(current, "[—–]")
+        self.assertEqual("Io voglio...\nOh, Snowy, vieni qui!", by_key["1227953231"])
+        self.assertEqual(
+            "Vi serve una mano con il trasloco? \n"
+            "Con le nostre ali sarà tutto molto più facile.",
+            by_key["1909530372"],
+        )
+
     def test_v0312_full_fluency_audit_is_applied(self) -> None:
         audit = json.loads(FLUENCY_AUDIT_V0312.read_text(encoding="utf-8"))
         entries = audit["entries"]
@@ -625,10 +653,50 @@ class TranslationDataTests(unittest.TestCase):
             key = str(entry["key"])
             row = by_key[key]
             if entry["proposed_it"] != row["it"]:
-                self.assertIn("review_v0.3.12_post_editorial", row["note"].split(";"), key)
+                self.assertTrue(
+                    "review_v0.3.12_post_editorial" in row["note"].split(";")
+                    or any(
+                        note.startswith("review_v0.3.13_")
+                        for note in row["note"].split(";")
+                    ),
+                    key,
+                )
             self.assertIn(
                 f"review_v0.3.12_{entry['category']}", row["note"].split(";"), key
             )
+
+    def test_v0313_toponym_audit_is_applied(self) -> None:
+        audit = json.loads(TOPONYM_AUDIT_V0313.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual(92_954, audit["scope_rows"])
+        self.assertEqual(153, audit["accepted_unique_fixes"])
+        self.assertEqual(153, len(audit["entries"]))
+        for entry in audit["entries"]:
+            self.assertEqual(entry["proposed_it"], by_key[str(entry["key"])])
+        exact_labels = {
+            "The Argent Strait": "Argent Strait",
+            "Tideblossom Coast": "Tideblossom Coast",
+            "Zephyrus Landbridge": "Zephyrus Landbridge",
+        }
+        for source, expected in exact_labels.items():
+            matches = [row["it"] for row in self.production if row["source_en"] == source]
+            self.assertTrue(matches, source)
+            self.assertTrue(all(value == expected for value in matches), source)
+
+        facility_audit = json.loads(
+            TOPONYM_FACILITY_AUDIT_V0313.read_text(encoding="utf-8")
+        )
+        self.assertEqual(23, facility_audit["accepted_unique_fixes"])
+        self.assertEqual(23, len(facility_audit["entries"]))
+        for entry in facility_audit["entries"]:
+            self.assertEqual(entry["proposed_it"], by_key[str(entry["key"])])
+        hall_labels = [
+            row["it"]
+            for row in self.production
+            if row["source_en"] == "Astra Hall of Memories"
+        ]
+        self.assertEqual(10, len(hall_labels))
+        self.assertTrue(all(value == "Astra Hall of Memories" for value in hall_labels))
 
     def test_v0312_deep_editorial_audit_is_fully_applied(self) -> None:
         audit = json.loads(DEEP_FLUENCY_AUDIT_V0312.read_text(encoding="utf-8"))
@@ -651,7 +719,14 @@ class TranslationDataTests(unittest.TestCase):
             row = by_key[key]
             self.assertEqual(entry["source_en"], row["source_en"], key)
             if entry["proposed_it"] != row["it"]:
-                self.assertIn("review_v0.3.12_post_editorial", row["note"].split(";"), key)
+                self.assertTrue(
+                    "review_v0.3.12_post_editorial" in row["note"].split(";")
+                    or any(
+                        note.startswith("review_v0.3.13_")
+                        for note in row["note"].split(";")
+                    ),
+                    key,
+                )
             self.assertIn(marker, row["note"].split(";"), key)
 
         self.assertEqual(
@@ -714,7 +789,14 @@ class TranslationDataTests(unittest.TestCase):
         marker = audit["review_marker"]
         for entry in entries:
             key = str(entry["key"])
-            self.assertEqual(entry["proposed_it"], by_key[key]["it"], key)
+            if entry["proposed_it"] != by_key[key]["it"]:
+                self.assertTrue(
+                    any(
+                        note.startswith("review_v0.3.13_")
+                        for note in by_key[key]["note"].split(";")
+                    ),
+                    key,
+                )
             self.assertIn(marker, by_key[key]["note"].split(";"), key)
 
         visible = "\n".join(re.sub(r"<[^>]+>", "", row["it"]) for row in self.production)

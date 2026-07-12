@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.13 Beta - 2026-07-12
+
+- Corrette le battute segnalate `Io voglio—` e `Vi serve aiuto a traslocare? / Abbiamo le ali: renderà...`, ora rese con punteggiatura e italiano naturali.
+- Esteso l'audit dei trattini lunghi a ogni posizione della stringa, comprese le interruzioni prima di un ritorno a capo: 226 righe controllate e 65 ulteriori pause di dialogo convertite in `...`.
+- Conservati intenzionalmente soltanto separatori grafici, intervalli, marcatori di battuta, onomatopee, scansioni sillabiche e altri usi funzionali documentati.
+- Uniformati i toponimi ufficiali alla grafia inglese del gioco: 42 nomi canonici inventariati e 176 stringhe corrette fra etichette, dialoghi, missioni e descrizioni.
+- Corrette in particolare le incongruenze della mappa `Stretto Argentato`, `Costa Tideblossom` e `Ponte Terrestre Zephyrus`, ora `Argent Strait`, `Tideblossom Coast` e `Zephyrus Landbridge`.
+- Estesa la stessa regola a `Astra Hall of Memories` e `Hall of Memories`, mantenendo naturali articoli, preposizioni e ruoli italiani.
+- Individuato un secondo formattatore dinamico usato dalle mail e da altre schermate: il formato inglese `MM/GG/AAAA` viene ora convertito in `GG/MM/AAAA` insieme alla data dei capitoli.
+- Corretto lo stato dell'installer: `✓ ITALIANO` compare soltanto se entrambi i formattatori delle date sono verificati; le installazioni parziali mostrano `⚠ DA AGGIORNARE`.
+- Aggiunti test di regressione e una generazione reale della patch sui 92.954 testi, con entrambi gli script data verificati byte per byte.
+
 ## 0.3.12 Beta - 2026-07-12
 
 - Separata la semplice presenza della traduzione dalla verifica della sua versione e dei contenuti effettivamente installati.

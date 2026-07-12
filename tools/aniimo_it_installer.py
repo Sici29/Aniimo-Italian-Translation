@@ -44,11 +44,21 @@ TEXT_MAP = "xfs/luascripts/Data/I18N/NewTextMap_{lang}.json"
 COMPRESS = "xfs/luascripts/Data/I18N/Compress_{lang}.bin"
 AI_TRANSLATED_EN = "xfs/luascripts/Data/I18N/AITranslatedItems/AITranslatedItems_en.json"
 DATE_SCRIPT = "xfs/luascripts/Guis/Panels/SpecialTrainChapterTip/SpecialTrainChapterTipCtrl.lua"
+LOCALIZED_DATE_SCRIPT = "xfs/luascripts/Utils/LuaUIUtils.lua"
 # The verified LuaJIT function calls string.format("%d/%02d/%02d", year, month, day).
 # Swapping only the two field-load operands changes it to day/month/year without
 # recompiling or redistributing the game's script.
 DATE_YMD_BYTECODE = bytes.fromhex("2708190036091a05360a1b05360b1c0542060502")
 DATE_DMY_BYTECODE = bytes.fromhex("2708190036091c05360a1b05360b1a0542060502")
+# The shared UI date formatter has a separate English branch using
+# string.format("%02d/%02d/%04d", month, day, year). It is used by mail and
+# other interface panels, so its month/day operands must be swapped as well.
+DATE_MDY_UI_BYTECODE = bytes.fromhex(
+    "27091700360a1004360b1104360c0f0442070502"
+)
+DATE_DMY_UI_BYTECODE = bytes.fromhex(
+    "27091700360a1104360b1004360c0f0442070502"
+)
 FONT_CACHE_RELS = (
     Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
     Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
@@ -541,12 +551,41 @@ def dynamic_date_is_italian(script_data: bytes) -> bool:
     return script_data.count(DATE_DMY_BYTECODE) == 1 and script_data.count(DATE_YMD_BYTECODE) == 0
 
 
+def patch_localized_date_order(script_data: bytes) -> tuple[bytes, bool]:
+    """Change the verified shared UI date from MM/DD/YYYY to DD/MM/YYYY."""
+    mdy_count = script_data.count(DATE_MDY_UI_BYTECODE)
+    dmy_count = script_data.count(DATE_DMY_UI_BYTECODE)
+    if mdy_count == 1 and dmy_count == 0:
+        patched = script_data.replace(DATE_MDY_UI_BYTECODE, DATE_DMY_UI_BYTECODE, 1)
+        if (
+            patched.count(DATE_MDY_UI_BYTECODE) != 0
+            or patched.count(DATE_DMY_UI_BYTECODE) != 1
+        ):
+            raise RuntimeError("Verifica del formato data UI italiano non riuscita.")
+        return patched, True
+    if mdy_count == 0 and dmy_count == 1:
+        return script_data, False
+    raise ValueError(
+        "Formattatore data UI non riconosciuto. La modifica GG/MM/AAAA non verrà "
+        "applicata a una versione non verificata."
+    )
+
+
+def localized_date_is_italian(script_data: bytes) -> bool:
+    return (
+        script_data.count(DATE_DMY_UI_BYTECODE) == 1
+        and script_data.count(DATE_MDY_UI_BYTECODE) == 0
+    )
+
+
 def detect_translation_installation(game_dir: Path) -> dict:
     paths = resolve_paths(game_dir)
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, english_records, _ = load_language(zf, "en")
         try:
-            date_italian = dynamic_date_is_italian(zf.read(DATE_SCRIPT))
+            date_italian = dynamic_date_is_italian(
+                zf.read(DATE_SCRIPT)
+            ) and localized_date_is_italian(zf.read(LOCALIZED_DATE_SCRIPT))
         except KeyError:
             date_italian = False
     result = translation_match_status(english_records, load_translations("en"))
@@ -1159,11 +1198,21 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             }
             date_script, date_changed = patch_dynamic_date_order(zf.read(DATE_SCRIPT))
             replacements[DATE_SCRIPT] = date_script
+            localized_date_script, localized_date_changed = patch_localized_date_order(
+                zf.read(LOCALIZED_DATE_SCRIPT)
+            )
+            replacements[LOCALIZED_DATE_SCRIPT] = localized_date_script
             stats["dynamic_date"] = {
                 "format": "DD/MM/YYYY",
-                "changed_now": date_changed,
-                "verified": dynamic_date_is_italian(date_script),
-                "script_sha256": hashlib.sha256(date_script).hexdigest(),
+                "changed_now": date_changed or localized_date_changed,
+                "chapter_changed_now": date_changed,
+                "localized_ui_changed_now": localized_date_changed,
+                "verified": dynamic_date_is_italian(date_script)
+                and localized_date_is_italian(localized_date_script),
+                "chapter_script_sha256": hashlib.sha256(date_script).hexdigest(),
+                "localized_ui_script_sha256": hashlib.sha256(
+                    localized_date_script
+                ).hexdigest(),
             }
     repack_xdf(paths.xdf, paths.xdt, replacements, patch_dir / XDF_NAME, patch_dir / XDT_NAME)
     stats["font"] = patch_font_bundle(
@@ -1450,7 +1499,7 @@ def print_status_panel(status: dict, colors: bool) -> None:
     if dynamic_date_italian is True:
         date_format_label = color_text("✓ ITALIANO (GG/MM/AAAA)", ConsoleColor.GREEN, colors)
     elif dynamic_date_italian is False:
-        date_format_label = color_text("⚠ DA AGGIORNARE (AAAA/MM/GG)", ConsoleColor.YELLOW, colors)
+        date_format_label = color_text("⚠ DA AGGIORNARE", ConsoleColor.YELLOW, colors)
     else:
         date_format_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
 
@@ -1461,7 +1510,7 @@ def print_status_panel(status: dict, colors: bool) -> None:
     print(f"Versione trad. installata  : {installed_version_label}")
     print(f"Versione trad. proposta    : {proposed_version_label}")
     print(f"Confronto contenuti        : {content_match_label}")
-    print(f"Formato data dinamico      : {date_format_label}")
+    print(f"Formato date dinamiche     : {date_format_label}")
     print(f"Versione gioco supportata  : {color_text(supported_label, ConsoleColor.CYAN, colors)}")
     print(f"Versione gioco rilevata    : {detected_label}")
     print(f"Revisione hot update       : {revision_label}")

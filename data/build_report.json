@@ -60,6 +60,13 @@
     "v0312_removed_am_pm_indicators": 27,
     "v0312_dynamic_date_format": "DD/MM/YYYY",
     "v0312_dynamic_date_patch_verified": true,
+    "v0313_dash_rows_reviewed": 226,
+    "v0313_dialogue_dash_fixes": 65,
+    "v0313_canonical_toponyms": 42,
+    "v0313_toponym_fixes": 176,
+    "v0313_chapter_date_patch_verified": true,
+    "v0313_shared_ui_date_patch_verified": true,
+    "v0313_dynamic_date_format": "DD/MM/YYYY",
     "remaining_slash_inflections": 0,
     "remaining_tag_or_placeholder_mismatches": 0
   },
@@ -73,11 +80,11 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "474344A1F49F330C55EB581A4C6AE17B7CC330FB6A2FD5A3552DF22E37DAE18C"
+    "production": "603301803EE8FBAF79011AE1B4938E843DD6C08004739EB86CBA8DD54AF12B19"
   },
   "installer_artifact": {
     "name": "Aniimo-Italian-Translation.exe",
-    "size_bytes": 34103303,
-    "sha256": "6B6EED2D4AAFE8360284185CE7A1055DF7A774F68D2F37CE62F9A980137863CA"
+    "size_bytes": 34116741,
+    "sha256": "35ED88178D701E9C8D5ABCCAA7902C6E2FF28CE76773A2AE612EC3A25F10F35E"
   }
 }

@@ -1,0 +1,926 @@
+{
+  "version": "0.3.13-beta",
+  "scope_rows": 92954,
+  "review_marker": "review_v0.3.13_toponym_audit",
+  "accepted_unique_fixes": 153,
+  "entries": [
+    {
+      "key": "272829406",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "295998908",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "303622344",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "313828762",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "335946564",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "341151457",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "342558592",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "345139599",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "354276282",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "357254145",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "361763176",
+      "proposed_it": "Visita il negozio Pawprint in Astra Square e scambia qualcosa per qualche ritrovamento misterioso...",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "370998175",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "372803867",
+      "proposed_it": "Fioritura: Forest of Falling Stars",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "382107282",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "387841718",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "390950199",
+      "proposed_it": "Shipwreck Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "443997414",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "449629705",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "474121183",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "492055561",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "492700478",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "494204259",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "497383443",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "498038857",
+      "proposed_it": "I ceppi di legno nella Forest of Falling Stars sembrano recare motivi misteriosi.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "511245353",
+      "proposed_it": "Zephyrus Landbridge",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "515586012",
+      "proposed_it": "Shipwreck Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "521614989",
+      "proposed_it": "Argent Strait",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "523702220",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "529989063",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "530189328",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1079187659",
+      "proposed_it": "Esercitazione di Diploma dell'Idyll Continent",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1084977808",
+      "proposed_it": "Ma per me ciò che conta di più sei tu, #playerName#.\nQuando hai esplorato per la prima volta l'Idyll Continent, riuscivi a muoverti liberamente.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1091039605",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1101473891",
+      "proposed_it": "Astra Outpost",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1121063134",
+      "proposed_it": "Astra Research Institute",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1127464373",
+      "proposed_it": "L'argomento di cui mi occupo spesso è l'esplorazione dell'Idyll Continent da parte del Polaris Institute.\nLe notizie correlate fanno sempre parecchie visualizzazioni... ma niente di più.\nUna mattina ho trovato un piccolo collare sul davanzale.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1127922185",
+      "proposed_it": "Credo che, visitando il Guardiano, potremmo ottenere qualche indizio.\nMa prima devi compiere un rituale di benedizione presso il Ramo, così potrai muoverti liberamente nell'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1129354524",
+      "proposed_it": "Penso che visitando la <style=Hint_BgD>Guardiana</style> potremmo ottenere qualche Indizio.\nMa prima dovrai ricevere la benedizione del Ramo per poterti muovere liberamente nell'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1129689817",
+      "proposed_it": "Se vuoi migliorare le tue abilità di combattimento, puoi cercare Lita per il <style=Hint_BgD>Simulatore Holo-Battle</style>.\nL'addestramento simula l'ambiente e gli Aniimo dell'Idyll Continent per esercitarsi in battaglia.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1148448657",
+      "proposed_it": "Quando gli Esploratori esplorano l'Idyll Continent, possono incontrare vari tipi di Aniimo Alpha e Omega.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1151189104",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1159941469",
+      "proposed_it": "Flamerion è apparso a Berylline Causeway per proteggere Sparki!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1169319309",
+      "proposed_it": "Esatto, Dr. Lewis è la persona in tutta Astra che conosce meglio l'Idyll Continent.\nNaturalmente il Preside Oswen non conta!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1184138411",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1188639043",
+      "proposed_it": "Esplora l'Idyll Continent in una grande avventura archeologica",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1196267335",
+      "proposed_it": "Il Manuale Ricerca è stato inviato al tuo terminale.\nDopo l'arrivo nell'Idyll Continent, ti spiegherò come sincronizzare le informazioni con il Manuale Ricerca.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1203501937",
+      "proposed_it": "Zephyrus Landbridge",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1207636520",
+      "proposed_it": "Ti diamo il benvenuto nella Zona Esperienza Ecologica dell'Idyll Continent! Qui puoi immergerti nell'ecosistema di Idyll tramite proiezione olografica~",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1209467714",
+      "proposed_it": "Crescendo Cliff.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1226190103",
+      "proposed_it": "Raggiungi Astra Square e accendi i fuochi d'artificio!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1233602987",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1240609038",
+      "proposed_it": "Questa è la <style=Hint_BgD>struttura di Trasporto del Polaris Institute</style>. Stiamo per raggiungere da qui l'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1244515859",
+      "proposed_it": "[Sotto l'albero stellare nella Forest of Falling Stars]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1266896223",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1272409599",
+      "proposed_it": "<style=Hint_BgD>Old Town</style> è stato il primo distretto costruito ad Astra e resta l'area con le tracce più marcate della cultura dell'Era Terrestre. Quest'area non è aperta al momento. Resta in attesa...",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1275474427",
+      "proposed_it": "Nella Forest of Falling Stars!!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1275514751",
+      "proposed_it": "Old Town",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1277662352",
+      "proposed_it": "Astra Outpost",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1278834953",
+      "proposed_it": "Stazione di Horizon Square",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1290640876",
+      "proposed_it": "Tubster è apparso a Echoback Landing per proteggere uova rare!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1297812278",
+      "proposed_it": "Esercitazione di Diploma dell'Idyll Continent",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1297944880",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1314354374",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1315531600",
+      "proposed_it": "Falò della Forest of Falling Stars",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1316087658",
+      "proposed_it": "Raggiungi la stazione ferroviaria di North Horizon Square",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1342546119",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1347235084",
+      "proposed_it": "Berylline Causeway: falò Wisptis",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1352363293",
+      "proposed_it": "Il viola torna alla terra, nato dall'albero di starine, nella Forest of Falling Stars.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1363602064",
+      "proposed_it": "Starfall Valley",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1364065684",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1380374803",
+      "proposed_it": "Lanugine lasciata da un Nimbi in Forma Driftwise Meadow. Può diffondere tristezza.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1404665187",
+      "proposed_it": "Sì. Dobbiamo ammettere che la conoscenza dell'Accademia sull'Idyll Continent è ancora molto limitata.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1406607965",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1414838779",
+      "proposed_it": "Congratulazioni per aver superato la selezione!\nL'Astra Research Institute ti dà il benvenuto!\nOra ti trovi nella Sala Trasportatore.\nLa destinazione di questo campo estivo è il nuovo continente Idyll.\nDr. Lewis ti aspetta più avanti. Quando vuoi, prosegui.\nInserisci qui sotto la tua firma biologica.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1431813496",
+      "proposed_it": "Zephyrus Landbridge",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1446694276",
+      "proposed_it": "Questa è la struttura di Trasporto del Polaris Institute. Da qui puoi viaggiare verso l'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1455463760",
+      "proposed_it": "Ehi, puoi venire al parco di Nimbus Fields? No, stavolta non riguarda solo la tua Base...",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1456704621",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1461124359",
+      "proposed_it": "[Sotto la scogliera del santuario nella Forest of Falling Stars]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1465537124",
+      "proposed_it": "Basta parlare di questo. Hai trovato qualcosa a Driftwise Meadow?",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1480000146",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1486669346",
+      "proposed_it": "Valutazione di Zephyrus Landbridge",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1503164408",
+      "proposed_it": "[Sotto la scogliera del santuario nella Forest of Falling Stars]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1508290372",
+      "proposed_it": "Lo scopo del Polaris Institute è formare persone capaci di sincronizzarsi con gli Aniimo ed esplorare i segreti dell'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1529507521",
+      "proposed_it": "[Sotto la scogliera del santuario nella Forest of Falling Stars]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1546691193",
+      "proposed_it": "Questo è il parco di Driftwise Meadow. C'è un'enorme differenza di temperatura tra l'interno e l'esterno della tua Base, quindi non dimenticare di stare al caldo!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1554691556",
+      "proposed_it": "Una brillante scia di luce attraversa il cielo sopra la Forest of Falling Stars.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1556771990",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1564263816",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1577738060",
+      "proposed_it": "Aniimo di classe Aeon... nell'Idyll Continent esistono solo documenti frammentari. Alcuni nel Reparto Ricerca credono persino che la classe Aeon non esista affatto.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1590554831",
+      "proposed_it": "[Sotto la scogliera del santuario nella Forest of Falling Stars]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1590618586",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1609011773",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1610362032",
+      "proposed_it": "Argent Strait",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1615981910",
+      "proposed_it": "Esplorare l'Idyll Continent era uno degli scopi fondativi del Polaris Institute.\nI reperti davanti a te sono tutti campioni raccolti a Idyll in periodi diversi.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1633816013",
+      "proposed_it": "Dieci anni... Quindici anni... Venti anni... Trenta anni...\nIl tempo scorre senza eventi, Sol dopo Sol.\nLe notizie dall'Idyll Continent restano al centro dell'attenzione di Astra.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1636075302",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1645171084",
+      "proposed_it": "Guarda, è lì che vivevo\nda piccolo...\nOra la chiamano Old Town!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1645825731",
+      "proposed_it": "Astra Square",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1657086682",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1692014933",
+      "proposed_it": "Reef Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1693950010",
+      "proposed_it": "Riappare dopo aver progredito nella missione [Arcobaleno del Suolo] a Tideblossom Coast.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1704377656",
+      "proposed_it": "Esplorando l'Idyll Continent, puoi <style=Hint_BgL>sincronizzarti con Aniimo dotati di Abilità esplorative speciali</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1713246322",
+      "proposed_it": "Astra Square",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1714268086",
+      "proposed_it": "Parla con amici misteriosi in Astra Square per avere la possibilità di ottenere ricompense",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1719931573",
+      "proposed_it": "Le prime strutture costruite dalle persone furono quelle essenziali: centrali elettriche, centri medici, stazioni di purificazione e zone agricole. Le generazioni successive di residenti di Astra chiamarono questo primo distretto “Old Town”.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1722643715",
+      "proposed_it": "Luogo: Forest of Falling Stars - Altare",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1734096968",
+      "proposed_it": "[Sotto la scogliera del santuario nella Forest of Falling Stars]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1738728561",
+      "proposed_it": "Non c'è bisogno di essere nervosi. Chiunque riesca a stabilire una Sincronia con un Aniimo, anche uno solo, riceverà dal Ramo il permesso di muoversi liberamente in tutto l'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1746109466",
+      "proposed_it": "[Heart Lake nel Sea of Flowers]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1749031274",
+      "proposed_it": "Crescent Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1749556566",
+      "proposed_it": "A Zephyrus Landbridge",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1754725562",
+      "proposed_it": "Molte persone stanno andando a Tideblossom Coast...",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1762717788",
+      "proposed_it": "Area: Old Town",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1776432085",
+      "proposed_it": "Un viaggio profumato: Forest of Falling Stars",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1782696559",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1803669127",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1815255404",
+      "proposed_it": "Se vuoi ancora andare nell'Idyll Continent, vieni a registrarti da me il prima possibile. Non perdere l'occasione.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1825048891",
+      "proposed_it": "Astra Outpost",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1830026767",
+      "proposed_it": "Crescent Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1838731090",
+      "proposed_it": "Reef Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1839789522",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1848119602",
+      "proposed_it": "Raggiungi Astra Square e accendi i fuochi d'artificio!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1866728245",
+      "proposed_it": "In questo preciso momento, il mio Cuore è ancora più impaziente della prima volta.\nAniimo adorabili, un mondo pieno di Vigore della Vita, avventure emozionanti: sto per viverli di nuovo...\nArrivo, Idyll Continent!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1868417155",
+      "proposed_it": "Zephyrus Landbridge",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1880863984",
+      "proposed_it": "Argent Strait",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1889743175",
+      "proposed_it": "Reef Bay",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1895162754",
+      "proposed_it": "Il terzo anno...\nIl Polaris Institute fece una nuova scoperta nell'Idyll Continent.\nPresto la gente si riversò ad Astra per inseguire la nuova ondata di entusiasmo.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1897854991",
+      "proposed_it": "Uno speciale nido di Aniimo presente solo nelle Lost Isles. Qui potresti riuscire a dissotterrare <style=Hint_BgL>Uova Aniimo rare</style>.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1899205102",
+      "proposed_it": "Ho sentito che sull'Idyll Continent, <style=Hint_BgL>toccando un quadrifoglio fortunato</style>, succede qualcosa di meraviglioso!\nSembra che, <style=Hint_BgL>attivando questo dispositivo</style> per generare un vento potente, potrai raggiungerlo...",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1914570702",
+      "proposed_it": "Esercitazione di Diploma dell'Idyll Continent",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1918669219",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1919367720",
+      "proposed_it": "Hai sentito un racconto simile in terre straniere? Un Flutternym di Bloomville batte le ali,\ne potrebbe scatenare una tempesta dall'altra parte dell'Idyll Continent.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1923130039",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1944720009",
+      "proposed_it": "Luogo: Forest of Falling Stars - Altare",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1951949546",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1954708472",
+      "proposed_it": "Guarda! Questo è un Cristallo Lumin, molto comune in tutto l'Idyll Continent.\nL'equipaggiamento che usi a Idyll viene sviluppato sfruttando l'Energia Lumin che contiene.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1955421823",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1969780937",
+      "proposed_it": "Aumenta del 10% il vigore massimo nelle Breezy Plains.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1972443029",
+      "proposed_it": "Esplora le Lost Isles, cerca uova rare, scegli il momento giusto per avanzare o ritirarti e fuggi senza lasciare tracce.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2006761595",
+      "proposed_it": "Per essere precisi, è combattimento reale. Il Simulatore Holo-Battle qui può simulare vari terreni dell'Idyll Continent.\nSedici ore di combattimento al giorno, e nel giro di sette giorni ti trasformerai completamente.",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2023291220",
+      "proposed_it": "Ti diamo il benvenuto al Polaris Institute!\nCom'è stata la tua prima volta nell'Idyll Continent? Sintomi come difficoltà a respirare? L'equipaggiamento funziona bene?",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2029342759",
+      "proposed_it": "Oh! Quello che ho perso a Driftwise Meadow? E tu l'hai trovato?!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2057910283",
+      "proposed_it": "Puoi dare un'occhiata ad Argent Strait e a Echoback Landing!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2073361196",
+      "proposed_it": "Valutazione di Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2073599139",
+      "proposed_it": "Adoro <style=Hint_BgD>esplorare</style> l'Idyll Continent!",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2075025188",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2099679250",
+      "proposed_it": "Prima Tappa: Festival della Fioritura\nAll'arrivo a Bloomville, ebbi la fortuna di partecipare a una grande celebrazione chiamata \"Festival della Fioritura\".\nDal giorno della cerimonia dell'offerta, su Bloomville cade per tre Sol una vivida e onirica pioggia di fiori variopinti.\nMigliaia di fiori sbocciano insieme e ondeggiano con grazia nella brezza. I petali scendono leggeri, posandosi sulle mie spalle e sui capelli, diffondendo un tocco di freschezza e profumo.\nIn quel momento, mi sembrò di trovarmi in un mondo fiabesco...\n\nSeconda Tappa: Irisalis\nDopo la cerimonia dell'offerta, ebbi l'onore di incontrare la Guardiana di Bloomville, l'Aniimo leggendario Irisalis.\nSe ne stava immobile nel Mare dei Fiori. Anche se sembrava piuttosto pallida dopo aver evocato la pioggia di fiori, incuteva ancora soggezione.\nGli abitanti dicono che si addormenti dopo ogni cerimonia e che, quando inizia la cerimonia successiva, torni a risplendere di colori vividi.\nIl ciclo e il prodigio della vita ricordano il continuo sbocciare e appassire dei fiori di Bloomville: tutto segue il ritmo della natura.\nPurtroppo Somniwing, un'altra potente Aniimo, non è apparsa. Forse avrò occasione di incontrarla alla mia prossima visita.\n\nTerza Tappa: Mare dei Fiori\nOggi ho visitato il Mare dei Fiori e provato l'arte profumiera tipica di Bloomville.\nLa pioggia di fiori portata da Irisalis continua ancora oggi. Tra i petali che cadono, le persone raccolgono fiori di vari colori e li danno ai Dewy. Questi adorabili spiritelli trasformano la fragranza floreale in incenso aromatico.\nHo partecipato anch'io, mentre un soffice Dewy si accoccolava fiducioso nel palmo della mia mano. Nell'Idyll Continent, umani e Aniimo convivono in perfetta armonia.\nDopo qualche tentativo, ho creato una boccetta di fragranza antistress. Ne ho inspirato delicatamente il profumo e la sua nota fresca ed elegante mi ha subito riempito i polmoni. In un istante, mi è sembrato che ogni preoccupazione e ogni traccia di fatica svanissero...\nHai mai vissuto un viaggio capace di risanarti l'anima in questo modo?",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2101141611",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2109997551",
+      "proposed_it": "[A nord-ovest di Frozen Lake, a Driftwise Meadow]",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2122150252",
+      "proposed_it": "L'Idyll Continent, il Polaris Institute, gli Aniimo con cui potevo parlare, Nicole...\nSembrano tutti un sogno del vecchio Sol.\nA volte mi chiedo: se il tempo potesse tornare indietro...",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2122988275",
+      "proposed_it": "Informazioni su Old Town",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2138573389",
+      "proposed_it": "Tideblossom Coast",
+      "reason": "Ripristina il toponimo ufficiale inglese presente in source_en, mantenendo articoli e preposizioni italiane naturali.",
+      "classification": "reviewed"
+    }
+  ]
+}

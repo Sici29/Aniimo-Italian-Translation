@@ -1,0 +1,398 @@
+{
+  "version": "0.3.13-beta",
+  "scope_rows": 92954,
+  "review_marker": "review_v0.3.13_dash_audit",
+  "accepted_unique_fixes": 65,
+  "entries": [
+    {
+      "key": "1078247747",
+      "proposed_it": "Hehn...?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1086594147",
+      "proposed_it": "Nicole, ci sei? BINI...\nNo, no, no! Ho perso BINI e Nicole!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1122766513",
+      "proposed_it": "Dieci anni fa, il Festival della Fioritura esaudì...\n<style=Hint_BgD>il mio desiderio</style>.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1125166268",
+      "proposed_it": "#playerName#, Nicole... da questa parte!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1138907171",
+      "proposed_it": "Aiuto! Qualcuno... per favore!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1143619493",
+      "proposed_it": "Andiamo! Prima destinazione...\n<style=Hint_BgD>Mistwoods</style>!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1150401287",
+      "proposed_it": "*fa un respiro profondo* In ogni caso, andrò nel loro habitat per andare a fondo della questione.\nPer l'accademia, per la verità...\nE, lo ammetto, per un briciolo di curiosità, devo vederlo con i miei occhi!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1163154685",
+      "proposed_it": "Anche tu desideri diventare...\n<style=Hint_BgD>parte di un sogno</style>?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1188722660",
+      "proposed_it": "Ehi...! Che credi di fare?! Ti aggiri di nascosto... con aria sospetta... Lo sapevo! Stai cercando di rubare i nostri bellissimi funghi!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1209107880",
+      "proposed_it": "Ah... BINI! Hai ridotto troppo le distanze! Li hai spaventati!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1211393121",
+      "proposed_it": "Ehi! Voi due... un po' di rispetto.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1248500003",
+      "proposed_it": "Bene, allora, poi... oh? Guarda laggiù.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1279597680",
+      "proposed_it": "In ogni caso... è colpa tua.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1282019248",
+      "proposed_it": "Richiesta di comunicazione... Richiesta di comunicazione...",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1320846737",
+      "proposed_it": "45 gradi a sinistra...\nluce morbida, per favore!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1321864059",
+      "proposed_it": "Ho corso... corso fortissimo!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1332215733",
+      "proposed_it": "Ehi, Capo... Capo, aiuto!!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1353789828",
+      "proposed_it": "Qui è pericoloso... torna a casa!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1370548600",
+      "proposed_it": "I risultati sono davvero notevoli, ma non montarti la testa: un vero Esploratore non smette mai di andare avanti.\nContinua la tua avventura e la tua esplorazione insieme agli Aniimo...\nNaturalmente, non dimenticare la cosa più importante: torna sano e salvo.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1381402695",
+      "proposed_it": "Hehn...?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1394931172",
+      "proposed_it": "Chi è! Chi osa invocarci...?!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1404199179",
+      "proposed_it": "Oh, certo! Siamo solo un mucchio di anime inutili...\nintrappolate qui a Thousand-Fang Ridge, dove solo\ni guerrieri ricevono rispetto! Che barzelletta!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1438299905",
+      "proposed_it": "Deciso! Il solito posto...\nquel posto non chiude mai!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1447729714",
+      "proposed_it": "Che carino... sta mangiando!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1469660113",
+      "proposed_it": "Perfetto... ce l'abbiamo fatta di nuovo!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1539054471",
+      "proposed_it": "Vola! Vola via! Lasciati il passato alle spalle...!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1559637679",
+      "proposed_it": "Grace... Non si è fatta esplodere di nuovo, vero...? Oh... ah! Esploratore, che cosa ti porta qui?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1563286911",
+      "proposed_it": "Ehi... guarda! Sei al telegiornale!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1578928368",
+      "proposed_it": "Ah, grazie... sto bene!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1590703668",
+      "proposed_it": "Detto questo...\nammiro il tuo coraggio nell'esplorare l'ignoto.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1633132777",
+      "proposed_it": "Nascono nuovi mondi...!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1646777649",
+      "proposed_it": "<Cinquantacinque anni>\nCinquantacinque\nSono andato al solito posto, ma non potevo davvero tornarci,\nPerché non c'è più un “lì” a cui tornare.\n...\nTucker è morto.\n...\nHo visto il nucleo della liana che ha lasciato...\nUn fiore blu.\n...\nConteneva i nostri ricordi.\nOra ci sono solo io a ricordarli.\n...\nAspettava che lo portassi con me in quei luoghi lontani,\nMa io non l'ho mai saputo.\n...\nNel suo ultimo ricordo mi ha chiesto:\n“Echoback Landing è il mare lontano di cui parlavo?”\nNon voleva andare in nessun luogo lontano, a meno che non fosse con me.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1652173626",
+      "proposed_it": "Capo... Capo?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1680850401",
+      "proposed_it": "Ehi, Mute... n-n-non riesci più a parlare?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1689115874",
+      "proposed_it": "Be’, allora...",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1713717154",
+      "proposed_it": "Esatto... rifiuto!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1736658161",
+      "proposed_it": "Preparati... <style=Hint_BgD>abbatialo</style>!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1781961479",
+      "proposed_it": "Hehn...?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1784127892",
+      "proposed_it": "Bene... l'ultimo è fatto.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1803232020",
+      "proposed_it": "Ehi...! Tu! Perché continui a fissare i nostri funghi? Non dirmi che stai pensando di <style=Hint_BgD>rubare le nostre amate bellezze!</style>!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1804470970",
+      "proposed_it": "Voglio il forziere... E anche te!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1839696401",
+      "proposed_it": "Va tutto bene... non mi dà fastidio!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1858674537",
+      "proposed_it": "Ehi...! Che credi di fare?! Come osi raccogliere i nostri bellissimi funghi senza chiedere?!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1866728245",
+      "proposed_it": "In questo preciso momento, il mio Cuore è ancora più impaziente della prima volta.\nAniimo adorabili, un mondo pieno di Vigore della Vita, avventure emozionanti: sto per viverli di nuovo...\nArrivo, continente di Idyll!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1886139898",
+      "proposed_it": "Wow... è stato velocissimo!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1886990795",
+      "proposed_it": "Oh, prima che mi dimentichi, fai attenzione all'<style=Hint_BgD>Omega Tuckin</style> nei Mistwoods...\nE se per caso finisci a <style=Hint_BgD>Blitzwood</style>, fai attenzione.",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1893287154",
+      "proposed_it": "Hehn...?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1905068788",
+      "proposed_it": "Ma... Velouria, Bloomville...",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1910318461",
+      "proposed_it": "Ci starebbe proprio con...!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1912026312",
+      "proposed_it": "Ha dato i suoi colori, la cosa più importante per un Iris...\ntutti a me?!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1934369215",
+      "proposed_it": "Dai, non di nuovo...",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1945180993",
+      "proposed_it": "Quindi questa sconfitta dimostra solo una cosa...\nnon sono ancora lontanamente abbastanza forte!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1957274469",
+      "proposed_it": "Tu sei #playerName#, vero? Ti ho visto al telegiornale!\nAspetta: il tuo distintivo... n-n-non dirmi che è...?!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1970677682",
+      "proposed_it": "Hehn...?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1976770746",
+      "proposed_it": "Ma... gli altri dicono che sono troppo diretto e “becco in faccia”... Sarà difficile conquistarli... Aspetta...!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "1983848226",
+      "proposed_it": "Hehn...?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2013216908",
+      "proposed_it": "Guarda... eccolo!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2026786876",
+      "proposed_it": "È quasi finito...\nnon serve altro!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2036558876",
+      "proposed_it": "Ti ho visto a terra e stavo per chiamare un'ambulanza...\nMa la corrente è tornata e hai ripreso conoscenza. Come ti senti?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2053652768",
+      "proposed_it": "Che ci fa qui...?! Ed è in mille pezzi?! La mia palla! La mia palla perfetta!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2071628509",
+      "proposed_it": "Dolce... ma un po’ piccante, con un retrogusto bizzarro... Bleah!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2088240811",
+      "proposed_it": "Ovviamente il mio! Però... però...!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2097478593",
+      "proposed_it": "Guarda... è un tuo amico?",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2106437278",
+      "proposed_it": "Fidati... puoi volare anche tu!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    },
+    {
+      "key": "2108820449",
+      "proposed_it": "L'eterea e illusoria Lumenfly Valley e la sua fiera regina...\nVelouria ci ha mostrato sogni, verità e...\nUn'antica ricetta di spezie?!",
+      "reason": "Il trattino lungo esprime una pausa, esitazione o interruzione del parlato; uniformato ai puntini di sospensione adottati nel master.",
+      "classification": "replace_dialogue_pause"
+    }
+  ]
+}

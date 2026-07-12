@@ -39,7 +39,7 @@ All'apertura compare un riepilogo semplice con:
 - traduzione italiana già installata oppure non installata;
 - versione della traduzione installata e versione inclusa nel nuovo installer;
 - confronto reale dei contenuti, con indicazione `IDENTICI` o `DIVERSI — AGGIORNAMENTO CONSIGLIATO`;
-- formato della data dinamica, italianizzato come `GG/MM/AAAA`;
+- formato delle date dinamiche di capitoli, mail e interfaccia, italianizzato come `GG/MM/AAAA`;
 - stato di compatibilità evidenziato a colori;
 - versione dell'installer in uso;
 - eventuale nuova versione disponibile.
@@ -96,7 +96,7 @@ Documenti\AniimoItalianTranslation\backups
 - Copertura: **92.954 / 92.954 chiavi**, comprese le voci di fallback mancanti nello slot English.
 - Versioni del gioco verificate: **3032670** e hot update **3036569**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.12 beta**.
+- Versione della traduzione: **0.3.13 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -117,6 +117,9 @@ Documenti\AniimoItalianTranslation\backups
 - Localizzazione residuale v0.3.12: corrette **297 interiezioni e onomatopee inglesi**; conservati soltanto nomi ufficiali come `Master Woof` e `Little Lightning Chirp` e vocalizzi realmente ambigui. Rimossi inoltre `AM`/`PM` da tutte le 22 stringhe che usano già l'orario italiano a 24 ore.
 - Rifinitura v0.3.12: l'installer confronta versione e contenuti installati; 190 trattini lunghi finali ereditati dall'inglese sono stati uniformati ai punti di sospensione italiani.
 - Data dinamica v0.3.12: la schermata capitolo usa ora il formato italiano `GG/MM/AAAA`; la modifica è verificata byte per byte e viene inclusa nel backup e nel ripristino automatici.
+- Punteggiatura v0.3.13: controllate tutte le 226 righe contenenti `—` o `–`, in qualunque posizione. Altre 65 pause e interruzioni di dialogo sono state convertite in `...`; separatori grafici, intervalli, onomatopee e usi intenzionali restano invariati.
+- Toponimi v0.3.13: inventariati 42 nomi ufficiali e uniformate 176 righe. Aree e luoghi con nome proprio restano coerentemente in inglese, mentre articoli, preposizioni e testo circostante restano in italiano.
+- Date dinamiche v0.3.13: oltre alla schermata capitolo, anche il formattatore condiviso usato da mail e altre schermate passa da `MM/GG/AAAA` a `GG/MM/AAAA`. L'installer considera la data aggiornata soltanto quando entrambi i formattatori sono verificati.
 
 La verifica non si limita più a controllare che ogni chiave abbia un valore. La versione 0.3.5 recupera anche le voci che la localizzazione English ufficiale espone come `0`. Dalla versione 0.3.7 l'installer le registra inoltre nell'elenco interno delle traduzioni disponibili, evitando che il percorso runtime speciale le sostituisca nuovamente con frasi inglesi.
 
@@ -182,7 +185,7 @@ Il repository usa un solo master autorevole:
 
 - `data/translation_it.csv`: traduzione completa con accenti e punteggiatura italiana reali, installata nello slot English.
 
-Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. La data dinamica viene riordinata localmente in `GG/MM/AAAA` soltanto quando lo script LuaJIT corrisponde esattamente alla versione verificata. Il repository non contiene archivi originali di Aniimo: testi, font e data vengono modificati localmente a partire dai file della copia installata dall'utente.
+Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Le date dinamiche vengono riordinate localmente in `GG/MM/AAAA` soltanto quando entrambi gli script LuaJIT corrispondono esattamente alla versione verificata. Il repository non contiene archivi originali di Aniimo: testi, font e date vengono modificati localmente a partire dai file della copia installata dall'utente.
 
 </details>
 

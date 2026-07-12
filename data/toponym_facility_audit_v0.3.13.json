@@ -1,0 +1,146 @@
+{
+  "version": "0.3.13-beta",
+  "scope_rows": 92954,
+  "review_marker": "review_v0.3.13_toponym_audit",
+  "accepted_unique_fixes": 23,
+  "entries": [
+    {
+      "key": "1124581984",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1136984317",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1252822842",
+      "proposed_it": "Ti diamo il benvenuto nella Hall of Memories, creata dal Polaris Institute.\nQui puoi entrare nella storia dell'Istituto, vagare tra i ricordi di Astra e toccare il passato della Terra. Tre sale sono aperte, e ti guidano lungo un corridoio del tempo per registrare il passato, custodire il presente ed esplorare il futuro.",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1279589167",
+      "proposed_it": "Benvenuto nella Hall of Memories! Vieni a seguire le vecchie impronte del passato di Astra!",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1305390830",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1380791564",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1453722862",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1454672602",
+      "proposed_it": "Bene, vado alla Hall of Memories a ricaricare l'ispirazione. Esploratore, ci rivedremo, se il destino lo vorrà!",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1510432887",
+      "proposed_it": "Ingresso della Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1592331741",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1683736575",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1785932574",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1792526045",
+      "proposed_it": "Direttore della Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1804275040",
+      "proposed_it": "S-scusa! Mi sono emozionato troppo. Sono appassionato di auto fin da bambino, e non avrei mai pensato che un giorno il veicolo a nuova energia che ho progettato sarebbe stato incluso nella Hall of Memories... *singhiozza* Scusa... mi... mi sto commuovendo di nuovo!",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1840485426",
+      "proposed_it": "La Hall of Memories ospita tre sezioni: la Sala Storia dell'Istituto, la Sala Storia di Astra e la Sala Storia della Terra. I cittadini sono invitati a onorare la bellezza della Terra, portare avanti la fiaccola della civiltà e abbracciare la speranza della rinascita. Con la tecnologia più avanzata, restituiamo i ricordi più gentili.",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1853990092",
+      "proposed_it": "Al primo piano ci sono anche molte nuove strutture. Puoi provare l'addestramento del Simulatore Holo-Battle nella <style=Hint_BgD>Sala Esperienza Holo</style>, visitare la <style=Hint_BgD>Hall of Memories</style> per scoprire la storia dell'Istituto e di Astra, e comprare merchandising ufficiale al <style=Hint_BgD>Negozio Souvenir</style>!",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1912972398",
+      "proposed_it": "Per preservare il patrimonio dell'umanità e aiutare le nuove generazioni di abitanti di Astra a comprendere la strada percorsa, il Preside Oswen ha guidato il Polaris Institute nella costruzione di questo museo aperto: la Hall of Memories.",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1976818722",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1977643421",
+      "proposed_it": "Ehi, credi che non lo voglia? Al Polaris Institute c'è una Hall of Memories, con documenti sulla storia e sui paesaggi della nostra patria.\nDicono che alcuni luoghi siano molto simili a Idyll. Volevo vederli da una vita.",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "1989713825",
+      "proposed_it": "Astra Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2049877242",
+      "proposed_it": "Ti do il benvenuto nella Hall of Memories!",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2107203044",
+      "proposed_it": "Che cosa ha portato l'Istituto a progettare e costruire la Hall of Memories?",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    },
+    {
+      "key": "2129349614",
+      "proposed_it": "Guida della Hall of Memories",
+      "reason": "Mantiene in inglese il nome ufficiale della Hall of Memories; ruoli e indicazioni d'accesso restano in italiano naturale.",
+      "classification": "reviewed"
+    }
+  ]
+}
