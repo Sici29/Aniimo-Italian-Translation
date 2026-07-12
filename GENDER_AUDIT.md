@@ -1,6 +1,6 @@
 # Audit delle concordanze di genere
 
-La versione 0.3.6 introduce una verifica dedicata a genere, referente e naturalezza dei dialoghi italiani.
+La versione 0.3.6 introduce una verifica dedicata a genere, referente e naturalezza dei dialoghi italiani. La versione 0.3.10 estende il metodo all'intero cast usando l'attribuzione reale delle battute contenuta in `pmdata.bin`.
 
 ## Ordine delle fonti
 
@@ -34,7 +34,7 @@ Uff... Sono troppo emozionata, non riesco ancora a dormire...
 
 - I personaggi identificati mantengono il genere confermato dal contesto e dalle fonti ufficiali.
 - I gruppi misti seguono la normale concordanza italiana: per esempio, il protagonista maschile e Lunara insieme richiedono `svegliati entrambi`.
-- Il personaggio giocante non riceve un genere arbitrario. Dove l'originale non lo specifica si preferiscono forme naturali come `Te la senti?`, `quando hai finito i preparativi` o `ti sei fatto male?`.
+- Il personaggio giocante non riceve un genere arbitrario. Dove l'originale non lo specifica si preferiscono forme naturali come `Te la senti?`, `quando hai finito i preparativi` o `hai riportato ferite?`.
 - Titoli, nomi propri, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono conservati.
 - Il russo non viene mai seguito se racconta una frase diversa o se la desinenza concorda con un oggetto invece che con il parlante.
 
@@ -52,8 +52,17 @@ Uff... Sono troppo emozionata, non riesco ancora a dormire...
 
 Le duplicazioni servono quindi soprattutto a riutilizzare lo stesso testo, ma includono tre eccezioni reali che il gioco seleziona in base al protagonista. Non costituiscono un sistema generale di concordanza grammaticale per l'italiano e vanno valutate singolarmente.
 
-## Limiti tecnici verificati
+## Audit completo del cast nella v0.3.10
 
-Le mappe linguistiche statiche non contengono un collegamento completo tra chiave testuale e parlante. Il gioco associa questi dati a runtime tramite `npc_dialogue_data`. Gli eventi audio possono confermare alcune scene doppiate, ma non coprono tutte le battute.
+Il file runtime `pmdata.bin`, incluso in `LuaScripts.xdf`, contiene record separati per chiave del testo e chiave del parlante. L'audit riproducibile in `tools/audit_npc_gender.py` ricostruisce questo collegamento e lo confronta con il master italiano e con le localizzazioni inglese, giapponese e russa.
 
-Quando l'identità del parlante resta irrecuperabile, la neutralizzazione è quindi più precisa di un maschile o femminile scelto per supposizione.
+- 7.672 battute correnti attribuite al rispettivo parlante;
+- 290 etichette di parlante controllate;
+- 550 candidati grammaticali esaminati;
+- 158 stringhe corrette e registrate in `data/gender_audit_v0.3.10.json`;
+- 49 battute di personaggi femminili, 11 riferimenti a personaggi femminili e 2 battute di personaggi maschili corretti;
+- 96 frasi del protagonista selezionabile o rivolte al protagonista riscritte in italiano naturale e neutro.
+
+Questo controllo ha confermato, fra gli altri, Sunia, Nicole, Fannie, Awen, Irelia, Lunara, Caitlin, Velouria, Baboni e Senior Loulla come personaggi femminili. Ha inoltre corretto due errori inversi: Aeolus e Sorora sono maschili. Le specie o le etichette riutilizzate senza prove sufficienti non ricevono un genere biologico arbitrario; in quei casi la frase viene resa neutra.
+
+Le traduzioni russe mostrano numerose concordanze maschili errate anche per personaggi inequivocabilmente femminili. Restano quindi una fonte secondaria: prevalgono i pronomi inglesi espliciti, il contesto della missione e i marcatori giapponesi della stessa chiave.

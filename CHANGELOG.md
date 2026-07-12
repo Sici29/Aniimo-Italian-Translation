@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.10 Beta - 2026-07-12
+
+- Ricostruite 7.672 associazioni reali battuta→parlante da `pmdata.bin`, superando il limite del semplice controllo del CSV.
+- Controllati 290 speaker e revisionati manualmente 550 candidati di concordanza con inglese, giapponese, contesto delle missioni e russo solo come fonte secondaria.
+- Corrette 49 battute di personaggi femminili, incluse Sunia, Nicole, Fannie, Awen, Irelia, Lunara, Caitlin, Velouria, Baboni e Senior Loulla.
+- Corretti 11 riferimenti esterni a personaggi femminili, fra cui Avetine, Cress, Haidt, Snowy e la giovane Iris.
+- Corretti i due errori inversi confermati: Aeolus e Sorora sono maschili.
+- Neutralizzate 96 frasi del protagonista selezionabile o rivolte al protagonista, eliminando maschili fissi come `sono pronto`, `benvenuto`, `ti sei fatto male` e `sei stato il primo`.
+- Aggiunti un inventario di audit riproducibile, un manifesto di 158 correzioni per chiave e test automatici di regressione.
+
 ## 0.3.9 Beta - 2026-07-11
 
 - Corretto l'audit delle 14 bolle `Indizio`: il precedente limite sulla lunghezza totale non rappresentava la larghezza effettiva delle singole righe.

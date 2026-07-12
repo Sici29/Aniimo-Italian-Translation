@@ -24,7 +24,12 @@
     "empty_italian_values": 0,
     "direct_english_residue_fixes": 371,
     "glossary_and_consistency_fixes": 651,
-    "gender_audit_fixes": 419,
+    "gender_audit_fixes": 577,
+    "full_cast_speakers_checked": 290,
+    "npc_dialogue_attributions_checked": 7672,
+    "full_cast_gender_candidates_reviewed": 550,
+    "full_cast_gender_fixes": 158,
+    "variable_player_lines_neutralized": 96,
     "player_gender_placeholders_preserved": 9,
     "addressed_duplicate_groups_checked": 559,
     "gender_variant_duplicate_groups_found": 3
@@ -39,6 +44,6 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "75646EF4D340FC140E5AA8D78500F0DBE5DF2D2024822B1797C5C5F08FBC2E5A"
+    "production": "16474C8E6E97E2D742C9B0AD1506ABBC66D26F2B06FBF421C2363621BC8CFCF6"
   }
 }

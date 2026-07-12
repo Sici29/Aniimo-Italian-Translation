@@ -13,6 +13,7 @@ PRODUCTION_CSV = ROOT / "data" / "translation_it.csv"
 SINGLE_LINE_NOTIFICATIONS = ROOT / "data" / "single_line_notifications.json"
 FLOATING_CLUES = ROOT / "data" / "floating_clues.json"
 CLUE_PANEL_INSTRUCTIONS = ROOT / "data" / "clue_panel_instructions.json"
+GENDER_AUDIT_V0310 = ROOT / "data" / "gender_audit_v0.3.10.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -220,7 +221,10 @@ class TranslationDataTests(unittest.TestCase):
         self.assertEqual(364, len(zero_source))
         self.assertEqual(359, len(recovered))
         self.assertTrue(
-            all(row["note"] == "review_v0.3.5_zero_fallback" for row in recovered)
+            all(
+                "review_v0.3.5_zero_fallback" in row["note"].split(";")
+                for row in recovered
+            )
         )
         self.assertEqual(
             {"454126242", "1113377644", "1126959664", "1660409882", "1975988662"},
@@ -376,7 +380,9 @@ class TranslationDataTests(unittest.TestCase):
     def test_v036_gender_audit_regressions(self) -> None:
         by_key = {row["key"]: row["it"] for row in self.production}
         audited = [
-            row for row in self.production if row["note"] == "review_v0.3.6_gender_audit"
+            row
+            for row in self.production
+            if "review_v0.3.6_gender_audit" in row["note"].split(";")
         ]
         # Due delle 419 righe storiche sono state nuovamente revisionate nella v0.3.7.
         self.assertEqual(417, len(audited))
@@ -389,7 +395,7 @@ class TranslationDataTests(unittest.TestCase):
             "Dopo che racconti il sogno e ciò che hai visto, Lunara sembra sorpresa.",
             by_key["1498065011"],
         )
-        self.assertIn("Lunara e io ci siamo svegliati entrambi", by_key["1351163866"])
+        self.assertIn("Lunara e io ci siamo svegliati, quindi", by_key["1351163866"])
         self.assertEqual("Ahh! Mi sento piena di felicità! Ahah!", by_key["1605896421"])
         self.assertIn("non sono sicura", by_key["1329861792"])
         self.assertEqual(
@@ -407,6 +413,61 @@ class TranslationDataTests(unittest.TestCase):
 
         text = "\n".join(row["it"] for row in self.production)
         self.assertNotIn("Lunara sembra sorpreso", text)
+
+    def test_v0310_full_cast_gender_audit_manifest_is_applied(self) -> None:
+        audit = json.loads(GENDER_AUDIT_V0310.read_text(encoding="utf-8"))
+        operations = audit["operations"]
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(290, audit["speaker_count_checked"])
+        self.assertEqual(7_672, audit["dialogue_attributions_checked"])
+        self.assertEqual(550, audit["candidate_lines_reviewed"])
+        self.assertEqual(158, len(operations))
+        self.assertEqual(158, len({operation["key"] for operation in operations}))
+
+        expected_scope_counts = {
+            "female_reference": 11,
+            "female_speaker": 49,
+            "male_speaker": 2,
+            "variable_player": 1,
+            "variable_player_address": 69,
+            "variable_player_group": 1,
+            "variable_player_self": 25,
+        }
+        self.assertEqual(expected_scope_counts, Counter(op["scope"] for op in operations))
+
+        for operation in operations:
+            row = by_key[operation["key"]]
+            notes = row["note"].split(";")
+            self.assertIn("review_v0.3.10_full_gender_audit", notes)
+            for replacement in operation["replacements"]:
+                self.assertNotIn(replacement["old"], row["it"], operation["key"])
+                self.assertIn(replacement["new"], row["it"], operation["key"])
+
+    def test_v0310_named_character_gender_regressions(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+
+        self.assertIn("Sono nata qualche anno dopo il festival", by_key["1698602738"])
+        self.assertIn("Fin da piccola", by_key["1617447663"])
+        self.assertIn("ero nata per questo", by_key["1617447663"])
+        self.assertIn("mi sono svegliata", by_key["1636136911"])
+        self.assertIn("mi sono arresa", by_key["1867126519"])
+        self.assertIn("sono arrivata presto", by_key["1431315230"])
+        self.assertIn("sono così toccata", by_key["1463105099"])
+        self.assertIn("Sono arrivata fin qui e sono giunta", by_key["1526283551"])
+        self.assertIn("una profumiera", by_key["1948062580"])
+        self.assertIn("sono un pittore", by_key["1127303739"])
+        self.assertIn("mi ha aiutato", by_key["1513612855"])
+
+    def test_v0310_variable_player_lines_are_neutral(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+
+        self.assertEqual("Ci sono!", by_key["1121352836"])
+        self.assertEqual("Ci sono!", by_key["1468043655"])
+        self.assertEqual("Eccomi di nuovo!", by_key["1364683127"])
+        self.assertIn("Hai riportato ferite?", by_key["1466640855"])
+        self.assertIn("ti do il benvenuto a Idyll", by_key["1673724252"])
+        self.assertIn("Accesso al canale vocale effettuato", by_key["2123236433"])
 
 
 if __name__ == "__main__":
