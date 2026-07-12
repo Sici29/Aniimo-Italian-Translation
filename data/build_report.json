@@ -24,7 +24,7 @@
     "empty_italian_values": 0,
     "direct_english_residue_fixes": 371,
     "glossary_and_consistency_fixes": 651,
-    "gender_audit_fixes": 577,
+    "gender_audit_fixes": 687,
     "full_cast_speakers_checked": 290,
     "npc_dialogue_attributions_checked": 7672,
     "full_cast_gender_candidates_reviewed": 550,
@@ -32,7 +32,19 @@
     "variable_player_lines_neutralized": 96,
     "player_gender_placeholders_preserved": 9,
     "addressed_duplicate_groups_checked": 559,
-    "gender_variant_duplicate_groups_found": 3
+    "gender_variant_duplicate_groups_found": 3,
+    "full_quality_rows_scanned": 92954,
+    "full_quality_unique_fixes": 714,
+    "final_gender_candidates_reviewed": 836,
+    "final_gender_fixes": 110,
+    "combat_and_dynamic_ui_fixes": 70,
+    "stamina_to_vigore_fixes": 119,
+    "holo_gizmo_family_fixes": 93,
+    "final_truncation_fixes": 10,
+    "final_english_residue_fixes": 59,
+    "accepted_italian_or_technical_loans_reviewed": 138,
+    "remaining_slash_inflections": 0,
+    "remaining_tag_or_placeholder_mismatches": 0
   },
   "font_mapping": "English -> UI_Font_Vietnamese",
   "preserved_official_terms": [
@@ -44,6 +56,6 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "16474C8E6E97E2D742C9B0AD1506ABBC66D26F2B06FBF421C2363621BC8CFCF6"
+    "production": "0A1A2FB8DA5EB0392A758C44CA672F96AEA118BA4D39C6CCBACAD669111A8F75"
   }
 }

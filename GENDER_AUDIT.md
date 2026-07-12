@@ -2,6 +2,8 @@
 
 La versione 0.3.6 introduce una verifica dedicata a genere, referente e naturalezza dei dialoghi italiani. La versione 0.3.10 estende il metodo all'intero cast usando l'attribuzione reale delle battute contenuta in `pmdata.bin`.
 
+La versione 0.3.11 ripete il controllo sull'intero master e aggiunge i testi non attribuiti a un parlante, come tutorial, notifiche, saluti e descrizioni rivolte direttamente al protagonista selezionabile.
+
 ## Ordine delle fonti
 
 Per ogni stringa dubbia vengono confrontate le localizzazioni ufficiali disponibili, con questo criterio:
@@ -62,6 +64,16 @@ Il file runtime `pmdata.bin`, incluso in `LuaScripts.xdf`, contiene record separ
 - 158 stringhe corrette e registrate in `data/gender_audit_v0.3.10.json`;
 - 49 battute di personaggi femminili, 11 riferimenti a personaggi femminili e 2 battute di personaggi maschili corretti;
 - 96 frasi del protagonista selezionabile o rivolte al protagonista riscritte in italiano naturale e neutro.
+
+## Chiusura globale nella v0.3.11
+
+- 532 candidati legati a speaker o prima persona ricontrollati;
+- 304 candidati aggiuntivi in tutorial, stati di gioco, saluti e UI;
+- 110 correzioni ad alta confidenza;
+- nessun nuovo errore reale nel genere proprio del parlante NPC dopo l'audit v0.3.10;
+- tutte le anomalie confermate riguardavano invece accordi fissi rivolti al protagonista selezionabile;
+- secondo controllo automatico sulle proposte finali, senza neutralizzazioni parziali residue;
+- zero alterazioni di tag, variabili o segnaposto.
 
 Questo controllo ha confermato, fra gli altri, Sunia, Nicole, Fannie, Awen, Irelia, Lunara, Caitlin, Velouria, Baboni e Senior Loulla come personaggi femminili. Ha inoltre corretto due errori inversi: Aeolus e Sorora sono maschili. Le specie o le etichette riutilizzate senza prove sufficienti non ricevono un genere biologico arbitrario; in quei casi la frase viene resa neutra.
 

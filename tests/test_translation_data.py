@@ -14,6 +14,7 @@ SINGLE_LINE_NOTIFICATIONS = ROOT / "data" / "single_line_notifications.json"
 FLOATING_CLUES = ROOT / "data" / "floating_clues.json"
 CLUE_PANEL_INSTRUCTIONS = ROOT / "data" / "clue_panel_instructions.json"
 GENDER_AUDIT_V0310 = ROOT / "data" / "gender_audit_v0.3.10.json"
+QUALITY_AUDIT_V0311 = ROOT / "data" / "quality_audit_v0.3.11.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -160,7 +161,9 @@ class TranslationDataTests(unittest.TestCase):
 
     def test_v035_english_audit_rows_are_fully_localized(self) -> None:
         audited = [
-            row for row in self.production if row["note"] == "review_v0.3.5_english_audit"
+            row
+            for row in self.production
+            if "review_v0.3.5_english_audit" in row["note"].split(";")
         ]
         # Due delle 220 righe storiche sono state revisionate di nuovo nelle versioni successive.
         self.assertEqual(218, len(audited))
@@ -278,13 +281,15 @@ class TranslationDataTests(unittest.TestCase):
         audited = [
             row
             for row in self.production
-            if row["note"]
-            in {
+            if any(
+                marker in row["note"].split(";")
+                for marker in {
                 "review_v0.3.7_ui_length",
                 "review_v0.3.7_toast_length",
                 "review_v0.3.7_clue_length",
                 "review_v0.3.9_clue_bubble_wrap",
-            }
+                }
+            )
         ]
         tag_pattern = re.compile(r"<[^>]+>")
         self.assertEqual(82, len(audited))
@@ -468,6 +473,93 @@ class TranslationDataTests(unittest.TestCase):
         self.assertIn("Hai riportato ferite?", by_key["1466640855"])
         self.assertIn("ti do il benvenuto a Idyll", by_key["1673724252"])
         self.assertIn("Accesso al canale vocale effettuato", by_key["2123236433"])
+
+    def test_v0311_quality_manifest_is_fully_applied(self) -> None:
+        audit = json.loads(QUALITY_AUDIT_V0311.read_text(encoding="utf-8"))
+        operations = audit["operations"]
+        by_key = {row["key"]: row for row in self.production}
+        token_pattern = re.compile(
+            r"<[^>]+>|\{[^{}]+\}|%[sdif]|#k[A-Za-z0-9_/]+#z|#player[A-Za-z0-9_]*#"
+        )
+
+        self.assertEqual(92_954, audit["master_rows_scanned"])
+        self.assertEqual(audit["operation_count"], len(operations))
+        self.assertEqual(len(operations), len({str(item["key"]) for item in operations}))
+        self.assertGreaterEqual(len(operations), 650)
+
+        for operation in operations:
+            key = str(operation["key"])
+            row = by_key[key]
+            self.assertEqual(operation["new_it"], row["it"], key)
+            self.assertIn(
+                "review_v0.3.11_full_quality_audit", row["note"].split(";"), key
+            )
+            self.assertEqual(
+                Counter(token_pattern.findall(operation["old_it"])),
+                Counter(token_pattern.findall(operation["new_it"])),
+                f"Tag o segnaposto alterati nella chiave {key}",
+            )
+
+    def test_v0311_confirmed_residues_and_slash_forms_are_absent(self) -> None:
+        public_text = "\n".join(row["it"] for row in self.production)
+        visible = re.sub(r"<[^>]+>", "", public_text)
+
+        slash_pattern = re.compile(
+            r"(?i)\b(?:secondo/i|volta/e|giorno/i|ora/e|stella/e|uovo/i|"
+            r"colpo/i|ricevuto/i|punto/i|moneta/e|momento/i|prezioso/i|"
+            r"amico/i|caro/a|quale/i|impulso/i|accessorio/i|tentativo/i)\b"
+        )
+        self.assertIsNone(slash_pattern.search(visible))
+
+        for residue in (
+            "Aniimology",
+            "Holo-gizmo",
+            "holo-gizmo",
+            "Holo-gadget",
+            "Sparkling",
+            "Fast and Furious",
+            "Gravity Pull",
+            "Starbound Journey",
+            "cutscene",
+            "Stamina",
+            "stamina",
+            "ATTaccare",
+            "fifteen characters",
+            "streamer signature",
+            "[NPC Name]",
+            "Sono intelligence!",
+        ):
+            self.assertNotIn(residue, visible)
+
+        self.assertIsNone(re.search(r"(?i)\bquest(?!['’])\b", visible))
+        self.assertIsNone(re.search(r"(?i)\bstage\b", visible))
+        self.assertIsNone(re.search(r"(?i)\bupgrade\b", visible))
+        self.assertIsNone(re.search(r"(?i)\bmatchmaking\b", visible))
+
+    def test_v0311_truncated_and_placeholder_content_is_repaired(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual(
+            "L'Hummin stonato si nasconde quando gli altri lo sentono. "
+            "Che cos'è, secondo te?",
+            by_key["1973348169"],
+        )
+        self.assertEqual("Un dipinto", by_key["1635962688"])
+        self.assertEqual("Sconfiggi", by_key["2039845645"])
+        self.assertEqual("È apparso uno strano Aniimo!", by_key["2059160538"])
+        self.assertIn("Esplora un dungeon emozionante", by_key["2000957290"])
+        self.assertIn("Esplora un vivace dungeon", by_key["2072163332"])
+
+    def test_v0311_player_gender_and_terminology_regressions(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertIn("Vuoi ordinare?", by_key["1091328287"])
+        self.assertNotIn("Pronto a ordinare", by_key["1091328287"])
+        self.assertIn("ti darà ancora più coraggio", by_key["1227085316"])
+        self.assertNotIn("impavido", by_key["1227085316"])
+        self.assertEqual("Furia Sfrenata", by_key["1083242828"])
+        self.assertEqual("Attrazione Gravitazionale", by_key["1104159043"])
+        self.assertEqual("Viaggio tra le Stelle", by_key["1932764260"])
+        self.assertEqual("Aspetto", by_key["1504123594"])
+        self.assertEqual("Vigore attuale", by_key["1101324669"])
 
 
 if __name__ == "__main__":

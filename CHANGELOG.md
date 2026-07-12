@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.11 Beta - 2026-07-12
+
+- Eseguita una nuova passata globale su tutte le 92.954 righe e applicate 714 correzioni uniche, registrate in un manifesto riproducibile e idempotente.
+- Revisionati 836 ulteriori candidati di genere su 7.672 dialoghi attribuiti a 290 speaker: nessun nuovo errore nel genere proprio degli NPC, ma 110 testi rivolti al protagonista o appartenenti alla UI sono stati resi naturali e neutri.
+- Uniformate 119 occorrenze di `Stamina` in `Vigore` e 93 varianti `Holo-gizmo`/`Holo-gadget` in `Congegno Holo`/`Congegni Holo`.
+- Uniformati i nomi `Furia Sfrenata`, `Attrazione Gravitazionale` e `Viaggio tra le Stelle`; tradotti `Matchmaking`, `stage`, `cutscene`, `quest`, `upgrade`, `drop`, `Skin` e altri frammenti inglesi incoerenti.
+- Corretti 10 testi tronchi, ripetuti o sostituiti da segnaposto tecnici e 70 descrizioni di combattimento/UI, incluse tutte le forme artificiali `secondo/i`, `volta/e`, `moneta/e` e simili.
+- Rifinite 61 frasi italiane ad alta confidenza fra calchi, concordanze, articoli duplicati, sintassi tecnica e regole evento.
+- Verificati singolarmente 197 possibili residui inglesi finali: 59 corretti e 138 prestiti italiani o tecnici appropriati conservati con motivazione.
+- Aggiunto un audit automatico permanente per tag, segnaposto, flessioni con slash, residui inglesi, finali sospetti, lunghezze anomale e varianti incoerenti.
+
 ## 0.3.10 Beta - 2026-07-12
 
 - Ricostruite 7.672 associazioni reali battuta→parlante da `pmdata.bin`, superando il limite del semplice controllo del CSV.
