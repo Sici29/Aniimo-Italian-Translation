@@ -15,6 +15,10 @@ FLOATING_CLUES = ROOT / "data" / "floating_clues.json"
 CLUE_PANEL_INSTRUCTIONS = ROOT / "data" / "clue_panel_instructions.json"
 GENDER_AUDIT_V0310 = ROOT / "data" / "gender_audit_v0.3.10.json"
 QUALITY_AUDIT_V0311 = ROOT / "data" / "quality_audit_v0.3.11.json"
+PUNCTUATION_AUDIT_V0312 = ROOT / "data" / "punctuation_audit_v0.3.12.json"
+FLUENCY_AUDIT_V0312 = ROOT / "data" / "fluency_audit_v0.3.12.json"
+DEEP_FLUENCY_AUDIT_V0312 = ROOT / "data" / "deep_fluency_audit_v0.3.12.json"
+POST_EDITORIAL_AUDIT_V0312 = ROOT / "data" / "post_editorial_audit_v0.3.12.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -84,7 +88,9 @@ class TranslationDataTests(unittest.TestCase):
 
     def test_v037_global_english_residue_audit(self) -> None:
         audited = [
-            row for row in self.production if row["note"] == "review_v0.3.7_english_residue"
+            row
+            for row in self.production
+            if "review_v0.3.7_english_residue" in row["note"].split(";")
         ]
         self.assertEqual(151, len(audited))
         by_key = {row["key"]: row["it"] for row in self.production}
@@ -237,8 +243,8 @@ class TranslationDataTests(unittest.TestCase):
     def test_instructor_dream_fallback_is_localized(self) -> None:
         by_key = {row["key"]: row["it"] for row in self.production}
         self.assertEqual(
-            "L'Istruttore ci racconta cos'è successo —\n"
-            "proprio così: tutto coincide con ciò che abbiamo visto in quel sogno.",
+            "L'Istruttore ci racconta cos'è successo...\n"
+            "E infatti tutto coincide con ciò che abbiamo visto in quel sogno.",
             by_key["1863202957"],
         )
 
@@ -401,7 +407,7 @@ class TranslationDataTests(unittest.TestCase):
             by_key["1498065011"],
         )
         self.assertIn("Lunara e io ci siamo svegliati, quindi", by_key["1351163866"])
-        self.assertEqual("Ahh! Mi sento piena di felicità! Ahah!", by_key["1605896421"])
+        self.assertEqual("Ah! Mi sento piena di felicità! Ahah!", by_key["1605896421"])
         self.assertIn("non sono sicura", by_key["1329861792"])
         self.assertEqual(
             "Sì! Non l'hai già dimenticato, vero?\n"
@@ -447,7 +453,12 @@ class TranslationDataTests(unittest.TestCase):
             self.assertIn("review_v0.3.10_full_gender_audit", notes)
             for replacement in operation["replacements"]:
                 self.assertNotIn(replacement["old"], row["it"], operation["key"])
-                self.assertIn(replacement["new"], row["it"], operation["key"])
+                if replacement["new"] not in row["it"]:
+                    self.assertIn(
+                        "review_v0.3.12_deep_editorial",
+                        notes,
+                        f"La revisione successiva non è tracciata per {operation['key']}",
+                    )
 
     def test_v0310_named_character_gender_regressions(self) -> None:
         by_key = {row["key"]: row["it"] for row in self.production}
@@ -457,7 +468,7 @@ class TranslationDataTests(unittest.TestCase):
         self.assertIn("ero nata per questo", by_key["1617447663"])
         self.assertIn("mi sono svegliata", by_key["1636136911"])
         self.assertIn("mi sono arresa", by_key["1867126519"])
-        self.assertIn("sono arrivata presto", by_key["1431315230"])
+        self.assertIn("sono arrivata in anticipo", by_key["1431315230"])
         self.assertIn("sono così toccata", by_key["1463105099"])
         self.assertIn("Sono arrivata fin qui e sono giunta", by_key["1526283551"])
         self.assertIn("una profumiera", by_key["1948062580"])
@@ -490,10 +501,14 @@ class TranslationDataTests(unittest.TestCase):
         for operation in operations:
             key = str(operation["key"])
             row = by_key[key]
-            self.assertEqual(operation["new_it"], row["it"], key)
             self.assertIn(
                 "review_v0.3.11_full_quality_audit", row["note"].split(";"), key
             )
+            if operation["new_it"] != row["it"]:
+                self.assertTrue(
+                    any(note.startswith("review_v0.3.12_") for note in row["note"].split(";")),
+                    f"La chiave {key} differisce dall'audit v0.3.11 senza una revisione successiva",
+                )
             self.assertEqual(
                 Counter(token_pattern.findall(operation["old_it"])),
                 Counter(token_pattern.findall(operation["new_it"])),
@@ -560,6 +575,187 @@ class TranslationDataTests(unittest.TestCase):
         self.assertEqual("Viaggio tra le Stelle", by_key["1932764260"])
         self.assertEqual("Aspetto", by_key["1504123594"])
         self.assertEqual("Vigore attuale", by_key["1101324669"])
+
+    def test_v0312_trailing_em_dashes_follow_italian_style(self) -> None:
+        audit = json.loads(PUNCTUATION_AUDIT_V0312.read_text(encoding="utf-8"))
+        marker = audit["note_marker"]
+        audited = [
+            row for row in self.production if marker in row["note"].split(";")
+        ]
+        source_final = [
+            row for row in self.production if row["source_en"].rstrip().endswith("—")
+        ]
+
+        self.assertEqual(197, len(source_final))
+        self.assertEqual(190, len(audited))
+        self.assertTrue(all(row["it"].rstrip().endswith("...") for row in audited))
+        self.assertFalse(any(row["it"].rstrip().endswith("—") for row in self.production))
+        self.assertFalse(
+            any("—" in row["it"] and "—" not in row["source_en"] for row in self.production)
+        )
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual(
+            "Quella notte feci un sogno bellissimo. Mi ritrovai in un mondo pieno di colori...",
+            by_key["1850841320"],
+        )
+        self.assertEqual(
+            "L'Istruttore ci racconta cos'è successo...\n"
+            "E infatti tutto coincide con ciò che abbiamo visto in quel sogno.",
+            by_key["1863202957"],
+        )
+
+    def test_v0312_full_fluency_audit_is_applied(self) -> None:
+        audit = json.loads(FLUENCY_AUDIT_V0312.read_text(encoding="utf-8"))
+        entries = audit["entries"]
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(92_954, audit["scope_rows"])
+        self.assertEqual(175, audit["selected_unique_fixes"])
+        self.assertEqual(
+            {
+                "italian_fluency": 65,
+                "literal_calques": 106,
+                "tense_consistency": 4,
+            },
+            audit["counts"],
+        )
+        self.assertEqual(175, len(entries))
+        self.assertEqual(175, len({str(entry["key"]) for entry in entries}))
+        for entry in entries:
+            key = str(entry["key"])
+            row = by_key[key]
+            if entry["proposed_it"] != row["it"]:
+                self.assertIn("review_v0.3.12_post_editorial", row["note"].split(";"), key)
+            self.assertIn(
+                f"review_v0.3.12_{entry['category']}", row["note"].split(";"), key
+            )
+
+    def test_v0312_deep_editorial_audit_is_fully_applied(self) -> None:
+        audit = json.loads(DEEP_FLUENCY_AUDIT_V0312.read_text(encoding="utf-8"))
+        entries = audit["entries"]
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(92_954, audit["scope_rows"])
+        self.assertEqual(42_637, audit["unique_source_texts_reviewed"])
+        self.assertEqual(426, audit["proposals_received"])
+        self.assertEqual(423, audit["accepted_unique_fixes"])
+        self.assertEqual(3, audit["rejected_after_adjudication"])
+        self.assertEqual(29, audit["overridden_after_adjudication"])
+        self.assertEqual({"1": 77, "2": 201, "3": 145}, audit["accepted_by_block"])
+        self.assertEqual(423, len(entries))
+        self.assertEqual(423, len({str(entry["key"]) for entry in entries}))
+
+        marker = audit["review_marker"]
+        for entry in entries:
+            key = str(entry["key"])
+            row = by_key[key]
+            self.assertEqual(entry["source_en"], row["source_en"], key)
+            if entry["proposed_it"] != row["it"]:
+                self.assertIn("review_v0.3.12_post_editorial", row["note"].split(";"), key)
+            self.assertIn(marker, row["note"].split(";"), key)
+
+        self.assertEqual(
+            "Ho dimenticato le buone maniere. Mi chiamo Sorora e sono un pittore.\n"
+            "Per qualche motivo sconosciuto... ho perso la memoria.",
+            by_key["1127303739"]["it"],
+        )
+        self.assertNotIn(marker, by_key["1127303739"]["note"].split(";"))
+        self.assertIn("cercare il <style=Hint_BgD>Dr. Lewis</style>", by_key["1103960172"]["it"])
+        self.assertIn("cercare il Dr. Lewis", by_key["1117663681"]["it"])
+
+    def test_v0312_deep_editorial_regressions(self) -> None:
+        by_key = {row["key"]: row["it"] for row in self.production}
+        self.assertEqual(
+            "L'Aniimo evocato non conosce un'abilità così potente e non può imitarla...",
+            by_key["1080838903"],
+        )
+        self.assertLessEqual(len(by_key["1080838903"]), 80)
+        self.assertEqual("Mmh...? Ehm...", by_key["1292501930"])
+        self.assertEqual("Eheh... Ben fatto!", by_key["1868387415"])
+        self.assertIn("sono arrivata in anticipo", by_key["1431315230"])
+        self.assertIn("un Ramo a Idyll", by_key["1239339132"])
+        self.assertNotIn(" AM", by_key["1185180588"])
+        for key, level in (
+            ("1694173301", 2),
+            ("1764535657", 3),
+            ("2125442768", 4),
+            ("1777218078", 5),
+        ):
+            self.assertIn("Completa la Valutazione per la Promozione", by_key[key])
+            self.assertIn(f"Abilità di Livello {level}", by_key[key])
+
+    def test_v0312_post_editorial_audit_is_fully_applied(self) -> None:
+        audit = json.loads(POST_EDITORIAL_AUDIT_V0312.read_text(encoding="utf-8"))
+        entries = audit["entries"]
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(92_954, audit["scope_rows"])
+        self.assertEqual(422, audit["input_proposals"])
+        self.assertEqual(401, audit["input_unique_keys"])
+        self.assertEqual(443, audit["accepted_unique_fixes"])
+        self.assertEqual(1, audit["rejected_after_adjudication"])
+        self.assertEqual(5, audit["conflicts_resolved"])
+        self.assertEqual(
+            {
+                "date_format": 22,
+                "families": 16,
+                "families+global": 21,
+                "global": 63,
+                "interjections": 295,
+                "interjections+line_spacing": 2,
+                "line_spacing": 1,
+                "source_group": 23,
+            },
+            audit["counts"],
+        )
+        self.assertEqual(443, len(entries))
+        self.assertEqual(443, len({str(entry["key"]) for entry in entries}))
+
+        marker = audit["review_marker"]
+        for entry in entries:
+            key = str(entry["key"])
+            self.assertEqual(entry["proposed_it"], by_key[key]["it"], key)
+            self.assertIn(marker, by_key[key]["note"].split(";"), key)
+
+        visible = "\n".join(re.sub(r"<[^>]+>", "", row["it"]) for row in self.production)
+        self.assertIsNone(re.search(r"(?i)(?<![A-Za-z])(?:AM|PM)(?![A-Za-z])", visible))
+        self.assertIsNone(re.search(r"(?i)\b(?:abilità|livello|talenti) personaggio\b", visible))
+        self.assertNotIn("Where Gulls Sing", visible)
+        self.assertNotIn("Segnaposto Nome Pet", visible)
+
+        intentional_interjections = {
+            "1097427818",
+            "1255537025",
+            "1229726896",
+            "1431594257",
+            "1444226420",
+            "1324024883",
+            "1412046249",
+            "1543909684",
+            "1701527619",
+            "1399824867",
+            "1619359011",
+            "1801230274",
+            "1805510827",
+        }
+        residue_pattern = re.compile(r"\b(?:Hmm|Hehe|Haha|Hahaha|Uh|Umm|Woof|Chirp|Beep|Three)\b")
+        actual = {
+            row["key"]
+            for row in self.production
+            if residue_pattern.search(re.sub(r"<[^>]+>", "", row["it"]))
+        }
+        self.assertEqual(intentional_interjections, actual)
+
+    def test_v0312_aniipod_transport_wording_is_consistent(self) -> None:
+        by_key = {row["key"]: row for row in self.production}
+        keys = ("1138335818", "1973721313", "1982247871", "2002227621")
+        for key in keys:
+            self.assertIn("portala con te nel tuo Aniipod.", by_key[key]["it"], key)
+            self.assertNotIn("fare un passaggio", by_key[key]["it"].lower(), key)
+        self.assertEqual(
+            "Snowy non sa volare...\n#playerName#, portala con te nel tuo Aniipod.",
+            by_key["1982247871"]["it"],
+        )
 
 
 if __name__ == "__main__":

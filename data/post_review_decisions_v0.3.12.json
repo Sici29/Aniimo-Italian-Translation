@@ -1,0 +1,112 @@
+{
+  "version": "0.3.12-beta",
+  "review_marker": "review_v0.3.12_post_editorial",
+  "reject": [
+    {
+      "key": "1124581778",
+      "reason": "«Hoo-haha... jira!» è un canto ibrido privo di significato lessicale certo: modificarne una sola sillaba altererebbe il ritmo senza localizzarlo davvero."
+    }
+  ],
+  "override": [
+    {
+      "key": "1118980948",
+      "proposed_it": "Potenzia il livello del personaggio",
+      "reason": "La forma estesa richiede sia l'articolo sia la preposizione."
+    },
+    {
+      "key": "1127911634",
+      "proposed_it": "Descrizione dell'abilità (segnaposto) Descrizione dell'abilità Descrizione dell'abilità Descrizione dell'abilità Descrizione dell'abilità Descrizione dell'abilità Descrizione dell'abilità",
+      "reason": "Corregge l'ordine nominale e usa la forma italiana completa anche nel segnaposto tecnico."
+    },
+    {
+      "key": "1207835659",
+      "proposed_it": "Aumento del livello del personaggio",
+      "reason": "Scioglie completamente l'accumulo nominale del titolo UI."
+    },
+    {
+      "key": "1214136386",
+      "proposed_it": "Aumento del limite di livello del personaggio:",
+      "reason": "Ripristina tutte le preposizioni necessarie nel titolo UI."
+    },
+    {
+      "key": "1461264639",
+      "proposed_it": "Gli ornamenti di piume all'altezza della vita danzano nel vento, facendoti sentire un po' più leggero.",
+      "reason": "Elimina il falso amico «accents» mantenendo la grafia tipografica dominante nel master."
+    }
+  ],
+  "source_group_override": [
+    {
+      "source_en": "Placeholder text",
+      "proposed_it": "Testo segnaposto",
+      "reason": "Uniforma tutte le sei occorrenze con ordine nominale e maiuscole naturali in italiano."
+    },
+    {
+      "source_en": "Placeholder Text",
+      "proposed_it": "Testo segnaposto",
+      "reason": "Uniforma tutte le sei occorrenze con ordine nominale e maiuscole naturali in italiano."
+    },
+    {
+      "source_en": "Placeholder text content placeholder text content",
+      "proposed_it": "Contenuto testuale segnaposto contenuto testuale segnaposto",
+      "reason": "Rende naturale e coerente l'intera famiglia dei segnaposto di contenuto."
+    },
+    {
+      "source_en": "Placeholder Text Content Placeholder Text Content",
+      "proposed_it": "Contenuto testuale segnaposto contenuto testuale segnaposto",
+      "reason": "Rende naturale e coerente l'intera famiglia dei segnaposto di contenuto."
+    },
+    {
+      "source_en": "Pet name placeholder",
+      "proposed_it": "Segnaposto nome Aniimo",
+      "reason": "Elimina il residuo interno «Pet» e usa la terminologia ufficiale Aniimo in tutte le quattordici occorrenze."
+    },
+    {
+      "source_en": "Pet Name Placeholder",
+      "proposed_it": "Segnaposto nome Aniimo",
+      "reason": "Elimina il residuo interno «Pet» e usa la terminologia ufficiale Aniimo in tutte le quattordici occorrenze."
+    }
+  ],
+  "target_replacement": [
+    {
+      "category": "date_format",
+      "old": " AM",
+      "new": "",
+      "reason": "Rimuove l'indicatore anglosassone superfluo dagli orari già espressi nel formato italiano a 24 ore.",
+      "keys": [
+        "1120560445",
+        "1223766645",
+        "1238197573",
+        "1268377765",
+        "1278672244",
+        "1290479239",
+        "1320561499",
+        "1401161527",
+        "1496832438",
+        "1509194565",
+        "1512568269",
+        "1594528046",
+        "1605383869",
+        "1641877221",
+        "1678688235",
+        "1711067571",
+        "1818389593",
+        "1842890642",
+        "1861846561",
+        "2079772579",
+        "2085363973",
+        "2133746715"
+      ]
+    },
+    {
+      "category": "line_spacing",
+      "old": ". \n",
+      "new": ".\n",
+      "reason": "Rimuove lo spazio invisibile rimasto alla fine della riga senza cambiare il ritorno a capo previsto.",
+      "keys": [
+        "1143594990",
+        "1721438834",
+        "1817637239"
+      ]
+    }
+  ]
+}

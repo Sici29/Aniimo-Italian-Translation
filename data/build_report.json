@@ -43,6 +43,23 @@
     "final_truncation_fixes": 10,
     "final_english_residue_fixes": 59,
     "accepted_italian_or_technical_loans_reviewed": 138,
+    "v0312_trailing_em_dashes_normalized": 190,
+    "v0312_literal_calque_fixes": 106,
+    "v0312_italian_fluency_fixes": 65,
+    "v0312_tense_consistency_fixes": 4,
+    "v0312_unique_editorial_fixes": 175,
+    "v0312_deep_unique_source_texts_reviewed": 42637,
+    "v0312_deep_proposals": 426,
+    "v0312_deep_accepted_fixes": 423,
+    "v0312_post_input_proposals": 422,
+    "v0312_post_accepted_fixes": 443,
+    "v0312_editorial_interventions": 1041,
+    "v0312_editorial_unique_keys": 1038,
+    "v0312_localized_interjections_and_onomatopoeia": 297,
+    "v0312_italianized_am_pm_strings": 22,
+    "v0312_removed_am_pm_indicators": 27,
+    "v0312_dynamic_date_format": "DD/MM/YYYY",
+    "v0312_dynamic_date_patch_verified": true,
     "remaining_slash_inflections": 0,
     "remaining_tag_or_placeholder_mismatches": 0
   },
@@ -56,6 +73,11 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "0A1A2FB8DA5EB0392A758C44CA672F96AEA118BA4D39C6CCBACAD669111A8F75"
+    "production": "474344A1F49F330C55EB581A4C6AE17B7CC330FB6A2FD5A3552DF22E37DAE18C"
+  },
+  "installer_artifact": {
+    "name": "Aniimo-Italian-Translation.exe",
+    "size_bytes": 34103303,
+    "sha256": "6B6EED2D4AAFE8360284185CE7A1055DF7A774F68D2F37CE62F9A980137863CA"
   }
 }

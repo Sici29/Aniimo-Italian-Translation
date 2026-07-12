@@ -37,6 +37,9 @@ All'apertura compare un riepilogo semplice con:
 - compatibilità reale verificata confrontando tutte le chiavi dei testi;
 - percorso del gioco trovato automaticamente o inserito dall'utente;
 - traduzione italiana già installata oppure non installata;
+- versione della traduzione installata e versione inclusa nel nuovo installer;
+- confronto reale dei contenuti, con indicazione `IDENTICI` o `DIVERSI — AGGIORNAMENTO CONSIGLIATO`;
+- formato della data dinamica, italianizzato come `GG/MM/AAAA`;
 - stato di compatibilità evidenziato a colori;
 - versione dell'installer in uso;
 - eventuale nuova versione disponibile.
@@ -93,7 +96,7 @@ Documenti\AniimoItalianTranslation\backups
 - Copertura: **92.954 / 92.954 chiavi**, comprese le voci di fallback mancanti nello slot English.
 - Versioni del gioco verificate: **3032670** e hot update **3036569**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.11 beta**.
+- Versione della traduzione: **0.3.12 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -108,6 +111,12 @@ Documenti\AniimoItalianTranslation\backups
 - Audit completo dei generi v0.3.10: ricostruite dai dati runtime 7.672 associazioni fra battuta e parlante, controllati 290 speaker e revisionati 550 candidati. Corrette 158 stringhe fra concordanze del cast, riferimenti a personaggi e formulazioni neutre per il protagonista selezionabile.
 - Audit qualità v0.3.11: nuova passata su tutte le **92.954 righe**, con **714 correzioni uniche** a genere, naturalezza, testi tronchi, terminologia e UI. Revisionati altri 836 candidati di genere; neutralizzati 110 testi rivolti al protagonista, uniformati `Vigore`, `Congegno Holo`, nomi abilità e terminologia di sistema.
 - Controllo finale v0.3.11: eliminate tutte le flessioni artificiali come `secondo/i`, corretti 10 contenuti tronchi o segnaposto, verificati 197 possibili residui inglesi e conservati soltanto 138 prestiti italiani o tecnici appropriati, documentati singolarmente.
+- Audit editoriale v0.3.12: prima passata con **175 correzioni uniche ad alta confidenza** fra calchi, fluidità e tempi verbali.
+- Revisione profonda v0.3.12: rilette tutte le **92.954 righe**, raggruppando soltanto i duplicati perfettamente identici in **42.637 testi sorgente unici**; 426 proposte riesaminate e **423 correzioni** approvate dopo l'ultima verifica editoriale.
+- Controllo residuale v0.3.12: altri **443 interventi** su interiezioni, onomatopee, residui inglesi, duplicati divergenti, famiglie UI, date e spaziature. In totale la v0.3.12 applica **1.041 interventi editoriali su 1.038 chiavi uniche**, oltre alle 190 normalizzazioni di punteggiatura.
+- Localizzazione residuale v0.3.12: corrette **297 interiezioni e onomatopee inglesi**; conservati soltanto nomi ufficiali come `Master Woof` e `Little Lightning Chirp` e vocalizzi realmente ambigui. Rimossi inoltre `AM`/`PM` da tutte le 22 stringhe che usano già l'orario italiano a 24 ore.
+- Rifinitura v0.3.12: l'installer confronta versione e contenuti installati; 190 trattini lunghi finali ereditati dall'inglese sono stati uniformati ai punti di sospensione italiani.
+- Data dinamica v0.3.12: la schermata capitolo usa ora il formato italiano `GG/MM/AAAA`; la modifica è verificata byte per byte e viene inclusa nel backup e nel ripristino automatici.
 
 La verifica non si limita più a controllare che ogni chiave abbia un valore. La versione 0.3.5 recupera anche le voci che la localizzazione English ufficiale espone come `0`. Dalla versione 0.3.7 l'installer le registra inoltre nell'elenco interno delle traduzioni disponibili, evitando che il percorso runtime speciale le sostituisca nuovamente con frasi inglesi.
 
@@ -173,7 +182,7 @@ Il repository usa un solo master autorevole:
 
 - `data/translation_it.csv`: traduzione completa con accenti e punteggiatura italiana reali, installata nello slot English.
 
-Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Il repository non contiene archivi originali di Aniimo: testi e modifica del font vengono generati localmente dai file della copia installata dall'utente.
+Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. La data dinamica viene riordinata localmente in `GG/MM/AAAA` soltanto quando lo script LuaJIT corrisponde esattamente alla versione verificata. Il repository non contiene archivi originali di Aniimo: testi, font e data vengono modificati localmente a partire dai file della copia installata dall'utente.
 
 </details>
 

@@ -1,0 +1,11 @@
+{
+  "version": "0.3.12-beta",
+  "master_rows_scanned": 92954,
+  "policy": "In Italian dialogue, a trailing English em dash is rendered with three suspension points. Internal em dashes are preserved when they express an aside or interruption.",
+  "source_rows_ending_with_em_dash": 197,
+  "already_normalized_before_audit": 7,
+  "rows_to_normalize": 190,
+  "source_suffix": "—",
+  "italian_suffix": "...",
+  "note_marker": "review_v0.3.12_italian_punctuation"
+}

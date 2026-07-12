@@ -1,0 +1,1242 @@
+{
+  "version": "0.3.12-beta",
+  "scope_rows": 92954,
+  "selected_unique_fixes": 175,
+  "counts": {
+    "italian_fluency": 65,
+    "literal_calques": 106,
+    "tense_consistency": 4
+  },
+  "precedence": [
+    "literal_calques",
+    "italian_fluency",
+    "tense_consistency"
+  ],
+  "entries": [
+    {
+      "key": "307636929",
+      "category": "literal_calques",
+      "proposed_it": "Quando nasce un potente Aniimo leggendario, l'energia della Vena si raccoglie in modi strani e instabili, aprendo insolite fenditure energetiche.\nMa il disturbo si sta diffondendo. L'energia della Vena è diventata selvaggia e caotica, e l'Aniimo leggendario generato da quell'energia è diventato irrequieto, instabile e pericolosamente aggressivo.\nEsploratore, raggiungi subito la fenditura. Trova un modo per calmare questo Aniimo leggendario perduto con coraggio e un cuore capace di guarire.",
+      "reason": "Esplicitato il referente al posto del pronome tonico.",
+      "confidence": "high"
+    },
+    {
+      "key": "320952218",
+      "category": "literal_calques",
+      "proposed_it": "Quando nasce un potente Aniimo leggendario, l'energia della Vena si raccoglie in modi strani e instabili, aprendo insolite fenditure energetiche.\nMa il disturbo si sta diffondendo. L'energia della Vena è diventata selvaggia e caotica, e l'Aniimo leggendario generato da quell'energia è diventato irrequieto, instabile e pericolosamente aggressivo.\nEsploratore, raggiungi subito la fenditura. Trova un modo per calmare questo Aniimo leggendario perduto con coraggio e un cuore capace di guarire.",
+      "reason": "Esplicitato il referente al posto del pronome tonico.",
+      "confidence": "high"
+    },
+    {
+      "key": "357607450",
+      "category": "literal_calques",
+      "proposed_it": "Dal bordo della scogliera, si vedono le rocce marine accanto all'isolotto. Fra le rocce si scorgono tenui antichi segni di Ambra Lumin, ognuno a tracciare il cammino della storia.",
+      "reason": "Esplicitato il referente nella descrizione ambientale.",
+      "confidence": "high"
+    },
+    {
+      "key": "402563322",
+      "category": "literal_calques",
+      "proposed_it": "In mezzo a questo mare d'erba verde, il pilastro di pietra e il portale in rovina alle sue spalle parlano di un'antica leggenda. Quando pilastro e portale diventano una cosa sola, una storia sigillata dal tempo comincia a svelarsi.",
+      "reason": "Sostituito il pronome tonico con una locuzione spaziale naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "471375768",
+      "category": "literal_calques",
+      "proposed_it": "Un Nimbi triste sembra... intrappolato tra le nuvole cupe?",
+      "reason": "Eliminata la copula ridondante preservando l'esitazione.",
+      "confidence": "high"
+    },
+    {
+      "key": "480892310",
+      "category": "literal_calques",
+      "proposed_it": "Le pietre massicce fanno da guardia all'antico bosco; i motivi di Ambra Lumin incisi sulle pietre sembrano confondere lo sguardo tra giochi di luce e ombra. La verità si nasconde tra motivi quasi identici.",
+      "reason": "Esplicitato il referente e precisato il rapporto spaziale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1073767394",
+      "category": "literal_calques",
+      "proposed_it": "Un dispositivo che simula la luce del sole, così piante e Aniimo possono godersi un bagno di sole.",
+      "reason": "Sostituito il gerundio consecutivo inglese con una coordinazione naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1074073904",
+      "category": "literal_calques",
+      "proposed_it": "Erutta dal terreno e genera onde d'urto in un'ampia area.",
+      "reason": "Sostituito il gerundio inglese con una coordinazione più diretta.",
+      "confidence": "high"
+    },
+    {
+      "key": "1074695023",
+      "category": "italian_fluency",
+      "proposed_it": "Una botte di legno emana un lieve profumo fruttato. Gli Aniimo saltellano e giocano sulla botte, schiacciando la frutta e i prodotti agricoli al suo interno per ricavarne una bevanda pregiata.",
+      "reason": "[Descrizione] Elimina il calco «pressare ... in una bevanda» e rende chiaro il rapporto tra azione e risultato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1077936457",
+      "category": "literal_calques",
+      "proposed_it": "Permette di padroneggiare tecniche avanzate di cattura e aumenta del 20% la probabilità di catturare Aniimo di livello 15 o inferiore",
+      "reason": "Eliminati pronome generico e gerundio consecutivo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1086164000",
+      "category": "literal_calques",
+      "proposed_it": "Una tecnologia appena sviluppata sta entrando nella fase cruciale di verifica. I materiali che avevamo in magazzino stanno scarseggiando, quindi abbiamo bisogno che tu ci dia una mano il prima possibile!",
+      "reason": "Corretti calco di 'core stage' e nominalizzazione burocratica.",
+      "confidence": "high"
+    },
+    {
+      "key": "1091761966",
+      "category": "literal_calques",
+      "proposed_it": "Perché i fiori di fiamma sono speciali. Le radici contengono una grande quantità di elemento fuoco ma sono estremamente instabili, mentre i fiori apparentemente comuni possono calmare quel fuoco.",
+      "reason": "Corretto il falso amico 'ordinary' in una descrizione naturalistica.",
+      "confidence": "high"
+    },
+    {
+      "key": "1094019511",
+      "category": "literal_calques",
+      "proposed_it": "Le loro zampe anteriori si ricoprono di lava quando colpiscono rocce fuse, così infliggono più danni agli avversari.",
+      "reason": "Risolti nesso causale ambiguo e gerundio calcato.",
+      "confidence": "high"
+    },
+    {
+      "key": "1100074801",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1102613279",
+      "category": "literal_calques",
+      "proposed_it": "Il Thornblade del Temporale ha spine dure e un cuore spietato. Non mostra alcuna pietà verso gli sfidanti quando li sconfigge e spezza le loro spine. Forse è nata così, o forse la sua natura è cambiata dopo aver perso il fratello. Un tempo fiore innocente, fu in quella notte di pioggia che sbocciò il fiore del lutto nel dolore più profondo, e da allora su di lei iniziarono a crescere spine spietate. Se avesse potuto scegliere, avrebbe preferito restare con suo fratello, restando la coppia di comuni Budsquire che erano un tempo, o iniziare ad affilare la propria spina il prima possibile, così da poter difendere chi amava.",
+      "reason": "Corretto il falso amico 'ordinary' preservando il senso di normalità.",
+      "confidence": "high"
+    },
+    {
+      "key": "1107178300",
+      "category": "literal_calques",
+      "proposed_it": "Gli Aniimo abitano molte regioni diverse. Puoi spostarti da una regione all'altra usando le Fioriture.\nInoltre, anche Aniimo della stessa specie possono presentarsi in forme diverse, quindi fai molta attenzione.",
+      "reason": "Sostituito il pronome tonico con una formulazione idiomatica e più chiara.",
+      "confidence": "high"
+    },
+    {
+      "key": "1107338108",
+      "category": "literal_calques",
+      "proposed_it": "Modalità Cattura: il tuo Aniimo <style=Hint_BgL>non attaccherà attivamente</style> gli Aniimo selvatici. Entrerà in combattimento solo quando <style=Hint_BgL>attacchi</style> o <style=Hint_BgL>subisci un attacco</style>. Quando un Aniimo selvatico ha <style=Hint_BgL>pochi PV</style>, il tuo Aniimo <style=Hint_BgL>smetterà automaticamente</style> di attaccare, così sarà più facile catturarlo.",
+      "reason": "Corretti ordine sintattico inglese e gerundio consecutivo preservando i tag.",
+      "confidence": "high"
+    },
+    {
+      "key": "1110971222",
+      "category": "literal_calques",
+      "proposed_it": "Ti prego, calmati, Prima Spina Letale. Il Labirinto è pieno di spine: sono la nostra difesa contro l'esterno. Ogni Budsquire si è punto almeno una volta... ferite simili non porterebbero a questo.",
+      "reason": "Eliminato un pronome tonico ridondante e reso naturale il nesso logico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1114031767",
+      "category": "literal_calques",
+      "proposed_it": "Riusciresti a entrare e dare un'occhiata? Voglio dire, visto che <style=Hint_BgD>l'unico vero talento dei Celestis sembra consistere nel mangiare</style>, non riesco proprio a smettere di preoccuparmi...",
+      "reason": "Eliminate domanda e copula calcate sull'inglese.",
+      "confidence": "high"
+    },
+    {
+      "key": "1118400617",
+      "category": "literal_calques",
+      "proposed_it": "Emberpup si unisce al litigio",
+      "reason": "Corretto il falso amico 'argument' verificando il significato sulle lingue originali.",
+      "confidence": "high"
+    },
+    {
+      "key": "1124026529",
+      "category": "literal_calques",
+      "proposed_it": "Un dono dei fiori in boccio, offerto in cambio di dieci colori del mondo alla Vena.\nUn uovo di Aniimo nato da un fiore.\nI colori Prismana si rincorrono sul guscio, e un dolce profumo floreale si leva quando lo avvicini.\n\"Che tipo di Aniimo ne nascerà?\"",
+      "reason": "Corretti ordine sintattico inglese e pronome artificiale nella descrizione dell'uovo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1126460567",
+      "category": "literal_calques",
+      "proposed_it": "Ogni Aniimo ha il proprio potenziale innato. Dopo aver catturato e segnalato un Aniimo, verrà valutato in base al suo Potenziale Innato totale e agli attributi consigliati. Le valutazioni sono divise in 4 livelli: <color=#69b471>Comune</color>, <color=#66a0e5>Buono</color>, <color=#c86df8>Elite</color> e <color=#f6a33c>Perfetto</color>. Un livello di potenziale più alto garantisce attributi iniziali migliori, perciò quell'Aniimo sarà più adatto all'addestramento.",
+      "reason": "Corretti nominalizzazione e gerundio calcato nella spiegazione di sistema.",
+      "confidence": "high"
+    },
+    {
+      "key": "1127163789",
+      "category": "italian_fluency",
+      "proposed_it": "Una musica incantevole fa danzare gli Aniimo e aziona il piatto rotante che macina le spezie, diffondendone il profumo al ritmo della melodia.",
+      "reason": "[Descrizione] Rende naturale la relazione tra musica, meccanismo e diffusione del profumo; uniforma i duplicati.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1128366937",
+      "category": "literal_calques",
+      "proposed_it": "Permette di padroneggiare tecniche avanzate di cattura e aumenta del 20% la probabilità di catturare Aniimo di livello 20 o inferiore",
+      "reason": "Eliminati pronome generico e gerundio consecutivo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1143097574",
+      "category": "italian_fluency",
+      "proposed_it": "Una botte di legno emana un lieve profumo fruttato. Gli Aniimo saltellano e giocano sulla botte, schiacciando la frutta e i prodotti agricoli al suo interno per ricavarne una bevanda pregiata.",
+      "reason": "[Descrizione] Elimina il calco «pressare ... in una bevanda» e rende chiaro il rapporto tra azione e risultato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1147334453",
+      "category": "literal_calques",
+      "proposed_it": "Continua a salire e potrai raccogliere frutti dagli alberi laggiù!",
+      "reason": "Eliminato un pronome tonico privo di referente naturale mantenendo invariata l'azione.",
+      "confidence": "high"
+    },
+    {
+      "key": "1147697126",
+      "category": "literal_calques",
+      "proposed_it": "Ottavo anno...\nHo studiato e lavorato come previsto, continuando la mia vita tranquilla e felice.\nSolo quando vedevo notizie sul Polaris Institute mi tornava in mente quello strano viaggio.",
+      "reason": "Corretto il falso amico 'ordinary' e un refuso contiguo ad alta confidenza.",
+      "confidence": "high"
+    },
+    {
+      "key": "1151493926",
+      "category": "literal_calques",
+      "proposed_it": "Una runa appare sul campo. Quando un giocatore interagisce con la runa, ottiene il potere della runa e diventa l'Attaccante Primario. L'Attaccante Primario infligge il 60% di danni in più, mentre tutti gli altri giocatori infliggono il 35% di danni in meno. Ogni volta che l'Attaccante Primario è a PV critici, tutti gli altri Aniimo perdono il 25% del limite dei loro PV max, e l'Attaccante Primario ripristina completamente i PV.",
+      "reason": "Ripristinato il referente esplicito; il pronome tonico risultava burocratico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1153070915",
+      "category": "literal_calques",
+      "proposed_it": "Quasi nessuno sa che l'attuale Alpha Scorchhowl di Beast Fang Ridge nacque nella stessa epoca di Icho. Ma accanto allo splendore di Icho, prodigio assoluto, la sua luce sembrava debole. Quando Icho aveva già reclamato il suo nome, lui era ancora solo un Emberpup, che si allenava giorno dopo giorno fissando la Thousand-Fang Ridge in fiore. La sua crescita era lenta, così lenta da passare inosservata, perfino liquidata come mediocre. Molti Flameruff ed Emberpup lo compativano, dicendo che era sfortunato essere nato nella stessa epoca di Icho. Eppure, mentre gli altri sospiravano, lui continuò ad avanzare al proprio ritmo. Passo dopo passo, anno dopo anno, alla fine raggiunse la stessa altezza che Icho aveva un tempo raggiunto.\n“Non sono talentuoso.”\n“Se ho un talento... è non essermi mai fermato.”",
+      "reason": "Corretto il falso amico 'ordinary' nel giudizio svalutativo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1154093802",
+      "category": "italian_fluency",
+      "proposed_it": "Apri per ottenere casualmente una delle seguenti <style=Q_5>uova Perfette di Aniimo di supporto</style>: <style=Q_5>Uovo Fragrancier Perfetto</style>, <style=Q_5>Uovo Dreaple Perfetto</style> o <style=Q_5>Uovo Melloblum Perfetto</style>.",
+      "reason": "[UI] Corregge articolo, genere e ordine degli elementi nel sintagma nominale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1160646852",
+      "category": "literal_calques",
+      "proposed_it": "Una volta appresa una nuova abilità, puoi scegliere se <style=Hint_BgL>equipaggiarla o sostituirne</style> una già equipaggiata. Ora fai clic per tornare alla pagina Info.",
+      "reason": "Risolto un calco sintattico di 'replace ... with it' preservando il tag.",
+      "confidence": "high"
+    },
+    {
+      "key": "1165344614",
+      "category": "literal_calques",
+      "proposed_it": "In effetti, la nostra squadra avanzata delle Note sul Campo è riuscita a stabilire che quest'Area è estremamente vasta.\nMa gran parte dell'Area è nascosta nella nebbia causata dalle fluttuazioni di Energia...",
+      "reason": "Eliminati apertura calcata e pronome tonico ambiguo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1165676514",
+      "category": "italian_fluency",
+      "proposed_it": "1. Invio indagine\nUn'indagine richiede almeno 2 Aniimo per iniziare. Devi anche designarne 1 come Aniimo leader prima che l'indagine possa partire.\n2. Ricompense indagine\nAl termine dell'indagine, riceverai ricompense base in base agli Aniimo inviati. Inviare Aniimo che soddisfano le preferenze dell'area aumenta la valutazione della ricompensa.\n3. Doni d'incontro fortuito\nAttraversando un'area con Aniimo leggendari, la loro energia potrebbe generare qualcosa di speciale.\nDopo aver completato un'indagine, hai anche la possibilità di ricevere 1 Dono d'incontro fortuito. Verrà assegnata casualmente una delle seguenti ricompense:\n- <style=Q_5>Potenziale Aniimo leader casuale +1</style>\n- Essenza Starcryst x1\n- Capaseed x5\n- Essenza della Vena x1\n※ <style=Q_5>L'effetto \"Potenziale Aniimo leader casuale +1\" può essere ottenuto solo una volta nella vita di ciascun Aniimo.</style>\n※ Gli Aniimo con Potenziale massimo non possono ottenere l'effetto \"Potenziale Aniimo leader casuale +1\".\n4. Bonus individuo speciale\nGli Aniimo in Forma Prismana e gli Aniimo scintillanti possono percepire l'energia residua degli Aniimo leggendari, contribuendo ad accelerare l'indagine.",
+      "reason": "[UI] Rimuove il calco «apparire dalla loro energia» e rifinisce le collocazioni nelle istruzioni duplicate dell'evento.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1168695524",
+      "category": "literal_calques",
+      "proposed_it": "Bene. La fiamma dentro di te ora arde più stabile. In quella fiamma percepisco Thousand-Fang Ridge.",
+      "reason": "Reso naturale l'ordine degli avverbi ed esplicitato il referente.",
+      "confidence": "high"
+    },
+    {
+      "key": "1169826037",
+      "category": "italian_fluency",
+      "proposed_it": "L'esperienza si accumula poco a poco. Hai ancora molto da imparare, quindi procedi con calma.",
+      "reason": "[Dialogo] Sostituisce il calco «prenditi il tuo tempo» con un invito naturale nel contesto.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1181078996",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1183718764",
+      "category": "literal_calques",
+      "proposed_it": "Emberpup si unisce al litigio",
+      "reason": "Corretto il falso amico 'argument' verificando il significato sulle lingue originali.",
+      "confidence": "high"
+    },
+    {
+      "key": "1194727957",
+      "category": "literal_calques",
+      "proposed_it": "Più che sogni, molti sono desideri.",
+      "reason": "Eliminato il calco di 'instead of' e il pronome ridondante.",
+      "confidence": "high"
+    },
+    {
+      "key": "1214446049",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1218491423",
+      "category": "italian_fluency",
+      "proposed_it": "Una musica incantevole fa danzare gli Aniimo e aziona il piatto rotante che macina le spezie, diffondendone il profumo al ritmo della melodia.",
+      "reason": "[Descrizione] Rende naturale la relazione tra musica, meccanismo e diffusione del profumo; uniforma i duplicati.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1232610672",
+      "category": "literal_calques",
+      "proposed_it": "Questi boschi nutrono vita e benedizioni... e l'Irisalis ne trae il proprio verde.",
+      "reason": "Sostituito il pronome tonico con il clitico naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1240788733",
+      "category": "literal_calques",
+      "proposed_it": "Bonesky si unisce al litigio",
+      "reason": "Corretto il falso amico 'argument' verificando il significato sulle lingue originali.",
+      "confidence": "high"
+    },
+    {
+      "key": "1245672150",
+      "category": "italian_fluency",
+      "proposed_it": "Entrando nell'[<style=Hint_BgL>erba alta bianca</style>] più avanti, inizierai a muoverti furtivamente e gli Aniimo faranno più fatica a notarti.\nSe ti avvicini a un Aniimo da dietro senza farti scoprire, avrai molte più probabilità di catturarlo.",
+      "reason": "[UI] Evita la discordanza temporale e la forma marcata per genere, rendendo l'istruzione più diretta.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1259518293",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1264059997",
+      "category": "italian_fluency",
+      "proposed_it": "Offre <style=Hint_BgL>indicazioni molto chiare</style> e assistenza passo dopo passo.\nConsigliato agli Esploratori <style=Hint_BgL>alle prime armi con i giochi open world</style>.",
+      "reason": "[UI] Sostituisce «nuovi ai giochi» con una collocazione italiana naturale e migliora il coordinamento.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1272408331",
+      "category": "literal_calques",
+      "proposed_it": "Un secolo fa, queste acque erano collegate a mari lontani... Da quelle acque Irisalis trasse il proprio blu.",
+      "reason": "Esplicitato il referente e corretta la fluidità narrativa.",
+      "confidence": "high"
+    },
+    {
+      "key": "1273761200",
+      "category": "italian_fluency",
+      "proposed_it": "Una musica incantevole fa danzare gli Aniimo e aziona il piatto rotante che macina le spezie, diffondendone il profumo al ritmo della melodia.",
+      "reason": "[Descrizione] Rende naturale la relazione tra musica, meccanismo e diffusione del profumo; uniforma i duplicati.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1282894796",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1283586910",
+      "category": "literal_calques",
+      "proposed_it": "Permette di padroneggiare tecniche avanzate di cattura e aumenta del 20% la probabilità di catturare Aniimo di livello 20 o inferiore",
+      "reason": "Eliminati pronome generico e gerundio consecutivo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1284084218",
+      "category": "literal_calques",
+      "proposed_it": "<Quarant'anni>\nQuaranta\nSono andato in troppi luoghi lontani, lontanissimi, per troppo tempo.\nGli altipiani e il mare che un tempo mi emozionavano ora mi sembrano banali.\nMi sono gettato nel lavoro lontano dal bosco. Sono passato così vicino a quel posto tante volte, eppure l'ho evitato ogni volta.\nNon riuscivo proprio a tornarci.\nTornarci è come tornare al punto in cui tutto è iniziato, dove tutto resta uguale.\nPoi ho capito: avevo solo paura di tornare.\nAvevo paura che il bosco fosse cambiato.\nAvevo paura che nel bosco ci fosse sempre il sole, e che il ricordo di quel giorno perdesse la sua unicità.\nAvevo paura che non ci fosse nessuno ad aspettarmi al solito posto.\nCredo che ciò di cui avevo davvero paura fosse scoprire che Tucker non era più mio amico.",
+      "reason": "Corretti falso amico, calchi metaforici e gerundio inglese in un brano narrativo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1284142915",
+      "category": "literal_calques",
+      "proposed_it": "L'ascensore ha raggiunto l'ultimo piano, provocando una vibrazione. Il tetto crollato dell'ascensore è scivolato di nuovo verso il basso: forse è possibile usarlo per arrampicarsi fino alla cima dell'ascensore del Fulmine.",
+      "reason": "Rimosse struttura impersonale e pronome calcati; resa chiara l'azione suggerita.",
+      "confidence": "high"
+    },
+    {
+      "key": "1288114847",
+      "category": "literal_calques",
+      "proposed_it": "Dietro queste barriere stratificate si celano meccanismi nascosti. Solo un occhio attento può individuarli e svelare la verità che nascondono.",
+      "reason": "Corretta una resa letterale non idiomatica di 'beyond them'.",
+      "confidence": "high"
+    },
+    {
+      "key": "1292297185",
+      "category": "italian_fluency",
+      "proposed_it": "Grazie per la tua decisione. Il tuo arrivo è un onore per l'accademia.\nPer tradizione dovremmo accoglierti con un banchetto, ma è tutto successo troppo in fretta. Temo che ci servirà un po' di tempo per prepararci.",
+      "reason": "[Dialogo] Sostituisce «è tutto troppo improvviso», calco non idiomatico, con una frase naturale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1298697906",
+      "category": "literal_calques",
+      "proposed_it": "Mm-hmm. E la sua postura è tutt'altro che comune... Ho la sensazione che nasconda parecchi segreti.",
+      "reason": "Corretto il falso amico 'ordinary' nella descrizione della postura.",
+      "confidence": "high"
+    },
+    {
+      "key": "1317272479",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1323301354",
+      "category": "literal_calques",
+      "proposed_it": "Una massa di nuvole blu scuro e cupe, percorsa da deboli bagliori di fulmini.",
+      "reason": "Eliminato il pronome pesante e resa più naturale l'immagine descrittiva.",
+      "confidence": "high"
+    },
+    {
+      "key": "1324134316",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1324459152",
+      "category": "literal_calques",
+      "proposed_it": "Nei ricordi d'infanzia di Awen, la sua casa era come qualsiasi normale casa di famiglia a Bloomville: semplice, calda e familiare. All'epoca, il problema più grande della sua vita sembrava essere che sua madre restasse nei campi di fiori a coltivare nuove varietà invece di tornare a casa, mentre le lamentele di suo padre davano ad Awen un'infinità di grattacapi.\nAnche quando percepiva di essere in qualche modo diversa dagli altri abitanti di Bloomville, allora la cosa non la turbava.\nTranne in quelle rare occasioni in cui la neve cadeva sul Sea of Flowers.\nSua madre fissava le sue profondità più remote, con uno sguardo malinconico negli occhi.\nLa giovane Awen chiese a sua madre cosa ci fosse oltre il Sea of Flowers.\nSua madre scosse solo la testa, come se ci fossero cose di cui non riusciva a parlare.\nQuando Awen crebbe, trovò una frase nelle note di ricerca di sua madre: nessun contesto prima, nessuno dopo.\n\"Nevica, ma la mia terra natale non c'è più.\"\nFu allora che Awen capì: ecco perché portava con sé un profumo diverso dagli abitanti di Bloomville. Aveva un'altra terra natale da qualche parte.\nVoleva trovare quella terra natale, trovare l'\"origine\" che non aveva mai visitato.\nAlla fine, dopo aver affrontato innumerevoli pericoli, raggiunse l'antica torre bianca dei profumi nel profondo del Sea of Flowers e trovò la formula del profumo chiamato \"Base\": e, insieme alla formula, scoprì la propria origine.\nVeniva da Azureville. Non era mai appartenuta davvero a quel luogo.\nPensò: doveva lasciare quel posto e andare verso la sua origine.\nQuanto al profumo chiamato \"Base\", non c'era bisogno di portarlo a sua madre. Perché la terra natale nel cuore di sua madre era l'altopiano bianco, crollato del tutto nello sconvolgimento della terra: il luogo in cui aveva vissuto accanto ai Budsquire nella sua infanzia.\nPer alcune persone, casa è un profumo guida che conduce al luogo da cui provengono.\nPer altre, casa è un luogo che si è destinati a lasciare. Lasciare casa significa ricominciare.",
+      "reason": "Risolto il pronome ambiguo chiarendo l'oggetto e l'azione narrativa.",
+      "confidence": "high"
+    },
+    {
+      "key": "1327280170",
+      "category": "literal_calques",
+      "proposed_it": "Tra la famiglia Budsquire, i Thornblade sono guardiani armati di spine infrangibili.\nPer proteggere la sorellina, un fratello Budsquire divenne un potente Thornblade. Sfidò una Spina Letale famosa dopo l'altra, facendo ogni volta lo stesso patto: il perdente avrebbe spezzato la propria spina.\nMa nessun Thornblade vince per sempre.\nDopo che la sua spina fu spezzata, non riuscì a sopportare di essere consolato dalla sorella, né tantomeno protetto da lei. Così si avventurò in un temporale, sperando di diventare un Thornblade del Temporale più forte.\nFallì.\nDopo aver perso il fratello, la sorellina non era più il fiore innocente di un tempo. Quando le sue lacrime si prosciugarono infine, iniziò il proprio addestramento.\nIn una notte di tempesta sbocciò in un fiore di dolore, con spine fredde e spietate quanto il suo tormento.\nDa allora, ha abbattuto ogni sfidante senza esitazione, spezzando le loro spine senza pietà.\nForse perché quello stesso rituale crudele le aveva portato via il fratello. Forse perché disprezza i duelli stessi.\nO forse sta ancora aspettando qualcuno abbastanza forte da sconfiggerla: qualcuno che le tolga la Spina Pallida, e finalmente la liberi.",
+      "reason": "Eliminato un pronome tonico superfluo nella chiusa narrativa.",
+      "confidence": "high"
+    },
+    {
+      "key": "1338489109",
+      "category": "literal_calques",
+      "proposed_it": "Il capo sembra trovarsi nell'<style=Hint_BgD>atrio del primo piano</style> del castello, avranno incontrato qualche problema?",
+      "reason": "Sostituita una copula inglese con il verbo locativo appropriato.",
+      "confidence": "high"
+    },
+    {
+      "key": "1347919036",
+      "category": "literal_calques",
+      "proposed_it": "Quando nasce un potente Aniimo leggendario, l'energia della Vena si raccoglie in modi strani e instabili, aprendo insolite fenditure energetiche. Ma il disturbo si sta diffondendo. L'energia della Vena è diventata selvaggia e caotica, e l'Irisalis generato da quell'energia è diventato irrequieto, instabile e pericolosamente aggressivo. Esploratore, raggiungi subito la fenditura. Trova un modo per calmare questo spirito leggendario perduto con coraggio e un cuore capace di guarire.",
+      "reason": "Esplicitato il referente al posto del pronome tonico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1349791519",
+      "category": "italian_fluency",
+      "proposed_it": "La grande Irisalis, Lady Irelia: offrì sé stessa e i suoi sogni per questa terra e le sue creature...",
+      "reason": "[Descrizione] Corregge l'accento del pronome tonico «sé».",
+      "confidence": "alta"
+    },
+    {
+      "key": "1354009833",
+      "category": "literal_calques",
+      "proposed_it": "Aaaah... Non riesco proprio a tornare lì dentro... Se te la senti, potresti dare un'occhiata? Dentro non c'è niente di speciale, solo <style=Hint_BgD>tantissime uova</style>... a meno che quella cosa non si stia <style=Hint_BgD>nascondendo dentro uno di quei gusci</style>?",
+      "reason": "Chiarito il referente evitando un pronome tonico innaturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1355645900",
+      "category": "italian_fluency",
+      "proposed_it": "Segni insoliti di Aniimo leggendari hanno iniziato ad apparire ovunque.\nL'Istituto sta reclutando Esploratori per indagare, riportare foto preziose e completare le Note sul Campo.\nDettagli evento\n1. Durante l'evento, l'Istituto sbloccherà nel tempo più aree d'indagine.\n2. Ogni area ha obiettivi d'indagine e caratteristiche ambientali diverse. Invia Aniimo adatti a esplorarle.\n3. Dopo aver completato un'indagine, puoi ottenere le ricompense dell'area corrispondente e potresti ricevere anche un Dono d'incontro fortuito aggiuntivo.\nRegole d'indagine\n1. Ogni indagine richiede almeno 2 Aniimo. Devi designarne 1 come Aniimo leader prima dell'indagine.\n2. Al termine dell'indagine, riceverai ricompense base in base agli Aniimo inviati.\nInviare Aniimo che soddisfano le preferenze dell'area aumenta la valutazione della ricompensa.\n3. Gli Aniimo in Forma Prismana e gli Aniimo scintillanti possono percepire l'energia residua degli Aniimo leggendari, contribuendo ad accelerare l'indagine.\n\nDoni d'incontro fortuito\nAttraversando un'area con Aniimo leggendari, la loro energia potrebbe generare qualcosa di speciale.\nDopo aver completato un'indagine, hai anche la possibilità di ricevere 1 Ricompensa d'incontro fortuito. Verrà assegnata casualmente una delle seguenti ricompense:\n- <style=Q_5>Potenziale Aniimo leader casuale +1</style>\n- Essenza Starcryst x1\n- Capaseed x5\n- Essenza della Vena x1\n※ <style=Q_5>L'effetto “Potenziale Aniimo leader casuale +1” può essere ottenuto solo una volta nella vita di ciascun Aniimo.</style>\n※ Gli Aniimo con Potenziale massimo non possono ottenere l'effetto “Potenziale Aniimo leader casuale +1”.",
+      "reason": "[UI] Rimuove il calco «apparire dalla loro energia» e rifinisce le collocazioni nelle istruzioni duplicate dell'evento.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1358831626",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1359780670",
+      "category": "italian_fluency",
+      "proposed_it": "Segni insoliti di Aniimo leggendari hanno iniziato ad apparire ovunque.\nL'Istituto sta reclutando Esploratori per indagare, riportare foto preziose e completare le Note sul Campo.\nDettagli evento\n1. Durante l'evento, l'Istituto sbloccherà nel tempo più aree d'indagine.\n2. Ogni area ha obiettivi d'indagine e caratteristiche ambientali diverse. Invia Aniimo adatti a esplorarle.\n3. Dopo aver completato un'indagine, puoi ottenere le ricompense dell'area corrispondente e potresti ricevere anche un Dono d'incontro fortuito aggiuntivo.\nRegole d'indagine\n1. Ogni indagine richiede almeno 2 Aniimo. Devi designarne 1 come Aniimo leader prima dell'indagine.\n2. Al termine dell'indagine, riceverai ricompense base in base agli Aniimo inviati.\nInviare Aniimo che soddisfano le preferenze dell'area aumenta la valutazione della ricompensa.\n3. Gli Aniimo in Forma Prismana e gli Aniimo scintillanti possono percepire l'energia residua degli Aniimo leggendari, contribuendo ad accelerare l'indagine.\n\nDoni d'incontro fortuito\nAttraversando un'area con Aniimo leggendari, la loro energia potrebbe generare qualcosa di speciale.\nDopo aver completato un'indagine, hai anche la possibilità di ricevere 1 Ricompensa d'incontro fortuito. Verrà assegnata casualmente una delle seguenti ricompense:\n- <style=Q_5>Potenziale Aniimo leader casuale +1</style>\n- Essenza Starcryst x1\n- Capaseed x5\n- Essenza della Vena x1\n※ <style=Q_5>L'effetto “Potenziale Aniimo leader casuale +1” può essere ottenuto solo una volta nella vita di ciascun Aniimo.</style>\n※ Gli Aniimo con Potenziale massimo non possono ottenere l'effetto “Potenziale Aniimo leader casuale +1”.",
+      "reason": "[UI] Rimuove il calco «apparire dalla loro energia» e rifinisce le collocazioni nelle istruzioni duplicate dell'evento.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1360606844",
+      "category": "italian_fluency",
+      "proposed_it": "Bene a sapersi. Devo tornare alla ronda.\nQuest’area non è sicura per gli Shelly. Vieni con me, <style=Hint_BgD>ti riporto da noi</style>.",
+      "reason": "[Dialogo] Corregge il calco «buono a sapersi» preservando tono, tag e ritmo.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1367492701",
+      "category": "literal_calques",
+      "proposed_it": "Sono solo... del tutto normale. Non credo che nessun Bolty vorrebbe essere mio amico.",
+      "reason": "Resa naturale l'autovalutazione del personaggio eliminando il falso amico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1368924948",
+      "category": "italian_fluency",
+      "proposed_it": "La maggiore resistenza alle interferenze e la portata estesa del segnale aiutano gli Aniimo a individuare la propria posizione e quella dell’Area Camper.",
+      "reason": "[Descrizione] Sostituisce il calco «localizzare sé stessi» con una costruzione tecnica naturale e non ambigua.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1371832640",
+      "category": "literal_calques",
+      "proposed_it": "Bonesky si unisce al litigio",
+      "reason": "Corretto il falso amico 'argument' verificando il significato sulle lingue originali.",
+      "confidence": "high"
+    },
+    {
+      "key": "1386326565",
+      "category": "italian_fluency",
+      "proposed_it": "Apri per ottenere casualmente una delle seguenti <style=Q_5>uova Perfette di Aniimo di cura</style>: <style=Q_5>Uovo Glacy Perfetto</style> o <style=Q_5>Uovo Gracewing Perfetto</style>.",
+      "reason": "[UI] Corregge articolo, genere e ordine degli elementi nel sintagma nominale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1391831440",
+      "category": "literal_calques",
+      "proposed_it": "Di tanto in tanto, Alpha Leafy <style=Hint_BgL>distruggerà</style> le foglie di loto sull'acqua. Quando una foglia viene distrutta, sopra compare una <style=Hint_BgL>Essenza di Loto</style>. Rompi l'<style=Hint_BgL>Essenza di Loto</style> in tempo per ripristinare la foglia. Usa abilità di <style=Hint_BgL>Ghiaccio</style> per <style=Hint_BgL>creare blocchi di ghiaccio</style> come appoggi e ottenere più spazio di movimento.",
+      "reason": "Eliminato il pronome tonico nella spiegazione di gioco senza ripetere il referente.",
+      "confidence": "high"
+    },
+    {
+      "key": "1392127129",
+      "category": "literal_calques",
+      "proposed_it": "Questo uovo è molto speciale. Non puoi usare l'Aniipod su questo uovo.",
+      "reason": "Riformulata una passiva letterale con pronome pesante.",
+      "confidence": "high"
+    },
+    {
+      "key": "1401979564",
+      "category": "literal_calques",
+      "proposed_it": "Cerca tra le rovine delle Lost Isles l'ingresso di un <style=Hint_BgD>santuario perduto</style>. Avventurati all'interno per trovare preziose uova Aniimo, poi portale via in barca.\nQuesta è una versione di prova. Regole e ricompense non sono definitive.",
+      "reason": "Sostituito il pronome tonico con una costruzione verbale naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1403206146",
+      "category": "literal_calques",
+      "proposed_it": "La nostra organizzazione cura gli eventi, gestisce risorse umane e scorte, supervisiona gli archivi e si occupa di tutte le strutture del campus. Rivolgiti pure a noi se hai domande.",
+      "reason": "Eliminate ripetizione, calco di 'maintains' e formula servile artificiale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1409196635",
+      "category": "literal_calques",
+      "proposed_it": "Permette di padroneggiare tecniche avanzate di cattura e aumenta del 20% la probabilità di catturare Aniimo di livello 15 o inferiore",
+      "reason": "Eliminati pronome generico e gerundio consecutivo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1409347146",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1409626334",
+      "category": "literal_calques",
+      "proposed_it": "Offrendo Ambra Lumin, puoi aiutare a ripristinare più energia del Ramo e rafforzare il legame fra voi.",
+      "reason": "Sostituito il pronome tonico evitando di ripetere il referente.",
+      "confidence": "high"
+    },
+    {
+      "key": "1413801522",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1431258841",
+      "category": "italian_fluency",
+      "proposed_it": "Cinderclaw fu un tempo un Omega Flameruff di una famiglia Emberpup.\nDa giovane era l'Emberpup più appariscente in circolazione. Ogni giorno inseguiva la coda del vecchio Omega e lo sfidava, finendo ogni volta con la bocca piena di fango, solo per rialzarsi di nuovo. Poi un giorno, finalmente vinse. Il vecchio Omega gli lanciò un ultimo sguardo, poi si voltò e scese dalla vetta.\n\"Ho vinto,\" disse Cinderclaw a sé stesso. \"Ora sono il più forte.\"\nMa presto scoprì che diventare il più forte non era la fine. Significava più sfide.\nGiovani Emberpup lo sfidarono uno dopo l'altro, ciascuno cercando di dimostrare di essere più forte dell'Omega. Cinderclaw li sconfisse ancora e ancora, ma ogni vittoria lo lasciava un po' più stanco.\n\"Sto invecchiando?\" iniziò a chiedersi Cinderclaw.\nLa sua fiamma ardeva ancora luminosa. La sua forza era ancora poderosa. Ma il suo cuore aveva iniziato a invecchiare. Cominciò a temere la sconfitta, non per la sconfitta in sé, ma perché la sconfitta avrebbe significato: \"Sono vecchio. Non posso più farlo.\"\nQuella sensazione raggiunse il culmine il giorno in cui fu sconfitto da un giovane Emberpup.\nQuel giorno, Cinderclaw giaceva a terra e guardava il giovane Flameruff davanti a lui, con gli occhi pieni di fame di vittoria. Cinderclaw ricordò sé stesso molto tempo prima, l'Emberpup che non smetteva di inseguire la coda del vecchio Omega.\n\"Ho perso,\" disse Cinderclaw. \"Il posto dell'Omega ora è tuo.\"\nProvò un'ondata di sollievo, seguita da un senso di perdita schiacciante. Non sapeva cos'altro potesse fare. Era stato Omega troppo a lungo, troppo abituato al branco che lo guardava con ammirazione, e aveva dimenticato come essere un lupo qualunque.\n\"Forse dovrei andare a Thousand-Fang Ridge,\" disse Cinderclaw a sé stesso. \"Ora che ho deposto il peso di essere Omega, forse... dovrei scatenarmi un'ultima volta.\"\nSfidò Icho.\nPoi tutto finì.\nCon un solo colpo, Icho abbatté Cinderclaw. Cinderclaw giaceva a terra nella Thousand-Fang Ridge, fissò gli Alberi Ridgeback appassiti e all'improvviso rise.\n\"Sono davvero troppo vecchio,\" disse. \"Così vecchio che non ho nemmeno la forza di stare in piedi.\"\nMa dopo la sua caduta accadde qualcosa che non si aspettava. Una leggenda iniziò a diffondersi per Beast Fang Ridge: il \"Combattente Senza Età\".\nSi dice che, dopo aver lasciato la vetta da sconfitto, il vecchio Omega lasciò comunque le sue impronte in tutta Beast Fang Ridge. Insegnò ai giovani Emberpup a combattere, aiutò Emberpup feriti a ritrovare la strada di casa, e durante un'incursione scacciò persino da solo un'intera famiglia Bonesky.\n\"Non è invecchiato. Ha solo trovato un altro modo di combattere,\" dissero gli Emberpup che aveva aiutato.\nMa Cinderclaw non sapeva nulla di tutto questo. Era intrappolato nella Thousand-Fang Ridge ed era diventato un Inferlupa. Intorno ai suoi piedi c'era una catena chiamata \"vecchiaia\", e sul suo cuore giaceva uno strato di polvere chiamato \"impotenza\".\n\"Sono troppo vecchio,\" disse Cinderclaw a sé stesso. \"Troppo vecchio per fare qualunque cosa.\"\nMa non sapeva che sotto la vetta le fiamme possono ancora ardere. Lasciare la cima potrebbe non essere la fine. Potrebbe essere l'inizio del passaggio della fiaccola.",
+      "reason": "[Descrizione] Corregge tutte le occorrenze del pronome tonico «sé» nella narrazione, senza alterare il testo.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1441898877",
+      "category": "literal_calques",
+      "proposed_it": "Ho raccolto molti dati sugli Alberi di Starine nella Forest of Falling Stars. Confrontando i risultati, ho capito che il gigantesco Albero di Starine dell'Avamposto dei Celestis era tutt'altro che ordinario.\nCosì sono tornato di nascosto all'Avamposto dei Celestis e mi sono nascosto in una grotta per un po', dormendo di giorno e muovendomi di notte.\n\nHo trovato uno strano Celestis.\nA renderlo strano era il fatto che sembrava più intelligente degli altri.\nAffilava pietre, tagliava la buccia spessa di una Starine gigante e si godeva la delizia all'interno.\n\nEra abbastanza intelligente da mangiare Starine giganti? O mangiare Starine giganti lo ha reso più intelligente?\n----\nSull'Albero di Starine gigante è cresciuta una Starine gigante colorata. Molto insolita.\nSoprattutto, BINI ha rilevato energia Lumin nella Starine. Potrebbe contenere un po' di potere della Vena.\nDevo trovare l'occasione per rubare quella Starine gigante colorata.\n----\nTroppo tardi. Quello strano Celestis l'ha mangiata.\nUn'ora dopo, in un lampo di luce, lo strano Celestis si è evoluto in uno Stellarys in Forma Prismana.\nSembra che la Forma Prismana degli Aniimo sia strettamente legata al potere della Vena.\n----\nAspetta. Mi ha appena guardato.\nOh no. Addio a un altro rapporto...",
+      "reason": "Eliminato il pronome tonico e corretta la preposizione calcata.",
+      "confidence": "high"
+    },
+    {
+      "key": "1444134464",
+      "category": "literal_calques",
+      "proposed_it": "Ciao,\nCongratulazioni per la tua prossima promozione a Wayfarer! Ti invito alla Berylline Causeway stanotte a mezzanotte per un concerto speciale eseguito da me e dal mio Aniimo.\nVieni a goderti con noi il cielo notturno, le stelle e della musica splendida. Sarà uno spettacolo fantastico!\nNon vedo l'ora di vederti!\nLa firma recita “Loulla”, seguita da tre misteriose impronte. Una sembra appartenere a un uccello.",
+      "reason": "Corretti ordine inglese e pronome ridondante senza perdita di referente.",
+      "confidence": "high"
+    },
+    {
+      "key": "1450350599",
+      "category": "literal_calques",
+      "proposed_it": "Hai ascoltato una storia misteriosa, che sembra la vera <u icon=\"Symbol3\">leggenda di Helmuts e Helgons</u>.",
+      "reason": "Eliminata la copula ridondante.",
+      "confidence": "high"
+    },
+    {
+      "key": "1451237339",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1469789102",
+      "category": "literal_calques",
+      "proposed_it": "Modalità Cattura: il tuo Aniimo <style=Hint_BgL>non attaccherà attivamente</style> gli Aniimo selvatici. Entrerà in combattimento solo quando <style=Hint_BgL>attacchi</style> o <style=Hint_BgL>subisci un attacco</style>. Quando un Aniimo selvatico ha <style=Hint_BgL>pochi PV</style>, il tuo Aniimo <style=Hint_BgL>smetterà automaticamente</style> di attaccare, così sarà più facile catturarlo.",
+      "reason": "Corretti ordine sintattico inglese e gerundio consecutivo preservando i tag.",
+      "confidence": "high"
+    },
+    {
+      "key": "1480307292",
+      "category": "literal_calques",
+      "proposed_it": "Proprio così! Ogni membro della famiglia Dewy aspira a creare un profumo delizioso.\nQuanto all'idea di intrecciare il profumo nell'esibizione, è il tocco creativo personale della mia Fragrancier!",
+      "reason": "Corretti pseudoscissa, nominalizzazione e pronome dimostrativo calcati.",
+      "confidence": "high"
+    },
+    {
+      "key": "1487661480",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1498300761",
+      "category": "literal_calques",
+      "proposed_it": "Un interruttore attivato dalla pressione. Posizionando un Aniimo o un oggetto <style=Hint_BgL>sopra</style>, l'interruttore si attiva. Il meccanismo si spegne automaticamente quando l'Aniimo o l'oggetto viene rimosso.",
+      "reason": "Eliminato il pronome tonico mantenendo intatto il tag funzionale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1502917833",
+      "category": "literal_calques",
+      "proposed_it": "Echoback Landing dev'essere qui vicino.",
+      "reason": "Resa idiomatica l'inferenza del parlante.",
+      "confidence": "high"
+    },
+    {
+      "key": "1503339723",
+      "category": "italian_fluency",
+      "proposed_it": "Segni insoliti di Aniimo leggendari hanno iniziato ad apparire ovunque.\nL'Istituto sta reclutando Esploratori per indagare, riportare foto preziose e completare le Note sul Campo.\nDettagli evento\n1. Durante l'evento, l'Istituto sbloccherà nel tempo più aree d'indagine.\n2. Ogni area ha obiettivi d'indagine e caratteristiche ambientali diverse. Invia Aniimo adatti a esplorarle.\n3. Dopo aver completato un'indagine, puoi ottenere le ricompense dell'area corrispondente e potresti ricevere anche un Dono d'incontro fortuito aggiuntivo.\nRegole d'indagine\n1. Ogni indagine richiede almeno 2 Aniimo. Devi designarne 1 come Aniimo leader prima dell'indagine.\n2. Al termine dell'indagine, riceverai ricompense base in base agli Aniimo inviati.\nInviare Aniimo che soddisfano le preferenze dell'area aumenta la valutazione della ricompensa.\n3. Gli Aniimo in Forma Prismana e gli Aniimo scintillanti possono percepire l'energia residua degli Aniimo leggendari, contribuendo ad accelerare l'indagine.\n\nDoni d'incontro fortuito\nAttraversando un'area con Aniimo leggendari, la loro energia potrebbe generare qualcosa di speciale.\nDopo aver completato un'indagine, hai anche la possibilità di ricevere 1 Ricompensa d'incontro fortuito. Verrà assegnata casualmente una delle seguenti ricompense:\n- <style=Q_5>Potenziale Aniimo leader casuale +1</style>\n- Essenza Starcryst x1\n- Capaseed x5\n- Essenza della Vena x1\n※ <style=Q_5>L'effetto “Potenziale Aniimo leader casuale +1” può essere ottenuto solo una volta nella vita di ciascun Aniimo.</style>\n※ Gli Aniimo con Potenziale massimo non possono ottenere l'effetto “Potenziale Aniimo leader casuale +1”.",
+      "reason": "[UI] Rimuove il calco «apparire dalla loro energia» e rifinisce le collocazioni nelle istruzioni duplicate dell'evento.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1506567126",
+      "category": "italian_fluency",
+      "proposed_it": "Bene a sapersi. Devo tornare alla ronda.\nQuest’area non è sicura per gli Shelly. Vieni con me, <style=Hint_BgD>ti riporto da noi</style>.",
+      "reason": "[Dialogo] Corregge il calco «buono a sapersi» preservando tono, tag e ritmo.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1507818216",
+      "category": "literal_calques",
+      "proposed_it": "Quindi le visioni che abbiamo visto poco fa provenivano anche dai tuoi ricordi?",
+      "reason": "Sostituito il pronome ridondante e scelto il verbo idiomatico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1507825738",
+      "category": "italian_fluency",
+      "proposed_it": "Gli Aniimo hanno abilità di ogni tipo.\nAlcuni sono bravi a combattere in prima linea, mentre altri sono più adatti a sostenere gli alleati dalle retrovie.",
+      "reason": "[Descrizione] Completa l'oggetto implicito di «supportare» e rende la contrapposizione più naturale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1519100962",
+      "category": "literal_calques",
+      "proposed_it": "Una spada di ferro arrugginita che sembra proprio la leggendaria Spada del Coraggio. Un pittore potrebbe conoscerne la storia.",
+      "reason": "Eliminata la copula ridondante mantenendo l'incertezza.",
+      "confidence": "high"
+    },
+    {
+      "key": "1522485224",
+      "category": "literal_calques",
+      "proposed_it": "Porti con te troppi profumi “banali”... Stanno soffocando la mia ispirazione.",
+      "reason": "Corretto il falso amico 'ordinary' nel giudizio estetico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1543880331",
+      "category": "literal_calques",
+      "proposed_it": "Cristallo di Rugiada delle Breezy Plains: Cristallo di Rugiada nato dall'energia della Vena delle Breezy Plains. Racchiude energia abbondante e gli Aniimo locali possono entrare in risonanza con il cristallo e trarne forza.",
+      "reason": "Esplicitato il referente tecnico e corretta la coordinazione.",
+      "confidence": "high"
+    },
+    {
+      "key": "1544461854",
+      "category": "italian_fluency",
+      "proposed_it": "Zampe leali? Mi piace! Le zampe leali alimentano una fiamma più luminosa!",
+      "reason": "[Dialogo] Sostituisce il calco «suona bene» con una reazione spontanea coerente con il personaggio.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1550601174",
+      "category": "italian_fluency",
+      "proposed_it": "Ora puoi <style=Hint_BgD>tornare all'avamposto dal Dr. Lewis</style> per la fase successiva.\nMa se preferisci restare qui a fare ricerca, non ti fermerò!",
+      "reason": "[Dialogo] Sostituisce «vedere Dr. Lewis» e «parte successiva» con costruzioni idiomatiche.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1557982457",
+      "category": "italian_fluency",
+      "proposed_it": "Ruota su sé stesso per attaccare e infliggere danni ai bersagli circostanti.",
+      "reason": "[Descrizione] Corregge l'accento del pronome tonico «sé» nella descrizione dell'azione.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1559302520",
+      "category": "literal_calques",
+      "proposed_it": "Permette di padroneggiare tecniche avanzate di cattura e aumenta del 20% la probabilità di catturare Aniimo di livello 20 o inferiore",
+      "reason": "Eliminati pronome generico e gerundio consecutivo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1560520352",
+      "category": "italian_fluency",
+      "proposed_it": "Il ricordo di quel bellissimo e colorato commiato è ancora vivo...\nFai una passeggiata e ammira questa terra in piena fioritura.",
+      "reason": "[Dialogo] Rende naturale la metafora del commiato che permane e l'invito a osservare il paesaggio.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1564488185",
+      "category": "literal_calques",
+      "proposed_it": "Conferisce Benedizione Spinosa a tutta la squadra. Quando infligge danni critici Erba a un bersaglio, crea spine sotto i suoi piedi che infliggono danni. Si attiva al massimo <style=Hint_BgL>1</style> volta ogni <style=Hint_BgL><customRichText(calcData,buff,2132411,param1,1)>s</style> per <style=Hint_BgL><customRichText(buffConfigData,2132411,duration)></style>s.",
+      "reason": "Sostituito il pronome tonico senza ripetere il referente.",
+      "confidence": "high"
+    },
+    {
+      "key": "1567988091",
+      "category": "literal_calques",
+      "proposed_it": "Il Tucking sembra [Protetto] da Scudo di Terra. Concentrati su [Schivare] e aspetta un'apertura!",
+      "reason": "Eliminata la copula ridondante nella guida di combattimento.",
+      "confidence": "high"
+    },
+    {
+      "key": "1591062244",
+      "category": "literal_calques",
+      "proposed_it": "Cristallo di Rugiada delle Whisperwake Isles: Cristallo di Rugiada nato dall'energia della Vena delle Whisperwake Isles. Racchiude energia abbondante e gli Aniimo locali possono entrare in risonanza con il cristallo e trarne forza.",
+      "reason": "Esplicitato il referente tecnico e corretta la coordinazione.",
+      "confidence": "high"
+    },
+    {
+      "key": "1594084177",
+      "category": "italian_fluency",
+      "proposed_it": "Blazehowl fu l'unico Flameruff della famiglia Emberpup a lasciare la leggenda delle \"cento vittorie\".\nEra un lupo solitario, senza famiglia né compagni, con solo un paio di artigli mai tenuti nel fodero e un cuore sempre affamato di battaglia.\nCento vittorie. Cento di fila.\nQuel record rese Blazehowl un idolo per molti Emberpup, che raccontavano storie di ogni battaglia, imitavano ogni movimento e sognavano di diventare un giorno forti come lui.\nMa Blazehowl non era felice.\n\"Vincere è troppo facile,\" disse una volta a un Emberpup ammirato. \"Non voglio la vittoria. Voglio il combattimento in sé.\"\nL'Emberpup non capì, limitandosi a guardarlo con ammirazione ancora maggiore.\nPoi apparve Icho.\nQuel giorno, Blazehowl assaggiò la sconfitta per la prima volta. Icho lo abbatté con un solo artiglio.\nBlazehowl si rialzò e caricò di nuovo. Cadde. Si rialzò. Cadde ancora.\nIn quella battaglia, perse sette volte.\n\"Impossibile,\" disse, sdraiato a terra nella Thousand-Fang Ridge, fissando gli Alberi Ridgeback appassiti. \"Dovrei essere invincibile. Dovrei essere il Guerriero Imbattuto...\"\nSfidò ossessivamente Icho. Una volta, due, tre... e ogni sfida finì in sconfitta. La sua famosa velocità non significava nulla contro Icho, e la sua forza devastante pareva debole come una brezza.\nAlla decima sconfitta, Blazehowl iniziò a dubitare di sé.\nAlla cinquantesima sconfitta, Blazehowl iniziò a temere la battaglia.\nAlla novantanovesima sconfitta, Blazehowl aveva perso completamente lo spirito combattivo.\nIl giorno della centesima sconfitta, Blazehowl si fermò al centro della Thousand-Fang Ridge e ululò al cielo. Non era un grido di battaglia. Era un lamento.\n\"Ho perso. Ho perso completamente,\" disse a sé stesso. \"Non sono il Guerriero Imbattuto. Sono il Guerriero dalle Cento Sconfitte.\"\nIn quel momento, una catena apparve intorno ai suoi piedi. Si chiamava \"paura del fallimento\" e \"incapacità di accettare il proprio sé imperfetto\".\nBlazehowl divenne un Inferlupa.\nNon sfidò più nessuno, né accettò più sfide da nessuno. Rimase semplicemente in un angolo di Thousand-Fang Ridge, silenzioso come un albero appassito, freddo come pietra.\n\"Il Guerriero Imbattuto è morto,\" disse a ogni lupo che gli chiedeva il nome. \"Ora esiste solo il Guerriero dalle Cento Sconfitte.\"\nEppure, nel suo cuore, una voce echeggiava ancora. Era ciò che l'Emberpup ammirato gli aveva detto tanto tempo prima:\n\"Non vedo davvero l'ora di sentire la tua prossima storia di vittoria!\"\nBlazehowl chiuse gli occhi. La prossima storia di vittoria... sarebbe mai arrivata?",
+      "reason": "[Descrizione] Corregge tutte le occorrenze del pronome tonico «sé» nella narrazione, senza alterare il testo.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1605910620",
+      "category": "italian_fluency",
+      "proposed_it": "Ti pesa affrontare l'avventura in solitaria? Trova qualcuno con cui sei in sintonia, per condividere gioie ed emozioni lungo il viaggio.",
+      "reason": "[UI] Corregge la collocazione innaturale «avere sintonia» e uniforma il messaggio sociale duplicato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1609583152",
+      "category": "literal_calques",
+      "proposed_it": "Irelia eccelle soprattutto nel raccogliere ogni genere di colore e radunarli su di sé.",
+      "reason": "Reso diretto il periodo eliminando la pseudoscissa inglese.",
+      "confidence": "high"
+    },
+    {
+      "key": "1609972258",
+      "category": "literal_calques",
+      "proposed_it": "Modalità Cattura: il tuo Aniimo <style=Hint_BgL>non attaccherà attivamente</style> gli Aniimo selvatici. Entrerà in combattimento solo quando <style=Hint_BgL>attacchi</style> o <style=Hint_BgL>subisci un attacco</style>. Quando un Aniimo selvatico ha <style=Hint_BgL>pochi PV</style>, il tuo Aniimo <style=Hint_BgL>smetterà automaticamente</style> di attaccare, così sarà più facile catturarlo.",
+      "reason": "Corretti ordine sintattico inglese e gerundio consecutivo preservando i tag.",
+      "confidence": "high"
+    },
+    {
+      "key": "1616513977",
+      "category": "literal_calques",
+      "proposed_it": "I motivi del sole e di Lun incisi sulla sua superficie emanano un bagliore tenue.\nAttraverso le crepe puoi intravedere del testo pittografico nel Core del Prisma Ancestrale...",
+      "reason": "Eliminata la sequenza pronominale e reso naturale il soggetto plurale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1616798247",
+      "category": "italian_fluency",
+      "proposed_it": "Esploratore, ti diamo il benvenuto a questa edizione del Manuale Compagni! L'Aniimo in evidenza di questa edizione è <color=#da8000>Fulmintis</color>!\nDurante le tue avventure nel mondo, completa missioni del Manuale Compagni, aumenta il livello del Manuale Compagni e ottieni magnifiche ricompense del Manuale Compagni!\n\nEdizioni del Manuale Compagni\nLe ricompense legate all'avanzamento di livello del Manuale Compagni sono suddivise tra l'Edizione Standard e l'Edizione Avanzata. L'Edizione Avanzata richiede lo sblocco del Manuale Compagni Avanzato. Le ricompense includono 1 <color=#da8000>Fulmintis Prismana</color> con Potenziale Perfetto, un'<color=#da8000>Anima Fulminous (oggetto usato per evolvere Fulmintis)</color>, e varie altre ricompense. Conferisce anche un vantaggio speciale: maggiore capacità del Deposito Aniimo.\nEdizione Avanzata: +5 Deposito Aniimo\nEdizione Collezionista: +10 Deposito Aniimo\nI bonus non si accumulano. Si applica solo l'edizione attivata più di recente.\nSbloccare il Manuale Compagni Collezionista conferisce immediatamente ricompense e vantaggi aggiuntivi oltre al Manuale Compagni Avanzato.\n\nMissioni ed ESP del Manuale Compagni\nLe missioni sono divise in missioni settimanali e missioni dell'edizione. Ogni missione può essere completata una sola volta e non c'è limite settimanale di ESP.\nLe missioni settimanali si aggiornano ogni lunedì alle 04:00 (UTC+8) e l'avanzamento si reimposta ogni settimana. Le Missioni della Versione vengono aggiunte alla raccolta delle Missioni della Versione ogni lunedì e restano disponibili per la durata della versione attuale. Le nuove missioni si sbloccano solo dopo aver completato le missioni prerequisite della stessa serie. Tutte le missioni terminano alla conclusione dell'edizione attuale del Manuale Compagni.\nL'ESP del Manuale Compagni si può ottenere anche tramite Guida Istituto - Attività giornaliera.\n\nDettagli regalo\nPuoi inviare un regalo agli amici che hanno raggiunto l'Affinità richiesta e non hanno ancora sbloccato il Manuale Compagni Avanzato o Collezionista. Riceveranno 1 oggetto che può attivare il Manuale Compagni Avanzato e Collezionista.",
+      "reason": "[UI] Rifinisce reggenze e catene nominali del Manuale Compagni senza cambiare termini, struttura o contenuto.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1623052798",
+      "category": "literal_calques",
+      "proposed_it": "Parole del Vento\nLa neve arcobaleno è magnifica: com'è curioso che chi dorme da solo si ritrovi fra quei fiocchi.",
+      "reason": "Esplicitata l'immagine poetica evitando pronome tonico e marcatura di genere.",
+      "confidence": "high"
+    },
+    {
+      "key": "1625387765",
+      "category": "literal_calques",
+      "proposed_it": "La maggior parte dei Bolty è del tutto comune.",
+      "reason": "Corretto il falso amico 'ordinary' con una resa idiomatica.",
+      "confidence": "high"
+    },
+    {
+      "key": "1639914852",
+      "category": "italian_fluency",
+      "proposed_it": "Una botte di legno emana un lieve profumo fruttato. Gli Aniimo saltellano e giocano sulla botte, schiacciando la frutta e i prodotti agricoli al suo interno per ricavarne una bevanda pregiata.",
+      "reason": "[Descrizione] Elimina il calco «pressare ... in una bevanda» e rende chiaro il rapporto tra azione e risultato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1644257030",
+      "category": "italian_fluency",
+      "proposed_it": "Riesco quasi a vedere una sfera muschiosa ardere sotto le stelle, tra dolore e passione. Questo dipinto cela la lotta dell'artista per salvarsi prima che l'ispirazione si esaurisse...",
+      "reason": "[Descrizione] Rende naturale la costruzione riflessiva e alleggerisce la sintassi senza cambiare il significato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1646777649",
+      "category": "tense_consistency",
+      "proposed_it": "<Cinquantacinque anni>\nCinquantacinque\nSono andato al solito posto, ma non potevo davvero tornarci,\nPerché non c'è più un “lì” a cui tornare.\n...\nTucker è morto.\n...\nHo visto il nucleo della liana che ha lasciato—\nUn fiore blu.\n...\nConteneva i nostri ricordi.\nOra ci sono solo io a ricordarli.\n...\nAspettava che lo portassi con me in quei luoghi lontani,\nMa io non l'ho mai saputo.\n...\nNel suo ultimo ricordo mi ha chiesto:\n“Echoback Landing è il mare lontano di cui parlavo?”\nNon voleva andare in nessun luogo lontano, a meno che non fosse con me.",
+      "reason": "Diario in passato prossimo: il passato remoto isolato interrompe senza motivo la stessa rievocazione, che usa «Sono andato», «Ho visto» e «non l’ho mai saputo».",
+      "confidence": "high"
+    },
+    {
+      "key": "1646983413",
+      "category": "literal_calques",
+      "proposed_it": "Per quanto suoni bello... fondersi con la Vena non significa semplicemente <style=Hint_BgD>farsi assorbire dalla Vena</style>?",
+      "reason": "Riformulata la passiva letterale preservando il tag.",
+      "confidence": "high"
+    },
+    {
+      "key": "1654521822",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1661936120",
+      "category": "literal_calques",
+      "proposed_it": "Come sai, i Trailblazer si imbattono più spesso nell'ignoto—\nOvvero in paesaggi sconosciuti e sfide mai affrontate da nessuno.\nPer questo il lavoro di squadra diventa ancora più necessario. Dopotutto, nessuno può fare tutto da solo.",
+      "reason": "Corretti ordine inglese, dimostrativo meccanico e nesso causale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1688571067",
+      "category": "literal_calques",
+      "proposed_it": "Rimosse le viti dal pilastro di pietra, il campo di vento sovrastante è diventato ancora più forte!",
+      "reason": "Sostituito il pronome pesante con un aggettivo preciso.",
+      "confidence": "high"
+    },
+    {
+      "key": "1699977410",
+      "category": "italian_fluency",
+      "proposed_it": "*sospira*... se non passasse così tanto tempo a preoccuparsi per Grace e pensasse un po' a sé stessa, capirebbe quanto sia davvero incredibile.",
+      "reason": "[Dialogo] Sostituisce il calco «guardasse sé stessa» con la formulazione idiomatica richiesta dal contesto.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1706447214",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1712101447",
+      "category": "literal_calques",
+      "proposed_it": "Riusciresti a entrare e dare un'occhiata? Voglio dire, considerando che l'unico vero talento dei Celestises sembra consistere nel mangiare...",
+      "reason": "Eliminate domanda e copula calcate sull'inglese.",
+      "confidence": "high"
+    },
+    {
+      "key": "1721812934",
+      "category": "italian_fluency",
+      "proposed_it": "Un amico mi ha detto che sei molto più forte di quanto sembri. Aggiungimi e insegnami qualche trucco!",
+      "reason": "[Dialogo] Rimuove i calchi «ho sentito da» e «sotto mentite spoglie» conservando il tono informale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1733519924",
+      "category": "italian_fluency",
+      "proposed_it": "Il potenziamento dei Rami può aumentare la probabilità di incontrare Aniimo scintillanti, ma non è l'unico modo per ottenerlo.",
+      "reason": "[UI] Elimina la nominalizzazione rigida «una delle ricompense ... è aumentare» e chiarisce il riferimento finale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1738610281",
+      "category": "italian_fluency",
+      "proposed_it": "Graymane era uno dei Flameruff più leggendari del suo clan. Emanava un inebriante aroma di fiamma, una traccia lasciata da innumerevoli battaglie, come se ogni ciuffo del suo pelo ardesse di spirito combattivo.\nIl giorno in cui nacque sua figlia, Graymane si fermò all'ingresso della loro tana e volse lo sguardo alla lontana Thousand-Fang Ridge. Fece un voto: \"Un giorno farò fiorire quell'albero per me. Quando verrà quel giorno, mia figlia saprà che suo padre è lo Scorchhowl più forte.\"\nMa Graymane aveva un difetto fatale. Si perdeva molto, molto facilmente.\nOgni volta che partiva per sfidare un nemico potente, solo un ventesimo del suo tempo era dedicato al combattimento. Il resto lo passava a cercare la strada. Una volta fece una deviazione di tre mesi per sfidare una Glynsera nel nord, solo per finire nel territorio di una famiglia Bonesky e farli fuggire terrorizzati. Un'altra volta inseguì una preda fino al confine di Bloomville, dove i profumieri lo scambiarono per una rara fonte di fragranza e lo inseguirono per tre giorni e tre notti.\nMa Graymane non lo considerò mai un problema. \"Anche perdersi è addestramento,\" diceva sempre a sua figlia. \"Ogni volta che perdo la strada, incontro avversari inattesi e imparo cose inattese.\"\nSua figlia crebbe e lentamente si abituò al fatto che il padre tornasse tardi. Non si preoccupava più di sapere se fosse stato ferito in battaglia. Si preoccupava che si fosse perso di nuovo ai confini del mondo.\nPoi un giorno Graymane disse a sua figlia: \"Vado a Thousand-Fang Ridge. Otterrò il riconoscimento dell'Albero Ridgeback, proprio come Icho. Quando farò fiorire l'Albero Ridgeback per me, tornerò a casa.\"\nGraymane partì.\nQuesta volta non si perse. Trovò Thousand-Fang Ridge senza sbagliare strada una sola volta e si fermò davanti agli Alberi Ridgeback appassiti.\nMa fallì.\nPer quanto fieramente ardesse il suo spirito combattivo, gli alberi morti non diedero risposta. Restavano immobili, come se schernissero la sua debolezza.\n\"Forse non sono ancora abbastanza forte,\" disse Graymane a sé stesso.\nCosì aspettò. Sentì che Icho era apparso e che Thousand-Fang Ridge era sbocciata in un tripudio di fiamme. Graymane ritrovò la speranza. Se Icho ci era riuscito, poteva farcela anche lui.\nSfidò Icho innumerevoli volte e perse ogni volta.\n\"Quando sarò diventato lo Scorchhowl più forte, l'Albero Ridgeback mi riconoscerà.\" Graymane si aggrappò ostinatamente a quella convinzione.\nMa ciò che non sapeva era che l'Albero Ridgeback non era mai fiorito per \"il più forte\".\nGiorno dopo giorno, anno dopo anno, Graymane, da lupo vigoroso nel pieno della vita, divenne un vecchio lupo dal pelo grigio e bianco. Il suo spirito combattivo si consumò a ogni sconfitta, e la sua fiamma si spense lentamente sotto l'Albero Ridgeback appassito.\nPoi un giorno Graymane capì di non poter più lasciare Thousand-Fang Ridge. Una catena invisibile gli serrava le zampe. Era un vincolo che si era imposto, forgiato dalla sua ossessione per il \"diventare il più forte\" e dalla vergogna di tornare a casa e affrontare sua figlia.\nDivenne un Inferlupa.\nNon si perdeva più, perché non aveva più nessun posto dove andare. Intrappolato a Thousand-Fang Ridge, appassì insieme agli Alberi Ridgeback. A volte ricordava sua figlia, come inseguiva la propria coda in cerchio da piccola, e il luccichio nei suoi occhi quando chiedeva: \"Dove ti sei perso oggi, papà?\"\n\"Casa... casa...\" mormorava Graymane, ormai Inferlupa. \"Devo continuare a combattere?\"\nCiò che non sapeva era che sua figlia non lo aveva mai biasimato. Quella piccola Emberpup aspetta ancora fuori dalla foresta morta, convinta che suo padre sia solo un \"combattente smarrito\" che non ha ancora trovato la strada di casa.",
+      "reason": "[Descrizione] Corregge tutte le occorrenze del pronome tonico «sé» nella narrazione, senza alterare il testo.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1748127089",
+      "category": "italian_fluency",
+      "proposed_it": "Ho sentito che è diverso dai Nimbis comuni. Può <style=Hint_BgD>sprigionare un potere simile a una nebulosa in fiore</style>\nper sostenere i suoi alleati in battaglia.",
+      "reason": "[Dialogo] Sostituisce il tecnicismo verbale con la collocazione naturale «sostenere gli alleati».",
+      "confidence": "alta"
+    },
+    {
+      "key": "1759796971",
+      "category": "literal_calques",
+      "proposed_it": "Il corpo di un Baleetle contiene due coscienze: la Coscienza Baleetle attiva e la Coscienza Palla dormiente. Questo dimostra anche i due possibili tipi di evoluzione degli Aniimo della famiglia Baleetle. I corridori che inseguono la perfezione possono evolversi in Waleetle, mentre quelli che caricano a testa bassa possono risvegliare la Coscienza Palla ed evolversi in Bouldus. Quale strada è giusta e quale è sbagliata? La pietra rotonda su cui cresce la Stoneflower sembra indicare la destinazione, o forse è semplicemente una peculiare pietra turchese che giace nel nostro mondo.",
+      "reason": "Sostituita una copula generica con un verbo semanticamente preciso.",
+      "confidence": "high"
+    },
+    {
+      "key": "1783032495",
+      "category": "italian_fluency",
+      "proposed_it": "Grazie per la tua decisione. Il tuo arrivo è un onore per l'accademia.\nPer tradizione dovremmo accoglierti con un banchetto, ma è tutto successo troppo in fretta. Temo che ci servirà un po' di tempo per prepararci.",
+      "reason": "[Dialogo] Sostituisce «è tutto troppo improvviso», calco non idiomatico, con una frase naturale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1801476637",
+      "category": "literal_calques",
+      "proposed_it": "Osservando e registrando, Aimo ha costruito i propri ricordi, da cui sono nati pensieri ed emozioni.",
+      "reason": "Corretti nominalizzazione e pronome tonico; resa naturale la relazione causale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1802311619",
+      "category": "literal_calques",
+      "proposed_it": "I Trasportatori <style=Hint_BgL>devono essere attivati</style> prima di poter essere usati. Di solito puoi attivarne uno avvicinandoti e interagendo con il Trasportatore.\nUna volta attivato, la sua icona passerà dal grigio al <style=Hint_BgL>blu</style>, indicando che è disponibile.",
+      "reason": "Esplicitato il referente con una formulazione naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1805569554",
+      "category": "italian_fluency",
+      "proposed_it": "Un amico mi ha detto che sei molto più forte di quanto sembri. Aggiungimi e insegnami qualche trucco!",
+      "reason": "[Dialogo] Rimuove i calchi «ho sentito da» e «sotto mentite spoglie» conservando il tono informale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1817747373",
+      "category": "tense_consistency",
+      "proposed_it": "Se vai a giocare lì, ricordati di tenere stretta la tua fogliolina. Ho sentito che una volta uno Skippy ha perso la foglia saltando giù, ma che per fortuna altri Skippy nei paraggi lo hanno aiutato a ritrovarla.",
+      "reason": "Battuta colloquiale aperta da «Ho sentito»: i due passati remoti non hanno una cornice storica e spezzano la consecutio del resoconto in passato prossimo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1838692408",
+      "category": "italian_fluency",
+      "proposed_it": "Lascia che faccia una foto anche a lei! (Attualmente inutilizzato)",
+      "reason": "[Dialogo] Corregge la costruzione innaturale «fammi fare una foto a lei».",
+      "confidence": "alta"
+    },
+    {
+      "key": "1844731796",
+      "category": "italian_fluency",
+      "proposed_it": "Una musica incantevole fa danzare gli Aniimo e aziona il piatto rotante che macina le spezie, diffondendone il profumo al ritmo della melodia.",
+      "reason": "[Descrizione] Rende naturale la relazione tra musica, meccanismo e diffusione del profumo; uniforma i duplicati.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1845146786",
+      "category": "literal_calques",
+      "proposed_it": "Finalmente! Ho trovato il giusto equilibrio tra ingredienti floreali e nettare e ho creato questo profumo miscelato. Speravo di presentarlo in grande stile al Festival della Fioritura, ma ora... è tutto finito nel nulla.",
+      "reason": "Risolti ripetizione e calco di 'make a debut with it' con una resa idiomatica.",
+      "confidence": "high"
+    },
+    {
+      "key": "1845855274",
+      "category": "literal_calques",
+      "proposed_it": "Il Ramo... L'aria tutt'intorno è così calda.\nÈ come se la terra stessa respirasse con me...",
+      "reason": "Sostituito il pronome tonico evitando la ripetizione del referente.",
+      "confidence": "high"
+    },
+    {
+      "key": "1852239678",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1857239065",
+      "category": "literal_calques",
+      "proposed_it": "Dev'essere l'isola privata di un Helgon. Nessun estraneo è ammesso... a meno che...",
+      "reason": "Resa naturale l'ipotesi del parlante.",
+      "confidence": "high"
+    },
+    {
+      "key": "1864764695",
+      "category": "italian_fluency",
+      "proposed_it": "Segni insoliti di Aniimo leggendari hanno iniziato ad apparire ovunque.\nL'Istituto sta reclutando Esploratori per indagare, riportare foto preziose e completare le Note sul Campo.\n\nDettagli evento\n1. Durante l'evento, l'Istituto sbloccherà nel tempo più aree d'indagine.\n2. Ogni area ha obiettivi d'indagine e caratteristiche ambientali diverse. Invia Aniimo adatti a esplorarle.\n3. Dopo aver completato un'indagine, puoi ottenere le ricompense dell'area corrispondente e potresti ricevere anche un Dono d'incontro fortuito aggiuntivo.\n\nRegole d'indagine\n1. Ogni indagine richiede almeno 2 Aniimo. Devi designarne 1 come Aniimo leader prima dell'indagine.\n2. Al termine dell'indagine, riceverai ricompense base in base agli Aniimo inviati.\nInviare Aniimo che soddisfano le preferenze dell'area aumenta la valutazione della ricompensa.\n3. Gli Aniimo in Forma Prismana e gli Aniimo scintillanti possono percepire l'energia residua degli Aniimo leggendari, contribuendo ad accelerare l'indagine.\n\nDoni d'incontro fortuito\nAttraversando un'area con Aniimo leggendari, la loro energia potrebbe generare qualcosa di speciale.\nDopo aver completato un'indagine, hai anche la possibilità di ricevere 1 Ricompensa d'incontro fortuito. Verrà assegnata casualmente una delle seguenti ricompense:\n- <style=Q_5>Potenziale Aniimo leader casuale +1</style>\n- Essenza Starcryst x1\n- Capaseed x5\n- Essenza della Vena x1\n※ <style=Q_5>L'effetto “Potenziale Aniimo leader casuale +1” può essere ottenuto solo una volta nella vita di ciascun Aniimo.</style>\n※ Gli Aniimo con Potenziale massimo non possono ottenere l'effetto “Potenziale Aniimo leader casuale +1”.",
+      "reason": "[UI] Rimuove il calco «apparire dalla loro energia» e rifinisce le collocazioni nelle istruzioni duplicate dell'evento.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1870704808",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1880577290",
+      "category": "literal_calques",
+      "proposed_it": "Le Pedane Galleggianti sull'acqua verranno <style=Hint_BgL>spinte sott'acqua</style> quando il carico che sostengono è <style=Hint_BgL>eccessivo<style=Hint_BgL>.",
+      "reason": "Corretti passiva e pronome calcati in una spiegazione tecnica.",
+      "confidence": "high"
+    },
+    {
+      "key": "1883175124",
+      "category": "literal_calques",
+      "proposed_it": "Le Forme Prismana non sono solo belle:\nposseggono anche <style=Hint_BgD>poteri diversi da quelli degli Aniimo comuni</style>.",
+      "reason": "Corretto il falso amico 'ordinary' nel confronto tra forme.",
+      "confidence": "high"
+    },
+    {
+      "key": "1893768304",
+      "category": "literal_calques",
+      "proposed_it": "Sembra un'antica organizzazione. Quanto a ciò che vogliono davvero...\nNo, non entriamo ancora nel merito.",
+      "reason": "Eliminata la copula e corretto il falso amico stilistico 'old'.",
+      "confidence": "high"
+    },
+    {
+      "key": "1897733688",
+      "category": "literal_calques",
+      "proposed_it": "Una volta appresa una nuova abilità, puoi scegliere se <style=Hint_BgL>equipaggiarla o sostituirne</style> una già equipaggiata.\nOra premi #kCommon/GamepadConfirm#z per tornare alla pagina Info.",
+      "reason": "Risolto un calco sintattico di 'replace ... with it' preservando il tag.",
+      "confidence": "high"
+    },
+    {
+      "key": "1907982975",
+      "category": "literal_calques",
+      "proposed_it": "<color=#5090df>%s</color> continua a gettare bucce di frutta a terra e <color=#5090df>%s</color> è scivolato su una buccia. Appena si è rialzato da terra, ha dato una lezione a <color=#5090df>%s</color>.",
+      "reason": "Esplicitato il referente per evitare il pronome tonico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1910830568",
+      "category": "literal_calques",
+      "proposed_it": "Un comune elmo... ma c'è qualcosa di strano.",
+      "reason": "Corretto il falso amico 'ordinary' nella descrizione dell'oggetto.",
+      "confidence": "high"
+    },
+    {
+      "key": "1911423764",
+      "category": "italian_fluency",
+      "proposed_it": "Invierò le informazioni pertinenti al tuo terminale. Puoi sceglierne uno dall'inventario dell'Istituto come futuro alleato.\nNon c'è fretta. Scegli con calma.",
+      "reason": "[Dialogo] Rende idiomatico l'invito a non affrettare la scelta.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1916473615",
+      "category": "italian_fluency",
+      "proposed_it": "Una botte di legno emana un lieve profumo fruttato. Gli Aniimo saltellano e giocano sulla botte, schiacciando la frutta e i prodotti agricoli al suo interno per ricavarne una bevanda pregiata.",
+      "reason": "[Descrizione] Elimina il calco «pressare ... in una bevanda» e rende chiaro il rapporto tra azione e risultato.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1917384392",
+      "category": "italian_fluency",
+      "proposed_it": "Un amico mi ha detto che sei molto più forte di quanto sembri. Aggiungimi e insegnami qualche trucco!",
+      "reason": "[Dialogo] Rimuove i calchi «ho sentito da» e «sotto mentite spoglie» conservando il tono informale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1917475101",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "1920365151",
+      "category": "literal_calques",
+      "proposed_it": "Spara uno Spirito Flameruff che rimbalza tra i bersagli, aumentando di <style=Hint_BgL><customRichText(calcData,buff,2105501,param0,1,%d)>%</style> per carica l'efficienza BREAK contro di loro, fino a <style=Hint_BgL>3</style> cariche, per <style=Hint_BgL><customRichText(calcData,ability,10550100,param1,1)></style>s. Rimbalza <style=Hint_BgL>5</style> volte di base. Mentre è nello stato <style=Hint_BgL><link=\"source_8046\"><u>[Energia Piena]</u></link></style>, rimbalza <style=Hint_BgL>7</style> volte.",
+      "reason": "Corretto l'ordine sintattico inglese usando un pronome personale naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1921837968",
+      "category": "tense_consistency",
+      "proposed_it": "Eppure... Hayes non viene a trovarmi da molto tempo. Non so perché, ma quello che ha detto sul “faro più luminoso” mi è venuto in mente all'improvviso... così sono venuto a dare un'occhiata.",
+      "reason": "Nella stessa battuta contemporanea compaiono «mi è venuto» e «sono venuto»; il remoto «disse» è un calco isolato senza distanza narrativa.",
+      "confidence": "high"
+    },
+    {
+      "key": "1937621481",
+      "category": "literal_calques",
+      "proposed_it": "A Recas non piaceva essere chiamato “Recas”, un titolo riservato al più forte del clan Bonesky. Non riusciva mai a sconfiggere Icho, nemmeno ad avvicinarsi.\nUn tempo era un comune e ingenuo Bonesky; un giorno uscì dalla sua grotta di ghiaccio e si perse, finendo per incontrare Icho. Percepì il potere che emanava da Icho e divenne diffidente, ma Icho gli fece cenno di avvicinarsi. Avendo perso il suo rivale, Icho era solo e chiese: “Piccolo, vuoi diventare più forte?”\nSpinto dal suo istinto di sfidare i potenti, il Bonesky diede una risposta semplice e risoluta. Da quel giorno Icho lo addestrò come un maestro, puntando a crescere un degno avversario. Presto divenne Fenrier.\n“Maestro Icho, quanto devo diventare forte?”\n“Solo più forte di ieri. Finché diventerai Recas e mi sconfiggerai.”\nPresto divenne il più potente del clan Bonesky e ottenne il nome Recas, eppure non riusciva ancora a superare Icho. Un giorno, Icho decise di partire, dicendo che non era più il più forte. Recas non poteva credere che qualcuno diverso dal suo futuro sé potesse superare Icho.\n“Quella persona viene da oltre il nostro mondo.”\n“Ora parto per mettermi alla prova nel mondo più vasto.”\nRecas non capì: sapeva solo che quella “persona” aveva sconfitto Icho. Così temprò la propria volontà, puntando a superare un giorno sia Icho sia quella “persona”.\nPoi divenne Glynsera, ma non incontrò mai “quella persona”.\nPoi è toccato a te. Nel momento in cui hai sconfitto Recas, finalmente capì.\n“Ho incontrato una persona tutta mia.”\n“Ho visto anch'io un mondo più grande.”",
+      "reason": "Corretto il falso amico 'ordinary' nel racconto biografico.",
+      "confidence": "high"
+    },
+    {
+      "key": "1953295012",
+      "category": "literal_calques",
+      "proposed_it": "Le mie avventure sono troppo pericolose e movimentate per portare un uovo. Quindi, potresti prendertene cura tu?",
+      "reason": "Resa diretta e idiomatica una domanda calcata su 'is there any chance'.",
+      "confidence": "high"
+    },
+    {
+      "key": "1973232950",
+      "category": "literal_calques",
+      "proposed_it": "Dopo l'apertura del Forziere, il misterioso potere che spostava la pietra sembra svanito.",
+      "reason": "Eliminata la copula ridondante con un verbo più naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1994033808",
+      "category": "literal_calques",
+      "proposed_it": "Dobbiamo sbrigarci! Se l'erba inizia a <style=Hint_BgD>bruciare</style>,\nqualunque Aniimo che vi si trova continuerà a <style=Hint_BgD>subire danni</style>. Dobbiamo fermarli subito!",
+      "reason": "Sostituito il pronome tonico con una relativa naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "1994263547",
+      "category": "literal_calques",
+      "proposed_it": "[Base Conduttiva]：Una base che può <style=Hint_BgL>condurre elettricità</style>. Segui il percorso dalla base verso l'esterno per trovare le <style=Hint_BgL>batterie</style> vicine, poi capisci come posizionarle sulla base.",
+      "reason": "Esplicitato il referente nella guida al rompicapo.",
+      "confidence": "high"
+    },
+    {
+      "key": "1998924966",
+      "category": "italian_fluency",
+      "proposed_it": "I bersagli affetti da Rallentamento infliggono a sé stessi il 15% di danni in meno e gli effetti di riduzione della resistenza che applichi loro vengono raddoppiati.",
+      "reason": "[UI] Riorganizza una descrizione tecnica ambigua e corregge pronome, collocazione e reggenza.",
+      "confidence": "alta"
+    },
+    {
+      "key": "2016932764",
+      "category": "literal_calques",
+      "proposed_it": "Servizio di volo di prova",
+      "reason": "Risolto un accumulo nominale che riproduceva meccanicamente l'ordine inglese.",
+      "confidence": "high"
+    },
+    {
+      "key": "2018959339",
+      "category": "italian_fluency",
+      "proposed_it": "Svolgere attività di ricerca conferisce un <color=#ffe866><b>Bonus Ricerca</color></b>.",
+      "reason": "[UI] Sostituisce la collocazione rigida «fare ricerca concede» con una formulazione da interfaccia naturale.",
+      "confidence": "alta"
+    },
+    {
+      "key": "2030714354",
+      "category": "literal_calques",
+      "proposed_it": "Ognuno ha talenti e colli di bottiglia diversi. O supera i propri limiti, oppure si ferma prima di riuscirci.",
+      "reason": "Risolta l'incoerenza singolare/plurale e rimosso il pronome pesante.",
+      "confidence": "high"
+    },
+    {
+      "key": "2036968889",
+      "category": "literal_calques",
+      "proposed_it": "Un dispositivo che simula la luce del sole, così piante e Aniimo possono godersi un bagno di sole.",
+      "reason": "Sostituito il gerundio consecutivo inglese con una coordinazione naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "2060606883",
+      "category": "literal_calques",
+      "proposed_it": "I Rami fungono da nodi centrali per la trasmissione dell'energia della Vena e infondono vitalità nelle aree circostanti.\n\nAttivando un Ramo, potrai percepire il terreno vicino attraverso la Vena a cui è collegato nel sottosuolo.\n\nMan mano che i Rami assorbono l'energia dell'Ambra Lumin, attraversano varie fasi di crescita, ognuna delle quali offre benedizioni uniche.",
+      "reason": "Sostituito il pronome tonico con una relativa idiomatica.",
+      "confidence": "high"
+    },
+    {
+      "key": "2060709720",
+      "category": "italian_fluency",
+      "proposed_it": "Emberpup sfida sé stesso",
+      "reason": "[UI] Corregge l'accento del pronome tonico «sé» nella stessa etichetta duplicata.",
+      "confidence": "alta"
+    },
+    {
+      "key": "2065131433",
+      "category": "literal_calques",
+      "proposed_it": "Quando i forti cadono, i loro corpi diventano parte di Thousand-Fang Ridge.\nSenza spirito combattivo svaniscono. Se invece ne sono animati, ardono.",
+      "reason": "Resa naturale l'antitesi evitando il pronome isolato.",
+      "confidence": "high"
+    },
+    {
+      "key": "2065320292",
+      "category": "literal_calques",
+      "proposed_it": "Adorano il cibo! Quando cercano cibo nella foresta, le stelle luminose sulle loro teste vengono spesso scambiate per comete. Amano fare scorte di cibo e usarlo per decorare il nido.",
+      "reason": "Corretto il referente collettivo ed eliminato il pronome artificiale.",
+      "confidence": "high"
+    },
+    {
+      "key": "2092630413",
+      "category": "italian_fluency",
+      "proposed_it": "Una musica incantevole fa danzare gli Aniimo e aziona il piatto rotante che macina le spezie, diffondendone il profumo al ritmo della melodia.",
+      "reason": "[Descrizione] Rende naturale la relazione tra musica, meccanismo e diffusione del profumo; uniforma i duplicati.",
+      "confidence": "alta"
+    },
+    {
+      "key": "2099591446",
+      "category": "literal_calques",
+      "proposed_it": "Quando nasce un potente Aniimo leggendario, l'energia della Vena si raccoglie in modi strani e instabili, aprendo insolite fenditure energetiche. Ma il disturbo si sta diffondendo. L'energia della Vena è diventata selvaggia e caotica, e l'Irisalis generato da quell'energia è diventato irrequieto, instabile e pericolosamente aggressivo. Esploratore, raggiungi subito la fenditura. Trova un modo per calmare questo spirito leggendario perduto con coraggio e un cuore capace di guarire.",
+      "reason": "Esplicitato il referente al posto del pronome tonico.",
+      "confidence": "high"
+    },
+    {
+      "key": "2099679250",
+      "category": "tense_consistency",
+      "proposed_it": "Prima Tappa: Festival della Fioritura\nAll'arrivo a Bloomville, ebbi la fortuna di partecipare a una grande celebrazione chiamata \"Festival della Fioritura\".\nDal giorno della cerimonia dell'offerta, su Bloomville cade per tre Sol una vivida e onirica pioggia di fiori variopinti.\nMigliaia di fiori sbocciano insieme e ondeggiano con grazia nella brezza. I petali scendono leggeri, posandosi sulle mie spalle e sui capelli, diffondendo un tocco di freschezza e profumo.\nIn quel momento, mi sembrò di trovarmi in un mondo fiabesco...\n\nSeconda Tappa: Irisalis\nDopo la cerimonia dell'offerta, ebbi l'onore di incontrare la Guardiana di Bloomville, l'Aniimo leggendario Irisalis.\nSe ne stava immobile nel Mare dei Fiori. Anche se sembrava piuttosto pallida dopo aver evocato la pioggia di fiori, incuteva ancora soggezione.\nGli abitanti dicono che si addormenti dopo ogni cerimonia e che, quando inizia la cerimonia successiva, torni a risplendere di colori vividi.\nIl ciclo e il prodigio della vita ricordano il continuo sbocciare e appassire dei fiori di Bloomville: tutto segue il ritmo della natura.\nPurtroppo Somniwing, un'altra potente Aniimo, non è apparsa. Forse avrò occasione di incontrarla alla mia prossima visita.\n\nTerza Tappa: Mare dei Fiori\nOggi ho visitato il Mare dei Fiori e provato l'arte profumiera tipica di Bloomville.\nLa pioggia di fiori portata da Irisalis continua ancora oggi. Tra i petali che cadono, le persone raccolgono fiori di vari colori e li danno ai Dewy. Questi adorabili spiritelli trasformano la fragranza floreale in incenso aromatico.\nHo partecipato anch'io, mentre un soffice Dewy si accoccolava fiducioso nel palmo della mia mano. Nel continente di Idyll, umani e Aniimo convivono in perfetta armonia.\nDopo qualche tentativo, ho creato una boccetta di fragranza antistress. Ne ho inspirato delicatamente il profumo e la sua nota fresca ed elegante mi ha subito riempito i polmoni. In un istante, mi è sembrato che ogni preoccupazione e ogni traccia di fatica svanissero...\nHai mai vissuto un viaggio capace di risanarti l'anima in questo modo?",
+      "reason": "La terza tappa del diario è narrata al passato prossimo («ho visitato», «ho partecipato», «ho creato», «ho inspirato»); «sembrò» rompe il tempo della medesima sequenza.",
+      "confidence": "high"
+    },
+    {
+      "key": "2101900361",
+      "category": "literal_calques",
+      "proposed_it": "Proprio come Cress, Ranka discende dai guardiani notturni di Bloomville.\nMa quando Irelia restituì tutti i colori alla terra, la pace si stabilì e i guardiani notturni non furono più necessari.\nLe persone divennero desiderose di esplorare nuove terre, alla ricerca di ingredienti per creare profumi raffinati.\nDa questa curiosità nacque la scuola floreale di Bloomville, dedicata alla ricerca e alla coltivazione di fiori rari: la prima tradizione profumiera della città.\nL'antenato di Ranka fu tra i suoi primi praticanti.\n————\nI fiori Flareburst sbocciano sugli alberi ridgeback, radiosi simboli dello spirito combattivo, e furono un tempo proprio il premio inseguito dai guardiani notturni.\nA differenza dell'antenato di Cress, discendente di guerrieri, l'antenato di Ranka non portava con sé una spada di ferro arrugginita intrisa di gloria.\nEppure condivideva l'ambizione dell'Emberpup, salendo fianco a fianco verso le vette più alte.\nDa allora, i profumieri di questa stirpe sono cresciuti insieme ai loro compagni Emberpup.\nVedono i fiori Flareburst come il loro obiettivo e considerano le “vere battaglie” nutrimento sul loro cammino d'avventura.\n————\nRanka, però, non desiderava il sentiero più potente. Anche come profumiere, tendeva all'ozio.\nForse il sangue dei guardiani notturni si era assottigliato.\nForse era perché sua madre un tempo aveva scelto il cammino al posto suo.\nQualunque fosse il motivo, preferiva restare sdraiato in un prato di fiori illuminato dal sole, respirando il profumo dei fiori.\nQuesto finché un giorno anche l'Emberpup con cui era cresciuto partì per la propria avventura, e un'increspatura si mosse nel suo cuore... per poi tornare presto alla calma.\nQuel desiderio del cammino e la stanchezza che ne derivava plasmarono insieme il Ranka che conosciamo oggi.\nE così, ogni volta che si definisce un “profumiere leggendario”, suona insieme fiero e stanco.",
+      "reason": "Eliminato il pronome tonico e resa naturale la coordinazione.",
+      "confidence": "high"
+    },
+    {
+      "key": "2129498632",
+      "category": "italian_fluency",
+      "proposed_it": "Entrando nell'[<style=Hint_BgL>erba alta bianca</style>] più avanti, inizierai a muoverti furtivamente e gli Aniimo faranno più fatica a notarti.\nSe ti avvicini a un Aniimo da dietro senza farti scoprire, avrai molte più probabilità di catturarlo.",
+      "reason": "[UI] Evita la discordanza temporale e la forma marcata per genere, rendendo l'istruzione più diretta.",
+      "confidence": "alta"
+    },
+    {
+      "key": "2131690207",
+      "category": "literal_calques",
+      "proposed_it": "Già... sono così normale. Niente di speciale in me... Non so perché dovrei piacere a qualcuno.",
+      "reason": "Resa naturale l'autovalutazione del personaggio eliminando il falso amico.",
+      "confidence": "high"
+    },
+    {
+      "key": "2134764257",
+      "category": "literal_calques",
+      "proposed_it": "Un dispositivo che simula la luce del sole, così piante e Aniimo possono godersi un bagno di sole.",
+      "reason": "Sostituito il gerundio consecutivo inglese con una coordinazione naturale.",
+      "confidence": "high"
+    },
+    {
+      "key": "2140116551",
+      "category": "literal_calques",
+      "proposed_it": "Dietro queste barriere stratificate si celano meccanismi nascosti. Solo un occhio attento può individuarli e svelare la verità che nascondono.",
+      "reason": "Corretta una resa letterale non idiomatica di 'beyond them'.",
+      "confidence": "high"
+    },
+    {
+      "key": "2145932771",
+      "category": "literal_calques",
+      "proposed_it": "Davvero? Conosci altri Bolty comuni come me?",
+      "reason": "Corretto il falso amico 'ordinary' e uniformato il nome invariabile della specie.",
+      "confidence": "high"
+    }
+  ]
+}

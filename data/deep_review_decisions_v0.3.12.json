@@ -1,0 +1,165 @@
+{
+  "version": "0.3.12-beta",
+  "review_marker": "review_v0.3.12_deep_editorial",
+  "reject": [
+    {
+      "key": "1103960172",
+      "reason": "In italiano l'articolo davanti a un titolo abbreviato riferito a una persona è corretto: «il Dr. Lewis»."
+    },
+    {
+      "key": "1117663681",
+      "reason": "In italiano l'articolo davanti a un titolo abbreviato riferito a una persona è corretto: «il Dr. Lewis»."
+    },
+    {
+      "key": "1127303739",
+      "reason": "Sorora è maschile: altre stringhe inglesi usano esplicitamente i pronomi «he» e «his»."
+    }
+  ],
+  "override": [
+    {
+      "key": "1080838903",
+      "proposed_it": "L'Aniimo evocato non conosce un'abilità così potente e non può imitarla...",
+      "reason": "Ripristina la conseguenza dell'originale restando entro il limite di 80 caratteri della notifica."
+    },
+    {
+      "key": "1099098774",
+      "proposed_it": "Potenzia la lama con la Luce, aumentando il tasso CRIT dell'abilità di <style=Hint_BgL><customRichText(calcData,buff,2103301,param0,1,%d)>%</style> per <style=Hint_BgL>20</style>s.",
+      "reason": "Rende naturale la descrizione dell'abilità e mantiene la terza persona usata dalle descrizioni tecniche."
+    },
+    {
+      "key": "1120845590",
+      "proposed_it": "La domanda di %s ha ricevuto risposta: ora è più efficiente nei lavori di costruzione",
+      "reason": "Elimina il calco «ha avuto risposta» e chiarisce il miglioramento nel lavoro di costruzione."
+    },
+    {
+      "key": "1125809151",
+      "proposed_it": "...In ogni caso, credo che non dovremmo assolutamente rinunciare ai possibili Indizi racchiusi in quel misterioso Prisma Ancestrale.",
+      "reason": "Elimina la doppia congiunzione e chiarisce il rapporto tra gli Indizi e il Prisma."
+    },
+    {
+      "key": "1185180588",
+      "proposed_it": "Periodo evento: 31 gen 2026, 10:00 - 2 feb 2026, 03:59 (UTC-4)\n1. Dal 31 gen 2026, 04:00 al 1 feb 2026, 03:59, gli Esploratori possono scegliere uno dei tre Aniimo in Forma temporale nelle Preghiere del Weekend e ricevere una ricompensa per la preghiera.\n2. Dal 1 feb 2026, 04:00 al 2 feb 2026, 03:59, un Uovo temporale apparirà vicino a un Ramo in Idyll. Tutti gli Esploratori possono riscattare l'Uovo temporale, che abbiano partecipato o meno alle Preghiere del Weekend.\n3. Dall'Uovo temporale nascerà sicuramente uno dei tre Aniimo in Forma temporale presenti in questo evento Preghiere del Weekend. L'Aniimo in Forma temporale scelto nelle Preghiere del Weekend avrà il 60% di probabilità di schiudersi.\n4. Gli Esploratori che non partecipano alle Preghiere del Weekend avranno la stessa probabilità che dall'Uovo si schiuda ciascuno dei tre Aniimo in Forma temporale.",
+      "reason": "Corregge la reggenza di «schiudersi» e italianizza le ore eliminando AM."
+    },
+    {
+      "key": "1226506091",
+      "proposed_it": "Fuori dal combattimento non puoi usare attacchi né abilità del personaggio.",
+      "reason": "Ripristina la preposizione mancante restando entro il limite di 80 caratteri della notifica."
+    },
+    {
+      "key": "1229490056",
+      "proposed_it": "Sono felice che tu stia per iniziare a esplorare davvero. Hai voglia di scoprire cos'altro c'è là fuori?\nE naturalmente, non dimenticare la cosa più importante: assicurati di tornare.\n                                           - Dr. Lewis",
+      "reason": "Rende idiomatico e neutro il richiamo a tornare sani e salvi."
+    },
+    {
+      "key": "1239339132",
+      "proposed_it": "Periodo evento: 24 gen 2026, 04:00 - 26 gen 2026, 03:59 (UTC+8)\n1. Dal 24 gen 2026, 04:00 al 25 gen 2026, 03:59 (UTC+8), gli Esploratori possono scegliere uno dei tre Aniimo in Forma Prismana nelle Preghiere del Weekend e ricevere una ricompensa per la preghiera.\n2. Dal 25 gen 2026, 04:00 al 26 gen 2026, 03:59 (UTC+8), un Uovo Prismana apparirà vicino a un Ramo a Idyll. Tutti gli Esploratori possono riscattare l'Uovo Prismana, che abbiano partecipato o meno alle Preghiere del Weekend.\n3. Dall'Uovo Prismana nascerà sicuramente uno dei tre Aniimo in Forma Prismana presenti in questo evento Preghiere del Weekend. L'Aniimo in Forma Prismana scelto nelle Preghiere del Weekend di sabato avrà il 60% di probabilità di schiudersi.\n4. Gli Esploratori che non partecipano alle Preghiere del Weekend avranno la stessa probabilità che dall'Uovo si schiuda ciascuno dei tre Aniimo in Forma Prismana.",
+      "reason": "Corregge la reggenza di «schiudersi» senza trasformare il complemento di luogo «a Idyll» in un complemento di specificazione."
+    },
+    {
+      "key": "1242924781",
+      "proposed_it": "Quando Popota si sente timido o agitato, la temperatura corporea aumenta, liberando le bolle d'aria intrappolate nel soffice pelo del collo.",
+      "reason": "Descrive in modo naturale la liberazione delle bolle dal pelo del collo."
+    },
+    {
+      "key": "1292501930",
+      "proposed_it": "Mmh...? Ehm...",
+      "reason": "Localizza entrambe le interiezioni esitanti inglesi."
+    },
+    {
+      "key": "1325935688",
+      "proposed_it": "La cosa più affascinante del mondo è la sua capacità di creare errori perfetti.",
+      "reason": "Elimina il calco sintattico e conserva il paradosso dell'originale."
+    },
+    {
+      "key": "1419302945",
+      "proposed_it": "<style=Hint_BgL>{0}</style> ha interagito con alcuni Aniimo e ha fatto cadere le Monete Voxel nascoste!",
+      "reason": "Uniforma il nome della valuta senza attribuire per errore il possesso delle monete al soggetto."
+    },
+    {
+      "key": "1447667674",
+      "proposed_it": "Periodo evento: 24 gen 2026, 04:00 - 26 gen 2026, 03:59 (UTC-4)\n1. Dal 24 gen 2026, 04:00 al 25 gen 2026, 03:59 (UTC-4), gli Esploratori possono scegliere uno dei tre Aniimo in Forma Prismana nelle Preghiere del Weekend e ricevere una ricompensa per la preghiera.\n2. Dal 25 gen 2026, 04:00 al 26 gen 2026, 03:59 (UTC-4), un Uovo Prismana apparirà vicino a un Ramo a Idyll. Tutti gli Esploratori possono riscattare l'Uovo Prismana, che abbiano partecipato o meno alle Preghiere del Weekend.\n3. Dall'Uovo Prismana nascerà sicuramente uno dei tre Aniimo in Forma Prismana presenti in questo evento Preghiere del Weekend. L'Aniimo in Forma Prismana scelto nelle Preghiere del Weekend di sabato avrà il 60% di probabilità di schiudersi.\n4. Gli Esploratori che non partecipano alle Preghiere del Weekend avranno la stessa probabilità che dall'Uovo si schiuda ciascuno dei tre Aniimo in Forma Prismana.",
+      "reason": "Corregge la reggenza di «schiudersi» senza trasformare il complemento di luogo «a Idyll» in un complemento di specificazione."
+    },
+    {
+      "key": "1474668243",
+      "proposed_it": "Periodo evento: 24 gen 2026, 04:00 - 26 gen 2026, 03:59 (UTC+0)\n1. Dal 24 gen 2026, 04:00 al 26 gen 2026, 03:59 (UTC+0), gli Esploratori possono scegliere uno dei tre Aniimo in Forma Prismana nelle Preghiere del Weekend e ricevere una ricompensa per la preghiera.\n2. Dal 24 gen 2026, 04:00 al 26 gen 2026, 03:59 (UTC+0), un Uovo Prismana apparirà vicino a un Ramo a Idyll. Tutti gli Esploratori possono riscattare l'Uovo Prismana, che abbiano partecipato o meno alle Preghiere del Weekend.\n3. Dall'Uovo Prismana nascerà sicuramente uno dei tre Aniimo in Forma Prismana presenti in questo evento Preghiere del Weekend. L'Aniimo in Forma Prismana scelto nelle Preghiere del Weekend di sabato avrà il 60% di probabilità di schiudersi.\n4. Gli Esploratori che non partecipano alle Preghiere del Weekend avranno la stessa probabilità che dall'Uovo si schiuda ciascuno dei tre Aniimo in Forma Prismana.",
+      "reason": "Corregge la reggenza di «schiudersi» senza trasformare il complemento di luogo «a Idyll» in un complemento di specificazione."
+    },
+    {
+      "key": "1514117863",
+      "proposed_it": "...L'avidità non ti manca mai. Va bene, continuiamo a parlare. Forse riuscirai a convincermi a venire con te. Eheh!",
+      "reason": "Localizza la risata e rende naturale la battuta senza assegnare un genere al protagonista."
+    },
+    {
+      "key": "1548342450",
+      "proposed_it": "Se hai fortuna, potresti farne cadere subito uno dorato e, se succede... eheh.",
+      "reason": "Localizza la risata ed elimina il calco «scuoterne fuori»."
+    },
+    {
+      "key": "1551897278",
+      "proposed_it": "Non puoi azzerare l'Albero delle Abilità del personaggio durante i tutorial.",
+      "reason": "Ripristina le preposizioni mancanti restando entro il limite di 80 caratteri della notifica."
+    },
+    {
+      "key": "1552404391",
+      "proposed_it": "[Nuovo] Eheh, sai una cosa? Lo stato del bocciolo sul guscio di Budclaw indica quanto è felice.",
+      "reason": "Localizza la risata e rende naturale la spiegazione sul bocciolo di Budclaw."
+    },
+    {
+      "key": "1694173301",
+      "proposed_it": "Completa la Valutazione per la Promozione per sbloccare i talenti e apprendere le abilità del personaggio. Congratulazioni per aver sbloccato l'<style=Hint_BgL>Abilità di Livello 2</style>.",
+      "reason": "Uniforma la famiglia UI della Valutazione per la Promozione e ripristina articoli e preposizioni."
+    },
+    {
+      "key": "1764535657",
+      "proposed_it": "Completa la Valutazione per la Promozione per sbloccare i talenti e apprendere le abilità del personaggio. Congratulazioni per aver sbloccato l'<style=Hint_BgL>Abilità di Livello 3</style>.",
+      "reason": "Uniforma la famiglia UI della Valutazione per la Promozione e ripristina articoli e preposizioni."
+    },
+    {
+      "key": "1777218078",
+      "proposed_it": "Completa la Valutazione per la Promozione per sbloccare i talenti e apprendere le abilità del personaggio. Congratulazioni per aver sbloccato l'<style=Hint_BgL>Abilità di Livello 5</style>.",
+      "reason": "Uniforma la famiglia UI della Valutazione per la Promozione e ripristina articoli e preposizioni."
+    },
+    {
+      "key": "1841402590",
+      "proposed_it": "La cosa più affascinante del mondo è la sua capacità di creare errori perfetti.",
+      "reason": "Elimina il calco sintattico e conserva il paradosso dell'originale."
+    },
+    {
+      "key": "1848842115",
+      "proposed_it": "Ehm... è questa la vita quotidiana in una famiglia di geni? È decisamente fuori dalla mia portata.",
+      "reason": "Localizza l'esitazione e rende idiomatica la battuta."
+    },
+    {
+      "key": "1860605724",
+      "proposed_it": "A proposito, ricordati di apprendere le <style=Hint_BgD>Abilità del personaggio</style> ogni volta che superi una Valutazione per la Promozione.\nRafforzarti renderà anche il viaggio più agevole.",
+      "reason": "Uniforma la terminologia UI ed elimina due calchi sintattici."
+    },
+    {
+      "key": "1868387415",
+      "proposed_it": "Eheh... Ben fatto!",
+      "reason": "Localizza la risata e normalizza la punteggiatura."
+    },
+    {
+      "key": "1885217310",
+      "proposed_it": "Eheh, non dovresti farmi domande del genere.\nDovresti limitarti a parlare di Spezia.",
+      "reason": "Localizza la risata e rende naturali entrambe le frasi."
+    },
+    {
+      "key": "2077579095",
+      "proposed_it": "Devi essere il mio portafortuna! Ehm, non posso darti la bolla dorata, ma accetta questo piccolo regalo. Spero che renda anche te felice come lo sono io!",
+      "reason": "Localizza l'esitazione e rende naturale l'offerta del regalo."
+    },
+    {
+      "key": "2125442768",
+      "proposed_it": "Completa la Valutazione per la Promozione per sbloccare i talenti e apprendere le abilità del personaggio. Congratulazioni per aver sbloccato l'<style=Hint_BgL>Abilità di Livello 4</style>.",
+      "reason": "Uniforma la famiglia UI della Valutazione per la Promozione e ripristina articoli e preposizioni."
+    },
+    {
+      "key": "2125506158",
+      "proposed_it": "Completa i <style=Hint_BgL>corsi di Allenamento Elite richiesti</style> per sbloccare la <style=Hint_BgL>Valutazione per la Promozione del Titolo</style>. Superala per migliorare il titolo e aumentare il limite di livello del personaggio.",
+      "reason": "Uniforma la terminologia della promozione e ripristina la preposizione mancante."
+    }
+  ]
+}

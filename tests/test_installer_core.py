@@ -82,6 +82,21 @@ class BuildMapAndBinTests(unittest.TestCase):
         self.assertIn("1409838404", keys)
         self.assertIn("1832874807", keys)
 
+    def test_dynamic_date_bytecode_is_changed_to_day_month_year(self) -> None:
+        original = b"prefix" + installer.DATE_YMD_BYTECODE + b"suffix"
+        patched, changed = installer.patch_dynamic_date_order(original)
+        self.assertTrue(changed)
+        self.assertTrue(installer.dynamic_date_is_italian(patched))
+        self.assertNotIn(installer.DATE_YMD_BYTECODE, patched)
+        self.assertIn(installer.DATE_DMY_BYTECODE, patched)
+        repeated, changed_again = installer.patch_dynamic_date_order(patched)
+        self.assertFalse(changed_again)
+        self.assertEqual(patched, repeated)
+
+    def test_unknown_dynamic_date_bytecode_is_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            installer.patch_dynamic_date_order(b"script non verificato")
+
 
 class RestoreTests(unittest.TestCase):
     def test_restore_removes_only_files_created_by_the_patch(self) -> None:
@@ -349,9 +364,32 @@ class DetectionTests(unittest.TestCase):
     def test_translation_is_detected_from_actual_text_matches(self) -> None:
         translations = {str(i): f"Italiano {i}" for i in range(200)}
         installed = [{"key": str(i), "text": f"Italiano {i}"} for i in range(200)]
+        previous = [{"key": str(i), "text": f"Italiano {i}"} for i in range(200)]
+        previous[0]["text"] = "Versione precedente"
         original = [{"key": str(i), "text": f"English {i}"} for i in range(200)]
-        self.assertTrue(installer.translation_match_status(installed, translations)["installed"])
+        current_status = installer.translation_match_status(installed, translations)
+        previous_status = installer.translation_match_status(previous, translations)
+        self.assertTrue(current_status["installed"])
+        self.assertTrue(current_status["matches_current"])
+        self.assertTrue(previous_status["installed"])
+        self.assertFalse(previous_status["matches_current"])
         self.assertFalse(installer.translation_match_status(original, translations)["installed"])
+
+    def test_recorded_translation_version_requires_the_same_game_path(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            other_game = root / "other-game"
+            game.mkdir()
+            other_game.mkdir()
+            work = root / "work"
+            with patch.object(installer, "USER_WORK_DIR", work):
+                installer.write_json(work / "installed_state.json", {
+                    "game_dir": str(game),
+                    "translation_version": "0.3.8-beta",
+                })
+                self.assertEqual("0.3.8-beta", installer.recorded_translation_version(game))
+                self.assertIsNone(installer.recorded_translation_version(other_game))
 
     def test_saved_game_path_is_reused(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -384,6 +422,7 @@ class DetectionTests(unittest.TestCase):
     def test_status_panel_reports_path_and_installation(self) -> None:
         status = {
             "manifest": {
+                "translation_version": "0.3.11-beta",
                 "supported_game_updates": [3032670],
                 "supported_game_revisions": ["7113f88e39827a2d13591a55b395f1c6"],
             },
@@ -392,6 +431,9 @@ class DetectionTests(unittest.TestCase):
             "detected_game_update": "3032670",
             "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
             "translation_installed": True,
+            "translation_matches_installer": False,
+            "installed_translation_version": "0.3.8-beta",
+            "dynamic_date_italian": False,
             "text_resources_supported": True,
             "update": {"current": "0.3.3-beta", "latest": "v0.3.3-beta", "update_available": False},
         }
@@ -400,9 +442,38 @@ class DetectionTests(unittest.TestCase):
             installer.print_status_panel(status, colors=False)
         self.assertIn("TROVATO AUTOMATICAMENTE", output.getvalue())
         self.assertIn("INSTALLATA", output.getvalue())
+        self.assertIn("Versione trad. installata  : v0.3.8-beta", output.getvalue())
+        self.assertIn("Versione trad. proposta    : v0.3.11-beta", output.getvalue())
+        self.assertIn("Confronto contenuti        : ⚠ DIVERSI — AGGIORNAMENTO CONSIGLIATO", output.getvalue())
+        self.assertIn("Formato data dinamico      : ⚠ DA AGGIORNARE (AAAA/MM/GG)", output.getvalue())
         self.assertIn("VERIFICATA", output.getvalue())
         self.assertIn("Compatibilità testi        : ✓ COMPATIBILE", output.getvalue())
         self.assertIn("github.com/Sici29/Aniimo-Italian-Translation", output.getvalue())
+
+    def test_status_panel_confirms_an_exact_translation_match(self) -> None:
+        status = {
+            "manifest": {
+                "translation_version": "0.3.11-beta",
+                "supported_game_updates": [3036569],
+                "supported_game_revisions": ["4eb81a98d0e3934af67064cbde06218e"],
+            },
+            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_path_source": "automatico",
+            "detected_game_update": "3036569",
+            "detected_game_revision": "4eb81a98d0e3934af67064cbde06218e",
+            "translation_installed": True,
+            "translation_matches_installer": True,
+            "installed_translation_version": "0.3.11-beta",
+            "dynamic_date_italian": True,
+            "text_resources_supported": True,
+            "update": {"current": "0.3.11-beta", "latest": "v0.3.11-beta", "update_available": False},
+        }
+        output = io.StringIO()
+        with redirect_stdout(output):
+            installer.print_status_panel(status, colors=False)
+        self.assertIn("Versione trad. installata  : v0.3.11-beta", output.getvalue())
+        self.assertIn("Confronto contenuti        : ✓ IDENTICI — nessun aggiornamento necessario", output.getvalue())
+        self.assertIn("Formato data dinamico      : ✓ ITALIANO (GG/MM/AAAA)", output.getvalue())
 
     def test_current_hot_update_revision_is_verified(self) -> None:
         current_revision = "4eb81a98d0e3934af67064cbde06218e"

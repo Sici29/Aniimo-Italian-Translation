@@ -43,6 +43,12 @@ XDT_NAME = "LuaScripts.xdt"
 TEXT_MAP = "xfs/luascripts/Data/I18N/NewTextMap_{lang}.json"
 COMPRESS = "xfs/luascripts/Data/I18N/Compress_{lang}.bin"
 AI_TRANSLATED_EN = "xfs/luascripts/Data/I18N/AITranslatedItems/AITranslatedItems_en.json"
+DATE_SCRIPT = "xfs/luascripts/Guis/Panels/SpecialTrainChapterTip/SpecialTrainChapterTipCtrl.lua"
+# The verified LuaJIT function calls string.format("%d/%02d/%02d", year, month, day).
+# Swapping only the two field-load operands changes it to day/month/year without
+# recompiling or redistributing the game's script.
+DATE_YMD_BYTECODE = bytes.fromhex("2708190036091a05360a1b05360b1c0542060502")
+DATE_DMY_BYTECODE = bytes.fromhex("2708190036091c05360a1b05360b1a0542060502")
 FONT_CACHE_RELS = (
     Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
     Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
@@ -189,6 +195,19 @@ def load_installed_state() -> dict:
         return data if isinstance(data, dict) else {}
     except (OSError, json.JSONDecodeError):
         return {}
+
+
+def recorded_translation_version(game_dir: Path) -> str | None:
+    """Return the version recorded for this exact game installation."""
+    state = load_installed_state()
+    try:
+        same_game = Path(str(state.get("game_dir") or "")).resolve() == game_dir.resolve()
+    except (OSError, ValueError):
+        same_game = False
+    if not same_game:
+        return None
+    version = str(state.get("translation_version") or "").strip().lstrip("v")
+    return version or None
 
 
 def effective_game_revision(game_dir: Path, current_revision: str | None, translation_installed: bool) -> str | None:
@@ -494,23 +513,51 @@ def translation_match_status(source_records: list[dict], translations: dict[str,
     ratio = matched / comparable if comparable else 0.0
     return {
         "installed": comparable >= 100 and ratio >= 0.90,
+        "matches_current": comparable >= 100 and comparable == len(translations) and matched == comparable,
         "matched": matched,
         "comparable": comparable,
         "ratio": ratio,
     }
 
 
+def patch_dynamic_date_order(script_data: bytes) -> tuple[bytes, bool]:
+    """Change the verified chapter date from YYYY/MM/DD to DD/MM/YYYY."""
+    ymd_count = script_data.count(DATE_YMD_BYTECODE)
+    dmy_count = script_data.count(DATE_DMY_BYTECODE)
+    if ymd_count == 1 and dmy_count == 0:
+        patched = script_data.replace(DATE_YMD_BYTECODE, DATE_DMY_BYTECODE, 1)
+        if patched.count(DATE_YMD_BYTECODE) != 0 or patched.count(DATE_DMY_BYTECODE) != 1:
+            raise RuntimeError("Verifica del formato data italiano non riuscita.")
+        return patched, True
+    if ymd_count == 0 and dmy_count == 1:
+        return script_data, False
+    raise ValueError(
+        "Script della data dinamica non riconosciuto. La modifica GG/MM/AAAA non verrà applicata "
+        "a una versione non verificata."
+    )
+
+
+def dynamic_date_is_italian(script_data: bytes) -> bool:
+    return script_data.count(DATE_DMY_BYTECODE) == 1 and script_data.count(DATE_YMD_BYTECODE) == 0
+
+
 def detect_translation_installation(game_dir: Path) -> dict:
     paths = resolve_paths(game_dir)
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, english_records, _ = load_language(zf, "en")
+        try:
+            date_italian = dynamic_date_is_italian(zf.read(DATE_SCRIPT))
+        except KeyError:
+            date_italian = False
     result = translation_match_status(english_records, load_translations("en"))
     try:
         font_accented = english_uses_vietnamese_font(find_font_bundle(game_dir))
     except (FileNotFoundError, OSError, RuntimeError, ValueError):
         font_accented = False
     result["font_accented"] = font_accented
+    result["date_italian"] = date_italian
     result["installed"] = result["installed"] and font_accented
+    result["matches_current"] = result["matches_current"] and font_accented and date_italian
     result["installed_slots"] = ["en"] if result["installed"] else []
     result["detected_slot"] = "en"
     compatibility = check_supported(english_records, force=True)
@@ -1110,6 +1157,14 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
                 "recovered_keys": len(fallback_keys),
                 "allow_list_entries_added": added,
             }
+            date_script, date_changed = patch_dynamic_date_order(zf.read(DATE_SCRIPT))
+            replacements[DATE_SCRIPT] = date_script
+            stats["dynamic_date"] = {
+                "format": "DD/MM/YYYY",
+                "changed_now": date_changed,
+                "verified": dynamic_date_is_italian(date_script),
+                "script_sha256": hashlib.sha256(date_script).hexdigest(),
+            }
     repack_xdf(paths.xdf, paths.xdt, replacements, patch_dir / XDF_NAME, patch_dir / XDT_NAME)
     stats["font"] = patch_font_bundle(
         find_font_bundle(paths.game_dir), patch_dir / FONT_PATCH_DIR / "cdata.uab"
@@ -1277,6 +1332,9 @@ def collect_startup_status() -> dict:
         "detected_game_revision": None,
         "translation_installed": None,
         "translation_match_ratio": None,
+        "translation_matches_installer": None,
+        "installed_translation_version": None,
+        "dynamic_date_italian": None,
         "translation_slot": None,
         "text_resources_supported": None,
         "update": check_for_updates(silent=True),
@@ -1294,6 +1352,10 @@ def collect_startup_status() -> dict:
         translation = detect_translation_installation(game_dir)
         result["translation_installed"] = translation["installed"]
         result["translation_match_ratio"] = translation["ratio"]
+        result["translation_matches_installer"] = translation["matches_current"]
+        result["dynamic_date_italian"] = translation.get("date_italian")
+        if translation["installed"]:
+            result["installed_translation_version"] = recorded_translation_version(game_dir)
         result["translation_slot"] = translation.get("detected_slot")
         result["text_resources_supported"] = translation["texts_supported"]
         result["detected_game_revision"] = effective_game_revision(
@@ -1316,6 +1378,10 @@ def print_status_panel(status: dict, colors: bool) -> None:
     game_dir = status.get("game_dir")
     path_source = status.get("game_path_source")
     installed = status.get("translation_installed")
+    matches_installer = status.get("translation_matches_installer")
+    installed_translation_version = status.get("installed_translation_version")
+    dynamic_date_italian = status.get("dynamic_date_italian")
+    proposed_translation_version = str(manifest.get("translation_version") or update.get("current") or "0.0.0").lstrip("v")
     current = f"v{str(update.get('current', '0.0.0')).lstrip('v')}"
     latest = str(update.get("latest") or current)
 
@@ -1357,15 +1423,45 @@ def print_status_panel(status: dict, colors: bool) -> None:
 
     if installed is True:
         installed_label = color_text("✓ INSTALLATA (English + accenti)", ConsoleColor.GREEN, colors)
+        if installed_translation_version:
+            installed_version_label = color_text(
+                f"v{str(installed_translation_version).lstrip('v')}", ConsoleColor.CYAN, colors
+            )
+        else:
+            installed_version_label = color_text("Non registrata", ConsoleColor.YELLOW, colors)
+        if matches_installer is True:
+            content_match_label = color_text(
+                "✓ IDENTICI — nessun aggiornamento necessario", ConsoleColor.GREEN, colors
+            )
+        else:
+            content_match_label = color_text(
+                "⚠ DIVERSI — AGGIORNAMENTO CONSIGLIATO", ConsoleColor.YELLOW, colors
+            )
     elif installed is False:
         installed_label = color_text("✗ NON INSTALLATA", ConsoleColor.YELLOW, colors)
+        installed_version_label = color_text("—", ConsoleColor.YELLOW, colors)
+        content_match_label = color_text("—", ConsoleColor.YELLOW, colors)
     else:
         installed_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
+        installed_version_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
+        content_match_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
+
+    proposed_version_label = color_text(f"v{proposed_translation_version}", ConsoleColor.CYAN, colors)
+    if dynamic_date_italian is True:
+        date_format_label = color_text("✓ ITALIANO (GG/MM/AAAA)", ConsoleColor.GREEN, colors)
+    elif dynamic_date_italian is False:
+        date_format_label = color_text("⚠ DA AGGIORNARE (AAAA/MM/GG)", ConsoleColor.YELLOW, colors)
+    else:
+        date_format_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
 
     print(color_text("Aniimo - Traduzione Italiana", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
     print(f"Percorso del gioco         : {path_label}")
     print(f"Traduzione italiana        : {installed_label}")
+    print(f"Versione trad. installata  : {installed_version_label}")
+    print(f"Versione trad. proposta    : {proposed_version_label}")
+    print(f"Confronto contenuti        : {content_match_label}")
+    print(f"Formato data dinamico      : {date_format_label}")
     print(f"Versione gioco supportata  : {color_text(supported_label, ConsoleColor.CYAN, colors)}")
     print(f"Versione gioco rilevata    : {detected_label}")
     print(f"Revisione hot update       : {revision_label}")

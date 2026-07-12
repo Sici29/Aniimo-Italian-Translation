@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.3.12 Beta - 2026-07-12
+
+- Separata la semplice presenza della traduzione dalla verifica della sua versione e dei contenuti effettivamente installati.
+- Il pannello mostra ora `Versione trad. installata`, `Versione trad. proposta` e un confronto completo fra tutti i testi.
+- Una traduzione precedente ma ancora rilevabile viene segnalata come `DIVERSI — AGGIORNAMENTO CONSIGLIATO` invece di apparire genericamente installata.
+- Se cambia soltanto l'installer e i testi coincidono già al 100%, compare `IDENTICI — nessun aggiornamento necessario`, evitando reinstallazioni inutili.
+- Le vecchie installazioni prive di ricevuta vengono indicate come `Non registrata`, senza rinunciare al confronto reale dei contenuti.
+- Aggiunti test specifici per versioni registrate, percorsi di gioco differenti e corrispondenza esatta della traduzione.
+- Uniformate 190 battute che ereditavano un trattino lungo finale dall'inglese: in italiano terminano ora con i punti di sospensione, mentre i trattini interni semanticamente utili restano invariati.
+- Eseguita una prima passata editoriale con 175 correzioni uniche ad alta confidenza, fra 106 calchi e referenti artificiali, 65 rifiniture di fluidità italiana e 4 incoerenze nei tempi verbali.
+- Rilette tutte le 92.954 righe in tre blocchi indipendenti, equivalenti a 42.637 testi sorgente unici dopo il solo raggruppamento dei duplicati perfetti: 426 proposte, 423 approvate e 3 respinte durante l'adjudication finale.
+- Aggiunto un controllo residuale globale con altri 443 interventi: 297 interiezioni e onomatopee localizzate, famiglie UI rese naturali, duplicati uniformati, residui inglesi rimossi e 22 stringhe orarie convertite al formato italiano senza `AM`/`PM`.
+- La revisione v0.3.12 comprende complessivamente 1.041 interventi editoriali su 1.038 chiavi uniche, oltre alle 190 normalizzazioni di punteggiatura.
+- Corretta la frase su Snowy in tutte le quattro varianti: un Aniimo non riceve un “passaggio” dall'Aniipod, ma viene portato al suo interno.
+- Italianizzata la data dinamica della schermata capitolo: il formato passa da `AAAA/MM/GG` a `GG/MM/AAAA` mediante una modifica verificata dello script LuaJIT, inclusa nel normale backup e ripristino.
+- Il pannello dell'installer mostra anche lo stato del formato data e considera la modifica nel confronto reale dei contenuti installati.
+
 ## 0.3.11 Beta - 2026-07-12
 
 - Eseguita una nuova passata globale su tutte le 92.954 righe e applicate 714 correzioni uniche, registrate in un manifesto riproducibile e idempotente.
