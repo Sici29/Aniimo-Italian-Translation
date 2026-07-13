@@ -75,6 +75,12 @@ class TranslationDataTests(unittest.TestCase):
             self.assertEqual(count, len(matches))
             self.assertTrue(all(row["it"] == translation for row in matches))
 
+    def test_free_price_label_fits_narrow_shop_cards(self) -> None:
+        matches = [row for row in self.production if row["source_en"] == "Free"]
+        self.assertEqual(8, len(matches))
+        self.assertTrue(all(row["it"] == "<size=-6>Gratis</size>" for row in matches))
+        self.assertTrue(all("ui_fit_free_label" in row["note"].split(";") for row in matches))
+
     def test_confirmed_english_residues_are_translated(self) -> None:
         by_key = {row["key"]: row["it"] for row in self.production}
         self.assertEqual(by_key["1351062798"], "Sposta lotto")
@@ -468,6 +474,8 @@ class TranslationDataTests(unittest.TestCase):
         self.assertIn("sono così toccata", by_key["1463105099"])
         self.assertIn("Sono arrivata fin qui e sono giunta", by_key["1526283551"])
         self.assertIn("una profumiera", by_key["1948062580"])
+        self.assertIn("Sono impressionata", by_key["1948703826"])
+        self.assertNotIn("Sono impressionato", by_key["1948703826"])
         self.assertIn("sono un pittore", by_key["1127303739"])
         self.assertIn("mi ha aiutato", by_key["1513612855"])
 

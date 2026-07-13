@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.15 Beta - 2026-07-13
+
+- Corretto definitivamente il formato delle date dinamiche visibili: capitoli missione, schermata `Astra Era`, posta, album, dettagli foto, registro attività e pannelli evento ora usano `GG/MM/AAAA`.
+- Individuate e gestite separatamente le due copie di `LuaScripts.xdf/xdt`: la traduzione resta nell'overlay hot update, mentre gli script data vengono corretti e verificati in entrambe senza copiare un archivio sopra l'altro.
+- Estesi backup e ripristino a tutte le copie Lua, con percorsi relativi sicuri, hash SHA-256 e compatibilità con i backup creati dagli installer precedenti.
+- Il rilevamento considera la traduzione pienamente aggiornata soltanto se ogni archivio attivo contiene tutti i formati data italiani verificati.
+- Sostituite le unità CJK del conto alla rovescia nelle card del negozio (`15分0秒`) con il formato compatto `15 m 0 s`, tramite una modifica dei metadati a lunghezza invariata e completamente ripristinabile.
+- Aggiornato correttamente il manifest locale anche per gli alias storici `worldx_Data`, conservando l'associazione dell'archivio Lua all'overlay e aggiungendo i metadati runtime modificati.
+- Ridotta l'etichetta `Gratis` nelle otto card strette del negozio, evitando la divisione grafica `Grati` / `s` senza abbreviare la parola.
+- Corretta Jilly: `Sono impressionato` diventa `Sono impressionata` nel dialogo in cui parla di sé.
+- Aggiunte verifiche post-generazione e post-copia degli archivi, dei relativi indici, della traduzione, delle date e del timer; completata anche una generazione reale della patch sui file della build `3048640`.
+
 ## 0.3.14 Beta - 2026-07-13
 
 - Aggiunto il supporto verificato alla build Aniimo `3048640` usando i file reali installati da Pawprint.

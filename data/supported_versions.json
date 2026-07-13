@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.14-beta",
+  "translation_version": "0.3.15-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -25,12 +25,13 @@
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
-  "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. The installer keeps the English text slot, assigns Aniimo's bundled Vietnamese font, and changes the verified dynamic dates to DD/MM/YYYY. If automatic detection fails, place the EXE next to Aniimo_Data.",
+  "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. The installer keeps the English text slot, assigns Aniimo's bundled Vietnamese font, changes every verified visible date to DD/MM/YYYY, and replaces the built-in CJK countdown units with h/m/s. If automatic detection fails, place the EXE next to Aniimo_Data.",
   "notes": [
     "The default installation uses the visible English text slot and redirects only its font to Aniimo's bundled Vietnamese font.",
     "The public translation uses standard Italian spelling and real accented letters.",
-    "The verified chapter date is generated dynamically and reordered locally from YYYY/MM/DD to DD/MM/YYYY.",
-    "The shared English UI date formatter used by mail and other panels is reordered locally from MM/DD/YYYY to DD/MM/YYYY.",
+    "Every verified visible date surface is generated dynamically and reordered locally to DD/MM/YYYY, including quest chapters, mail, albums, photo details and event panels.",
+    "The built-in CJK countdown labels used by shop cards are replaced locally with the neutral h/m/s abbreviations without changing metadata offsets.",
+    "Both the downloaded Lua overlay and the base runtime archive are backed up, patched independently and verified before installation.",
     "The language audit compares every modern official locale and recovers meaningful entries stored as zero in the English slot.",
     "Build 3048640 is verified by its package version, 92984-key fingerprint, and active Lua archive SHA-256; the stale local digest left by an earlier patched manifest is not treated as an official revision.",
     "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."

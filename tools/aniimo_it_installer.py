@@ -45,6 +45,11 @@ COMPRESS = "xfs/luascripts/Data/I18N/Compress_{lang}.bin"
 AI_TRANSLATED_EN = "xfs/luascripts/Data/I18N/AITranslatedItems/AITranslatedItems_en.json"
 DATE_SCRIPT = "xfs/luascripts/Guis/Panels/SpecialTrainChapterTip/SpecialTrainChapterTipCtrl.lua"
 LOCALIZED_DATE_SCRIPT = "xfs/luascripts/Utils/LuaUIUtils.lua"
+QUEST_DATE_SCRIPT = "xfs/luascripts/GameApp/Quest/QuestUtils.lua"
+PG_DATE_SCRIPT = "xfs/luascripts/Lib/Pg.lua"
+PHOTO_DATE_SCRIPT = "xfs/luascripts/Guis/Panels/PhotoShow/PhotoShowCtrl.lua"
+TIME_UTILS_SCRIPT = "xfs/luascripts/Common/Utils/TimeUtils.lua"
+ARK_CARN_DATE_SCRIPT = "xfs/luascripts/Guis/Panels/Event/Component/ArkCarnComponent.lua"
 # The verified LuaJIT function calls string.format("%d/%02d/%02d", year, month, day).
 # Swapping only the two field-load operands changes it to day/month/year without
 # recompiling or redistributing the game's script.
@@ -59,6 +64,60 @@ DATE_MDY_UI_BYTECODE = bytes.fromhex(
 DATE_DMY_UI_BYTECODE = bytes.fromhex(
     "27091700360a1104360b1004360c0f0442070502"
 )
+# Quest chapter cards (including the dynamic "Astra Era" date) concatenate
+# year/month/day directly instead of calling the shared formatter. Swap only
+# the first and last MOV sources so separators and padding stay untouched.
+DATE_YMD_QUEST_BYTECODE = bytes.fromhex(
+    "390a0b00360a0c0a270c1000120d0300120e0600120f04001210060012110500440a0700"
+)
+DATE_DMY_QUEST_BYTECODE = bytes.fromhex(
+    "390a0b00360a0c0a270c1000120d0500120e0600120f04001210060012110300440a0700"
+)
+VISIBLE_DATE_PATCHES: dict[str, tuple[tuple[bytes, bytes, str], ...]] = {
+    PG_DATE_SCRIPT: (
+        (
+            bytes.fromhex("16256d2f25642f25592025483a254d3a2553"),
+            bytes.fromhex("1625642f256d2f25592025483a254d3a2553"),
+            "data e ora di posta/album",
+        ),
+        (
+            bytes.fromhex("0d256d2f25642f2559"),
+            bytes.fromhex("0d25642f256d2f2559"),
+            "data di posta/album",
+        ),
+    ),
+    PHOTO_DATE_SCRIPT: (
+        (
+            bytes.fromhex("1425592f256d2f2564202025483a254d"),
+            bytes.fromhex("1425642f256d2f2559202025483a254d"),
+            "data dettagli foto",
+        ),
+    ),
+    TIME_UTILS_SCRIPT: (
+        (
+            bytes.fromhex("0d25592d256d2d2564"),
+            bytes.fromhex("0d25642f256d2f2559"),
+            "data prompt evento",
+        ),
+        (
+            bytes.fromhex("1325592d256d2d25642025483a254d"),
+            bytes.fromhex("1325642f256d2f25592025483a254d"),
+            "data registro attività",
+        ),
+    ),
+    ARK_CARN_DATE_SCRIPT: (
+        (
+            bytes.fromhex("390b0c00360b0d0b270d0e00120e0500120f0600420b040041080101"),
+            bytes.fromhex("390b0c00360b0d0b270d0e00120e0600120f0500420b040041080101"),
+            "ordine giorno/mese evento",
+        ),
+        (
+            bytes.fromhex("0a25732e2573"),
+            bytes.fromhex("0a25732f2573"),
+            "separatore data evento",
+        ),
+    ),
+}
 FONT_CACHE_RELS = (
     Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
     Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
@@ -73,6 +132,14 @@ VIETNAMESE_FONT_RESOURCE = "$UI_Font_Vietnamese.asset"
 ENGLISH_LANGUAGE_TYPE = 2
 VIETNAMESE_LANGUAGE_TYPE = 5
 FONT_PATCH_DIR = "FontBundle"
+COUNTDOWN_METADATA_REL = Path(r"Aniimo_Data\il2cpp_data\Metadata\global-metadata.dat")
+COUNTDOWN_METADATA_PATCH_DIR = "RuntimeMetadata"
+COUNTDOWN_CJK_PATTERN = bytes.fromhex(
+    "7b317de697b67b327de588867b327de588867b337de7a7927b337de7a792"
+)
+COUNTDOWN_IT_PATTERN = bytes.fromhex(
+    "7b317d2068207b327d206d207b327d206d207b337d2073207b337d207320"
+)
 if getattr(sys, "frozen", False):
     APP_DIR = Path(sys.executable).resolve().parent
     BUNDLE_DIR = Path(getattr(sys, "_MEIPASS", APP_DIR))
@@ -99,11 +166,19 @@ class ConsoleColor:
 
 
 @dataclass(frozen=True)
+class LuaArchivePaths:
+    lua_dir: Path
+    xdf: Path
+    xdt: Path
+
+
+@dataclass(frozen=True)
 class GamePaths:
     game_dir: Path
     lua_dir: Path
     xdf: Path
     xdt: Path
+    lua_archives: tuple[LuaArchivePaths, ...] = ()
 
 
 def md5_bytes(data: bytes) -> str:
@@ -112,6 +187,14 @@ def md5_bytes(data: bytes) -> str:
 
 def md5_file(path: Path) -> str:
     h = hashlib.md5()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1024 * 1024), b""):
             h.update(chunk)
@@ -477,18 +560,47 @@ def configure_game_dir() -> Path | None:
 
 
 def resolve_paths(game_dir: Path) -> GamePaths:
-    candidates: list[tuple[float, Path, Path, Path]] = []
+    candidates: list[LuaArchivePaths] = []
     for rel in LUA_RELS:
         lua_dir = game_dir / rel
         xdf = lua_dir / XDF_NAME
         xdt = lua_dir / XDT_NAME
         if xdf.exists() and xdt.exists():
-            candidates.append((max(xdf.stat().st_mtime, xdt.stat().st_mtime), lua_dir, xdf, xdt))
+            candidates.append(LuaArchivePaths(lua_dir, xdf, xdt))
     if not candidates:
         checked = "\n".join(str(game_dir / rel) for rel in LUA_RELS)
         raise FileNotFoundError(f"Non trovo {XDF_NAME}/{XDT_NAME}. Percorsi controllati:\n{checked}")
-    _, lua_dir, xdf, xdt = max(candidates, key=lambda item: item[0])
-    return GamePaths(game_dir, lua_dir, xdf, xdt)
+    # The downloaded XFS archive under Aniimo_Data\cvs is the live localization
+    # overlay and must remain the primary source even after another archive is
+    # copied later and therefore gets a newer filesystem timestamp.
+    primary = candidates[0]
+    return GamePaths(
+        game_dir,
+        primary.lua_dir,
+        primary.xdf,
+        primary.xdt,
+        tuple(candidates),
+    )
+
+
+def iter_lua_archives(paths: GamePaths) -> tuple[LuaArchivePaths, ...]:
+    """Return every live Lua archive, preserving the primary archive first."""
+    if paths.lua_archives:
+        return paths.lua_archives
+    return (LuaArchivePaths(paths.lua_dir, paths.xdf, paths.xdt),)
+
+
+def archive_relative_dir(paths: GamePaths, archive: LuaArchivePaths) -> Path:
+    relative = archive.lua_dir.resolve().relative_to(paths.game_dir.resolve())
+    if not relative.parts or any(part in {"", ".", ".."} for part in relative.parts):
+        raise ValueError(f"Percorso archivio Lua non valido: {archive.lua_dir}")
+    return relative
+
+
+def archive_patch_dir(paths: GamePaths, patch_dir: Path, archive: LuaArchivePaths) -> Path:
+    if archive.xdf.resolve() == paths.xdf.resolve():
+        return patch_dir
+    return patch_dir / "LuaArchives" / archive_relative_dir(paths, archive)
 
 
 def decode_map(map_data: bytes, bin_data: bytes) -> tuple[dict, list[dict], bytes]:
@@ -578,16 +690,173 @@ def localized_date_is_italian(script_data: bytes) -> bool:
     )
 
 
+def patch_quest_date_order(script_data: bytes) -> tuple[bytes, bool]:
+    """Change the verified quest-card date from YYYY/MM/DD to DD/MM/YYYY."""
+    ymd_count = script_data.count(DATE_YMD_QUEST_BYTECODE)
+    dmy_count = script_data.count(DATE_DMY_QUEST_BYTECODE)
+    if ymd_count == 1 and dmy_count == 0:
+        patched = script_data.replace(
+            DATE_YMD_QUEST_BYTECODE, DATE_DMY_QUEST_BYTECODE, 1
+        )
+        if (
+            patched.count(DATE_YMD_QUEST_BYTECODE) != 0
+            or patched.count(DATE_DMY_QUEST_BYTECODE) != 1
+        ):
+            raise RuntimeError("Verifica del formato data missione non riuscita.")
+        return patched, True
+    if ymd_count == 0 and dmy_count == 1:
+        return script_data, False
+    raise ValueError(
+        "Formattatore data missione non riconosciuto. La modifica GG/MM/AAAA non "
+        "verrà applicata a una versione non verificata."
+    )
+
+
+def quest_date_is_italian(script_data: bytes) -> bool:
+    return (
+        script_data.count(DATE_DMY_QUEST_BYTECODE) == 1
+        and script_data.count(DATE_YMD_QUEST_BYTECODE) == 0
+    )
+
+
+def patch_verified_byte_pairs(
+    script_data: bytes,
+    pairs: tuple[tuple[bytes, bytes, str], ...],
+    script_name: str,
+) -> tuple[bytes, bool]:
+    """Apply only unique, length-preserving bytecode/string date patches."""
+    patched = script_data
+    changed = False
+    for original, italian, label in pairs:
+        original_count = patched.count(original)
+        italian_count = patched.count(italian)
+        if original_count == 1 and italian_count == 0:
+            if len(original) != len(italian):
+                raise RuntimeError(f"Patch non isometrica per {script_name}: {label}")
+            patched = patched.replace(original, italian, 1)
+            if patched.count(original) != 0 or patched.count(italian) != 1:
+                raise RuntimeError(f"Verifica patch non riuscita per {script_name}: {label}")
+            changed = True
+        elif original_count == 0 and italian_count == 1:
+            continue
+        else:
+            raise ValueError(
+                f"Formato data non riconosciuto in {script_name}: {label}. "
+                "La modifica non verrà applicata a una versione non verificata."
+            )
+    return patched, changed
+
+
+def verified_byte_pairs_are_applied(
+    script_data: bytes, pairs: tuple[tuple[bytes, bytes, str], ...]
+) -> bool:
+    return all(
+        script_data.count(original) == 0 and script_data.count(italian) == 1
+        for original, italian, _ in pairs
+    )
+
+
+def patch_countdown_units(metadata: bytes) -> tuple[bytes, bool]:
+    """Replace the unique built-in CJK countdown labels with h/m/s labels."""
+    cjk_count = metadata.count(COUNTDOWN_CJK_PATTERN)
+    italian_count = metadata.count(COUNTDOWN_IT_PATTERN)
+    if cjk_count == 1 and italian_count == 0:
+        if len(COUNTDOWN_CJK_PATTERN) != len(COUNTDOWN_IT_PATTERN):
+            raise RuntimeError("La patch delle unità del timer cambia la dimensione dei metadati.")
+        patched = metadata.replace(COUNTDOWN_CJK_PATTERN, COUNTDOWN_IT_PATTERN, 1)
+        if not countdown_units_are_italian(patched):
+            raise RuntimeError("Verifica delle unità italiane del timer non riuscita.")
+        return patched, True
+    if cjk_count == 0 and italian_count == 1:
+        return metadata, False
+    raise ValueError(
+        "Formato del timer di Aniimo non riconosciuto. La modifica delle unità non "
+        "verrà applicata a una versione non verificata."
+    )
+
+
+def countdown_units_are_italian(metadata: bytes) -> bool:
+    return metadata.count(COUNTDOWN_CJK_PATTERN) == 0 and metadata.count(
+        COUNTDOWN_IT_PATTERN
+    ) == 1
+
+
+def localized_date_replacements(zf: zipfile.ZipFile) -> tuple[dict[str, bytes], dict]:
+    date_script, chapter_changed = patch_dynamic_date_order(zf.read(DATE_SCRIPT))
+    localized_script, ui_changed = patch_localized_date_order(
+        zf.read(LOCALIZED_DATE_SCRIPT)
+    )
+    quest_script, quest_changed = patch_quest_date_order(zf.read(QUEST_DATE_SCRIPT))
+    verified = dynamic_date_is_italian(date_script) and localized_date_is_italian(
+        localized_script
+    ) and quest_date_is_italian(quest_script)
+    replacements = {
+        DATE_SCRIPT: date_script,
+        LOCALIZED_DATE_SCRIPT: localized_script,
+        QUEST_DATE_SCRIPT: quest_script,
+    }
+    additional_stats: dict[str, dict[str, object]] = {}
+    for script_name, pairs in VISIBLE_DATE_PATCHES.items():
+        patched_script, changed = patch_verified_byte_pairs(
+            zf.read(script_name), pairs, script_name
+        )
+        script_verified = verified_byte_pairs_are_applied(patched_script, pairs)
+        replacements[script_name] = patched_script
+        additional_stats[script_name] = {
+            "changed_now": changed,
+            "verified": script_verified,
+            "sha256": hashlib.sha256(patched_script).hexdigest(),
+        }
+        verified = verified and script_verified
+    if not verified:
+        raise RuntimeError("Verifica finale del formato data italiano non riuscita.")
+    return replacements, {
+        "format": "DD/MM/YYYY",
+        "changed_now": chapter_changed or ui_changed or quest_changed or any(
+            bool(row["changed_now"]) for row in additional_stats.values()
+        ),
+        "chapter_changed_now": chapter_changed,
+        "localized_ui_changed_now": ui_changed,
+        "quest_card_changed_now": quest_changed,
+        "verified": verified,
+        "chapter_script_sha256": hashlib.sha256(date_script).hexdigest(),
+        "localized_ui_script_sha256": hashlib.sha256(localized_script).hexdigest(),
+        "quest_script_sha256": hashlib.sha256(quest_script).hexdigest(),
+        "additional_visible_ui": additional_stats,
+    }
+
+
+def zip_dates_are_italian(zf: zipfile.ZipFile) -> bool:
+    primary_formats = dynamic_date_is_italian(
+        zf.read(DATE_SCRIPT)
+    ) and localized_date_is_italian(
+        zf.read(LOCALIZED_DATE_SCRIPT)
+    ) and quest_date_is_italian(zf.read(QUEST_DATE_SCRIPT))
+    return primary_formats and all(
+        verified_byte_pairs_are_applied(zf.read(script_name), pairs)
+        for script_name, pairs in VISIBLE_DATE_PATCHES.items()
+    )
+
+
+def archive_dates_are_italian(archive: LuaArchivePaths) -> bool:
+    try:
+        with zipfile.ZipFile(archive.xdf, "r") as zf:
+            return zip_dates_are_italian(zf)
+    except (FileNotFoundError, OSError, KeyError, zipfile.BadZipFile):
+        return False
+
+
 def detect_translation_installation(game_dir: Path) -> dict:
     paths = resolve_paths(game_dir)
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, english_records, _ = load_language(zf, "en")
-        try:
-            date_italian = dynamic_date_is_italian(
-                zf.read(DATE_SCRIPT)
-            ) and localized_date_is_italian(zf.read(LOCALIZED_DATE_SCRIPT))
-        except KeyError:
-            date_italian = False
+    archives = iter_lua_archives(paths)
+    date_italian = all(archive_dates_are_italian(archive) for archive in archives)
+    metadata_path = game_dir / COUNTDOWN_METADATA_REL
+    try:
+        countdown_italian = countdown_units_are_italian(metadata_path.read_bytes())
+    except OSError:
+        countdown_italian = False
     result = translation_match_status(english_records, load_translations("en"))
     try:
         font_accented = english_uses_vietnamese_font(find_font_bundle(game_dir))
@@ -595,10 +864,17 @@ def detect_translation_installation(game_dir: Path) -> dict:
         font_accented = False
     result["font_accented"] = font_accented
     result["date_italian"] = date_italian
+    result["countdown_italian"] = countdown_italian
     result["installed"] = result["installed"] and font_accented
-    result["matches_current"] = result["matches_current"] and font_accented and date_italian
+    result["matches_current"] = (
+        result["matches_current"]
+        and font_accented
+        and date_italian
+        and countdown_italian
+    )
     result["installed_slots"] = ["en"] if result["installed"] else []
     result["detected_slot"] = "en"
+    result["lua_archive_count"] = len(archives)
     compatibility = check_supported(english_records, force=True)
     result["texts_supported"] = compatibility["supported"]
     result["key_count"] = compatibility["key_count"]
@@ -1063,6 +1339,37 @@ def repack_xdf(source_xdf: Path, source_xdt: Path, replacements: dict[str, bytes
     write_json(out_xdt, manifest)
 
 
+def verify_archive_pair(
+    xdf: Path, xdt: Path, require_current_translation: bool = False
+) -> dict[str, object]:
+    manifest = read_json(xdt)
+    if int(manifest.get("CMDataLen", -1)) != xdf.stat().st_size:
+        raise RuntimeError(f"Dimensione XDF non coerente dopo la modifica: {xdf}")
+    if str(manifest.get("CMDataMD5", "")).lower() != md5_file(xdf):
+        raise RuntimeError(f"Hash XDF non coerente dopo la modifica: {xdf}")
+    with zipfile.ZipFile(xdf, "r") as zf:
+        bad_entry = zf.testzip()
+        if bad_entry:
+            raise RuntimeError(f"Archivio Lua corrotto ({bad_entry}): {xdf}")
+        if int(manifest.get("CMEntryNum", -1)) != len(zf.infolist()):
+            raise RuntimeError(f"Indice XDT incompleto dopo la modifica: {xdt}")
+        if not zip_dates_are_italian(zf):
+            raise RuntimeError(f"Date italiane non verificate nell'archivio: {xdf}")
+        translation_matches = None
+        if require_current_translation:
+            _, records, _ = load_language(zf, "en")
+            match = translation_match_status(records, load_translations("en"))
+            translation_matches = bool(match["matches_current"])
+            if not translation_matches:
+                raise RuntimeError(f"Traduzione non verificata nell'archivio: {xdf}")
+    return {
+        "xdf_sha256": sha256_file(xdf),
+        "xdt_sha256": sha256_file(xdt),
+        "date_verified": True,
+        "translation_verified": translation_matches,
+    }
+
+
 def process_running() -> list[str]:
     if os.name != "nt":
         return []
@@ -1078,20 +1385,34 @@ def process_running() -> list[str]:
     return sorted({line.strip() for line in output.splitlines() if line.strip().lower() in watched})
 
 
-def update_local_manifests(game_dir: Path, patch_dir: Path) -> dict:
+def update_local_manifests(paths: GamePaths, patch_dir: Path) -> dict:
     result = {"md5list_updated": False, "verlist_updated": False, "touched": []}
-    md5_path = game_dir / "md5list.txt"
-    ver_path = game_dir / "verlist.txt"
+    md5_path = paths.game_dir / "md5list.txt"
+    ver_path = paths.game_dir / "verlist.txt"
     if not md5_path.exists():
         return result
-    replacements = {
-        "aniimo_data/cvs/res/lua/luascripts.xdf": patch_dir / XDF_NAME,
-        "aniimo_data/cvs/res/lua/luascripts.xdt": patch_dir / XDT_NAME,
-        "worldx_data/streamingassets/cvs/res/lua/luascripts.xdf": patch_dir / XDF_NAME,
-        "worldx_data/streamingassets/cvs/res/lua/luascripts.xdt": patch_dir / XDT_NAME,
-        "aniimo_data/streamingassets/cvs/res/lua/luascripts.xdf": patch_dir / XDF_NAME,
-        "aniimo_data/streamingassets/cvs/res/lua/luascripts.xdt": patch_dir / XDT_NAME,
-    }
+    replacements: dict[str, Path] = {}
+    for archive in iter_lua_archives(paths):
+        relative = archive_relative_dir(paths, archive).as_posix().lower()
+        staged = archive_patch_dir(paths, patch_dir, archive)
+        replacements[f"{relative}/{XDF_NAME}".lower()] = staged / XDF_NAME
+        replacements[f"{relative}/{XDT_NAME}".lower()] = staged / XDT_NAME
+    # The package manifest keeps a legacy worldx_Data path even when no physical
+    # archive exists there. Existing verified installs associate that alias with
+    # the downloaded XFS overlay, not with Aniimo_Data\StreamingAssets.
+    legacy = "worldx_data/streamingassets/cvs/res/lua"
+    primary_staged = archive_patch_dir(
+        paths,
+        patch_dir,
+        LuaArchivePaths(paths.lua_dir, paths.xdf, paths.xdt),
+    )
+    replacements.setdefault(f"{legacy}/{XDF_NAME}".lower(), primary_staged / XDF_NAME)
+    replacements.setdefault(f"{legacy}/{XDT_NAME}".lower(), primary_staged / XDT_NAME)
+    metadata_staged = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / COUNTDOWN_METADATA_REL.name
+    if metadata_staged.is_file():
+        metadata_relative = COUNTDOWN_METADATA_REL.as_posix().lower()
+        replacements[metadata_relative] = metadata_staged
+        replacements["worldx_data/il2cpp_data/metadata/global-metadata.dat"] = metadata_staged
     out_lines = []
     for line in md5_path.read_text(encoding="utf-8-sig").splitlines():
         parts = line.split(",", 2)
@@ -1118,8 +1439,23 @@ def update_local_manifests(game_dir: Path, patch_dir: Path) -> dict:
 def backup_live(paths: GamePaths) -> Path:
     backup = USER_WORK_DIR / "backups" / time.strftime("%Y%m%d-%H%M%S")
     backup.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(paths.xdf, backup / XDF_NAME)
-    shutil.copy2(paths.xdt, backup / XDT_NAME)
+    archive_backups: list[dict[str, str]] = []
+    for archive in iter_lua_archives(paths):
+        relative = archive_relative_dir(paths, archive)
+        if archive.xdf.resolve() == paths.xdf.resolve():
+            backup_relative = Path(".")
+        else:
+            backup_relative = Path("LuaArchives") / relative
+        archive_backup = backup / backup_relative
+        archive_backup.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(archive.xdf, archive_backup / XDF_NAME)
+        shutil.copy2(archive.xdt, archive_backup / XDT_NAME)
+        archive_backups.append({
+            "relative_dir": str(relative),
+            "backup_dir": str(backup_relative),
+            "xdf_sha256": sha256_file(archive_backup / XDF_NAME),
+            "xdt_sha256": sha256_file(archive_backup / XDT_NAME),
+        })
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     original_i18n_files: list[str] = []
     if live_i18n.exists():
@@ -1141,13 +1477,27 @@ def backup_live(paths: GamePaths) -> Path:
     font_info = font_bundle.with_name("cinfo.bin")
     if font_info.is_file():
         shutil.copy2(font_info, font_backup / "cinfo.bin")
+    metadata_source = paths.game_dir / COUNTDOWN_METADATA_REL
+    if not metadata_source.is_file():
+        raise FileNotFoundError(f"Metadati runtime di Aniimo non trovati: {metadata_source}")
+    metadata_backup_relative = Path(COUNTDOWN_METADATA_PATCH_DIR) / metadata_source.name
+    metadata_backup = backup / metadata_backup_relative
+    metadata_backup.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(metadata_source, metadata_backup)
     write_json(backup / "backup_manifest.json", {
         "game_dir": str(paths.game_dir),
         "lua_dir": str(paths.lua_dir),
+        "primary_lua_relative": str(archive_relative_dir(
+            paths, LuaArchivePaths(paths.lua_dir, paths.xdf, paths.xdt)
+        )),
+        "lua_archives": archive_backups,
         "original_i18n_files": sorted(original_i18n_files),
         "created_i18n_files": [],
         "font_bundle_relative": str(font_relative),
         "font_info_present": font_info.is_file(),
+        "metadata_relative": str(COUNTDOWN_METADATA_REL),
+        "metadata_backup": str(metadata_backup_relative),
+        "metadata_sha256": sha256_file(metadata_backup),
     })
     return backup
 
@@ -1196,36 +1546,93 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
                 "recovered_keys": len(fallback_keys),
                 "allow_list_entries_added": added,
             }
-            date_script, date_changed = patch_dynamic_date_order(zf.read(DATE_SCRIPT))
-            replacements[DATE_SCRIPT] = date_script
-            localized_date_script, localized_date_changed = patch_localized_date_order(
-                zf.read(LOCALIZED_DATE_SCRIPT)
-            )
-            replacements[LOCALIZED_DATE_SCRIPT] = localized_date_script
-            stats["dynamic_date"] = {
-                "format": "DD/MM/YYYY",
-                "changed_now": date_changed or localized_date_changed,
-                "chapter_changed_now": date_changed,
-                "localized_ui_changed_now": localized_date_changed,
-                "verified": dynamic_date_is_italian(date_script)
-                and localized_date_is_italian(localized_date_script),
-                "chapter_script_sha256": hashlib.sha256(date_script).hexdigest(),
-                "localized_ui_script_sha256": hashlib.sha256(
-                    localized_date_script
-                ).hexdigest(),
-            }
+            date_replacements, date_stats = localized_date_replacements(zf)
+            replacements.update(date_replacements)
+            stats["dynamic_date"] = date_stats
     repack_xdf(paths.xdf, paths.xdt, replacements, patch_dir / XDF_NAME, patch_dir / XDT_NAME)
+
+    archive_stats: list[dict[str, object]] = []
+    for archive in iter_lua_archives(paths):
+        relative = archive_relative_dir(paths, archive)
+        if archive.xdf.resolve() == paths.xdf.resolve():
+            archive_stats.append({
+                "relative_dir": str(relative),
+                "role": "localization_overlay",
+                "date": stats.get("dynamic_date", {}),
+            })
+            continue
+        with zipfile.ZipFile(archive.xdf, "r") as zf:
+            date_replacements, date_stats = localized_date_replacements(zf)
+        staged = archive_patch_dir(paths, patch_dir, archive)
+        repack_xdf(
+            archive.xdf,
+            archive.xdt,
+            date_replacements,
+            staged / XDF_NAME,
+            staged / XDT_NAME,
+        )
+        archive_stats.append({
+            "relative_dir": str(relative),
+            "role": "runtime_base",
+            "date": date_stats,
+        })
+    stats["lua_archives"] = archive_stats
+    stats["archive_verification"] = []
+    for archive in iter_lua_archives(paths):
+        staged = archive_patch_dir(paths, patch_dir, archive)
+        verification = verify_archive_pair(
+            staged / XDF_NAME,
+            staged / XDT_NAME,
+            require_current_translation=archive.xdf.resolve() == paths.xdf.resolve(),
+        )
+        stats["archive_verification"].append({
+            "relative_dir": str(archive_relative_dir(paths, archive)),
+            **verification,
+        })
+    metadata_source = paths.game_dir / COUNTDOWN_METADATA_REL
+    if not metadata_source.is_file():
+        raise FileNotFoundError(f"Metadati runtime di Aniimo non trovati: {metadata_source}")
+    original_metadata = metadata_source.read_bytes()
+    patched_metadata, countdown_changed = patch_countdown_units(original_metadata)
+    metadata_target = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / metadata_source.name
+    metadata_target.parent.mkdir(parents=True, exist_ok=True)
+    metadata_target.write_bytes(patched_metadata)
+    if (
+        metadata_target.stat().st_size != metadata_source.stat().st_size
+        or not countdown_units_are_italian(metadata_target.read_bytes())
+    ):
+        raise RuntimeError("Verifica finale dei metadati del timer non riuscita.")
+    stats["countdown_units"] = {
+        "format": "h/m/s",
+        "changed_now": countdown_changed,
+        "verified": True,
+        "source_sha256": sha256_file(metadata_source),
+        "patched_sha256": sha256_file(metadata_target),
+    }
     stats["font"] = patch_font_bundle(
         find_font_bundle(paths.game_dir), patch_dir / FONT_PATCH_DIR / "cdata.uab"
     )
-    stats["local_manifests"] = update_local_manifests(paths.game_dir, patch_dir)
+    stats["local_manifests"] = update_local_manifests(paths, patch_dir)
     write_json(patch_dir / "patch_stats.json", stats)
     return patch_dir, stats
 
 
 def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
-    shutil.copy2(patch_dir / XDF_NAME, paths.xdf)
-    shutil.copy2(patch_dir / XDT_NAME, paths.xdt)
+    for archive in iter_lua_archives(paths):
+        staged = archive_patch_dir(paths, patch_dir, archive)
+        shutil.copy2(staged / XDF_NAME, archive.xdf)
+        shutil.copy2(staged / XDT_NAME, archive.xdt)
+    for archive in iter_lua_archives(paths):
+        verify_archive_pair(
+            archive.xdf,
+            archive.xdt,
+            require_current_translation=archive.xdf.resolve() == paths.xdf.resolve(),
+        )
+    patched_metadata = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / COUNTDOWN_METADATA_REL.name
+    live_metadata = paths.game_dir / COUNTDOWN_METADATA_REL
+    shutil.copy2(patched_metadata, live_metadata)
+    if not countdown_units_are_italian(live_metadata.read_bytes()):
+        raise RuntimeError("Verifica del timer italiano non riuscita dopo la copia.")
     patch_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     if patch_i18n.exists():
@@ -1239,6 +1646,29 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         src = patch_dir / name
         if src.exists():
             shutil.copy2(src, paths.game_dir / name)
+
+
+def latest_backup_for_game(game_dir: Path) -> Path:
+    backup_root = USER_WORK_DIR / "backups"
+    candidates = sorted((path for path in backup_root.glob("*") if path.is_dir()), reverse=True)
+    unscoped: list[Path] = []
+    for backup in candidates:
+        manifest_path = backup / "backup_manifest.json"
+        if not manifest_path.is_file():
+            unscoped.append(backup)
+            continue
+        try:
+            manifest = read_json(manifest_path)
+            recorded = Path(str(manifest.get("game_dir") or "")).resolve()
+        except (OSError, ValueError, json.JSONDecodeError):
+            continue
+        if recorded == game_dir.resolve():
+            return backup
+    if unscoped:
+        return unscoped[0]
+    raise FileNotFoundError(
+        r"Nessun backup per questa installazione in Documenti\AniimoItalianTranslation\backups"
+    )
 
 
 def cmd_check(args: argparse.Namespace) -> int:
@@ -1280,7 +1710,24 @@ def cmd_install(args: argparse.Namespace) -> int:
     print("Genero patch italiana...")
     patch_dir, stats = build_patch(paths, target_langs, args.force)
     record_created_i18n_files(backup, patch_dir)
-    copy_patch_into_game(paths, patch_dir)
+    try:
+        copy_patch_into_game(paths, patch_dir)
+    except Exception as install_error:
+        print("Installazione non completata: ripristino il backup appena creato...")
+        try:
+            restore_result = cmd_restore(argparse.Namespace(
+                game_dir=str(paths.game_dir), force_open=True
+            ))
+            if restore_result != 0:
+                raise RuntimeError(f"Ripristino terminato con codice {restore_result}")
+        except Exception as restore_error:
+            raise RuntimeError(
+                f"Installazione non riuscita ({install_error}); anche il ripristino automatico "
+                f"non è riuscito ({restore_error}). Usa l'opzione 2 prima di riavviare il gioco."
+            ) from install_error
+        raise RuntimeError(
+            f"Installazione non riuscita; il backup è stato ripristinato correttamente: {install_error}"
+        ) from install_error
     record_installed_state(paths, official_info)
     print("Patch installata.")
     print("Lingua da selezionare in gioco: Inglese")
@@ -1307,16 +1754,58 @@ def cmd_restore(args: argparse.Namespace) -> int:
         print("Chiudi prima gioco/launcher:", ", ".join(running))
         return 2
     paths = resolve_paths(resolve_game_dir(args.game_dir))
-    backups = sorted((USER_WORK_DIR / "backups").glob("*"), reverse=True)
-    if not backups:
-        raise FileNotFoundError(r"Nessun backup trovato in Documenti\AniimoItalianTranslation\backups")
-    backup = backups[0]
-    shutil.copy2(backup / XDF_NAME, paths.xdf)
-    shutil.copy2(backup / XDT_NAME, paths.xdt)
-    backup_i18n = backup / "LuaScripts" / "Data" / "I18N"
-    live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
+    backup = latest_backup_for_game(paths.game_dir)
     manifest_path = backup / "backup_manifest.json"
     manifest = read_json(manifest_path) if manifest_path.exists() else {}
+    archive_entries = manifest.get("lua_archives")
+    if isinstance(archive_entries, list) and archive_entries:
+        game_root = paths.game_dir.resolve()
+        backup_root = backup.resolve()
+        for entry in archive_entries:
+            if not isinstance(entry, dict):
+                raise ValueError("Elenco archivi Lua non valido nel backup.")
+            relative = Path(str(entry.get("relative_dir") or ""))
+            backup_relative = Path(str(entry.get("backup_dir") or ""))
+            if (
+                relative.is_absolute()
+                or not relative.parts
+                or any(part in {"", ".", ".."} for part in relative.parts)
+                or backup_relative.is_absolute()
+                or any(part == ".." for part in backup_relative.parts)
+            ):
+                raise ValueError("Percorso archivio Lua non valido nel backup.")
+            live_archive = (game_root / relative).resolve()
+            saved_archive = (backup_root / backup_relative).resolve()
+            if game_root not in live_archive.parents or not (
+                saved_archive == backup_root or backup_root in saved_archive.parents
+            ):
+                raise ValueError("Percorso archivio Lua esterno al backup o al gioco.")
+            saved_xdf = saved_archive / XDF_NAME
+            saved_xdt = saved_archive / XDT_NAME
+            if not saved_xdf.is_file() or not saved_xdt.is_file():
+                raise FileNotFoundError(f"Backup archivio Lua incompleto: {relative}")
+            expected_xdf = str(entry.get("xdf_sha256") or "").lower()
+            expected_xdt = str(entry.get("xdt_sha256") or "").lower()
+            if expected_xdf and sha256_file(saved_xdf) != expected_xdf:
+                raise RuntimeError(f"Backup XDF danneggiato: {relative}")
+            if expected_xdt and sha256_file(saved_xdt) != expected_xdt:
+                raise RuntimeError(f"Backup XDT danneggiato: {relative}")
+            live_archive.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(saved_xdf, live_archive / XDF_NAME)
+            shutil.copy2(saved_xdt, live_archive / XDT_NAME)
+    else:
+        # Backward compatibility with backups created by installers up to 0.3.14.
+        shutil.copy2(backup / XDF_NAME, paths.xdf)
+        shutil.copy2(backup / XDT_NAME, paths.xdt)
+    backup_i18n = backup / "LuaScripts" / "Data" / "I18N"
+    primary_relative = str(manifest.get("primary_lua_relative") or "")
+    if primary_relative:
+        primary_lua = (paths.game_dir.resolve() / Path(primary_relative)).resolve()
+        if paths.game_dir.resolve() not in primary_lua.parents:
+            raise ValueError("Percorso Lua principale non valido nel backup.")
+    else:
+        primary_lua = paths.lua_dir
+    live_i18n = primary_lua / "LuaScripts" / "Data" / "I18N"
     if live_i18n.exists():
         for name in manifest.get("created_i18n_files", []):
             if Path(name).name != name:
@@ -1340,6 +1829,22 @@ def cmd_restore(args: argparse.Namespace) -> int:
         backup_info = backup / FONT_PATCH_DIR / "cinfo.bin"
         if manifest.get("font_info_present") and backup_info.is_file():
             shutil.copy2(backup_info, font_target.with_name("cinfo.bin"))
+    metadata_relative = str(manifest.get("metadata_relative") or "")
+    metadata_backup_relative = str(manifest.get("metadata_backup") or "")
+    if metadata_relative and metadata_backup_relative:
+        metadata_target = (paths.game_dir / Path(metadata_relative)).resolve()
+        metadata_source = (backup / Path(metadata_backup_relative)).resolve()
+        game_root = paths.game_dir.resolve()
+        backup_root = backup.resolve()
+        if game_root not in metadata_target.parents or backup_root not in metadata_source.parents:
+            raise ValueError("Percorso metadati non valido nel backup.")
+        if not metadata_source.is_file():
+            raise FileNotFoundError("Backup dei metadati runtime non trovato.")
+        expected_metadata = str(manifest.get("metadata_sha256") or "").lower()
+        if expected_metadata and sha256_file(metadata_source) != expected_metadata:
+            raise RuntimeError("Backup dei metadati runtime danneggiato.")
+        metadata_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(metadata_source, metadata_target)
     for name in ["md5list.txt", "verlist.txt"]:
         src = backup / name
         if src.exists():
@@ -1384,6 +1889,7 @@ def collect_startup_status() -> dict:
         "translation_matches_installer": None,
         "installed_translation_version": None,
         "dynamic_date_italian": None,
+        "countdown_units_italian": None,
         "translation_slot": None,
         "text_resources_supported": None,
         "update": check_for_updates(silent=True),
@@ -1403,6 +1909,7 @@ def collect_startup_status() -> dict:
         result["translation_match_ratio"] = translation["ratio"]
         result["translation_matches_installer"] = translation["matches_current"]
         result["dynamic_date_italian"] = translation.get("date_italian")
+        result["countdown_units_italian"] = translation.get("countdown_italian")
         if translation["installed"]:
             result["installed_translation_version"] = recorded_translation_version(game_dir)
         result["translation_slot"] = translation.get("detected_slot")
@@ -1558,6 +2065,7 @@ def print_technical_status(status: dict, colors: bool) -> None:
     manifest = status["manifest"]
     revision = status.get("detected_game_revision")
     date_italian = status.get("dynamic_date_italian")
+    countdown_italian = status.get("countdown_units_italian")
     texts_supported = status.get("text_resources_supported")
     print(color_text("Dettagli tecnici", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
@@ -1567,6 +2075,7 @@ def print_technical_status(status: dict, colors: bool) -> None:
     print("Digest locale      :", revision or "non rilevato")
     print("Testi compatibili  :", "sì" if texts_supported is True else "no" if texts_supported is False else "non verificabile")
     print("Date GG/MM/AAAA    :", "sì" if date_italian is True else "no" if date_italian is False else "non verificabile")
+    print("Timer con unità IT :", "sì" if countdown_italian is True else "no" if countdown_italian is False else "non verificabile")
     print("=" * 58)
 
 

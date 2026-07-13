@@ -110,6 +110,210 @@ class BuildMapAndBinTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             installer.patch_localized_date_order(b"script non verificato")
 
+    def test_quest_card_date_is_changed_from_year_first_to_day_first(self) -> None:
+        original = b"prefix" + installer.DATE_YMD_QUEST_BYTECODE + b"suffix"
+        patched, changed = installer.patch_quest_date_order(original)
+        self.assertTrue(changed)
+        self.assertTrue(installer.quest_date_is_italian(patched))
+        self.assertNotIn(installer.DATE_YMD_QUEST_BYTECODE, patched)
+        self.assertIn(installer.DATE_DMY_QUEST_BYTECODE, patched)
+        repeated, changed_again = installer.patch_quest_date_order(patched)
+        self.assertFalse(changed_again)
+        self.assertEqual(patched, repeated)
+
+    def test_unknown_quest_card_date_bytecode_is_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            installer.patch_quest_date_order(b"script non verificato")
+
+    def test_all_visible_ui_date_patterns_are_patched_idempotently(self) -> None:
+        for script_name, pairs in installer.VISIBLE_DATE_PATCHES.items():
+            with self.subTest(script=script_name):
+                original = b"prefix" + b"middle".join(
+                    pair[0] for pair in pairs
+                ) + b"suffix"
+                patched, changed = installer.patch_verified_byte_pairs(
+                    original, pairs, script_name
+                )
+                self.assertTrue(changed)
+                self.assertTrue(
+                    installer.verified_byte_pairs_are_applied(patched, pairs)
+                )
+                repeated, changed_again = installer.patch_verified_byte_pairs(
+                    patched, pairs, script_name
+                )
+                self.assertFalse(changed_again)
+                self.assertEqual(patched, repeated)
+
+    def test_ambiguous_visible_ui_date_pattern_is_rejected(self) -> None:
+        script_name, pairs = next(iter(installer.VISIBLE_DATE_PATCHES.items()))
+        original = pairs[0][0]
+        with self.assertRaises(ValueError):
+            installer.patch_verified_byte_pairs(
+                original + original, (pairs[0],), script_name
+            )
+
+    def test_cjk_countdown_units_are_replaced_without_changing_size(self) -> None:
+        original = b"prefix" + installer.COUNTDOWN_CJK_PATTERN + b"suffix"
+        patched, changed = installer.patch_countdown_units(original)
+        self.assertTrue(changed)
+        self.assertEqual(len(original), len(patched))
+        self.assertTrue(installer.countdown_units_are_italian(patched))
+        repeated, changed_again = installer.patch_countdown_units(patched)
+        self.assertFalse(changed_again)
+        self.assertEqual(patched, repeated)
+
+    def test_ambiguous_cjk_countdown_pattern_is_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            installer.patch_countdown_units(
+                installer.COUNTDOWN_CJK_PATTERN * 2
+            )
+
+
+class LuaArchiveTests(unittest.TestCase):
+    def test_hot_update_overlay_stays_primary_and_all_archives_are_returned(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            game = Path(temp_dir)
+            overlay = game / installer.LUA_RELS[0]
+            base = game / installer.LUA_RELS[1]
+            for lua_dir in (overlay, base):
+                lua_dir.mkdir(parents=True)
+                (lua_dir / installer.XDF_NAME).write_bytes(b"xdf")
+                (lua_dir / installer.XDT_NAME).write_bytes(b"xdt")
+            # A newer base timestamp must not hide the live XFS overlay.
+            (base / installer.XDF_NAME).touch()
+
+            paths = installer.resolve_paths(game)
+
+            self.assertEqual(paths.lua_dir, overlay)
+            self.assertEqual(2, len(installer.iter_lua_archives(paths)))
+            self.assertEqual(
+                [overlay, base],
+                [archive.lua_dir for archive in installer.iter_lua_archives(paths)],
+            )
+
+    def test_patch_copy_updates_primary_and_secondary_archives(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            overlay = game / installer.LUA_RELS[0]
+            base = game / installer.LUA_RELS[1]
+            archives = []
+            for lua_dir in (overlay, base):
+                lua_dir.mkdir(parents=True)
+                xdf = lua_dir / installer.XDF_NAME
+                xdt = lua_dir / installer.XDT_NAME
+                xdf.write_bytes(b"old-xdf")
+                xdt.write_bytes(b"old-xdt")
+                archives.append(installer.LuaArchivePaths(lua_dir, xdf, xdt))
+            paths = installer.GamePaths(
+                game,
+                overlay,
+                archives[0].xdf,
+                archives[0].xdt,
+                tuple(archives),
+            )
+            patch_dir = root / "patch"
+            patch_dir.mkdir()
+            (patch_dir / installer.XDF_NAME).write_bytes(b"new-overlay-xdf")
+            (patch_dir / installer.XDT_NAME).write_bytes(b"new-overlay-xdt")
+            staged_base = installer.archive_patch_dir(paths, patch_dir, archives[1])
+            staged_base.mkdir(parents=True)
+            (staged_base / installer.XDF_NAME).write_bytes(b"new-base-xdf")
+            (staged_base / installer.XDT_NAME).write_bytes(b"new-base-xdt")
+            live_metadata = game / installer.COUNTDOWN_METADATA_REL
+            live_metadata.parent.mkdir(parents=True)
+            live_metadata.write_bytes(installer.COUNTDOWN_CJK_PATTERN)
+            staged_metadata = (
+                patch_dir
+                / installer.COUNTDOWN_METADATA_PATCH_DIR
+                / installer.COUNTDOWN_METADATA_REL.name
+            )
+            staged_metadata.parent.mkdir(parents=True)
+            staged_metadata.write_bytes(installer.COUNTDOWN_IT_PATTERN)
+
+            with patch.object(installer, "verify_archive_pair", return_value={}) as verify:
+                installer.copy_patch_into_game(paths, patch_dir)
+
+            self.assertEqual(b"new-overlay-xdf", archives[0].xdf.read_bytes())
+            self.assertEqual(b"new-overlay-xdt", archives[0].xdt.read_bytes())
+            self.assertEqual(b"new-base-xdf", archives[1].xdf.read_bytes())
+            self.assertEqual(b"new-base-xdt", archives[1].xdt.read_bytes())
+            self.assertEqual(2, verify.call_count)
+            self.assertEqual(installer.COUNTDOWN_IT_PATTERN, live_metadata.read_bytes())
+
+    def test_package_manifest_legacy_alias_keeps_using_the_overlay(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            overlay = game / installer.LUA_RELS[0]
+            base = game / installer.LUA_RELS[1]
+            archives = []
+            for lua_dir in (overlay, base):
+                lua_dir.mkdir(parents=True)
+                xdf = lua_dir / installer.XDF_NAME
+                xdt = lua_dir / installer.XDT_NAME
+                xdf.write_bytes(b"old-xdf")
+                xdt.write_bytes(b"old-xdt")
+                archives.append(installer.LuaArchivePaths(lua_dir, xdf, xdt))
+            paths = installer.GamePaths(
+                game, overlay, archives[0].xdf, archives[0].xdt, tuple(archives)
+            )
+            patch_dir = root / "patch"
+            patch_dir.mkdir()
+            (patch_dir / installer.XDF_NAME).write_bytes(b"patched-overlay")
+            (patch_dir / installer.XDT_NAME).write_bytes(b"patched-overlay-index")
+            staged_base = installer.archive_patch_dir(paths, patch_dir, archives[1])
+            staged_base.mkdir(parents=True)
+            (staged_base / installer.XDF_NAME).write_bytes(b"patched-base")
+            (staged_base / installer.XDT_NAME).write_bytes(b"patched-base-index")
+            manifest_rel = "worldx_Data/StreamingAssets/cvs/res/lua/LuaScripts.xdf"
+            (game / "md5list.txt").write_text(
+                f"old,1,{manifest_rel}\n", encoding="utf-8"
+            )
+
+            result = installer.update_local_manifests(paths, patch_dir)
+
+            expected = installer.md5_file(patch_dir / installer.XDF_NAME)
+            line = (patch_dir / "md5list.txt").read_text(encoding="utf-8").strip()
+            self.assertEqual(f"{expected},15,{manifest_rel}", line)
+            self.assertEqual([manifest_rel], result["touched"])
+
+    def test_package_manifest_updates_legacy_runtime_metadata_alias(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            overlay = game / installer.LUA_RELS[0]
+            overlay.mkdir(parents=True)
+            xdf = overlay / installer.XDF_NAME
+            xdt = overlay / installer.XDT_NAME
+            xdf.write_bytes(b"old-xdf")
+            xdt.write_bytes(b"old-xdt")
+            paths = installer.GamePaths(game, overlay, xdf, xdt)
+            patch_dir = root / "patch"
+            patch_dir.mkdir()
+            (patch_dir / installer.XDF_NAME).write_bytes(b"patched-overlay")
+            (patch_dir / installer.XDT_NAME).write_bytes(b"patched-overlay-index")
+            metadata = (
+                patch_dir
+                / installer.COUNTDOWN_METADATA_PATCH_DIR
+                / installer.COUNTDOWN_METADATA_REL.name
+            )
+            metadata.parent.mkdir(parents=True)
+            metadata.write_bytes(installer.COUNTDOWN_IT_PATTERN)
+            manifest_rel = "worldx_Data/il2cpp_data/Metadata/global-metadata.dat"
+            (game / "md5list.txt").write_text(
+                f"old,1,{manifest_rel}\n", encoding="utf-8"
+            )
+
+            result = installer.update_local_manifests(paths, patch_dir)
+
+            expected = installer.md5_file(metadata)
+            line = (patch_dir / "md5list.txt").read_text(encoding="utf-8").strip()
+            self.assertEqual(
+                f"{expected},{len(installer.COUNTDOWN_IT_PATTERN)},{manifest_rel}", line
+            )
+            self.assertEqual([manifest_rel], result["touched"])
+
 
 class RestoreTests(unittest.TestCase):
     def test_restore_removes_only_files_created_by_the_patch(self) -> None:
@@ -165,6 +369,124 @@ class RestoreTests(unittest.TestCase):
             self.assertEqual((live_i18n / "OtherMod.json").read_text(encoding="utf-8"), "keep")
             self.assertEqual(live_font.read_bytes(), b"original-font")
             self.assertFalse((work_dir / "installed_state.json").exists())
+
+    def test_restore_recovers_every_lua_archive_from_new_backup_manifest(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            overlay_rel = installer.LUA_RELS[0]
+            base_rel = installer.LUA_RELS[1]
+            overlay = game / overlay_rel
+            base = game / base_rel
+            for lua_dir in (overlay, base):
+                lua_dir.mkdir(parents=True)
+                (lua_dir / installer.XDF_NAME).write_bytes(b"patched-xdf")
+                (lua_dir / installer.XDT_NAME).write_bytes(b"patched-xdt")
+
+            work_dir = root / "user-work"
+            backup = work_dir / "backups" / "20260713-230000"
+            backup.mkdir(parents=True)
+            (backup / installer.XDF_NAME).write_bytes(b"overlay-original-xdf")
+            (backup / installer.XDT_NAME).write_bytes(b"overlay-original-xdt")
+            base_backup_rel = Path("LuaArchives") / base_rel
+            base_backup = backup / base_backup_rel
+            base_backup.mkdir(parents=True)
+            (base_backup / installer.XDF_NAME).write_bytes(b"base-original-xdf")
+            (base_backup / installer.XDT_NAME).write_bytes(b"base-original-xdt")
+            live_metadata = game / installer.COUNTDOWN_METADATA_REL
+            live_metadata.parent.mkdir(parents=True)
+            live_metadata.write_bytes(installer.COUNTDOWN_IT_PATTERN)
+            metadata_backup_rel = (
+                Path(installer.COUNTDOWN_METADATA_PATCH_DIR)
+                / installer.COUNTDOWN_METADATA_REL.name
+            )
+            metadata_backup = backup / metadata_backup_rel
+            metadata_backup.parent.mkdir(parents=True)
+            metadata_backup.write_bytes(installer.COUNTDOWN_CJK_PATTERN)
+            installer.write_json(backup / "backup_manifest.json", {
+                "game_dir": str(game),
+                "primary_lua_relative": str(overlay_rel),
+                "lua_archives": [
+                    {"relative_dir": str(overlay_rel), "backup_dir": "."},
+                    {"relative_dir": str(base_rel), "backup_dir": str(base_backup_rel)},
+                ],
+                "created_i18n_files": [],
+                "metadata_relative": str(installer.COUNTDOWN_METADATA_REL),
+                "metadata_backup": str(metadata_backup_rel),
+                "metadata_sha256": installer.sha256_file(metadata_backup),
+            })
+
+            args = argparse.Namespace(game_dir=str(game), force_open=True)
+            with patch.object(installer, "USER_WORK_DIR", work_dir), patch.object(
+                installer, "process_running", return_value=[]
+            ):
+                self.assertEqual(installer.cmd_restore(args), 0)
+
+            self.assertEqual(
+                b"overlay-original-xdf", (overlay / installer.XDF_NAME).read_bytes()
+            )
+            self.assertEqual(
+                b"overlay-original-xdt", (overlay / installer.XDT_NAME).read_bytes()
+            )
+            self.assertEqual(b"base-original-xdf", (base / installer.XDF_NAME).read_bytes())
+            self.assertEqual(b"base-original-xdt", (base / installer.XDT_NAME).read_bytes())
+            self.assertEqual(installer.COUNTDOWN_CJK_PATTERN, live_metadata.read_bytes())
+
+    def test_latest_backup_is_scoped_to_selected_game(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            work = root / "work"
+            game = root / "game"
+            other_game = root / "other-game"
+            game.mkdir()
+            other_game.mkdir()
+            wanted = work / "backups" / "20260713-220000"
+            newer_other = work / "backups" / "20260713-230000"
+            installer.write_json(wanted / "backup_manifest.json", {"game_dir": str(game)})
+            installer.write_json(
+                newer_other / "backup_manifest.json", {"game_dir": str(other_game)}
+            )
+
+            with patch.object(installer, "USER_WORK_DIR", work):
+                self.assertEqual(wanted, installer.latest_backup_for_game(game))
+
+    def test_failed_live_copy_triggers_automatic_restore(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            lua_dir = game / installer.LUA_RELS[0]
+            paths = installer.GamePaths(
+                game,
+                lua_dir,
+                lua_dir / installer.XDF_NAME,
+                lua_dir / installer.XDT_NAME,
+            )
+            backup = root / "backup"
+            patch_dir = root / "patch"
+            args = argparse.Namespace(
+                game_dir=str(game),
+                no_update_check=True,
+                ignore_update=False,
+                force_open=True,
+                force=False,
+                target="en",
+            )
+            with patch.object(installer, "process_running", return_value=[]), patch.object(
+                installer, "resolve_game_dir", return_value=game
+            ), patch.object(installer, "resolve_paths", return_value=paths), patch.object(
+                installer, "game_info_before_install", return_value={}
+            ), patch.object(installer, "backup_live", return_value=backup), patch.object(
+                installer, "build_patch", return_value=(patch_dir, {"languages": {}})
+            ), patch.object(installer, "record_created_i18n_files"), patch.object(
+                installer, "copy_patch_into_game", side_effect=OSError("copia fallita")
+            ), patch.object(installer, "cmd_restore", return_value=0) as restore, patch.object(
+                installer, "record_installed_state"
+            ) as record:
+                with self.assertRaisesRegex(RuntimeError, "backup è stato ripristinato"):
+                    installer.cmd_install(args)
+
+            restore.assert_called_once()
+            record.assert_not_called()
 
 
 class VersionAndUpdaterTests(unittest.TestCase):

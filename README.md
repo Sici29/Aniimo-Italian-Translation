@@ -36,7 +36,7 @@ All'apertura compare un riepilogo immediato, senza un elenco di codici tecnici:
 - tre sole righe mostrano **Gioco**, **Traduzione** e **Installer**;
 - sotto **COSA FARE** trovi una sola istruzione chiara, per esempio `Premi Invio per installarla`.
 
-Hash, build supportate, digest e verifica delle date restano disponibili soltanto scegliendo `6. Mostra i dettagli tecnici`.
+Hash, build supportate, digest, verifica delle date e unità del timer restano disponibili soltanto scegliendo `6. Mostra i dettagli tecnici`.
 
 L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
@@ -90,7 +90,7 @@ Documenti\AniimoItalianTranslation\backups
 - Copertura: **92.984 / 92.984 chiavi**.
 - Versioni del gioco verificate: **3032670**, **3036569** e **3048640**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.14 beta**.
+- Versione della traduzione: **0.3.15 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -117,6 +117,10 @@ Documenti\AniimoItalianTranslation\backups
 - Compatibilità v0.3.14: verificata la build **3048640** sull'installazione reale. Integrate 30 nuove chiavi, aggiornate 1.977 sorgenti inglesi e corrette 342 traduzioni rese obsolete dai cambi ufficiali, più 19 uniformazioni di famiglia.
 - Installer v0.3.14: il riepilogo iniziale è stato ridotto a tre righe e una sola azione consigliata. I dati tecnici sono disponibili separatamente con l'opzione `6`.
 - English ufficiale v0.3.14: le 359 stringhe significative che prima valevano `0` sono ora presenti direttamente nel gioco; restano soltanto 5 zeri tecnici intenzionali.
+- Date dinamiche v0.3.15: controllate tutte le superfici UI realmente visibili. Capitoli missione, `Astra Era`, posta, album, dettagli foto, registri attività ed eventi usano ora `GG/MM/AAAA`.
+- Installer v0.3.15: rileva, salva e corregge indipendentemente sia l'overlay Lua dell'hot update sia l'archivio base/fallback, verificandoli dopo la copia e mantenendo compatibili i vecchi backup.
+- Timer v0.3.15: il conto alla rovescia delle card del negozio non mostra più unità cinesi come `15分0秒`, ma il formato compatto `15 m 0 s`.
+- Correzioni v0.3.15: `Gratis` resta su una sola riga nelle card strette e Jilly dice correttamente `Sono impressionata`.
 
 La verifica non si limita a controllare che ogni chiave abbia un valore: confronta numero e fingerprint delle chiavi con la build realmente verificata. Nelle versioni precedenti l'installer recuperava anche 359 voci significative che lo slot English esponeva come `0`; dalla build 3048640 quei testi sono finalmente presenti nell'English ufficiale.
 
@@ -182,7 +186,7 @@ Il repository usa un solo master autorevole:
 
 - `data/translation_it.csv`: traduzione completa con accenti e punteggiatura italiana reali, installata nello slot English.
 
-Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Le date dinamiche vengono riordinate localmente in `GG/MM/AAAA` soltanto quando entrambi gli script LuaJIT corrispondono esattamente alla versione verificata. Il repository non contiene archivi originali di Aniimo: testi, font e date vengono modificati localmente a partire dai file della copia installata dall'utente.
+Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”: il font vietnamita incluso in Aniimo rende già correttamente tutti i caratteri italiani. Chiavi, tag, segnaposto, maiuscole funzionali, spazi e ritorni a capo vengono controllati automaticamente. Le date dinamiche vengono riordinate localmente in `GG/MM/AAAA` soltanto quando ogni pattern LuaJIT visibile corrisponde esattamente alla versione verificata; allo stesso modo, le unità CJK del timer vengono sostituite senza modificare la lunghezza dei metadati. Il repository non contiene archivi originali di Aniimo: testi, font, date e timer vengono modificati localmente a partire dai file della copia installata dall'utente.
 
 </details>
 
