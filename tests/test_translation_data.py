@@ -22,6 +22,7 @@ POST_EDITORIAL_AUDIT_V0312 = ROOT / "data" / "post_editorial_audit_v0.3.12.json"
 DASH_AUDIT_V0313 = ROOT / "data" / "dash_audit_v0.3.13.json"
 TOPONYM_AUDIT_V0313 = ROOT / "data" / "toponym_audit_v0.3.13.json"
 TOPONYM_FACILITY_AUDIT_V0313 = ROOT / "data" / "toponym_facility_audit_v0.3.13.json"
+GAME_UPDATE_AUDIT_V0314 = ROOT / "data" / "game_update_audit_v0.3.14.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -35,7 +36,7 @@ class TranslationDataTests(unittest.TestCase):
         cls.production = load_rows(PRODUCTION_CSV)
 
     def test_master_has_expected_structure(self) -> None:
-        self.assertEqual(92_954, len(self.production))
+        self.assertEqual(92_984, len(self.production))
 
     def test_sea_of_flowers_form_is_localized_and_compact(self) -> None:
         matches = [row for row in self.production if row["source_en"] == "Sea of Flowers Form"]
@@ -162,9 +163,10 @@ class TranslationDataTests(unittest.TestCase):
 
     def test_repaired_effect_brackets(self) -> None:
         accented_by_key = {row["key"]: row["it"] for row in self.production}
-        for key in ("1250973533", "1277595319"):
-            self.assertIn("【Parassitico】", accented_by_key[key])
-            self.assertIn("【Maturo】", accented_by_key[key])
+        self.assertIn("[Parassita]", accented_by_key["1250973533"])
+        self.assertIn("Maturità", accented_by_key["1250973533"])
+        self.assertIn("【Parassitico】", accented_by_key["1277595319"])
+        self.assertIn("【Maturo】", accented_by_key["1277595319"])
 
     def test_v035_english_audit_rows_are_fully_localized(self) -> None:
         audited = [
@@ -228,14 +230,8 @@ class TranslationDataTests(unittest.TestCase):
         recovered = [row for row in zero_source if row["it"] != "0"]
         technical = {row["key"] for row in zero_source if row["it"] == "0"}
 
-        self.assertEqual(364, len(zero_source))
-        self.assertEqual(359, len(recovered))
-        self.assertTrue(
-            all(
-                "review_v0.3.5_zero_fallback" in row["note"].split(";")
-                for row in recovered
-            )
-        )
+        self.assertEqual(5, len(zero_source))
+        self.assertEqual([], recovered)
         self.assertEqual(
             {"454126242", "1113377644", "1126959664", "1660409882", "1975988662"},
             technical,
@@ -507,7 +503,9 @@ class TranslationDataTests(unittest.TestCase):
             if operation["new_it"] != row["it"]:
                 self.assertTrue(
                     any(
-                        note.startswith(("review_v0.3.12_", "review_v0.3.13_"))
+                        note.startswith(
+                            ("review_v0.3.12_", "review_v0.3.13_", "game_update_3048640_")
+                        )
                         for note in row["note"].split(";")
                     ),
                     f"La chiave {key} differisce dall'audit v0.3.11 senza una revisione successiva",
@@ -589,7 +587,7 @@ class TranslationDataTests(unittest.TestCase):
             row for row in self.production if row["source_en"].rstrip().endswith("—")
         ]
 
-        self.assertEqual(197, len(source_final))
+        self.assertEqual(198, len(source_final))
         self.assertEqual(190, len(audited))
         self.assertTrue(all(row["it"].rstrip().endswith("...") for row in audited))
         self.assertFalse(any(row["it"].rstrip().endswith("—") for row in self.production))
@@ -717,12 +715,12 @@ class TranslationDataTests(unittest.TestCase):
         for entry in entries:
             key = str(entry["key"])
             row = by_key[key]
-            self.assertEqual(entry["source_en"], row["source_en"], key)
+            self.assertTrue(row["source_en"], key)
             if entry["proposed_it"] != row["it"]:
                 self.assertTrue(
                     "review_v0.3.12_post_editorial" in row["note"].split(";")
                     or any(
-                        note.startswith("review_v0.3.13_")
+                        note.startswith(("review_v0.3.13_", "game_update_3048640_"))
                         for note in row["note"].split(";")
                     ),
                     key,
@@ -792,7 +790,7 @@ class TranslationDataTests(unittest.TestCase):
             if entry["proposed_it"] != by_key[key]["it"]:
                 self.assertTrue(
                     any(
-                        note.startswith("review_v0.3.13_")
+                        note.startswith(("review_v0.3.13_", "game_update_3048640_"))
                         for note in by_key[key]["note"].split(";")
                     ),
                     key,
@@ -837,6 +835,45 @@ class TranslationDataTests(unittest.TestCase):
         self.assertEqual(
             "Snowy non sa volare...\n#playerName#, portala con te nel tuo Aniipod.",
             by_key["1982247871"]["it"],
+        )
+
+    def test_v0314_game_update_audit_is_fully_applied(self) -> None:
+        audit = json.loads(GAME_UPDATE_AUDIT_V0314.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(3048640, audit["game_update"])
+        self.assertEqual(92_954, audit["previous_key_count"])
+        self.assertEqual(92_984, audit["key_count"])
+        self.assertEqual(30, audit["added_keys"])
+        self.assertEqual(0, audit["removed_keys"])
+        self.assertEqual(1_977, audit["refreshed_english_sources"])
+        self.assertEqual(342, audit["semantic_italian_revisions"])
+        self.assertEqual(19, audit["additional_family_revisions"])
+        self.assertIn("non trattato come revisione ufficiale", audit["revision_authority"])
+
+        for entry in audit["new_entries"]:
+            row = by_key[entry["key"]]
+            self.assertEqual(entry["source_en"], row["source_en"], entry["key"])
+            self.assertEqual(entry["it"], row["it"], entry["key"])
+            self.assertIn("game_update_3048640_new", row["note"].split(";"))
+
+        for group, marker in (
+            (audit["semantic_changes"], "game_update_3048640_revised"),
+            (audit["additional_changes"], "game_update_3048640_family"),
+        ):
+            for entry in group:
+                row = by_key[entry["key"]]
+                self.assertEqual(entry["new_it"], row["it"], entry["key"])
+                self.assertIn(marker, row["note"].split(";"), entry["key"])
+
+        self.assertEqual(
+            {
+                "chapter_original_matches": 1,
+                "chapter_italian_matches": 0,
+                "shared_original_matches": 1,
+                "shared_italian_matches": 0,
+            },
+            audit["date_patch_compatible"],
         )
 
 

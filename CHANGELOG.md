@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.14 Beta - 2026-07-13
+
+- Aggiunto il supporto verificato alla build Aniimo `3048640` usando i file reali installati da Pawprint.
+- Integrate tutte le 30 nuove chiavi ufficiali: copertura aggiornata a 92.984 / 92.984, senza chiavi rimosse o mancanti.
+- Aggiornate 1.977 sorgenti English modificate dal gioco e revisionate in parallelo le differenze semantiche: corrette 342 traduzioni italiane rese obsolete dal nuovo significato.
+- Uniformate altre 19 etichette duplicate delle famiglie `Companion Mode` e `Rewards`, mantenendo le maiuscole funzionali.
+- Riconosciuto che le 359 voci significative prima esposte come `0` sono ora presenti direttamente nell'English ufficiale; restano soltanto 5 zeri tecnici intenzionali.
+- Confermata senza modifiche la compatibilità del font accentato e dei due formattatori dinamici `GG/MM/AAAA`.
+- Ridisegnata la schermata iniziale dell'installer: titolo di stato, tre sole righe (`Gioco`, `Traduzione`, `Installer`) e una singola istruzione sotto `COSA FARE`.
+- Spostati build storiche, digest, stato date e altri dati diagnostici nell'opzione `6. Mostra i dettagli tecnici`.
+- Evitato di trattare il digest locale `87eaffe8...`, ereditato dal manifest patchato precedente, come una revisione ufficiale della nuova build.
+- Aggiunti audit riproducibile, test di regressione e generazione reale della patch: 92.984 / 92.984 testi, 0 discrepanze, date e font verificati.
+
 ## 0.3.13 Beta - 2026-07-12
 
 - Corrette le battute segnalate `Io voglio—` e `Vi serve aiuto a traslocare? / Abbiamo le ali: renderà...`, ora rese con punteggiatura e italiano naturali.

@@ -76,11 +76,9 @@ class BuildMapAndBinTests(unittest.TestCase):
         self.assertEqual(2, added)
         self.assertEqual([10, 20, 30, 40], json.loads(updated))
 
-    def test_production_has_359_recovered_english_fallbacks(self) -> None:
+    def test_current_production_no_longer_needs_english_zero_fallbacks(self) -> None:
         keys = installer.recovered_english_fallback_keys()
-        self.assertEqual(359, len(keys))
-        self.assertIn("1409838404", keys)
-        self.assertIn("1832874807", keys)
+        self.assertEqual([], keys)
 
     def test_dynamic_date_bytecode_is_changed_to_day_month_year(self) -> None:
         original = b"prefix" + installer.DATE_YMD_BYTECODE + b"suffix"
@@ -455,15 +453,14 @@ class DetectionTests(unittest.TestCase):
         output = io.StringIO()
         with redirect_stdout(output):
             installer.print_status_panel(status, colors=False)
-        self.assertIn("TROVATO AUTOMATICAMENTE", output.getvalue())
-        self.assertIn("INSTALLATA", output.getvalue())
-        self.assertIn("Versione trad. installata  : v0.3.8-beta", output.getvalue())
-        self.assertIn("Versione trad. proposta    : v0.3.11-beta", output.getvalue())
-        self.assertIn("Confronto contenuti        : ⚠ DIVERSI — AGGIORNAMENTO CONSIGLIATO", output.getvalue())
-        self.assertIn("Formato date dinamiche     : ⚠ DA AGGIORNARE", output.getvalue())
-        self.assertIn("VERIFICATA", output.getvalue())
-        self.assertIn("Compatibilità testi        : ✓ COMPATIBILE", output.getvalue())
-        self.assertIn("github.com/Sici29/Aniimo-Italian-Translation", output.getvalue())
+        panel = output.getvalue()
+        self.assertIn("↑ TRADUZIONE DA AGGIORNARE", panel)
+        self.assertIn("Gioco       : ✓ v3032670 compatibile (trovato automaticamente)", panel)
+        self.assertIn("Traduzione  : ⚠ v0.3.8-beta installata → v0.3.11-beta disponibile", panel)
+        self.assertIn("Premi Invio per aggiornarla.", panel)
+        self.assertNotIn("Revisione hot update", panel)
+        self.assertNotIn("Formato date dinamiche", panel)
+        self.assertIn("github.com/Sici29/Aniimo-Italian-Translation", panel)
 
     def test_status_panel_confirms_an_exact_translation_match(self) -> None:
         status = {
@@ -486,9 +483,10 @@ class DetectionTests(unittest.TestCase):
         output = io.StringIO()
         with redirect_stdout(output):
             installer.print_status_panel(status, colors=False)
-        self.assertIn("Versione trad. installata  : v0.3.11-beta", output.getvalue())
-        self.assertIn("Confronto contenuti        : ✓ IDENTICI — nessun aggiornamento necessario", output.getvalue())
-        self.assertIn("Formato date dinamiche     : ✓ ITALIANO (GG/MM/AAAA)", output.getvalue())
+        panel = output.getvalue()
+        self.assertIn("✓ TUTTO AGGIORNATO", panel)
+        self.assertIn("Traduzione  : ✓ v0.3.11-beta installata", panel)
+        self.assertIn("Non devi fare nulla.", panel)
 
     def test_current_hot_update_revision_is_verified(self) -> None:
         current_revision = "4eb81a98d0e3934af67064cbde06218e"
@@ -514,10 +512,38 @@ class DetectionTests(unittest.TestCase):
         }
         output = io.StringIO()
         with redirect_stdout(output):
+            installer.print_technical_status(status, colors=False)
+        panel = output.getvalue()
+        self.assertIn(current_revision, panel)
+        self.assertIn("Testi compatibili  : sì", panel)
+
+    def test_status_panel_explains_a_new_game_update_plainly(self) -> None:
+        status = {
+            "manifest": {
+                "translation_version": "0.3.13-beta",
+                "supported_game_updates": [3032670, 3036569],
+                "supported_game_revisions": [],
+            },
+            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_path_source": "automatico",
+            "detected_game_update": "3048640",
+            "detected_game_revision": "87eaffe8c13ec791e4348298ca6e5aa0",
+            "translation_installed": False,
+            "translation_matches_installer": False,
+            "installed_translation_version": None,
+            "dynamic_date_italian": False,
+            "text_resources_supported": False,
+            "update": {"current": "0.3.13-beta", "latest": "v0.3.13-beta", "update_available": False},
+        }
+        output = io.StringIO()
+        with redirect_stdout(output):
             installer.print_status_panel(status, colors=False)
         panel = output.getvalue()
-        self.assertIn("4eb81a98d0e3…  ✓ VERIFICATA", panel)
-        self.assertNotIn("⚠ NUOVA", panel)
+        self.assertIn("⚠ ANIIMO È STATO AGGIORNATO", panel)
+        self.assertIn("La versione 3048640 richiede una traduzione aggiornata.", panel)
+        self.assertIn("Gioco       : ⚠ v3048640 da verificare", panel)
+        self.assertIn("Controlla gli aggiornamenti dell'installer prima di installare.", panel)
+        self.assertNotIn("87eaffe8c13e", panel)
 
     def test_official_revision_survives_patched_verlist(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

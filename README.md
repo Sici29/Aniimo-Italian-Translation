@@ -30,19 +30,13 @@ Chiudi **Aniimo** e il suo launcher prima di continuare.
 
 Fai doppio clic su `Aniimo-Italian-Translation.exe`, poi premi **Invio**.
 
-All'apertura compare un riepilogo semplice con:
+All'apertura compare un riepilogo immediato, senza un elenco di codici tecnici:
 
-- versione del gioco supportata e versione rilevata;
-- revisione dell'hot update, anche quando il numero del gioco non cambia;
-- compatibilità reale verificata confrontando tutte le chiavi dei testi;
-- percorso del gioco trovato automaticamente o inserito dall'utente;
-- traduzione italiana già installata oppure non installata;
-- versione della traduzione installata e versione inclusa nel nuovo installer;
-- confronto reale dei contenuti, con indicazione `IDENTICI` o `DIVERSI — AGGIORNAMENTO CONSIGLIATO`;
-- formato delle date dinamiche di capitoli, mail e interfaccia, italianizzato come `GG/MM/AAAA`;
-- stato di compatibilità evidenziato a colori;
-- versione dell'installer in uso;
-- eventuale nuova versione disponibile.
+- un titolo grande indica se è tutto aggiornato, se puoi installare o se Aniimo è stato aggiornato;
+- tre sole righe mostrano **Gioco**, **Traduzione** e **Installer**;
+- sotto **COSA FARE** trovi una sola istruzione chiara, per esempio `Premi Invio per installarla`.
+
+Hash, build supportate, digest e verifica delle date restano disponibili soltanto scegliendo `6. Mostra i dettagli tecnici`.
 
 L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
@@ -93,10 +87,10 @@ Documenti\AniimoItalianTranslation\backups
 
 ## Stato della traduzione
 
-- Copertura: **92.954 / 92.954 chiavi**, comprese le voci di fallback mancanti nello slot English.
-- Versioni del gioco verificate: **3032670** e hot update **3036569**.
+- Copertura: **92.984 / 92.984 chiavi**.
+- Versioni del gioco verificate: **3032670**, **3036569** e **3048640**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.13 beta**.
+- Versione della traduzione: **0.3.14 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -120,8 +114,11 @@ Documenti\AniimoItalianTranslation\backups
 - Punteggiatura v0.3.13: controllate tutte le 226 righe contenenti `—` o `–`, in qualunque posizione. Altre 65 pause e interruzioni di dialogo sono state convertite in `...`; separatori grafici, intervalli, onomatopee e usi intenzionali restano invariati.
 - Toponimi v0.3.13: inventariati 42 nomi ufficiali e uniformate 176 righe. Aree e luoghi con nome proprio restano coerentemente in inglese, mentre articoli, preposizioni e testo circostante restano in italiano.
 - Date dinamiche v0.3.13: oltre alla schermata capitolo, anche il formattatore condiviso usato da mail e altre schermate passa da `MM/GG/AAAA` a `GG/MM/AAAA`. L'installer considera la data aggiornata soltanto quando entrambi i formattatori sono verificati.
+- Compatibilità v0.3.14: verificata la build **3048640** sull'installazione reale. Integrate 30 nuove chiavi, aggiornate 1.977 sorgenti inglesi e corrette 342 traduzioni rese obsolete dai cambi ufficiali, più 19 uniformazioni di famiglia.
+- Installer v0.3.14: il riepilogo iniziale è stato ridotto a tre righe e una sola azione consigliata. I dati tecnici sono disponibili separatamente con l'opzione `6`.
+- English ufficiale v0.3.14: le 359 stringhe significative che prima valevano `0` sono ora presenti direttamente nel gioco; restano soltanto 5 zeri tecnici intenzionali.
 
-La verifica non si limita più a controllare che ogni chiave abbia un valore. La versione 0.3.5 recupera anche le voci che la localizzazione English ufficiale espone come `0`. Dalla versione 0.3.7 l'installer le registra inoltre nell'elenco interno delle traduzioni disponibili, evitando che il percorso runtime speciale le sostituisca nuovamente con frasi inglesi.
+La verifica non si limita a controllare che ogni chiave abbia un valore: confronta numero e fingerprint delle chiavi con la build realmente verificata. Nelle versioni precedenti l'installer recuperava anche 359 voci significative che lo slot English esponeva come `0`; dalla build 3048640 quei testi sono finalmente presenti nell'English ufficiale.
 
 I conteggi e il confronto con tutte le lingue ufficiali sono documentati nell'[audit completo delle lingue](LANGUAGE_AUDIT.md). Il metodo usato per le concordanze è descritto nell'[audit dei generi](GENDER_AUDIT.md). La passata editoriale più recente è riepilogata nell'[audit qualità v0.3.11](QUALITY_AUDIT.md).
 
@@ -154,7 +151,7 @@ Questa funzione è disponibile dalla versione **0.3.0 beta** in poi. Se il contr
 
 Se Aniimo riceve un aggiornamento non ancora verificato, il pannello lo segnala chiaramente. Il controllo delle chiavi di testo impedisce l'installazione su risorse incompatibili, salvo uso volontario dell'opzione avanzata `--force`.
 
-Alcuni hot update mantengono lo stesso numero di versione del gioco. Per questo l'installer mostra separatamente la revisione delle risorse e la compatibilità effettiva dei testi. La revisione ufficiale viene conservata anche dopo l'applicazione della traduzione.
+Alcuni hot update mantengono lo stesso numero di versione del gioco. L'installer usa quindi build, fingerprint completo delle chiavi e struttura degli archivi per decidere la compatibilità. Un digest locale lasciato da una precedente installazione non viene considerato automaticamente una nuova revisione ufficiale; le informazioni diagnostiche sono visibili solo nei dettagli tecnici.
 
 Se l'aggiornamento automatico non riesce, l'installer mostra sempre il collegamento per il download manuale.
 

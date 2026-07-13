@@ -1252,7 +1252,7 @@ def cmd_check(args: argparse.Namespace) -> int:
     print("Risorse Lua:", paths.lua_dir)
     version_info = read_game_version_info(paths.game_dir)
     print("Versione gioco rilevata:", version_info["update"] or "non disponibile")
-    print("Revisione hot update:", version_info["revision"] or "non disponibile")
+    print("Digest locale (diagnostico):", version_info["revision"] or "non disponibile")
     print("Versioni gioco dichiarate compatibili:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
     print("Stringhe:", status["key_count"])
     print("Versione supportata:", "sì" if status["supported"] else "no")
@@ -1415,110 +1415,159 @@ def collect_startup_status() -> dict:
     return result
 
 
-def print_status_panel(status: dict, colors: bool) -> None:
+def status_overview(status: dict, colors: bool) -> dict[str, str]:
     manifest = status["manifest"]
     update = status["update"]
-    supported = supported_game_updates(manifest)
-    supported_revisions = supported_game_revisions(manifest)
-    supported_label = ", ".join(supported) or "Non specificata"
     detected = status.get("detected_game_update")
-    revision = status.get("detected_game_revision")
     texts_supported = status.get("text_resources_supported")
     game_dir = status.get("game_dir")
     path_source = status.get("game_path_source")
     installed = status.get("translation_installed")
     matches_installer = status.get("translation_matches_installer")
     installed_translation_version = status.get("installed_translation_version")
-    dynamic_date_italian = status.get("dynamic_date_italian")
     proposed_translation_version = str(manifest.get("translation_version") or update.get("current") or "0.0.0").lstrip("v")
     current = f"v{str(update.get('current', '0.0.0')).lstrip('v')}"
     latest = str(update.get("latest") or current)
 
-    if detected and str(detected) in supported:
-        detected_label = color_text(str(detected), ConsoleColor.CYAN, colors)
-    elif detected:
-        detected_label = color_text(f"{detected}  ⚠ NON ANCORA VERIFICATA", ConsoleColor.YELLOW, colors)
+    if game_dir:
+        path_note = "trovato automaticamente" if path_source == "automatico" else "percorso salvato"
+        if detected and texts_supported is True:
+            game_label = color_text(
+                f"✓ v{detected} compatibile ({path_note})", ConsoleColor.GREEN, colors
+            )
+        elif detected:
+            game_label = color_text(
+                f"⚠ v{detected} da verificare ({path_note})", ConsoleColor.YELLOW, colors
+            )
+        else:
+            game_label = color_text(f"✓ trovato ({path_note})", ConsoleColor.GREEN, colors)
     else:
-        detected_label = color_text("Non rilevata", ConsoleColor.YELLOW, colors)
+        game_label = color_text("✗ non trovato", ConsoleColor.RED, colors)
 
     if update.get("error"):
-        latest_label = color_text("Controllo non disponibile (offline)", ConsoleColor.YELLOW, colors)
+        installer_label = color_text(f"{current} (controllo online non disponibile)", ConsoleColor.YELLOW, colors)
     elif update.get("update_available"):
-        latest_label = color_text(f"{latest}  ← NUOVA", ConsoleColor.GREEN, colors)
+        installer_label = color_text(f"{current} → {latest} disponibile", ConsoleColor.GREEN, colors)
     else:
-        latest_label = color_text("Nessuna  ✓ AGGIORNATO", ConsoleColor.GREEN, colors)
-
-    if revision and str(revision).lower() in supported_revisions:
-        revision_label = color_text(f"{str(revision)[:12]}…  ✓ VERIFICATA", ConsoleColor.GREEN, colors)
-    elif revision:
-        revision_label = color_text(f"{str(revision)[:12]}…  ⚠ NUOVA", ConsoleColor.YELLOW, colors)
-    else:
-        revision_label = color_text("Non rilevata", ConsoleColor.YELLOW, colors)
-
-    if texts_supported is True:
-        compatibility_label = color_text("✓ COMPATIBILE", ConsoleColor.GREEN, colors)
-    elif texts_supported is False:
-        compatibility_label = color_text("✗ NON SUPPORTATA", ConsoleColor.RED, colors)
-    else:
-        compatibility_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
-
-    if game_dir:
-        if path_source == "automatico":
-            path_label = color_text("✓ TROVATO AUTOMATICAMENTE", ConsoleColor.GREEN, colors)
-        else:
-            path_label = color_text("✓ TROVATO (PERCORSO SALVATO)", ConsoleColor.GREEN, colors)
-    else:
-        path_label = color_text("✗ NON TROVATO", ConsoleColor.RED, colors)
+        installer_label = color_text(f"{current} aggiornato", ConsoleColor.GREEN, colors)
 
     if installed is True:
-        installed_label = color_text("✓ INSTALLATA (English + accenti)", ConsoleColor.GREEN, colors)
-        if installed_translation_version:
-            installed_version_label = color_text(
-                f"v{str(installed_translation_version).lstrip('v')}", ConsoleColor.CYAN, colors
-            )
-        else:
-            installed_version_label = color_text("Non registrata", ConsoleColor.YELLOW, colors)
         if matches_installer is True:
-            content_match_label = color_text(
-                "✓ IDENTICI — nessun aggiornamento necessario", ConsoleColor.GREEN, colors
-            )
+            if installed_translation_version:
+                installed_version = f"v{str(installed_translation_version).lstrip('v')}"
+                installed_text = f"✓ {installed_version} installata"
+            else:
+                installed_text = "✓ installata"
+            translation_label = color_text(installed_text, ConsoleColor.GREEN, colors)
         else:
-            content_match_label = color_text(
-                "⚠ DIVERSI — AGGIORNAMENTO CONSIGLIATO", ConsoleColor.YELLOW, colors
+            if installed_translation_version:
+                installed_version = f"v{str(installed_translation_version).lstrip('v')}"
+                installed_text = f"{installed_version} installata"
+            else:
+                installed_text = "installata (versione non registrata)"
+            translation_label = color_text(
+                f"⚠ {installed_text} → v{proposed_translation_version} disponibile",
+                ConsoleColor.YELLOW,
+                colors,
             )
     elif installed is False:
-        installed_label = color_text("✗ NON INSTALLATA", ConsoleColor.YELLOW, colors)
-        installed_version_label = color_text("—", ConsoleColor.YELLOW, colors)
-        content_match_label = color_text("—", ConsoleColor.YELLOW, colors)
+        translation_label = color_text(
+            f"non installata → v{proposed_translation_version} disponibile",
+            ConsoleColor.YELLOW,
+            colors,
+        )
     else:
-        installed_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
-        installed_version_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
-        content_match_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
+        translation_label = color_text("? stato non verificabile", ConsoleColor.YELLOW, colors)
 
-    proposed_version_label = color_text(f"v{proposed_translation_version}", ConsoleColor.CYAN, colors)
-    if dynamic_date_italian is True:
-        date_format_label = color_text("✓ ITALIANO (GG/MM/AAAA)", ConsoleColor.GREEN, colors)
-    elif dynamic_date_italian is False:
-        date_format_label = color_text("⚠ DA AGGIORNARE", ConsoleColor.YELLOW, colors)
+    if texts_supported is False:
+        if installed is True:
+            translation_label = color_text(
+                "⚠ installata, ma non verificata con questa build",
+                ConsoleColor.YELLOW,
+                colors,
+            )
+        elif installed is False:
+            translation_label = "non installata"
+
+    if not game_dir:
+        headline = color_text("✗ GIOCO NON TROVATO", ConsoleColor.BOLD + ConsoleColor.RED, colors)
+        message = "Indica la cartella di Aniimo per continuare."
+        action = "Scegli 4 per selezionare la cartella del gioco."
+    elif texts_supported is False:
+        headline = color_text(
+            "⚠ ANIIMO È STATO AGGIORNATO", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
+        )
+        message = f"La versione {detected or 'rilevata'} richiede una traduzione aggiornata."
+        action = "Controlla gli aggiornamenti dell'installer prima di installare."
+    elif update.get("update_available"):
+        headline = color_text(
+            "↑ NUOVO INSTALLER DISPONIBILE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors
+        )
+        message = f"È disponibile {latest}."
+        action = "Accetta l'aggiornamento automatico consigliato."
+    elif installed is True and matches_installer is True:
+        headline = color_text("✓ TUTTO AGGIORNATO", ConsoleColor.BOLD + ConsoleColor.GREEN, colors)
+        message = "La traduzione installata coincide con quella dell'installer."
+        action = "Non devi fare nulla."
+    elif installed is True:
+        headline = color_text(
+            "↑ TRADUZIONE DA AGGIORNARE", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
+        )
+        message = f"L'installer contiene la traduzione v{proposed_translation_version}."
+        action = "Premi Invio per aggiornarla."
+    elif texts_supported is True:
+        headline = color_text(
+            "✓ PRONTA PER L'INSTALLAZIONE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors
+        )
+        message = f"La traduzione v{proposed_translation_version} è compatibile con il gioco."
+        action = "Premi Invio per installarla."
     else:
-        date_format_label = color_text("? NON VERIFICABILE", ConsoleColor.YELLOW, colors)
+        headline = color_text("? CONTROLLO INCOMPLETO", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors)
+        message = "Non è stato possibile verificare tutti i file del gioco."
+        action = "Controlla il percorso o riprova dopo aver chiuso Aniimo."
+
+    return {
+        "headline": headline,
+        "message": message,
+        "game": game_label,
+        "translation": translation_label,
+        "installer": installer_label,
+        "action": action,
+    }
+
+
+def print_status_panel(status: dict, colors: bool) -> None:
+    overview = status_overview(status, colors)
 
     print(color_text("Aniimo - Traduzione Italiana", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
-    print(f"Percorso del gioco         : {path_label}")
-    print(f"Traduzione italiana        : {installed_label}")
-    print(f"Versione trad. installata  : {installed_version_label}")
-    print(f"Versione trad. proposta    : {proposed_version_label}")
-    print(f"Confronto contenuti        : {content_match_label}")
-    print(f"Formato date dinamiche     : {date_format_label}")
-    print(f"Versione gioco supportata  : {color_text(supported_label, ConsoleColor.CYAN, colors)}")
-    print(f"Versione gioco rilevata    : {detected_label}")
-    print(f"Revisione hot update       : {revision_label}")
-    print(f"Compatibilità testi        : {compatibility_label}")
-    print(f"Versione installer attuale : {color_text(current, ConsoleColor.CYAN, colors)}")
-    print(f"Nuova versione disponibile : {latest_label}")
+    print(overview["headline"])
+    print(overview["message"])
+    print()
+    print(f"Gioco       : {overview['game']}")
+    print(f"Traduzione  : {overview['translation']}")
+    print(f"Installer   : {overview['installer']}")
+    print()
+    print(color_text("COSA FARE", ConsoleColor.BOLD, colors))
+    print(overview["action"])
     print("=" * 58)
     print("GitHub: https://github.com/Sici29/Aniimo-Italian-Translation")
+
+
+def print_technical_status(status: dict, colors: bool) -> None:
+    manifest = status["manifest"]
+    revision = status.get("detected_game_revision")
+    date_italian = status.get("dynamic_date_italian")
+    texts_supported = status.get("text_resources_supported")
+    print(color_text("Dettagli tecnici", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
+    print("=" * 58)
+    print("Cartella gioco     :", status.get("game_dir") or "non rilevata")
+    print("Build rilevata     :", status.get("detected_game_update") or "non rilevata")
+    print("Build supportate   :", ", ".join(supported_game_updates(manifest)) or "non specificate")
+    print("Digest locale      :", revision or "non rilevato")
+    print("Testi compatibili  :", "sì" if texts_supported is True else "no" if texts_supported is False else "non verificabile")
+    print("Date GG/MM/AAAA    :", "sì" if date_italian is True else "no" if date_italian is False else "non verificabile")
+    print("=" * 58)
 
 
 def show_credits() -> int:
@@ -1569,6 +1618,7 @@ def run_menu() -> int:
     print("3. Controlla se esiste una nuova versione")
     print("4. Indica o modifica la cartella di Aniimo")
     print("5. Crediti, GitHub e sostieni il progetto")
+    print("6. Mostra i dettagli tecnici")
     print("0. Esci")
     print()
     choice = input("Scelta [Invio = installa]: ").strip() or "1"
@@ -1587,8 +1637,12 @@ def run_menu() -> int:
         return run_menu() if configure_game_dir() else 1
     if choice == "5":
         return show_credits()
+    if choice == "6":
+        print()
+        print_technical_status(startup, colors)
+        return 0
     if choice != "1":
-        print("Scelta non valida. Riapri l'installer e digita 1, 2, 3, 4, 5 oppure 0.")
+        print("Scelta non valida. Riapri l'installer e digita un numero da 0 a 6.")
         return 1
     class Args:
         game_dir = None

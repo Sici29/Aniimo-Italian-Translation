@@ -1,18 +1,19 @@
 {
   "input": "data/translation_it.csv",
   "production_output": "data/translation_it.csv",
-  "rows": 92954,
+  "rows": 92984,
   "default_target_slot": "en",
   "font_strategy": "The installer keeps the visible English localization slot and maps language type 2 to Aniimo's bundled UI_Font_Vietnamese asset, which contains every required Italian accented glyph.",
-  "verified_game_update": 3036569,
-  "verified_game_revision": "4eb81a98d0e3934af67064cbde06218e",
+  "verified_game_update": 3048640,
+  "verified_game_revision": null,
+  "verified_archive_sha256": "4c597717cf020734d285e05b7af93053333c24a93d346c7c6d80e4f28a6e8996",
   "verified_in_game": true,
   "language_audit": {
-    "modern_key_count": 92954,
-    "modern_key_sha256": "96be065e856b547226ea93cd7ce33d7671214a45c16783362a58da5bf9de6617",
-    "english_zero_values": 364,
-    "recovered_meaningful_fallbacks": 359,
-    "runtime_fallback_allow_list_entries": 359,
+    "modern_key_count": 92984,
+    "modern_key_sha256": "51b0b48cfee2ff71b790226cc158a68e775a880b4a67ad58b3ee3354b4ba09b5",
+    "english_zero_values": 5,
+    "recovered_meaningful_fallbacks": 0,
+    "runtime_fallback_allow_list_entries": 0,
     "single_line_notifications_checked": 726,
     "single_line_notifications_shortened": 78,
     "floating_clues_checked": 14,
@@ -67,6 +68,17 @@
     "v0313_chapter_date_patch_verified": true,
     "v0313_shared_ui_date_patch_verified": true,
     "v0313_dynamic_date_format": "DD/MM/YYYY",
+    "v0314_game_update": 3048640,
+    "v0314_added_keys": 30,
+    "v0314_removed_keys": 0,
+    "v0314_refreshed_english_sources": 1977,
+    "v0314_semantic_italian_revisions": 342,
+    "v0314_additional_family_revisions": 19,
+    "v0314_real_patch_records_verified": 92984,
+    "v0314_real_patch_mismatches": 0,
+    "v0314_chapter_date_patch_verified": true,
+    "v0314_shared_ui_date_patch_verified": true,
+    "v0314_font_patch_verified": true,
     "remaining_slash_inflections": 0,
     "remaining_tag_or_placeholder_mismatches": 0
   },
@@ -80,11 +92,11 @@
   ],
   "policy": "data/translation_it.csv is the single authoritative master and uses standard Italian spelling, accents, punctuation, tags, spacing and capitalization.",
   "sha256": {
-    "production": "603301803EE8FBAF79011AE1B4938E843DD6C08004739EB86CBA8DD54AF12B19"
+    "production": "EC2888ED9A49CC3FBE2B97A35385EE0B8CCC76140AD71374F7D197F6E12871A1"
   },
   "installer_artifact": {
     "name": "Aniimo-Italian-Translation.exe",
-    "size_bytes": 34116741,
-    "sha256": "35ED88178D701E9C8D5ABCCAA7902C6E2FF28CE76773A2AE612EC3A25F10F35E"
+    "size_bytes": 34159944,
+    "sha256": "F528FCD7B28C56B0C314B9337EB0B4E0EE55F3A6F6DF3D4C8C94354FE44518A0"
   }
 }

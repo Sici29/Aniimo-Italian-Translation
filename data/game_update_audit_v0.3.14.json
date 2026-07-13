@@ -1,0 +1,2343 @@
+{
+  "version": "0.3.14-beta",
+  "game_update": 3048640,
+  "observed_local_digest": "87eaffe8c13ec791e4348298ca6e5aa0",
+  "revision_authority": "Digest locale ereditato dal manifest patchato precedente; non trattato come revisione ufficiale della build.",
+  "archive_sha256": "4c597717cf020734d285e05b7af93053333c24a93d346c7c6d80e4f28a6e8996",
+  "previous_key_count": 92954,
+  "key_count": 92984,
+  "key_sha256": "51b0b48cfee2ff71b790226cc158a68e775a880b4a67ad58b3ee3354b4ba09b5",
+  "added_keys": 30,
+  "removed_keys": 0,
+  "refreshed_english_sources": 1977,
+  "semantic_italian_revisions": 342,
+  "additional_family_revisions": 19,
+  "new_entries": [
+    {
+      "key": "1077436891",
+      "source_en": "Sparkling Rose",
+      "it": "Rosa Scintillante"
+    },
+    {
+      "key": "1094724404",
+      "source_en": "Some rewards from your most recent Rift Exploration were not claimed successfully. The missing rewards have been reissued. Please check your mail.",
+      "it": "Non è stato possibile ritirare alcune ricompense della tua più recente Esplorazione della Fenditura. Le ricompense mancanti sono state riemesse. Controlla la posta."
+    },
+    {
+      "key": "1101202515",
+      "source_en": "View Map",
+      "it": "Apri Mappa"
+    },
+    {
+      "key": "1110504962",
+      "source_en": "BINI #9",
+      "it": "BINI #9"
+    },
+    {
+      "key": "1129081127",
+      "source_en": "Wheat",
+      "it": "Grano"
+    },
+    {
+      "key": "1159191356",
+      "source_en": "Sparkling Wheat",
+      "it": "Grano Scintillante"
+    },
+    {
+      "key": "1219858354",
+      "source_en": "Rift Exploration: Irisalis",
+      "it": "Esplorazione della Fenditura: Irisalis"
+    },
+    {
+      "key": "1254422459",
+      "source_en": "Huge Wheat",
+      "it": "Grano Enorme"
+    },
+    {
+      "key": "1256119465",
+      "source_en": "Add Friends",
+      "it": "Aggiungi Amici"
+    },
+    {
+      "key": "1314762691",
+      "source_en": "View Map",
+      "it": "Apri Mappa"
+    },
+    {
+      "key": "1325713762",
+      "source_en": "Rift Exploration Reward Reissue",
+      "it": "Reinvio delle ricompense dell'Esplorazione della Fenditura"
+    },
+    {
+      "key": "1460175354",
+      "source_en": "Colorful Wheat",
+      "it": "Grano Colorato"
+    },
+    {
+      "key": "1465442367",
+      "source_en": "Huge Colorful Sparkling Wheat",
+      "it": "Grano Scintillante Variopinto Gigante"
+    },
+    {
+      "key": "1593720613",
+      "source_en": "Empty NPC - Used for interaction hooks",
+      "it": "NPC vuoto - Usato come punto d'aggancio per le interazioni"
+    },
+    {
+      "key": "1641494120",
+      "source_en": "BINI #9",
+      "it": "BINI #9"
+    },
+    {
+      "key": "1651458124",
+      "source_en": "Huge Sparkling Wheat",
+      "it": "Grano Scintillante Enorme"
+    },
+    {
+      "key": "1719232463",
+      "source_en": "Colorful Rose",
+      "it": "Rosa Colorata"
+    },
+    {
+      "key": "1722701515",
+      "source_en": "It looks like you can send the Mechanical Ball into the ruins. Try using <color=#daa520>Gravity Pull</color>.",
+      "it": "Sembra che tu possa lanciare la Sfera Meccanica nelle rovine. Prova a usare <color=#daa520>Attrazione Gravitazionale</color>."
+    },
+    {
+      "key": "1747274847",
+      "source_en": "View Map",
+      "it": "Apri Mappa"
+    },
+    {
+      "key": "1879101783",
+      "source_en": "Huge Sparkling Rose",
+      "it": "Rosa Scintillante Enorme"
+    },
+    {
+      "key": "1905457069",
+      "source_en": "Colorful Sparkling Rose",
+      "it": "Rosa Colorata Scintillante"
+    },
+    {
+      "key": "2011365229",
+      "source_en": "Colorful Sparkling Wheat",
+      "it": "Grano Colorato Scintillante"
+    },
+    {
+      "key": "2038888710",
+      "source_en": "Huge Colorful Sparkling Rose",
+      "it": "Rosa Scintillante Variopinta Gigante"
+    },
+    {
+      "key": "2057865276",
+      "source_en": "A surge of abnormal energy has sent a newly born Legendary Aniimo into a frenzy, causing its form to become extremely unstable! Use Aniipods to absorb the chaotic energy, help the Legendary Aniimo calm down, and stabilize its form. During the process, the Legendary Aniimo may offer you rewards, and could even recognize you as an ally!",
+      "it": "Un'ondata di energia anomala ha mandato in frenesia un Aniimo leggendario appena nato, rendendone la forma estremamente instabile! Usa gli Aniipod per assorbire l'energia caotica, aiutare l'Aniimo leggendario a calmarsi e stabilizzarne la forma. Durante il processo, l'Aniimo leggendario potrebbe offrirti delle ricompense e persino concederti la sua fiducia!"
+    },
+    {
+      "key": "2067430729",
+      "source_en": "Rose",
+      "it": "Rosa"
+    },
+    {
+      "key": "2109045139",
+      "source_en": "Huge Colorful Rose",
+      "it": "Rosa Colorata Enorme"
+    },
+    {
+      "key": "2109765780",
+      "source_en": "Huge Rose",
+      "it": "Rosa Enorme"
+    },
+    {
+      "key": "2114226967",
+      "source_en": "Huge Colorful Wheat",
+      "it": "Grano Colorato Enorme"
+    },
+    {
+      "key": "2135697880",
+      "source_en": "View Map",
+      "it": "Apri Mappa"
+    },
+    {
+      "key": "2136289107",
+      "source_en": "Reset successful!",
+      "it": "Reimpostazione completata!"
+    }
+  ],
+  "semantic_changes": [
+    {
+      "key": "388192442",
+      "old_it": "Sconfiggi di nuovo Valay e ottieni il distintivo: Sorgente della Vita",
+      "new_it": "Sconfiggi di nuovo Wally e ottieni il distintivo: Sorgente della Vita",
+      "reason": "NPC rinominato da Valay a Wally."
+    },
+    {
+      "key": "413758916",
+      "old_it": "Racconta a Senior Valay cosa hai trovato",
+      "new_it": "Racconta a Wally Veterano ciò che hai scoperto",
+      "reason": "NPC rinominato da Valay a Wally e titolo Senior uniformato al glossario."
+    },
+    {
+      "key": "415473333",
+      "old_it": "Possiedi 1 Aniimo con Risonanza portata allo Stadio Gamma",
+      "new_it": "Possiedi 1 Aniimo con Risonanza grado 2.",
+      "reason": "Requisito cambiato da Stadio Gamma a grado 2."
+    },
+    {
+      "key": "457930805",
+      "old_it": "Sfida Valay e completa la valutazione",
+      "new_it": "Sfida Wally e completa la valutazione",
+      "reason": "NPC rinominato da Valay a Wally."
+    },
+    {
+      "key": "510191898",
+      "old_it": "Sconfiggi di nuovo Cici e ottieni il distintivo: Onde Fendenti",
+      "new_it": "Sconfiggi di nuovo Cecelia Veterana e ottieni il distintivo: Onde fendenti.",
+      "reason": "Cici è stato sostituito dal nome e titolo ufficiali di Cecelia."
+    },
+    {
+      "key": "524576781",
+      "old_it": "Cattura e segnala 70 Aniimo in totale.",
+      "new_it": "Potenzia 4 Aniimo al livello 53",
+      "reason": "Obiettivo sostituito integralmente."
+    },
+    {
+      "key": "525116096",
+      "old_it": "Il raduno di Helgon e Rookey.",
+      "new_it": "Unisciti al raduno di Helgon e Rookey.",
+      "reason": "Il nome del raduno è diventato un comando di partecipazione."
+    },
+    {
+      "key": "1080642593",
+      "old_it": "Ma non ha più nulla a che fare con me.\nQuella terra su cui un tempo misi piede, quel calore, i meravigliosi Aniimo...\nRovine misteriose, battaglie emozionanti...",
+      "new_it": "Ma non mi riguarda più. Quella terra su cui un tempo misi piede, quel calore, i meravigliosi Aniimo... Il misterioso palazzo sotterraneo, le battaglie mozzafiato...",
+      "reason": "Le rovine sono state precisate come palazzo sotterraneo."
+    },
+    {
+      "key": "1081561791",
+      "old_it": "Oh! Sei tu!\nL'istruttore mi ha detto che una nuova matricola sarebbe passata a cercarmi.",
+      "new_it": "Oh! Sei tu! Dr. Lewis mi ha detto che una nuova matricola sarebbe venuta a cercarmi.",
+      "reason": "Il generico istruttore è ora identificato come Dr. Lewis."
+    },
+    {
+      "key": "1082058887",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome della funzione sostituito integralmente."
+    },
+    {
+      "key": "1082634243",
+      "old_it": "ESP attuale",
+      "new_it": "ESP",
+      "reason": "La nuova etichetta è la sola abbreviazione ESP."
+    },
+    {
+      "key": "1084773137",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1087532158",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1088683691",
+      "old_it": "Utilizzi di [Individua debolezza]",
+      "new_it": "Usa [Individua debolezza]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1095011949",
+      "old_it": "Congratulazioni! Hai completato una missione del Percorso delle Prove e ottenuto ottime ricompense.",
+      "new_it": "Congratulazioni! Hai completato le missioni corrispondenti dell'evento Viaggio delle Prove e ottenuto splendide ricompense.",
+      "reason": "La missione Percorso delle Prove è diventata l’evento Viaggio delle Prove."
+    },
+    {
+      "key": "1095603236",
+      "old_it": "Sconfiggi Senior Valay in Modalità Sfida",
+      "new_it": "Sconfiggi Wally Veterano in Modalità Sfida",
+      "reason": "NPC rinominato da Valay a Wally e titolo Senior uniformato al glossario."
+    },
+    {
+      "key": "1098126983",
+      "old_it": "Invita in Modalità Compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Il comando Invita è stato sostituito dal nome della modalità."
+    },
+    {
+      "key": "1099016421",
+      "old_it": "Utilizzi di [Acqua curativa]",
+      "new_it": "Usa [Acqua curativa]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1099098774",
+      "old_it": "Potenzia la lama con la Luce, aumentando il tasso CRIT dell'abilità di <style=Hint_BgL><customRichText(calcData,buff,2103301,param0,1,%d)>%</style> per <style=Hint_BgL>20</style>s.",
+      "new_it": "Attiva il potenziamento di tipo Luce della lama, aumentando la probabilità di CRIT dell'abilità di <style=Hint_BgL><customRichText(calcData,buff,2103301,param0,1,%d)>%</style> per <style=Hint_BgL>10</style> s.",
+      "reason": "Durata ridotta da 20 a 10 secondi."
+    },
+    {
+      "key": "1104367301",
+      "old_it": "Congratulazioni! Hai completato una missione del Percorso delle Prove e ottenuto ottime ricompense.",
+      "new_it": "Congratulazioni! Hai completato le missioni corrispondenti dell'evento Viaggio delle Prove e ottenuto splendide ricompense.",
+      "reason": "La missione Percorso delle Prove è diventata l’evento Viaggio delle Prove."
+    },
+    {
+      "key": "1111451162",
+      "old_it": "Puoi attivare la <style=Hint_BgL>Modalità Compagno</style> dal tuo profilo. In questa modalità, le guide possono regalare Aniimo catturati ai compagni: entra in contatto con i tuoi alleati ed esplora il mondo insieme a loro!",
+      "new_it": "Dopo aver formato una squadra, usa il tuo Tesserino Studente per attivare la <style=Hint_BgL>Modalità Avventura Cooperativa</style>. In questa modalità, le guide possono regalare gli Aniimo catturati agli altri compagni d’avventura: unisciti ai tuoi alleati ed esplorate insieme il mondo!",
+      "reason": "Modalità, percorso di attivazione e destinatari sono cambiati."
+    },
+    {
+      "key": "1112300696",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1117526433",
+      "old_it": "Oggetto Tenuto Aniimo. L'Aniimo che lo tiene ottiene l'effetto [Magia Meravigliosa].",
+      "new_it": "Oggetto per Aniimo. L'Aniimo che lo equipaggia ottiene l'effetto [Incantato].",
+      "reason": "Categoria dell’oggetto ed effetto sono stati rinominati."
+    },
+    {
+      "key": "1121200957",
+      "old_it": "Utilizzi di [Fionda elastica]",
+      "new_it": "Usa [Fionda elastica]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1124790472",
+      "old_it": "Il destinatario riceve 6.000 crediti. Il mittente riceve 6.000 crediti. Inviarlo a un amico conferisce anche 10 Affinità.",
+      "new_it": "Il destinatario riceverà 100 crediti e avrà il 10% di probabilità di ottenere 1 uovo Aniimo. Il mittente riceverà 100 crediti. Regalarlo a un amico aumenterà inoltre di 10 la vostra Affinità.",
+      "reason": "Ricompense cambiate da 6.000 a 100 crediti, con aggiunta della probabilità di un uovo."
+    },
+    {
+      "key": "1128209787",
+      "old_it": "Esatto. Le Rune adatte sono una parte essenziale della preparazione.\nMa la valutazione Trailblazer Novizio è più impegnativa di così. Considera tutti i fattori prima di rispondere.",
+      "new_it": "Non puoi ottenere un Aniimo in Forma Prismana tramite evoluzione. Pensa a come si può acquisire.",
+      "reason": "Risposta del quiz sostituita integralmente."
+    },
+    {
+      "key": "1130565239",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Azione e terminologia della funzione sono cambiate."
+    },
+    {
+      "key": "1133082704",
+      "old_it": "Vitalizzare l'ecosistema carica le Fioriture in ogni area. Una volta cariche al massimo, puoi avvicinarti e toccarle per farle sbocciare.",
+      "new_it": "L'energia della Vena vitalizza la terra attraverso un Ramo, facendo prosperare ogni forma di vita e attirando gli Aniimo nelle vicinanze.",
+      "reason": "Spiegazione della Vitalizzazione sostituita integralmente."
+    },
+    {
+      "key": "1138329929",
+      "old_it": "Utilizzi di [Pioggia Spinosa]",
+      "new_it": "Usa [Pioggia Spinosa]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1138651927",
+      "old_it": "Già al nostro primo incontro ti trovavo notevole. Non pensavo che l’istruttore mi avrebbe fatto guidare te.",
+      "new_it": "Mi avevi già colpito al nostro primo incontro. Non pensavo che Dr. Lewis mi avrebbe chiesto di farti da guida!",
+      "reason": "Il generico istruttore è ora identificato come Dr. Lewis."
+    },
+    {
+      "key": "1149071647",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1149321484",
+      "old_it": "Rilevato un Oggetto Tenuto di Livello 5\nL'abilità <style=Hint_BgL>Equipaggiamento Rune</style> per gli Oggetti Tenuti è ora attiva",
+      "new_it": "Rilevato un Oggetto Tenuto di Livello 5\nLa funzione <style=Hint_BgL>Incastonatura Rune</style> per gli Oggetti Tenuti è ora disponibile",
+      "reason": "Rune Equipping è stato rinominato Rune Embedding."
+    },
+    {
+      "key": "1153256423",
+      "old_it": "Aumenta il limite di Energia {0} della squadra nel tempo per {1} secondi. Non può avere effetto contemporaneamente a Danza Illusione Farfalla.",
+      "new_it": "Aumenta di {0} il limite di Energia della squadra per {1} secondi. Non può essere attivo contemporaneamente a Danza Illusoria della Farfalla Variopinta.",
+      "reason": "Nome completo dell’abilità concorrente aggiornato."
+    },
+    {
+      "key": "1156247493",
+      "old_it": "Dopo la fine dell'effetto raccolta, puoi raccogliere il Veinfruit per ricevere ricompense.",
+      "new_it": "Dopo aver vitalizzato l'ecosistema, i gruppi di Aniimo presenteranno due livelli di attività: Raduno Comune e Super Raduno.",
+      "reason": "La raccolta del Veinfruit è stata sostituita dai due livelli di raduno."
+    },
+    {
+      "key": "1157767005",
+      "old_it": "Usi di [Sentinella del Nido Cozite]",
+      "new_it": "Usa [Sentinella del Nido Cozite]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1158668131",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1160349107",
+      "old_it": "Utilizzi di [Rullo idro]",
+      "new_it": "Usa [Rullo idro]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1160482458",
+      "old_it": "Quello è un Aniimo di Stadio Nova! N-Non sono affatto geloso.",
+      "new_it": "Un Aniimo avanzato! N-Non sono affatto geloso.",
+      "reason": "Rimosso il requisito specifico dello Stadio Nova."
+    },
+    {
+      "key": "1162028544",
+      "old_it": "Stai per svenire. La prossima volta fai più attenzione",
+      "new_it": "Sei svenuto. La prossima volta fai attenzione a dove metti i piedi.",
+      "reason": "Lo stato è già avvenuto, non imminente."
+    },
+    {
+      "key": "1169839867",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1175204528",
+      "old_it": "Il calore si irradia mentre il Prismana estrae fiamme dai loro petti e le intreccia attorno ai loro corpi.",
+      "new_it": "L'energia Prismana estrae il potere delle fiamme dalle cicatrici sul loro petto, avvolgendoli in un bagliore abbagliante che diventa più rovente man mano che ti avvicini.",
+      "reason": "Aggiunti il riferimento alle cicatrici e l’aumento del calore con la distanza."
+    },
+    {
+      "key": "1175354919",
+      "old_it": "Cambia l'Aspetto del copricapo di un Aniimo\n<color=#4c94e9>Rara: Iris in Prima Fioritura</color>\n<color=#b767e1>Eccezionale: Set \"Bagliore Floreale\", Set \"Fantasma Spina d'Ombra\"</color>\n<color=#e49b43>Leggendaria: Set \"Rosa del Sole radioso\", Set \"Chiaro di Luna Gemma Stellare\"</color>",
+      "new_it": "Cambia l’aspetto del corpo del tuo Aniimo.\n<color=#4c94e9>Raro: Iris in Prima Fioritura</color>\n<color=#b767e1>Epico: Set [Bagliore Floreale], Set [Fantasma Spina d’Ombra]</color>\n<color=#e49b43>Leggendario: Set [Rosa del Sole Fulgente], Set [Chiaro di Luna Fioritura Stellare]</color>",
+      "reason": "Categoria passata da copricapo a corpo; rarità e nomi dei set aggiornati."
+    },
+    {
+      "key": "1175777520",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome della funzione sostituito integralmente."
+    },
+    {
+      "key": "1178238884",
+      "old_it": "Cattura e segnala 70 Aniimo in totale.",
+      "new_it": "Potenzia 4 Aniimo al livello 53",
+      "reason": "Obiettivo sostituito integralmente."
+    },
+    {
+      "key": "1185198263",
+      "old_it": "Cattura Aniimo diversi nella Berylline Causeway per aumentare il tuo <style=Hint_BgL>Completamento Catture Area</style>. Quando raggiunge il <style=Hint_BgL>40%</style>, otterrai il Distintivo Collezione di quest'area.\n\n<style=Hint_BgL><color=#5090df><link=\"source_796\"><u>Passa tra giorno e notte</u></link></color>, oppure attendi che il meteo cambi, per scoprire altri Aniimo.</style>",
+      "new_it": "Seleziona <style=Hint_BgL>Operazione: Furto d’Uova</style> dal menu e vivi il brivido della caccia alle uova! Collabora con i compagni di squadra per cercare e sottrarre uova e aprire forzieri. Otterrai ricche ricompense e <color=#5090df><u>rari Aniimo Darkler</u></color>!",
+      "reason": "Testo guida sostituito integralmente con la modalità Furto d’Uova."
+    },
+    {
+      "key": "1185979910",
+      "old_it": "Oggetto Tenuto per Aniimo. Portare questo Aniimo conferisce l'effetto [Ringiovanimento Floreale].",
+      "new_it": "Oggetto per Aniimo. L'Aniimo che lo equipaggia ottiene l'effetto [Rivitalizzazione].",
+      "reason": "Effetto rinominato da Ringiovanimento Floreale a Rivitalizzazione."
+    },
+    {
+      "key": "1191205638",
+      "old_it": "Ma quello precedente non era...?",
+      "new_it": "Aspetta... quello di prima non era un vero allenamento?",
+      "reason": "La nuova frase esplicita che si parla di allenamento."
+    },
+    {
+      "key": "1191792775",
+      "old_it": "Indice: sblocca 20 tipi di Aniimo - segnaposto su due righe",
+      "new_it": "Sblocca 20 Aniimo nel Compendio",
+      "reason": "Segnaposto dell’Indice sostituito da un obiettivo reale del Compendio."
+    },
+    {
+      "key": "1194176778",
+      "old_it": "Eliminare questo schema?",
+      "new_it": "Eliminare questa configurazione? <color=#f67574>(Le configurazioni eliminate non possono essere recuperate.)</color>",
+      "reason": "Aggiunto avviso irreversibile e schema rinominato configurazione."
+    },
+    {
+      "key": "1199310953",
+      "old_it": "Usi di [Fendente d'Acqua Fluente]",
+      "new_it": "Usa [Fendente d'Acqua Fluente]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1205969698",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1207090172",
+      "old_it": "Creazioni della Base.",
+      "new_it": "Hai catturato di nuovo l'Aniimo",
+      "reason": "Messaggio Creazioni della Base sostituito integralmente."
+    },
+    {
+      "key": "1212214841",
+      "old_it": "Ottieni oggetto: Spina Elettrica",
+      "new_it": "Ottieni oggetto: Anima Fulminous",
+      "reason": "Oggetto rinominato da Spina Elettrica ad Anima Fulminous."
+    },
+    {
+      "key": "1212701678",
+      "old_it": "Utilizzi di [Colpo caricato]",
+      "new_it": "Usa [Colpo caricato]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1212964777",
+      "old_it": "Cambia il colore dell'Aspetto di un Aniimo\n<color=#4c94e9>Rara: Bianco pesca, Caduta di braci, Alba arancione, Brace, Verde petrolio scuro</color>\n<color=#b767e1>Eccezionale: Costume \"Bagliore Floreale: Nebbia di ciliegio\", Costume \"Fantasma Spina d'Ombra: Viola crepuscolare\"</color>\n<color=#e49b43>Leggendaria: Costume \"Rosa del Sole ardente\", Costume \"Chiaro di Luna Gemma Stellare\", Argento perla, Fioritura Cremisi, Palude gelata</color>",
+      "new_it": "Cambia il colore del tuo Aniimo.\n<color=#4c94e9>Raro: Bianco pesca, Fiamma cremisi, Alba ambrata, Brace, Verde petrolio intenso</color>\n<color=#b767e1>Epico: Set [Bagliore Floreale - Riverbero dei Ciliegi], Set [Fantasma Spina d’Ombra - Viola intenso]</color>\n<color=#e49b43>Leggendario: Set [Rosa del Sole Fulgente], Set [Chiaro di Luna Fioritura Stellare], Perla d’argento, Fioritura cremisi, Brillogelo</color>",
+      "reason": "Rarità e numerosi nomi di colori e set sono cambiati."
+    },
+    {
+      "key": "1214831662",
+      "old_it": "Aspetta, non sembra che catturare Aniimo faccia ottenere Gemme Runiche.\nFammi ripensarci.",
+      "new_it": "La Vitalizzazione è un metodo importante per ottenere Aniimo Scintillanti. Purtroppo, però, non aiuta a ottenere Aniimo Darkler. Pensaci ancora.",
+      "reason": "Risposta del quiz sostituita integralmente."
+    },
+    {
+      "key": "1220513338",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1226644786",
+      "old_it": "Imo",
+      "new_it": "Aniimo",
+      "reason": "Vecchio nome provvisorio sostituito dal nome ufficiale."
+    },
+    {
+      "key": "1229058688",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1231834496",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome della funzione sostituito integralmente."
+    },
+    {
+      "key": "1232953241",
+      "old_it": "Quindi, c'è un metodo: puoi catturare molti Aniimo, poi tenere quelli più Incredibili e liberare gli altri. Alla fine, finché la fortuna non ti volta troppo le spalle, riuscirai sempre ad aggiungere alla tua Collezione gli Aniimo più Incredibili e diventare un vero maestro di Aniimo!",
+      "new_it": "Ti basta catturare quanti più Aniimo possibile, tenere quelli rari e liberare gli altri. Prima o poi otterrai quelli più rari e diventerai un vero maestro di Aniimo... a meno che tu non sia davvero, davvero sfortunato!",
+      "reason": "La vecchia rarità Incredibile è stata sostituita dalla rarità generica."
+    },
+    {
+      "key": "1234515884",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1239613989",
+      "old_it": "Fai clic per aprire [<style=Hint_BgL>Manuale di ricerca</style>]\nPuoi visualizzare i progressi della Ricerca Aniimo",
+      "new_it": "Premi per aprire [<style=Hint_BgL>Aniilog</style>] e seguire i progressi della ricerca sugli Aniimo",
+      "reason": "Manuale di ricerca rinominato Aniilog."
+    },
+    {
+      "key": "1245542369",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1245613177",
+      "old_it": "Esatto, tramano tutti in segreto contro gli Aniimo potenti nell'ombra!",
+      "new_it": "Esatto. Tramano sempre per impadronirsi degli Aniimo più potenti!",
+      "reason": "Il bersaglio del complotto non è più contro gli Aniimo: lo scopo è ottenerli."
+    },
+    {
+      "key": "1245930289",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1248693357",
+      "old_it": "Cattura Aniimo diversi in ogni area per aumentare il tuo <style=Hint_BgL>Completamento Cattura Area</style>. Quando raggiunge <style=Hint_BgL>40%</style>, otterrai il Distintivo Collezione di quest'area.\n\n<style=Hint_BgL><color=#5090df><link=\"source_796\"><u>Alterna giorno e notte</u></link></color>, oppure aspetta che cambi il meteo, per scoprire altri Aniimo.</style>",
+      "new_it": "Ottieni punti ricerca per <link=\"help_115\"><color=#5090df><u>aumentare il livello dell’Aniilog</u></color></link>:\n· Sblocca un nuovo Aniimo: enorme quantità di punti ricerca\n· Sblocca una voce d’indagine: grande quantità di punti ricerca\n· Sblocca una forma speciale di un Aniimo: grande quantità di punti ricerca\n· Completa una voce di ricerca: piccola quantità di punti ricerca",
+      "reason": "Guida alla Cattura Area sostituita integralmente dalla progressione dell’Aniilog."
+    },
+    {
+      "key": "1250337222",
+      "old_it": "Info Transmog Aspetto Aniimo\nGli slot transmog includono: Colore, Ali, Corpo, Copricapo ed Effetti\nPuoi usare <color=#e49b43>Ombra di sogno radiosa</color> e <color=#b767e1>Ombra errante scintillante</color> per trasmutare l'Aspetto di un Aniimo\n<color=#b767e1>Ombra errante scintillante</color> ha le seguenti restrizioni d'uso:\nPuò trasmutare solo determinati slot. Non può essere usata quando gli slot sono bloccati e non aumenterà il progresso transmog degli slot limitati né di qualsiasi slot successivo.\nDurante la trasmutazione, se possiedi entrambi gli oggetti, <color=#b767e1>Ombra errante scintillante</color> verrà consumata per prima ogni volta che le condizioni sono soddisfatte\n\nProbabilità Transmog\nLe rarità degli slot includono: <color=#4c94e9>Rara</color>, <color=#b767e1>Eccezionale</color>, <color=#e49b43>Leggendaria</color>\nProbabilità di comparsa per ciascuna rarità:\n<color=#4c94e9>Rara: 77.42%</color>\n<color=#b767e1>Eccezionale: 19.36%</color>\n<color=#e49b43>Leggendaria: 3.22%</color>\n\nIl contatore garanzia per ottenere la rarità <color=#e49b43>Leggendaria</color> è: 62\n\nBlocco slot\nPuoi bloccare slot, fino a 3 alla volta\nPiù slot blocchi, più oggetti verranno consumati\nMentre gli slot sono bloccati, consumare più oggetti aumenta la probabilità di attivare un CRIT e accelera la crescita del progresso",
+      "new_it": "Guida alla Trasmutazione Aniimo\nLe parti trasmutabili sono: Colore, Ali, Corpo, Copricapo ed Effetti.\nUsa <color=#e49b43>Ombra di Sogno Radiosa</color> e <color=#b767e1>Ombra Errante Scintillante</color> per cambiare l’aspetto del tuo Aniimo.\n<color=#b767e1>Ombra Errante Scintillante</color> ha le seguenti limitazioni:\npuò trasmutare solo determinate parti, non può essere usata mentre le parti sono bloccate e non aumenta il Progresso Trasmutazione delle parti escluse né di quelle sbloccate successivamente.\nSe possiedi entrambi gli oggetti, quando le condizioni sono soddisfatte verrà consumata per prima <color=#b767e1>Ombra Errante Scintillante</color>.\n\nProbabilità Trasmutazione\nLe qualità delle parti sono: <color=#4c94e9>Rara</color>, <color=#b767e1>Epica</color> e <color=#e49b43>Leggendaria</color>.\nProbabilità di comparsa:\n<color=#4c94e9>Rara: 77,42%</color>\n<color=#b767e1>Epica: 19,36%</color>\n<color=#e49b43>Leggendaria: 3,22%</color>\n\nUna parte <color=#e49b43>Leggendaria</color> è garantita entro 62 tentativi.\n\nBlocco parti\nPuoi bloccare fino a 3 parti.\nPiù parti blocchi, più oggetti vengono consumati.\nQuando le parti sono bloccate, consumare più oggetti aumenta la probabilità bonus di Trasmutazione e accelera la crescita del Progresso.",
+      "reason": "Terminologia slot/parti, rarità Epica e regole di Trasmutazione sono state aggiornate."
+    },
+    {
+      "key": "1250973533",
+      "old_it": "Scatta all'indietro di una certa distanza, lasciando un'Area Magica che dura {0} secondi. Per tutta la sua durata, applica un effetto Parassitico ai bersagli che entrano nell'Area.\n【Parassitico】: infligge al bersaglio Danni pari al {1}% dei PV max al secondo. L'effetto è dimezzato contro Alpha e Omega. Dopo 5 secondi, diventa l'effetto 【Maturo】, che dura {2} secondi.",
+      "new_it": "Scatta all’indietro, lasciando una zona magica che dura {0} s e applica Parassita ai nemici che vi entrano.\n[Parassita]: infligge ogni secondo danni pari al {1}% dei PV massimi del bersaglio; l’effetto è dimezzato contro boss ed elite. Dopo 5 secondi si trasforma in Maturità, che dura {2} s.",
+      "reason": "Categorie bersaglio ed effetti rinominati da Alpha/Omega e Parassitico/Maturo."
+    },
+    {
+      "key": "1252072590",
+      "old_it": "Salve, avevi ricompense non riscattate dall'evento Stella Splendente. Le abbiamo reinviate per te. Controlla!",
+      "new_it": "Esploratore, avevi delle ricompense non riscosse dell'evento Stella Glamour. Te le abbiamo inviate nuovamente. Controlla!",
+      "reason": "Evento rinominato da Shining Star a Glamour Star."
+    },
+    {
+      "key": "1252210785",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1253556524",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Azione e terminologia della funzione sono cambiate."
+    },
+    {
+      "key": "1267063435",
+      "old_it": "Utilizzi di [Turbine di sabbia]",
+      "new_it": "Usa [Turbine di sabbia]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1272248619",
+      "old_it": "Utilizzi di [Soffio di Lava]",
+      "new_it": "Usa [Soffio di Lava]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1281960334",
+      "old_it": "Invita in Modalità Compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Il comando Invita è stato sostituito dal nome della modalità."
+    },
+    {
+      "key": "1284130447",
+      "old_it": "Esatto. Ottenendo Distintivi Collezione regionali, sbloccherai informazioni su altri luoghi di comparsa degli Aniimo.\nMa non è l'unica risposta. Dai un'altra occhiata alle altre opzioni.",
+      "new_it": "Esatto. Il Simulatore Holo-Battle è un ottimo modo per ottenere Oggetti Tenuti di alta qualità per gli Aniimo. Quando puoi, torna ad Astra e incontra Lita.",
+      "reason": "Risposta del quiz sostituita integralmente."
+    },
+    {
+      "key": "1284942036",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1289075707",
+      "old_it": "Cattura Aniimo.",
+      "new_it": "Potenzia le statistiche degli Aniimo.",
+      "reason": "Obiettivo Cattura Aniimo sostituito integralmente."
+    },
+    {
+      "key": "1293736000",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1299775026",
+      "old_it": "Invita in Modalità Compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Il comando Invita è stato sostituito dal nome della modalità."
+    },
+    {
+      "key": "1299977663",
+      "old_it": "Giusto, me l'ha detto l'istruttore. Non sapevo che fossi tu la persona appena iscritta!",
+      "new_it": "Giusto, me l'ha detto Dr. Lewis. Non sapevo che la nuova matricola fossi tu!",
+      "reason": "Il generico istruttore è ora identificato come Dr. Lewis."
+    },
+    {
+      "key": "1301486913",
+      "old_it": "ESP attuale",
+      "new_it": "ESP",
+      "reason": "La nuova etichetta è la sola abbreviazione ESP."
+    },
+    {
+      "key": "1301715477",
+      "old_it": "Piattaforma Cassa di Ferro Mobile",
+      "new_it": "Usa la leva",
+      "reason": "Nome della piattaforma sostituito da un comando."
+    },
+    {
+      "key": "1307686889",
+      "old_it": "Sinceramente... a parte parlare, in questa forma non mi sei di grande aiuto...",
+      "new_it": "Sinceramente... a parte il fatto che sapete parlare, non sembrate molto in grado di aiutarmi.",
+      "reason": "Il nuovo testo si rivolge a due interlocutori, non a uno solo."
+    },
+    {
+      "key": "1308673004",
+      "old_it": "Utilizzi di [Lama boomerang]",
+      "new_it": "Usa [Lama boomerang]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1311103075",
+      "old_it": "Pacchetto rifornimenti Pawshake",
+      "new_it": "Pacchetto Rifornimenti Terza Closed Beta",
+      "reason": "Pacchetto Pawshake sostituito da quello della Terza Closed Beta."
+    },
+    {
+      "key": "1311329543",
+      "old_it": "Utilizzi di [Campo di tuono]",
+      "new_it": "Usa [Campo di tuono]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1311662499",
+      "old_it": "Cattura Aniimo diversi in Berylline Causeway per aumentare il tuo <style=Hint_BgL>Completamento Catture Area</style>, <style=Hint_BgL>sconfiggere Alpha</style> e <style=Hint_BgL>raccogliere Ambra Lumin</style> per ottenere i distintivi corrispondenti.\n\n<style=Hint_BgL><color=#5090df><link=\"source_796\"><u>Passa tra giorno e notte</u></link></color>, oppure attendi che il meteo cambi, per scoprire altri Aniimo.</style>",
+      "new_it": "Gli splendidi <style=Hint_BgL>Flussi Prismana</style> possono attirare Aniimo rari desiderosi di assorbire l’energia Prismana.",
+      "reason": "Guida ai Distintivi Area sostituita integralmente dai Flussi Prismana."
+    },
+    {
+      "key": "1312540202",
+      "old_it": "Sembra serva più peso dello spirito per premere l'interruttore fino in fondo...",
+      "new_it": "Sembra che serva il peso di più Aniimo per premere completamente l’interruttore...",
+      "reason": "Spirito è stato corretto in Aniimo."
+    },
+    {
+      "key": "1314879847",
+      "old_it": "Sconfiggere Aniimo.",
+      "new_it": "Presta attenzione alle affinità elementali degli Aniimo.",
+      "reason": "Obiettivo Sconfiggere Aniimo sostituito integralmente."
+    },
+    {
+      "key": "1318072371",
+      "old_it": "Fai clic per aprire [<style=Hint_BgL>Manuale di ricerca</style>]\nPuoi visualizzare i progressi della Ricerca Aniimo",
+      "new_it": "Premi per aprire [<style=Hint_BgL>Aniilog</style>] e seguire i progressi della ricerca sugli Aniimo",
+      "reason": "Manuale di ricerca rinominato Aniilog."
+    },
+    {
+      "key": "1323981195",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1326071600",
+      "old_it": "Aspetto Gruppo",
+      "new_it": "Impeto Selvaggio",
+      "reason": "Evento Group Appearance rinominato Wild Surge."
+    },
+    {
+      "key": "1336773836",
+      "old_it": "Volontà di ???",
+      "new_it": "Voce misteriosa",
+      "reason": "Volontà di ??? sostituita da una Voce misteriosa."
+    },
+    {
+      "key": "1339463527",
+      "old_it": "Utilizzi di [Laser perforante]",
+      "new_it": "Usa [Laser perforante]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1341704171",
+      "old_it": "Un tempo il tesoro più prezioso di un certo Susuta, sepolto in profondità sotto ossa di balena attraverso le ere, screziato dal tempo con molte sfumature, conferirà agli Aniimo potere protettivo.",
+      "new_it": "Un tempo era il tesoro più prezioso di un Susuta. Rimasto nascosto per ere sotto lo scheletro di un Echoback, con il tempo ha assunto molti colori e ha acquisito il potere di proteggere gli Aniimo.",
+      "reason": "Le generiche ossa di balena sono ora lo scheletro di un Echoback."
+    },
+    {
+      "key": "1342234926",
+      "old_it": "Usi di [Marchio della Fragranza Segreta]",
+      "new_it": "Usa [Marchio della Fragranza Segreta]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1343384860",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Azione e terminologia della funzione sono cambiate."
+    },
+    {
+      "key": "1344156771",
+      "old_it": "Nessun Pet Selezionato - Battaglia",
+      "new_it": "Nessun Aniimo selezionato — Combattimento",
+      "reason": "Pet è stato sostituito da Aniimo e Battaglia da Combattimento."
+    },
+    {
+      "key": "1348184485",
+      "old_it": "L'Aniimo serio è molto concentrato e paziente in tutto ciò che fa, con un carattere tenace.",
+      "new_it": "Gli Aniimo diligenti sono sempre concentrati e pazienti e dimostrano una buona resilienza.",
+      "reason": "Personalità rinominata da Seria a Diligente e descrizione aggiornata."
+    },
+    {
+      "key": "1352449361",
+      "old_it": "Utilizzi di [Onda sismica]",
+      "new_it": "Usa [Onda sismica]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1356449169",
+      "old_it": "Utilizzi di [Waltz]",
+      "new_it": "Usa [Waltz]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1359585373",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1361901618",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1364088034",
+      "old_it": "Sconfiggere Aniimo Alpha.",
+      "new_it": "Sconfiggi il boss Aniimo",
+      "reason": "Il bersaglio non è più specificamente un Aniimo Alpha."
+    },
+    {
+      "key": "1367569109",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1370844900",
+      "old_it": "Non è corretto. I Cristalli di Rugiada non si possono creare nella Base.\nRiflettici ancora un po' e riprova.",
+      "new_it": "No, no, no: non soltanto gli Aniipod di alto livello. Anche gli Aniipod normali sono consumabili, e liberare gli Aniimo non ti farà ottenere alcun Aniipod.",
+      "reason": "Risposta del quiz sostituita integralmente."
+    },
+    {
+      "key": "1374026891",
+      "old_it": "Usa <style=Hint_BgL>Risveglio Capacità</style> e consuma Polvere stellare e altri oggetti per <style=Hint_BgL>aumentare</style> il <style=Hint_BgL>Potenziale Acquisito</style> di un Aniimo per l'attributo selezionato.\n1. Ognuna delle sei statistiche di un Aniimo ha [Potenziale Innato] e [Potenziale Acquisito].\n<style=Hint_BgL>[Potenziale Innato]</style> è fissato alla nascita e può essere aumentato solo con metodi speciali, come il Frutto Capacità.\n<style=Hint_BgL>[Potenziale Acquisito]</style> può essere aumentato con il Risveglio Capacità. Gli aumenti più elevati richiedono oggetti sempre più rari.\nLa <style=Hint_BgL>somma di Potenziale Innato e Potenziale Acquisito</style> non può superare <style=Hint_BgL>20</style>. Un Potenziale più alto produce incrementi di statistiche maggiori quando l'Aniimo sale di livello.\n2. Il numero di Risvegli Capacità disponibili per un Aniimo dipende dal suo stadio di crescita e livello. I risvegli non possono essere reimpostati, ma possono essere ereditati da un altro Aniimo della stessa famiglia.",
+      "new_it": "<style=Hint_BgL>Risveglia il Potenziale</style> consumando Astranite e altri oggetti per <style=Hint_BgL>aumentare</style> il <style=Hint_BgL>Potenziale Acquisito</style> dell’attributo selezionato di un Aniimo.\n1. Ognuno dei sei attributi di un Aniimo possiede [Potenziale Innato] e [Potenziale Acquisito].\n<style=Hint_BgL>[Potenziale Innato]</style> è stabilito alla nascita e può essere aumentato soltanto con metodi speciali, come il Frutto Springup.\n<style=Hint_BgL>[Potenziale Acquisito]</style> può essere aumentato tramite Risveglio Potenziale. Più l’attributo cresce, più rari saranno gli oggetti richiesti.\nLa <style=Hint_BgL>somma di Potenziale Innato e Potenziale Acquisito</style> non può superare <style=Hint_BgL>20</style>. Un Potenziale maggiore incrementa di più gli attributi quando l’Aniimo sale di livello.\n2. Il numero di Risvegli Potenziale disponibili per un Aniimo dipende dal suo stadio di crescita e dal suo livello. I risvegli non possono essere reimpostati, ma possono essere ereditati da un altro Aniimo della stessa famiglia.",
+      "reason": "Funzione, risorsa e Frutto Capacità sono cambiati in Risveglio Potenziale, Astranite e Frutto Springup."
+    },
+    {
+      "key": "1375952776",
+      "old_it": "〔Principale〕Deporre le armi \n〔Alternativa〕Cessare le ostilità",
+      "new_it": "Tamburo del Cessate il Fuoco",
+      "reason": "Le proposte verbali sono state sostituite dal nome di un oggetto."
+    },
+    {
+      "key": "1377926725",
+      "old_it": "Si usa nell'<style=Hint_BgL>Hatchinator dell'Avamposto</style> per garantire la schiusa di un Aniimo Forma Tempesta presente nell'evento Desideri del Weekend attuale.",
+      "new_it": "Si usa negli <style=Hint_BgL>Hatchinator dell'Avamposto</style> e farà schiudere un Aniimo Forma Nevaio apparso nell'evento Desideri del Weekend di questa stagione.",
+      "reason": "Forma cambiata da Tempesta a Nevaio e testo uniformato ai duplicati ufficiali."
+    },
+    {
+      "key": "1379535269",
+      "old_it": "Utilizzi di [Croce di fulmine]",
+      "new_it": "Usa [Croce di fulmine]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1383857653",
+      "old_it": "Probabilità di convergenza di Aniimo scintillanti notevolmente aumentata",
+      "new_it": "Gli Aniimo radunati hanno molte più probabilità di essere Scintillanti.",
+      "reason": "La vecchia formulazione sulla convergenza è stata sostituita dalla probabilità dei radunati."
+    },
+    {
+      "key": "1388813948",
+      "old_it": "Come suggerisce il nome, <style=Hint_BgD>rotola</style> e cattura in una volta sola ogni Aniimo sul suo percorso. \nUsarla durante un'Apparizione di Gruppo praticamente raddoppia i risultati con metà dello sforzo.",
+      "new_it": "Come suggerisce il nome, <style=Hint_BgD>rotola</style> e cattura in una volta sola ogni Aniimo sul suo percorso.\nDurante un Impeto Selvaggio rende tutto molto più semplice.",
+      "reason": "Evento rinominato e rimossa la vecchia promessa quantitativa sui risultati."
+    },
+    {
+      "key": "1394454878",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1395458427",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Azione e terminologia della funzione sono cambiate."
+    },
+    {
+      "key": "1396705190",
+      "old_it": "Utilizzi di [Fioriture vitali]",
+      "new_it": "Usa [Fioriture vitali]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1402250867",
+      "old_it": "Utilizzi di [Anima oscura]",
+      "new_it": "Usa [Anima oscura]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1402264075",
+      "old_it": "Stella Scintillante",
+      "new_it": "Perfetto",
+      "reason": "Tratto rinominato da Sparkling Star a Perfect."
+    },
+    {
+      "key": "1410000961",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1424751811",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome della funzione sostituito integralmente."
+    },
+    {
+      "key": "1426704716",
+      "old_it": "Invita in Modalità Compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Il comando Invita è stato sostituito dal nome della modalità."
+    },
+    {
+      "key": "1428708770",
+      "old_it": "Ottenuto partecipando all'evento Esplorazione Fenditure",
+      "new_it": "Acquistabile nel Negozio Esplorazione Fenditure usando la valuta corrispondente.",
+      "reason": "Metodo di ottenimento cambiato da partecipazione all’evento ad acquisto nel negozio."
+    },
+    {
+      "key": "1435219622",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome della funzione sostituito integralmente."
+    },
+    {
+      "key": "1435240215",
+      "old_it": "Un'antica moneta del tesoro custodito da Helgon, i cui motivi incisi brillano ancora dopo anni e possiedono il potere di benedire gli Aniimo.",
+      "new_it": "Un’antica moneta recuperata da un cumulo di tesori custodito da un Helgon. I motivi incisi brillano ancora dopo tanti anni. Possiede il potere di proteggere gli Aniimo.",
+      "reason": "Effetto cambiato da benedire a proteggere."
+    },
+    {
+      "key": "1440440687",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1441738726",
+      "old_it": "Data: Lun 7 Sol 7\nFonte: Analisi Sicurezza Sistema Avanzata\n\nAllarme d'emergenza: più Cubi Voxel hanno iniziato a vagare continuamente all'interno del Sistema, mostrando comportamenti di imitazione e apprendimento.\nDopo l'analisi, questi cubi sembrano portare una qualche forma di autocoscienza frammentata dal codice originale, e stanno tentando auto-comprensione ed esplorazione.\nIl Sistema ha rilevato che il comportamento di questi cubi sta diventando sempre più imprevedibile, e la loro esistenza ha già influenzato le normali funzioni del Sistema del campo di addestramento simulato.\n\nNota: abbiamo tracciato l'origine di questi cubi. Provengono da un programma di simulazione Aniimo mutato accidentalmente.\nQuesto programma era stato originariamente progettato per fornire compagnia e supporto emotivo agli umani, ma dopo la mutazione sembra aver acquisito una qualche forma di autocoscienza.\nSi raccomanda di isolare l'Area interessata ed eseguire scansione e pulizia complete.",
+      "new_it": "Data: 7 luglio\nFonte: analisi avanzata della sicurezza del sistema\n\nAllarme: diversi cubi voxel hanno iniziato a vagare nel sistema, mostrando comportamenti di imitazione e apprendimento.\nLe analisi indicano che questi cubi possiedono una coscienza autonoma separatasi dal codice originale e stanno tentando di apprendere ed esplorare.\nIl sistema rileva che il loro comportamento è sempre più imprevedibile e che stanno iniziando a influire sulle normali funzioni dell’Holo-Lab.\n\nNota: abbiamo individuato l’origine dei cubi. Provengono da un programma di simulazione Aniimo mutato.\nIl programma era stato progettato per offrire compagnia e sostegno emotivo agli esseri umani, ma dopo la mutazione ha inspiegabilmente sviluppato una coscienza autonoma.\nSi raccomanda di isolare tutte le aree interessate e di eseguire una scansione e una pulizia complete.",
+      "reason": "Data, struttura e riferimenti al sistema Holo-Lab sono stati riscritti sostanzialmente."
+    },
+    {
+      "key": "1444132440",
+      "old_it": "Le differenze uniche negli Attributi dei singoli Aniimo sono chiamate Potenziale Acquisito. Il Potenziale Acquisito manifesta gradualmente i suoi effetti man mano che il livello dell'Aniimo aumenta, riflettendosi negli Attributi attuali dell'Aniimo. Il Potenziale Acquisito può essere aumentato nutrendolo nella Piazza Animali.",
+      "new_it": "Ogni Aniimo possiede un proprio Potenziale. Salendo di livello, il Potenziale influirà gradualmente sui suoi attributi. Puoi aumentarlo nutrendo l’Aniimo nell’Habi-Cube.",
+      "reason": "Sistema semplificato e luogo cambiato da Piazza Animali a Habi-Cube."
+    },
+    {
+      "key": "1446902960",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1450859333",
+      "old_it": "Miglioramento Acquisito",
+      "new_it": "Potenziale Acquisito",
+      "reason": "Termine di sistema rinominato."
+    },
+    {
+      "key": "1451380411",
+      "old_it": "Un Aniipod raro che usa il rotolamento controllato per catturare Aniimo lungo il percorso con probabilità di cattura 2x, e 6x per gli Aniimo radunati tramite Vitalizzazione.",
+      "new_it": "Un Aniipod raro che sfrutta il rotolamento controllato per catturare gli Aniimo sul proprio percorso, con probabilità di cattura 1,5x e probabilità 3x per gli Aniimo radunati tramite Vitalizzazione.",
+      "reason": "Moltiplicatori ridotti da 2x/6x a 1,5x/3x."
+    },
+    {
+      "key": "1459242592",
+      "old_it": "Utilizzi di [Spezzabruciatura]",
+      "new_it": "Usa [Spezzabruciatura]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1459669804",
+      "old_it": "Bene, gli Aniimo in battaglia hanno recuperato la salute.",
+      "new_it": "Bene, ora tu e gli Aniimo schierati in combattimento siete completamente guariti.",
+      "reason": "Ora viene curato anche il giocatore."
+    },
+    {
+      "key": "1462578858",
+      "old_it": "Senior Lana, ci incontriamo di nuovo!",
+      "new_it": "Lana! Che piacere rivederti!",
+      "reason": "Il titolo Senior è stato rimosso e il saluto riscritto."
+    },
+    {
+      "key": "1464334879",
+      "old_it": "Esatto. Eliminare gli Aniimo nemici aumenta sensibilmente i tuoi danni, permettendoti di finire le battaglie più rapidamente.\nMa non è l'unica risposta. Dai un'altra occhiata alle altre opzioni.",
+      "new_it": "Esatto. Sconfiggere ripetutamente la stessa specie di Aniimo è uno dei metodi, e a quanto pare lo hai già provato. Ma è soltanto uno dei modi, non la risposta completa.",
+      "reason": "Risposta del quiz sostituita integralmente."
+    },
+    {
+      "key": "1464784172",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1466560175",
+      "old_it": "È vero, ottenere i Distintivi Collezione regionali aumenta la probabilità di successo della Cattura in quella regione.\nMa dovrebbe esserci più di una risposta. Dai un'occhiata alle altre opzioni.",
+      "new_it": "Sconfiggendo un Aniimo Alpha otterrai Ambra Lumin come ricompensa. Ma la domanda chiede cosa <style=Hint_BgD>non</style> la faccia ottenere: devi prestare più attenzione.",
+      "reason": "Risposta del quiz sostituita integralmente e negazione essenziale."
+    },
+    {
+      "key": "1466589421",
+      "old_it": "Dovresti aver già catturato alcuni Aniimo, ma forse non hai notato che ogni Aniimo è diverso. Tra loro, più l'Aniimo è Incredibile, più alto è il suo valore.",
+      "new_it": "Avrai già catturato qualche Aniimo. Ma hai notato che ogni esemplare è diverso dagli altri? Più un Aniimo è raro, maggiore è il suo valore.",
+      "reason": "Il vecchio grado Incredibile è stato sostituito dalla rarità generica."
+    },
+    {
+      "key": "1467940355",
+      "old_it": "Corretto. Dare priorità agli Aniimo nemici è una strategia di battaglia efficace che può migliorare molto le tue prestazioni in combattimento. Tienilo bene a mente.",
+      "new_it": "Esatto, esistono molti modi per potenziare l’Aniilog. Questa struttura incoraggia tutti a partecipare in modi diversi alla ricerca sull’ecosistema degli Aniimo.",
+      "reason": "Risposta del quiz sostituita integralmente."
+    },
+    {
+      "key": "1469138630",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1470010580",
+      "old_it": "Ricompense accesso giornaliero! L'incredibile Aniimo Fulmine \"Besauce\", un Uovo Aniimo Eccezionale e molto altro ti aspettano!",
+      "new_it": "Accedi ogni giorno per grandi ricompense! Ottieni il raro Aniimo di tipo Elettro “Besauce” e un Uovo Aniimo Eccezionale!",
+      "reason": "Rarità/elemento di Besauce e contenuto promozionale aggiornati."
+    },
+    {
+      "key": "1475026658",
+      "old_it": "Se riesci a farcela, aggiungerò anche qualche souvenir Sheepy come bonus!",
+      "new_it": "Se ci riesci, aggiungerò come bonus anche qualche souvenir dei Nimbi!",
+      "reason": "Sheepy è stato sostituito dal nome ufficiale Nimbi."
+    },
+    {
+      "key": "1480363442",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1484374775",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1489256458",
+      "old_it": "Cattura Aniimo.",
+      "new_it": "Seleziona un potenziamento di allenamento più adatto a questo Aniimo.",
+      "reason": "Obiettivo Cattura Aniimo sostituito integralmente."
+    },
+    {
+      "key": "1490230910",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1492721793",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1494143968",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1497190694",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1498869296",
+      "old_it": "Abbondante: gli Aniimo Prismana hanno un'alta probabilità di apparire.",
+      "new_it": "Gli Aniimo radunati hanno molte più probabilità di essere Scintillanti.",
+      "reason": "Condizione cambiata da comparsa Prismana a probabilità Scintillante nei raduni."
+    },
+    {
+      "key": "1507261874",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1510532842",
+      "old_it": "Utilizzi di [Baa-Baa Healbubb]",
+      "new_it": "Usa [Baa-Baa Healbubb]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1513888225",
+      "old_it": "Il limite massimo dei Talenti individuali degli Aniimo è 200, e il limite massimo dei Talenti Attributo singoli è 100. Assicurati di distribuire i Talenti con saggezza~ I Talenti possono essere aumentati con l'addestramento nel Paradiso Animali!",
+      "new_it": "La Crescita massima di ogni Aniimo è 200 e quella di ciascun attributo è 100. È importante distribuire correttamente i Punti Crescita. Puoi aumentare la Crescita facendo allenare l’Aniimo nell’Habi-Cube.",
+      "reason": "Talenti rinominati Crescita e luogo cambiato da Paradiso Animali a Habi-Cube."
+    },
+    {
+      "key": "1517061497",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1517708478",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1524497247",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1526200268",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome della funzione sostituito integralmente."
+    },
+    {
+      "key": "1533763414",
+      "old_it": "Ma dove sono finiti i miei Distintivi? All'Avamposto si conoscono tutti, non li prenderebbero. Strano...",
+      "new_it": "Ma dov'è il mio distintivo? Tutti gli abitanti e gli Aniimo dell'Avamposto sanno che è mio...",
+      "reason": "Il testo ora parla di un solo distintivo noto anche agli Aniimo."
+    },
+    {
+      "key": "1534268169",
+      "old_it": "Per continuare il blocco serve uno slot trasmoggabile.",
+      "new_it": "Per la Trasmutazione deve rimanere sbloccata almeno una parte!",
+      "reason": "Regola invertita: occorre lasciare una parte sbloccata."
+    },
+    {
+      "key": "1535332802",
+      "old_it": "Usi di [Onda di Luce Eterea]",
+      "new_it": "Usa [Onda di Luce Eterea]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1537276051",
+      "old_it": "Aspetta, tu sei... un umano, vero? Senior Lana!",
+      "new_it": "Aspetta... sei davvero una persona, vero? Lana?!",
+      "reason": "Il titolo Senior è stato rimosso."
+    },
+    {
+      "key": "1539379201",
+      "old_it": "Grossista di Congegni Holo",
+      "new_it": "Grossista di Congegni",
+      "reason": "Holo-gizmo è stato sostituito dal generico Gizmo."
+    },
+    {
+      "key": "1539990723",
+      "old_it": "Utilizzi di [Cavalcaonda]",
+      "new_it": "Usa [Cavalcaonda]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1541517753",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1544839639",
+      "old_it": "Utilizzi di [Raffica fantasma]",
+      "new_it": "Usa [Raffica fantasma]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1545204923",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1547027124",
+      "old_it": "YIMO",
+      "new_it": "Aniimo",
+      "reason": "Vecchio nome provvisorio sostituito dal nome ufficiale."
+    },
+    {
+      "key": "1548769002",
+      "old_it": "Cattura Aniimo diversi in ogni area per aumentare il tuo <style=Hint_BgL>Completamento Cattura Area</style>. Quando raggiunge <style=Hint_BgL>40%</style>, otterrai il Distintivo Collezione di quest'area.\n\n<style=Hint_BgL><color=#5090df><link=\"source_796\"><u>Alterna giorno e notte</u></link></color>, oppure aspetta che cambi il meteo, per scoprire altri Aniimo.</style>",
+      "new_it": "Ottieni punti ricerca per <link=\"help_115\"><color=#5090df><u>aumentare il livello dell’Aniilog</u></color></link>:\n· Sblocca un nuovo Aniimo: enorme quantità di punti ricerca\n· Sblocca una voce d’indagine: grande quantità di punti ricerca\n· Sblocca una forma speciale di un Aniimo: grande quantità di punti ricerca\n· Completa una voce di ricerca: piccola quantità di punti ricerca",
+      "reason": "Guida alla Cattura Area sostituita integralmente dalla progressione dell’Aniilog."
+    },
+    {
+      "key": "1549094649",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1549903554",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1552322386",
+      "old_it": "Miglioramento Acquisito",
+      "new_it": "Potenziale Acquisito",
+      "reason": "Termine di sistema rinominato."
+    },
+    {
+      "key": "1552495506",
+      "old_it": "Travolge il bersaglio, infliggendo Danni. Rimbalza a distanza di sicurezza dopo aver colpito il bersaglio.\nAvvolto nella Nebbia: i bersagli colpiti entrano in stato Rallentamento {0}, per {1} secondi.",
+      "new_it": "Carica il bersaglio con il corpo, infliggendo danni, quindi rimbalza a distanza di sicurezza.\nQuando è avvolto nella nebbia, i bersagli colpiti vengono rallentati del {0}% per {1} s.",
+      "reason": "Il valore di Rallentamento è ora esplicitamente percentuale."
+    },
+    {
+      "key": "1552495587",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1554488150",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1561525296",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1563368814",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1563718418",
+      "old_it": "Usi di [Spirito Indomito di Flameruff]",
+      "new_it": "Usa [Spirito Indomito di Flameruff]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1564147007",
+      "old_it": "Data: Lun 21, Sol\nFonte: Registro del personale di manutenzione del Sistema Campo di Addestramento Simulato\n\nIl Sistema Campo di Addestramento Simulato di Astra ha eseguito il normale aggiornamento automatico.\nÈ stato rilevato un evento di stato anomalo in un segmento di codice originariamente progettato per simulare la personalità degli Aniimo e offrire agli utenti compagnia e supporto emotivo.\nTuttavia, durante il processo di aggiornamento automatico, questo segmento di codice sembra aver subito insolite modifiche autonome.\nL'analisi preliminare indica l'emergere di una qualche forma di schema comportamentale autoapprendente all'interno del codice.\n\nNota: al momento non è stato osservato alcun effetto evidente; si raccomanda di continuare il monitoraggio.",
+      "new_it": "Data: 21 maggio\nFonte: registro di un addetto alla manutenzione dell’Holo-Lab\n\nIl sistema Holo-Lab di Astra stava eseguendo un aggiornamento automatico.\nUna sezione del codice ha manifestato un comportamento anomalo. Il codice era progettato per creare un Aniimo virtuale e offrire agli utenti compagnia e sostegno emotivo.\nPer una ragione sconosciuta, durante l’aggiornamento il codice si è modificato autonomamente.\nLe analisi preliminari indicano la comparsa di uno schema comportamentale capace di autoapprendimento.\n\nNota: finora non è stato rilevato alcun effetto concreto. Si raccomanda di continuare il monitoraggio.",
+      "reason": "Data e terminologia del Campo di Addestramento sono state sostituite dall’Holo-Lab."
+    },
+    {
+      "key": "1564205445",
+      "old_it": "Quando un Aniimo Erba sul campo viene colpito <style=Hint_BgL>1</style> volta, accelera il tempo di dispersione delle spore di <style=Hint_BgL><link=\"source_8020\"><u>[Nube di Spore]</u></link></style> di <style=Hint_BgL>1 secondo</style> e accelera il tempo del Gruppo Fioritura di <style=Hint_BgL><link=\"source_8021\"><u>[Fungo Bomba]</u></link></style> sul campo di <style=Hint_BgL>1</style> secondo, con un intervallo minimo di attivazione di 1 secondo.",
+      "new_it": "Quando un Aniimo di tipo Erba della squadra subisce danni, l’intervallo con cui la nube rilascia le spore e il tempo di crescita dei Funghi Bomba non ancora maturi sul campo si riducono entrambi di 1 secondo, fino a un intervallo minimo di 1 secondo.",
+      "reason": "Attivazione estesa alla squadra e meccanica dei due timer riscritta."
+    },
+    {
+      "key": "1571053026",
+      "old_it": "Ruota rapidamente in un calcio ampio, infliggendo danni ad area, aumentando l'area di danno del <style=Hint_BgL>50%</style> e attirando i bersagli vicini davanti a questo Aniimo. A segno, aumenta il tasso CRIT Fulmine della squadra di <style=Hint_BgL><customRichText(calcData,buff, 9147403,param0,1,%d)></style> per <style=Hint_BgL><customRichText(buffConfigData,9147403,duration)></style>s.",
+      "new_it": "Esegue rapidamente un Calcio Circolare Thomas, infliggendo danni ad area e attirando i bersagli vicini. Dopo aver colpito un bersaglio, aumenta la probabilità di CRIT dei Danni Elettro dell’intera squadra di <customRichText(calcData,buff, 9147403,param0,1)> per <style=Hint_BgL><customRichText(buffConfigData,9147403,duration)></style> s.",
+      "reason": "Rimossi il bonus area del 50% e il vecchio parametro; aggiunti nome della tecnica e tipo di danno."
+    },
+    {
+      "key": "1578079779",
+      "old_it": "Sfida dell'Acqua",
+      "new_it": "Allenamento Acqua",
+      "reason": "Nome attività cambiato da Sfida ad Allenamento."
+    },
+    {
+      "key": "1578608189",
+      "old_it": "Utilizzi di [Ombra di Irisalis]",
+      "new_it": "Usa [Ombra di Irisalis]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1585414668",
+      "old_it": "Utilizzi di [Contrattacco del Vento]",
+      "new_it": "Usa [Contrattacco del Vento]",
+      "reason": "La statistica sugli utilizzi è diventata un obiettivo imperativo."
+    },
+    {
+      "key": "1587922515",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "Il contatore nominale è diventato un comando operativo."
+    },
+    {
+      "key": "1592036484",
+      "old_it": "Non è la risposta giusta. Catturare Aniimo non ti farà ottenere Cristalli di Rugiada.\nRiflettici ancora un po' e riprova.",
+      "new_it": "Esatto: gli attributi degli Aniimo migliorano man mano che collezioni forme diverse.\nMa serve anche ad altro. Ripensaci.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "1592678692",
+      "old_it": "Shimmering Reverie insufficiente per la trasmogrificazione. Acquistarne altra?",
+      "new_it": "<color=#e49b43>Ombra di sogno radiosa</color> insufficiente per la trasmogrificazione. Acquistarne altra?",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1593054754",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1594362788",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1597703780",
+      "old_it": "Ottenuto dall'Ascensione:",
+      "new_it": "Ottenuto:",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1600640943",
+      "old_it": "Giorno di ricerca 566\nNote di: Profumiere Joss · Scuola Florifragrant\nUmore: felice\nAttività: assistenza nella coltivazione delle Whitesnow Rose\nRisultati: le tecniche comuni hanno fallito, ma la danza di Melloblum ha fatto sbocciare la Whitesnow Rose.\nNota: il germoglio miracoloso ha un nuovo nome: Whitesnow Rose.\n----\nGiorno di ricerca 910\nNote di: Profumiera Munisa · Scuola Florifragrant\nUmore: complicato\nAttività: sviluppo di un profumo leggendario dai sottoprodotti della Whitesnow Rose.\nRisultati: dopo innumerevoli tentativi e fallimenti, abbiamo sviluppato una ricetta con un'alta probabilità di successo.\nNote: Joss e io iniziamo a sentire la mancanza di casa. Dopo aver finito questo profumo, vorrei tornare ad Azureville.",
+      "new_it": "Giorno di ricerca 566\nNote di: Profumiere Joss · Scuola Florifragrant\nUmore: felice\nAttività: assistenza nella coltivazione delle Whitesnow Rose\nRisultati: le tecniche comuni hanno fallito, ma la danza di Melloblum ha fatto sbocciare la Whitesnow Rose.\nNota: il germoglio miracoloso ha un nuovo nome: Whitesnow Rose.\n----\nGiorno di ricerca 910\nNote di: Profumiera Marissa · Scuola Florifragrant\nUmore: complicato\nAttività: sviluppo di un profumo leggendario dai sottoprodotti della Whitesnow Rose.\nRisultati: dopo innumerevoli tentativi e fallimenti, abbiamo sviluppato una ricetta con un'alta probabilità di successo.\nNote: Joss e io iniziamo a sentire la mancanza di casa. Dopo aver finito questo profumo, vorrei tornare ad Azureville.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1604755620",
+      "old_it": "Indice: sblocca 20 tipi di Aniimo - segnaposto su due righe",
+      "new_it": "Sblocca 20 Aniimo nell'Aniilog",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1605457977",
+      "old_it": "L'evento Rally Settimanale Timbri è organizzato congiuntamente dal Polaris Institute e dalle principali imprese di Astra per onorare gli Esploratori che hanno dato contributi eccezionali all'esplorazione di Idyll.",
+      "new_it": "L'evento Corsa ai Timbri è organizzato congiuntamente dal Polaris Institute e dalle principali imprese di Astra per rendere omaggio agli Esploratori che hanno dato contributi eccezionali all'esplorazione di Idyll.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1607352418",
+      "old_it": "Il nucleo di un Aniimo con IA",
+      "new_it": "Il nucleo della coscienza artificiale Aimo. Equipaggiato come Oggetto Tenuto, protegge gli Aniimo e gli Esploratori.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1608728481",
+      "old_it": "Si usa nell'<style=Hint_BgL>Hatchinator dell'Avamposto</style> per garantire la schiusa di un Aniimo Forma Tempesta presente nell'evento Desideri del Weekend attuale.",
+      "new_it": "Si usa negli <style=Hint_BgL>Hatchinator dell'Avamposto</style> e farà schiudere un Aniimo Forma Nevaio apparso nell'evento Desideri del Weekend di questa stagione.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1610160779",
+      "old_it": "Ottenuto partecipando all'evento Esplorazione Fenditure",
+      "new_it": "Acquista dal Negozio Esplorazione Fenditure",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1614097355",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1614542261",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1619862658",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1620863805",
+      "old_it": "Nome Esploratore: 7 caratteri",
+      "new_it": "Nome Esploratore: 14 caratteri",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1622236924",
+      "old_it": "Margherita Starcap\nUna pianta della famiglia delle margherite. Le foglie sono verde brillante e a forma di cucchiaio. Fiori grandi quanto un pollice sbocciano su steli sottili.\nCresce in luoghi soleggiati e spesso produce fiori bianchi, rosa o gialli.\nLe Margherite Starcap sono molto robuste. Una volta piantate, resistono a lievi calpestii da parte degli Aniimo,\nil che le rende un buon sostituto dell'erba da prato.\n\nLoto dai Mille Petali\nUn fiore acquatico della famiglia del loto. Ha molti petali e una forma splendida. Cresce spesso accanto a popolazioni di Skippy.\nI semi e le radici hanno un sapore amaro e sono usati raramente nell'alimentazione umana, ma gli Aniimo d'Acqua li adorano.\nIn estate, i suoi rizomi vengono spesso trasformati in sacchetti, molto efficaci come repellente per insetti.\n\nErba Senza Dolore\nUn arbusto comune sui tetti alti di Bloomville. Ha scarso valore ornamentale, ma è il terzo ingrediente di profumeria più richiesto di Bloomville.\nL'Erba Senza Dolore non ha profumo proprio, ma il suo succo lavorato trattiene eccezionalmente bene le fragranze.\nUn fiore di iris mescolato con succo di Erba Senza Dolore può profumare persino più intensamente di un intero gruppo di iris.\nÈ chiamata Erba Senza Dolore perché ha alleviato molto le preoccupazioni dei profumieri sulla carenza di materie prime.\n...",
+      "new_it": "Crisantemo Stellato\nPianta della famiglia delle Asteraceae, con foglie verde brillante a forma di cucchiaio. I sottili steli producono fiori grandi all'incirca quanto un pollice.\nProspera in ambienti ben illuminati e presenta comunemente fiori bianchi, rosa e gialli.\nÈ una pianta resistente, capace di sopportare il lieve calpestio degli Aniimo,\nquindi rappresenta una valida alternativa all'erba da prato.\n\nPolylotus\nFiore acquatico della famiglia delle Ninfeacee, dai numerosi petali e dall'aspetto splendido. Cresce spesso nelle zone popolate dagli Skippy.\nI semi e le radici hanno un sapore amaro e vengono usati raramente nell'alimentazione umana, ma sono molto apprezzati dagli Aniimo d'Acqua.\nIn estate, i gambi vengono spesso trasformati in sacchetti profumati per tenere lontani gli insetti.\n\nGiglio Profumato\nArbusto diffuso sui tetti delle zone elevate di Bloomville. Nonostante l'aspetto poco appariscente, è il terzo ingrediente più usato nella produzione di spezie a Bloomville.\nIl Giglio Profumato è insapore, ma il suo succo lavorato possiede una notevole capacità di amplificare le fragranze.\nUn solo fiore di iris unito al succo di Giglio Profumato può sprigionare un aroma persino più intenso di un intero mazzo di iris.\nÈ chiamato Giglio Profumato perché è necessario per preparare quasi ogni tipo di profumo.\n...",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1625082459",
+      "old_it": "Fissando la Lana Kim, ti perdi a poco a poco nei pensieri...",
+      "new_it": "A guardare quella lana dorata mi incanto...",
+      "reason": "La nuova sorgente rende evidente un errore semantico nella resa italiana corrente."
+    },
+    {
+      "key": "1625327564",
+      "old_it": "Probabilità Scintillante aumentata per Aniimo accumulati",
+      "new_it": "Gli Aniimo raccolti hanno una probabilità di essere scintillanti.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1628355184",
+      "old_it": "Utilizzi di [Sfarfallio fantasma]",
+      "new_it": "Usa [Sfarfallio fantasma]",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1629932942",
+      "old_it": "Oscurità: CRIT aumentato di <customRichText(calcData,buff,5000902,param2,1,%d)>%, DAN CRIT aumentato di <customRichText(calcData,buff,5000902,param3,1,%d)>%, Aniimo Oscurità raddoppiati",
+      "new_it": "Oscurità: Tasso CRIT +<<customRichText(calcData,buff,5000902,param2,1,%d)>>%, DAN CRIT +<<customRichText(calcData,buff,5000902,param3,1,%d)>>%; effetti raddoppiati per gli Aniimo di elemento Oscurità",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1633889975",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1637686550",
+      "old_it": "No, no, anche la creazione nella Base non sembra produrre Cristalli di Rugiada.\nPensaci ancora.",
+      "new_it": "Esatto: gli Aniimo di forme diverse possiedono abilità differenti.\nCollezionarli sblocca altre abilità per le forme diverse, ma non è il loro unico scopo.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "1638433253",
+      "old_it": "Valay",
+      "new_it": "Wally",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1639636975",
+      "old_it": "Oggetto Tenuto Aniimo. L'Aniimo che lo porta ottiene l'effetto [Freddo da brividi].",
+      "new_it": "Oggetto per Aniimo. L'Aniimo che lo equipaggia ottiene l'effetto [Gelo pungente].",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1641477674",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1643936476",
+      "old_it": "Consegna Oggetti",
+      "new_it": "Oggetto missione",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1651767520",
+      "old_it": "Si usa nell'<style=Hint_BgL>Hatchinator dell'Avamposto</style> per garantire la schiusa di un Aniimo Forma Tempesta presente nell'evento Desideri del Weekend attuale.",
+      "new_it": "Si usa negli <style=Hint_BgL>Hatchinator dell'Avamposto</style> e farà schiudere un Aniimo Forma Nevaio apparso nell'evento Desideri del Weekend di questa stagione.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1656777500",
+      "old_it": "Organizza Attuale",
+      "new_it": "Ordina",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1661747083",
+      "old_it": "Ricompense Oggetto",
+      "new_it": "Ricompense",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1670967929",
+      "old_it": "Sconfiggi di nuovo Senior Valay e ottieni il distintivo: Fonte della Vita",
+      "new_it": "Sconfiggi di nuovo Wally Veterano e ottieni il distintivo: Sorgente della Vita",
+      "reason": "NPC rinominato, titolo Senior uniformato al glossario e distintivo reso coerente."
+    },
+    {
+      "key": "1675286041",
+      "old_it": "Il Potenziale Acquisito concentrato degli Aniimo raggiunge facilmente valori più alti",
+      "new_it": "Gli Aniimo raccolti hanno maggiori probabilità di avere un Potenziale più alto.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1676469298",
+      "old_it": "Sconfiggere Aniimo Alpha.",
+      "new_it": "Attendi che l'Aniimo muti.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1677512033",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1683226850",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1691375504",
+      "old_it": "Tocca <style=Hint_BgL>Profilo</style> per <style=Hint_BgL>scambiare Aniimo</style> con gli amici e scoprire la loro varietà!",
+      "new_it": "Seleziona il <style=Hint_BgL>Tesserino studente</style> per <style=Hint_BgL>scambiare Aniimo</style> con gli amici e scoprirne la varietà!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1692453504",
+      "old_it": "Dimensione commenti bullet",
+      "new_it": "Dimensione",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1700769967",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1701217531",
+      "old_it": "Perché niente \"Aniipod\" nel nome?",
+      "new_it": "Aspetta, non è un Aniipod?",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1703493306",
+      "old_it": "Comodo e Accogliente",
+      "new_it": "Equipaggiato!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1704362882",
+      "old_it": "Fatto, ho la testa piena di Uova...",
+      "new_it": "Fantastico! Ora non riesco a pensare ad altro che alle Uova Aniimo...",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1705809277",
+      "old_it": "Visualizza Distribuzione",
+      "new_it": "Habitat",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1707068884",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1710532515",
+      "old_it": "L'Anima Epica nasce dalla reazione tra la forza vitale che si dissolve e l'energia della Vena quando l'<style=Hint_BgL>Aniimo</style> che custodisce il <style=Hint_BgL>Santuario Perduto</style> viene sconfitto.",
+      "new_it": "Si forma nei luoghi ricchi di energia della Vena quando un Aniimo muore, condensandone la forza vitale residua con l'energia della Vena.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1718977518",
+      "old_it": "Meteora",
+      "new_it": "Stella",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1721123394",
+      "old_it": "Ora acquisizione",
+      "new_it": "Data ottenimento",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1730983343",
+      "old_it": "Ottieni oggetto: Spina Elettrica",
+      "new_it": "Ottieni oggetto: Anima Fulminous",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1733153360",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1734508436",
+      "old_it": "Esatto. Equipaggiare Oggetti Tenuti di qualità più alta è un modo per migliorare il tuo assetto.\nMa non è l'unica risposta. Pensa a cos'altro puoi fare.",
+      "new_it": "Esatto: colleziona più Aniimo possibile e riceverai delle ricompense.\nChissà, un giorno potrebbe persino arrivare uno Sherro in Forma Prismana.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "1734541859",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1734737241",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1738404152",
+      "old_it": "Congratulazioni, Avventuriero! Manutenzione completata con successo!",
+      "new_it": "Congratulazioni, Viandante! Manutenzione completata con successo!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1747540293",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1755667278",
+      "old_it": "Sconfiggere Aniimo Alpha.",
+      "new_it": "Sconfiggi il boss Aniimo",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1757290968",
+      "old_it": "Gli Aniimo scoperti saranno mostrati nel Manuale di ricerca\nFai clic per visualizzare le informazioni dettagliate sugli Aniimo",
+      "new_it": "Tutti gli Aniimo scoperti sono registrati nell'Aniilog. Ora apri le [<style=Hint_BgL>Schede Aniimo</style>]!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1757631750",
+      "old_it": "Durante la battaglia, Magmarex applica continuamente un <style=Hint_BgL>Malus Fuoco</style> agli Esploratori vicini e <style=Hint_BgL>stordisce</style> quelli lontani. Quando infligge BREAK a un Esploratore, passa a Scorchhowl e usa <style=Hint_BgL>Cinderblast</style>.",
+      "new_it": "Durante la battaglia, Magmarex applica continuamente un <style=Hint_BgL>Malus Fuoco</style> agli Esploratori vicini e <style=Hint_BgL>stordisce</style> quelli lontani. Quando infligge BREAK a un Esploratore, passa a Scorchhowl e usa <style=Hint_BgL>Spezzabruciatura</style>.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1760393461",
+      "old_it": "Arretra rapidamente, lasciando un Marchio di Gelo nella posizione originale. Quando un bersaglio tocca il marchio, attiva un'esplosione, infliggendo Danni e applicando Rallentamento del {0}% per {1} secondi.",
+      "new_it": "Arretra rapidamente, lasciando un Marchio di Ghiaccio nella posizione iniziale. Quando un bersaglio entra in contatto con il marchio, questo esplode, infliggendo danni e applicando un Rallentamento del {0}% per {1}s.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1761330838",
+      "old_it": "Il Potenziale Acquisito concentrato degli Aniimo raggiunge facilmente valori più alti",
+      "new_it": "Gli Aniimo raccolti hanno maggiori probabilità di avere un Potenziale più alto.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1762738053",
+      "old_it": "Stella Scintillante",
+      "new_it": "Perfetto",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1768128623",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1768646839",
+      "old_it": "Un'IA autocosciente nata dal sistema olografico.",
+      "new_it": "Coscienza artificiale generata dal sistema Holo-Lab per assistere gli Allenatori. Contiene una copia dei dati di tutti gli Aniimo della Simulazione di Battaglia Holo e protegge l'Aniimo che la equipaggia.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1770382162",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1770504874",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1772805193",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1773304650",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1778145769",
+      "old_it": "Comodo e Accogliente",
+      "new_it": "Equipaggiato!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1783909603",
+      "old_it": "Un'IA autocosciente nata dal sistema olografico.",
+      "new_it": "Coscienza artificiale generata dal sistema Holo-Lab per assistere gli Allenatori. Contiene una copia dei dati di tutti gli Aniimo della Simulazione di Battaglia Holo e protegge l'Aniimo che la equipaggia.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1796966793",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1800261609",
+      "old_it": "Congratulazioni per aver completato il programma di Addestramento Elite. Ora hai una comprensione di base di questo mondo.\n\nIdyll è un mondo bellissimo ma pericoloso, e gli Aniimo che lo abitano hanno abitudini diverse.\nCompletare il programma significa che hai viaggiato abbastanza lontano e visto molte meraviglie.\nOra hai tutto ciò che serve per iniziare la vera avventura.\nSpero che un giorno potrai unirti a me per un paio di drink speciali e raccontarmi le storie delle tue avventure.\n\nAccetta queste ricompense dall'Istituto: considerale un acconto sulle storie che racconterai.",
+      "new_it": "Congratulazioni per aver completato il programma di Addestramento Principale. Ora possiedi le conoscenze di base di questo mondo.\n\nIdyll è un mondo bellissimo ma pericoloso, e gli Aniimo che lo abitano hanno abitudini diverse.\nAver completato il programma significa che hai viaggiato lontano e assistito a molte meraviglie.\nOra sei pronto a iniziare la vera avventura, mio talentuoso Esploratore.\nSpero che un giorno verrai a bere qualcosa di speciale con me e mi racconterai le tue avventure.\n\nAccetta queste ricompense dell'Istituto: considerale un anticipo sulle storie che mi racconterai.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1804462640",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1808268783",
+      "old_it": "Giusto, comunque l'istruttore mi ha già parlato della guida e della valutazione. Da ora in poi, se hai problemi, vieni pure da me.",
+      "new_it": "Comunque, il Dr. Lewis mi ha parlato della tua lezione e della tua valutazione. D'ora in poi, se ti serve qualcosa, chiedi pure a me!",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1813114834",
+      "old_it": "Info personalizzazione Aspetto Aniimo\nLe parti personalizzabili includono: colore, ali, corpo, copricapo ed effetti speciali\nPuoi usare gli oggetti <color=#e49b43>Ombra di sogno radiosa</color> e <color=#b767e1>Ombra errante scintillante</color> per personalizzare l'Aspetto di un Aniimo",
+      "new_it": "Guida alla trasmogrificazione degli Aniimo\nLe parti trasmogrificabili includono: Colore, Ali, Corpo, Copricapo ed Effetti.\nUsa gli oggetti <color=#e49b43>Ombra di sogno radiosa</color> e <color=#b767e1>Ombra errante scintillante</color> per modificare l'aspetto del tuo Aniimo.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1821753365",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1834834489",
+      "old_it": "...Hai ragione. Ogni Aniimo è diverso. Non dovrei giudicare i miei partner secondo i miei “standard”.",
+      "new_it": "Hai ragione. Ogni Aniimo è unico: non dovrei pretendere che i miei amici facciano ciò che ritengo giusto.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1835148452",
+      "old_it": "Durante l'evento, dopo aver eseguito Vitalizzazione e attivato un fenomeno di Apparizione di Gruppo, la probabilità di comparsa degli Aniimo Stadio Nova aumenterà notevolmente.",
+      "new_it": "Durante l'evento, la probabilità di incontrare Aniimo scintillanti mentre si vitalizza l'ecosistema aumenta notevolmente.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1836268338",
+      "old_it": "È deciso! La prossima primavera devo entrare nel Polaris Institute! Così potrò vivere avventure con Mary, allevare Aniimo insieme a lei e vivere la vita che ho sempre sognato. Solo immaginarlo mi entusiasma!",
+      "new_it": "Ho deciso. La prossima primavera entrerò al Polaris Institute, così potrò esplorare e addestrare gli Aniimo insieme a Marie. Sogno da tanto una vita del genere: è davvero emozionante!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1846122257",
+      "old_it": "L'Aniimo di poco fa non era trasformato da un frammento di maschera. Una potente forza respingente mi ha spinto a forza nella realtà...",
+      "new_it": "Quell'Aniimo non è nato da un Frammento di Maschera: lo spazio dei ricordi mi ha espulso con una forza repulsiva travolgente...",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1855726284",
+      "old_it": "Catturare Aniimo durante le Apparizioni di Gruppo aumenta l'Energia Prismatica di quest'area. Lo stato di Energia Prismatica dell'area influisce sulla probabilità che compaiano Aniimo Prismana dopo la fine dell'Apparizione di Gruppo:",
+      "new_it": "Gli Aniimo raccolti hanno una probabilità di essere scintillanti.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1857270925",
+      "old_it": "Offri incenso",
+      "new_it": "Offri spezia",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1859495212",
+      "old_it": "Quando non attacchi con un elemento vantaggioso, i danni finali aumentano del <style=Hint_BgL>20%</style>.\nLanciare un'abilità o una Suprema conferisce <style=Hint_BgL>4</style> cariche di <style=Hint_BgL>[Marchio Luna Argento]</style>. Ogni colpo di attacco base consuma <style=Hint_BgL>1</style> carica, infligge <style=Hint_BgL><customRichText(calcData,buff, 2137102,param0,1,%d)>%</style> danni extra e ripristina <style=Hint_BgL><customRichText(calcData,buff, 2137102,param1,1,%.1f)>%</style> PV.",
+      "new_it": "Quando non attacchi con un elemento vantaggioso, i danni finali aumentano del <style=Hint_BgL>30%</style>.\nLanciare un'abilità o una Suprema conferisce <style=Hint_BgL>4</style> cariche di <style=Hint_BgL>[Marchio Luna Argento]</style>. Ogni colpo di attacco base consuma <style=Hint_BgL>1</style> carica, infligge <style=Hint_BgL><customRichText(calcData,buff, 2137102,param0,1,%d)>%</style> danni extra e ripristina <style=Hint_BgL><customRichText(calcData,buff, 2137102,param1,1,%.1f)>%</style> PV.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1859890146",
+      "old_it": "Cattura o evolvi per la prima volta per ottenere Gachapus",
+      "new_it": "Cattura 20 Aniimo della famiglia Malangel",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1861950172",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1866428010",
+      "old_it": "Esatto. Completare le missioni storia è un modo per salire di livello rapidamente.\nMa non è l'unica risposta. Dai un'altra occhiata alle altre opzioni.",
+      "new_it": "Sì, sia segnalare gli Aniimo sia sbloccare voci di ricerca conferisce esperienza al personaggio.\nMa non è l'unica risposta corretta: rileggi le altre opzioni.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "1868274389",
+      "old_it": "Ho perso di vista il mio amico!",
+      "new_it": "Ho perso la mia amica Nicole!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1881181104",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1882846079",
+      "old_it": "Prima cattura di Popapus",
+      "new_it": "Cattura un Popapus per la prima volta (passa alla notte)",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1882886908",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1889344284",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1889468843",
+      "old_it": "Esatto. Una volta sconfitto un Aniimo nemico, non potrà agire temporaneamente.\nMa non è l'unica risposta. Dai un'altra occhiata alle altre opzioni.",
+      "new_it": "Mmh, l'idea di fotografare gli Aniimo per sbloccarne i tratti è venuta a Bohr.\nPuò sicuramente migliorare l'Aniilog, ma esistono anche altri metodi.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "1895424507",
+      "old_it": "Oggetto Tenuto Aniimo. L'Aniimo che lo tiene ottiene l'effetto [Spina Spietata].",
+      "new_it": "Oggetto per Aniimo. L'Aniimo che lo equipaggia ottiene l'effetto [Spina spietata].",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1896054486",
+      "old_it": "I Talenti sono valori di attributo associati all'Addestramento Aniimo. I Talenti manifesteranno gradualmente i loro effetti man mano che l'Aniimo sale di livello, riflettendosi negli Attributi attuali dell'Aniimo. I Talenti possono essere migliorati con l'addestramento nel Paradiso Animali.",
+      "new_it": "La Crescita è fondamentale nell'addestramento di un Aniimo. Man mano che sale di livello, la Crescita incide sempre di più sui suoi attributi. Puoi aumentarla facendo allenare l'Aniimo in un Habi-cubo.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1899652734",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1903051455",
+      "old_it": "Non è proprio corretto. Il tuo partner ha vantaggi unici.\nMa non è la scelta più adatta per questo assetto. Vedi se un'altra opzione funziona meglio.",
+      "new_it": "Esatto: la vitalizzazione aumenta la probabilità che compaiano Aniimo scintillanti.\nMa non serve a ottenere Irisalis.\nBene, prossima domanda.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "1903210646",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1909063787",
+      "old_it": "Sfida di nuovo Senior Valay: manderà in campo Aniimo ancora più potenti e combatterà con tutte le sue forze! Sconfiggilo e ti assegnerà un <style=Hint_BgL>Distintivo</style> come riconoscimento.",
+      "new_it": "Sfida di nuovo Wally Veterano: manderà in campo Aniimo ancora più potenti e combatterà con tutte le sue forze! Sconfiggilo e ti assegnerà un <style=Hint_BgL>Distintivo</style> come riconoscimento.",
+      "reason": "NPC rinominato e titolo Senior uniformato al glossario."
+    },
+    {
+      "key": "1910774526",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1914531640",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1935417356",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1938340434",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1939587930",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1944186445",
+      "old_it": "L'Anima Leggendaria nasce dalla reazione tra la forza vitale che si dissolve e l'energia della Vena quando l'<style=Hint_BgL>Aniimo</style> che custodisce il <style=Hint_BgL>Santuario Perduto</style> viene sconfitto.",
+      "new_it": "Si forma nei luoghi ricchi di energia della Vena quando un Aniimo muore, condensandone la forza vitale residua con l'energia della Vena.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1947240111",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1960647992",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1969031045",
+      "old_it": "...Avrei dovuto pensarci prima! Usando le fiamme di un Aniimo si può raggiungere la temperatura necessaria all'innesco! Ah, ora anche il problema dell'accensione è risolto. A quanto pare la mia invenzione geniale non è un qualche combustibile, ma una potentissima [#cd89c28Polvere Magica#z].\n\nGuarda che potenza: una trave di porta così robusta è crollata in un istante. Se fosse piazzata sotto un [#cd89c28camino#z], probabilmente potrebbe sparare qualcuno fino in cielo! Riesco già a immaginare la gente che la usa per aprirsi un varco tra le montagne e frantumare la Roccia. Che emozione!\n\nI prossimi problemi da risolvere sono i metodi di conservazione e la stabilità. Devo trovare un Aniimo che possa aiutarmi con esperimenti ripetuti. Oltre a Sparki, forse ci sono altre opzioni? In ogni caso, è ora di partire.",
+      "new_it": "...Avrei dovuto pensarci! Le fiamme degli Aniimo raggiungono la temperatura necessaria! Il problema dell'innesco è risolto: la mia invenzione non è un combustibile, bensì una potentissima [#cd89c28polvere da sparo magica#z].\n\nVisto? Ha abbattuto una trave robusta come se niente fosse! Se la mettessi sotto un [#cd89c28camino#z], lancerebbe sicuramente una persona fin lassù! Immagino già la gente usarla per aprirsi un varco tra le montagne e frantumare le rocce!\n\nRestano solo i problemi di conservazione e stabilità. Devo trovare un Aniimo che mi aiuti negli esperimenti. Forse esistono alternative a Sparki? Comunque, è ora di partire.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1971359929",
+      "old_it": "Possiedi 1 Aniimo con Risonanza grado 3.",
+      "new_it": "Possiedi 1 Aniimo con Risonanza allo Stadio 3.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "1974234848",
+      "old_it": "Organizza Tutto",
+      "new_it": "Ordina tutto",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1975956866",
+      "old_it": "<color=#da8000>Ottieni oggetto: Spina Elettrica</color>Evolvibile. Il fulmine si condensa in spuntoni a lama inversa.",
+      "new_it": "<color=#da8000>Ottieni oggetto: Anima Fulminous</color>Evolvibile. Il fulmine si condensa in spuntoni a lama inversa.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "1976056675",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1977787458",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "1979747723",
+      "old_it": "Data: Lun 6, Sol 18\nFonte: Rapporto di Stato Anomalo del Sistema Campo di Addestramento Simulato\n\nSono stati rilevati più Cubi Voxel generati autonomamente all'interno del Sistema.\nQuesti cubi stanno aumentando gradualmente di numero e possiedono un certo grado di mobilità.\nAncora più sorprendente, sembrano esserci segni di una qualche forma di connessione e comunicazione tra questi cubi.\nLa valutazione preliminare indica che questi cubi sono generati in modo anomalo dal codice che simula gli Aniimo, ma il loro comportamento supera le aspettative.\nServono ulteriori Note sul Campo sul meccanismo di generazione di questi cubi e sul fatto che possano avere un impatto negativo sulla stabilità del Sistema Campo di Addestramento Simulato.",
+      "new_it": "Data: 18 giugno\nFonte: rapporto sul malfunzionamento del sistema Holo-Lab\n\nNel sistema sono stati rilevati diversi cubi voxelici generati automaticamente.\nIl loro numero continua ad aumentare e sembrano in grado di muoversi.\nAncora più sorprendente, i cubi sembrano comunicare tra loro.\nUna prima analisi indica che siano stati generati dalla sezione di codice di simulazione degli Aniimo, sebbene non fossero previsti dal progetto.\nSono necessarie ulteriori indagini per capire come siano comparsi e se possano compromettere la stabilità del sistema Holo-Lab.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1981627164",
+      "old_it": "Ottenuto dall'Ascensione:",
+      "new_it": "Ottenuto:",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "1999194417",
+      "old_it": "No. Insegnami tu, Senior!",
+      "new_it": "No. Insegnami tu, Lana!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2000064757",
+      "old_it": "<style=Hint_BgL>Mentre esplori il mondo</style>, puoi <style=Hint_BgL>trovare uova lasciate da diversi Aniimo. Mettile nell'<style=Hint_BgL>Hatchinator dell'Avamposto</style> per schiuderle. Le uova di qualità più alta richiedono più tempo per schiudersi. Dopo la schiusa, riceverai un Aniimo del tipo corrispondente. C'è persino una <style=Hint_BgL>piccola probabilità</style> di far schiudere un raro Aniimo <style=Hint_BgL>scintillante</style>!",
+      "new_it": "<style=Hint_BgL>Esplorando il mondo</style>, puoi <style=Hint_BgL>trovare le uova lasciate dagli Aniimo</style>. Falle schiudere usando l'<style=Hint_BgL>Hatchinator dell'accampamento</style>: le uova di qualità superiore richiedono più tempo. Alla schiusa otterrai l'Aniimo corrispondente, con una <style=Hint_BgL>piccolissima probabilità</style> che sia un raro Aniimo <style=Hint_BgL>splendente</style>!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2003793171",
+      "old_it": "+{0} ESP Pass",
+      "new_it": "+{0}",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2016306500",
+      "old_it": "0.229166666666667",
+      "new_it": "5 ore e 30 minuti",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2020784304",
+      "old_it": "Utilizzi di [Bubbles]",
+      "new_it": "Usa [Bolle]",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2023686669",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2026024370",
+      "old_it": "Jawling Magico",
+      "new_it": "Jawling Straordinario",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2028351167",
+      "old_it": "Materiali <style=Q2_5>Leggendari</style> e inferiori",
+      "new_it": "Materiali <style=Q2_5>Dorati</style> e inferiori",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2037515660",
+      "old_it": "Corretto: dopo aver mandato in BREAK un Aniimo nemico puoi eseguire una Cattura Rapida, rendendo la Cattura più efficiente.\nMa dovrebbe esserci più di una risposta: guardiamo le altre opzioni.",
+      "new_it": "Sì, catturare Aniimo è uno dei modi per migliorare l'Aniilog.\nMa esistono anche altri metodi.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "2038550047",
+      "old_it": "Il contenuto di ricerca {0} ora vale <sprite name=\"ui_item_1006_small\">{1}.",
+      "new_it": "Punti Ricerca totali in {0}: <sprite name=\"ui_item_1006_small\">{1}",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2038589049",
+      "old_it": "Cattura o evolvi per la prima volta per ottenere Glameep",
+      "new_it": "Cattura 20 Aniimo della famiglia Eko",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2040658544",
+      "old_it": "Gli Aniimo scoperti saranno mostrati nel Manuale di ricerca\nFai clic per visualizzare le informazioni dettagliate sugli Aniimo",
+      "new_it": "Tutti gli Aniimo scoperti sono registrati nell'Aniilog. Ora apri le [<style=Hint_BgL>Schede Aniimo</style>]!",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2040814061",
+      "old_it": "L'Anima Leggendaria nasce dalla reazione tra la forza vitale che si dissolve e l'energia della Vena quando l'<style=Hint_BgL>Aniimo</style> che custodisce il <style=Hint_BgL>Santuario Perduto</style> viene sconfitto.",
+      "new_it": "Si forma nei luoghi ricchi di energia della Vena quando un Aniimo potente muore, unendo la sua forza vitale residua all'energia della Vena.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "2046957206",
+      "old_it": "Vuoto: gli Aniimo Prismana hanno una probabilità estremamente bassa di apparire.",
+      "new_it": "Probabilità di incontrare Aniimo in forme speciali durante condizioni meteo e Flussi particolari.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2048552363",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2050475836",
+      "old_it": "Ritorno del 1800%",
+      "new_it": "1800%",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2058795485",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2059077111",
+      "old_it": "Cattura o evolvi Coraliz per la prima volta",
+      "new_it": "Cattura 20 Aniimo della famiglia Reefish",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2062457972",
+      "old_it": "Molto alta: gli Aniimo Prismana hanno una probabilità estremamente alta di apparire.",
+      "new_it": "Alta probabilità di incontrare Aniimo in forme speciali durante condizioni meteo e Flussi particolari.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2063149444",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2066669534",
+      "old_it": "Si usa nell'<style=Hint_BgL>Hatchinator dell'Avamposto</style>. Garantisce la schiusa di un Aniimo Forma Tempesta presente nell'evento Preghiere del Weekend attuale.",
+      "new_it": "Si usa negli <style=Hint_BgL>Hatchinator dell'Avamposto</style> e farà schiudere un Aniimo Forma Nevaio apparso nell'evento Desideri del Weekend di questa stagione.",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2067516363",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2068548026",
+      "old_it": "Ottenuto dall'Ascensione:",
+      "new_it": "Ottenuto:",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "2073496784",
+      "old_it": "Luce: RIGEN aumentata del <customRichText(calcData,buff,5000901,param0,1,%d)>%, raddoppiata per Aniimo Erba",
+      "new_it": "Luce: recupero energia +<customRichText(calcData,buff,5000901,param0,1,%d)>%; effetto raddoppiato per gli Aniimo di elemento Erba",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2073969700",
+      "old_it": "Palla di neve con Fentuft (fuggirà)",
+      "new_it": "Palla di neve che nasconde l'Aniimo Fahloo (scapperà!)",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2078547257",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2080007417",
+      "old_it": "Uno per ogni forma",
+      "new_it": "Forma Adattiva",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2088720432",
+      "old_it": "Moderata: gli Aniimo Prismana hanno una discreta probabilità di apparire.",
+      "new_it": "Gli Aniimo raccolti hanno maggiori probabilità di avere un Potenziale più alto.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2089462097",
+      "old_it": "Lo Sherro Alpha concentra periodicamente l'elemento Acqua per creare una spada gigantesca e scatenare un'onda ad ampio raggio: fai attenzione e schivala. Anche <style=Hint_BgL>usare un Aniimo con resistenza elementale per assorbire i danni dello Sherro</style> è una strategia efficace.",
+      "new_it": "Omega Sherro può concentrare l'acqua in una spada gigantesca e sferrare un attacco ad area. Puoi schivarlo oppure <style=Hint_BgL>usare un Aniimo resistente all'elemento Acqua per incassare i danni</style>.",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2092920892",
+      "old_it": "Può cambiare l'Aspetto delle ali di un Aniimo\n<color=#4c94e9>Rara: Iris in Prima Fioritura</color>\n<color=#b767e1>Eccezionale: Set \"Bagliore Floreale\", Set \"Fantasma Spina d'Ombra\"</color>\n<color=#e49b43>Leggendaria: Set \"Rosa del Sole radioso\", Set \"Chiaro di Luna Gemma Stellare\"</color>",
+      "new_it": "Modifica l'aspetto delle ali del tuo Aniimo.\n<color=#4c94e9>Raro: Iris alla Prima Fioritura</color>\n<color=#b767e1>Epico: set [Bagliore Floreale], set [Fantasma Spina d'Ombra]</color>\n<color=#e49b43>Leggendario: set [Rosa Fiamma Solare], set [Chiaro di Luna Fiore Stellato]</color>",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2096270817",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2099618547",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2100251734",
+      "old_it": "Termina rapporto",
+      "new_it": "Invia",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2100828596",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2101675598",
+      "old_it": "Risveglio Capacità",
+      "new_it": "Risveglia Potenziale",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2102456434",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2104564814",
+      "old_it": "Usa %s <sprite name=\"ui_item_2_small\"> per azzerare i punti capacità assegnati a questo Aniimo. Dopo l'azzeramento, verrà restituito il 100%% dei Punti Capacità. Vedi sotto:",
+      "new_it": "Puoi spendere %s <sprite name=\"ui_item_2_small\"> per azzerare il Potenziale Acquisito potenziato di un Aniimo di livello 60 o inferiore. Dopo l'azzeramento, verrà restituito il 100%% degli oggetti utilizzati, come segue:",
+      "reason": "La nuova sorgente modifica una meccanica, un valore o una condizione di gioco."
+    },
+    {
+      "key": "2107250206",
+      "old_it": "Corsi Obbligatori",
+      "new_it": "Corsi Core",
+      "reason": "Nome, obiettivo o terminologia ufficiale aggiornati dalla nuova sorgente."
+    },
+    {
+      "key": "2113101928",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2115532349",
+      "old_it": "Esatto. Ottenendo Distintivi Collezione regionali, sbloccherai la funzione Vitalizzazione.\nMa non è l'unica risposta. Dai un'altra occhiata alle altre opzioni.",
+      "new_it": "Catturare Aniimo offre molti vantaggi, ma questo non è uno di quelli.\nRipensaci.",
+      "reason": "La nuova sorgente cambia sostanzialmente la risposta o la spiegazione del quiz."
+    },
+    {
+      "key": "2116226014",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2118562951",
+      "old_it": "Il nucleo di un Aniimo con IA",
+      "new_it": "Il nucleo della coscienza artificiale Aimo. Equipaggiato come oggetto da un Aniimo, protegge gli Esploratori.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "2119117182",
+      "old_it": "L'Anima Epica nasce dalla reazione tra la forza vitale che si dissolve e l'energia della Vena quando l'<style=Hint_BgL>Aniimo</style> che custodisce il <style=Hint_BgL>Santuario Perduto</style> viene sconfitto.",
+      "new_it": "Si forma nei luoghi ricchi di energia della Vena quando un Aniimo muore, condensandone la forza vitale residua con l'energia della Vena.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    },
+    {
+      "key": "2132072128",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2133357086",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2134962625",
+      "old_it": "Supreme usate",
+      "new_it": "Usa Suprema",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2141635741",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2142448882",
+      "old_it": "Utilizzi Abilità",
+      "new_it": "Usa abilità",
+      "reason": "La nuova voce è un comando, non un conteggio degli utilizzi."
+    },
+    {
+      "key": "2143997050",
+      "old_it": "<style=Hint_BgD>“Gli opposti creano eternità nel loro scontro,”</style> disse Fira.",
+      "new_it": "<style=Hint_BgD>“Dall'armonia e dal contrasto nasce uno splendore eterno”</style>, come diceva Fira.",
+      "reason": "La nuova sorgente modifica sostanzialmente il contenuto della voce."
+    }
+  ],
+  "additional_changes": [
+    {
+      "key": "1165913324",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1322975928",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1347275289",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1660792554",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1716687634",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1822177383",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1950827990",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "2120348834",
+      "old_it": "Modalità compagno",
+      "new_it": "Modalità Compagno",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1175292551",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1206941048",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1430556806",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1507094537",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1734180959",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1756372380",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1758106413",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1829992278",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1866209829",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "1891574758",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    },
+    {
+      "key": "2066886302",
+      "old_it": "ricompense",
+      "new_it": "Ricompense",
+      "reason": "Etichetta UI uniformata alla maiuscola funzionale dell'originale."
+    }
+  ],
+  "date_patch_compatible": {
+    "chapter_original_matches": 1,
+    "chapter_italian_matches": 0,
+    "shared_original_matches": 1,
+    "shared_italian_matches": 0
+  }
+}
