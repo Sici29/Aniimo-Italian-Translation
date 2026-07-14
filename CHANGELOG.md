@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.16 Beta - 2026-07-14
+
+- Aggiunto il supporto verificato alla build Aniimo `3053563` usando l'installazione reale aggiornata da Pawprint.
+- Integrate tutte le 45 nuove chiavi ufficiali, corrispondenti a 9 testi sorgente unici: copertura aggiornata a 93.029 / 93.029 senza chiavi rimosse o fallback inglesi.
+- Tradotte le nuove descrizioni delle Uova Aniimo Prismana e scintillanti, dei materiali, delle squadre e delle missioni d'indagine del Polaris Institute.
+- Aggiornate 5 sorgenti inglesi modificate dal gioco: 4 traduzioni italiane sono state riscritte per il nuovo significato e una correzione grammaticale inglese non ha richiesto modifiche all'italiano.
+- Confermata la compatibilità byte per byte di tutti i formattatori data `GG/MM/AAAA` su entrambi gli archivi Lua e delle unità italiane `h/m/s` nei metadati runtime.
+- Rilevato e verificato il nuovo bundle font della build `3053563`, mantenendo il reindirizzamento dello slot English al font vietnamita compatibile con tutti gli accenti italiani.
+- Aggiornati fingerprint, hash dell'overlay Lua ufficiale, manifest di compatibilità e test di regressione per impedire installazioni incomplete su build future non verificate.
+
 ## 0.3.15 Beta - 2026-07-13
 
 - Corretto definitivamente il formato delle date dinamiche visibili: capitoli missione, schermata `Astra Era`, posta, album, dettagli foto, registro attività e pannelli evento ora usano `GG/MM/AAAA`.

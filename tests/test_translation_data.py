@@ -23,6 +23,7 @@ DASH_AUDIT_V0313 = ROOT / "data" / "dash_audit_v0.3.13.json"
 TOPONYM_AUDIT_V0313 = ROOT / "data" / "toponym_audit_v0.3.13.json"
 TOPONYM_FACILITY_AUDIT_V0313 = ROOT / "data" / "toponym_facility_audit_v0.3.13.json"
 GAME_UPDATE_AUDIT_V0314 = ROOT / "data" / "game_update_audit_v0.3.14.json"
+GAME_UPDATE_AUDIT_V0316 = ROOT / "data" / "game_update_audit_v0.3.16.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -36,7 +37,7 @@ class TranslationDataTests(unittest.TestCase):
         cls.production = load_rows(PRODUCTION_CSV)
 
     def test_master_has_expected_structure(self) -> None:
-        self.assertEqual(92_984, len(self.production))
+        self.assertEqual(93_029, len(self.production))
 
     def test_sea_of_flowers_form_is_localized_and_compact(self) -> None:
         matches = [row for row in self.production if row["source_en"] == "Sea of Flowers Form"]
@@ -847,6 +848,8 @@ class TranslationDataTests(unittest.TestCase):
 
     def test_v0314_game_update_audit_is_fully_applied(self) -> None:
         audit = json.loads(GAME_UPDATE_AUDIT_V0314.read_text(encoding="utf-8"))
+        later_audit = json.loads(GAME_UPDATE_AUDIT_V0316.read_text(encoding="utf-8"))
+        later_changes = {entry["key"]: entry for entry in later_audit["source_changes"]}
         by_key = {row["key"]: row for row in self.production}
 
         self.assertEqual(3048640, audit["game_update"])
@@ -861,8 +864,11 @@ class TranslationDataTests(unittest.TestCase):
 
         for entry in audit["new_entries"]:
             row = by_key[entry["key"]]
-            self.assertEqual(entry["source_en"], row["source_en"], entry["key"])
-            self.assertEqual(entry["it"], row["it"], entry["key"])
+            later = later_changes.get(entry["key"])
+            expected_source = later["new_source_en"] if later else entry["source_en"]
+            expected_it = later["new_it"] if later else entry["it"]
+            self.assertEqual(expected_source, row["source_en"], entry["key"])
+            self.assertEqual(expected_it, row["it"], entry["key"])
             self.assertIn("game_update_3048640_new", row["note"].split(";"))
 
         for group, marker in (
@@ -871,7 +877,9 @@ class TranslationDataTests(unittest.TestCase):
         ):
             for entry in group:
                 row = by_key[entry["key"]]
-                self.assertEqual(entry["new_it"], row["it"], entry["key"])
+                later = later_changes.get(entry["key"])
+                expected_it = later["new_it"] if later else entry["new_it"]
+                self.assertEqual(expected_it, row["it"], entry["key"])
                 self.assertIn(marker, row["note"].split(";"), entry["key"])
 
         self.assertEqual(
@@ -883,6 +891,50 @@ class TranslationDataTests(unittest.TestCase):
             },
             audit["date_patch_compatible"],
         )
+
+    def test_v0316_game_update_audit_is_fully_applied(self) -> None:
+        audit = json.loads(GAME_UPDATE_AUDIT_V0316.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(3053563, audit["game_update"])
+        self.assertEqual(92_984, audit["previous_key_count"])
+        self.assertEqual(93_029, audit["key_count"])
+        self.assertEqual(
+            "3ab71d88b66c52d71d14d789e8d0137e1bd2ecdb7396b02f3a186c503a9f4a45",
+            audit["key_sha256"],
+        )
+        self.assertEqual(45, audit["added_keys"])
+        self.assertEqual(9, audit["unique_added_sources"])
+        self.assertEqual(0, audit["removed_keys"])
+        self.assertEqual(5, audit["refreshed_english_sources"])
+        self.assertEqual(4, audit["semantic_italian_revisions"])
+        self.assertEqual(1, audit["source_only_refreshes"])
+
+        for entry in audit["new_entries"]:
+            row = by_key[entry["key"]]
+            self.assertEqual(entry["source_en"], row["source_en"], entry["key"])
+            self.assertEqual(entry["it"], row["it"], entry["key"])
+            self.assertIn("game_update_3053563_new", row["note"].split(";"))
+
+        for entry in audit["source_changes"]:
+            row = by_key[entry["key"]]
+            self.assertEqual(entry["new_source_en"], row["source_en"], entry["key"])
+            self.assertEqual(entry["new_it"], row["it"], entry["key"])
+            marker = (
+                "game_update_3053563_revised"
+                if entry["translation_changed"]
+                else "game_update_3053563_source_refresh"
+            )
+            self.assertIn(marker, row["note"].split(";"), entry["key"])
+
+        self.assertEqual(2, len(audit["archives"]))
+        self.assertTrue(all(row["date_patch_compatible"] for row in audit["archives"]))
+        self.assertFalse(audit["archives"][0]["dates_already_italian"])
+        self.assertTrue(audit["archives"][1]["dates_already_italian"])
+        self.assertTrue(audit["countdown"]["already_italian"])
+        self.assertTrue(audit["countdown"]["patch_compatible"])
+        self.assertEqual("c3aa9ce8cbbd8c1c6f9a26b09d202ad9", audit["font"]["bundle_hash"])
+        self.assertTrue(audit["font"]["english_uses_vietnamese"])
 
 
 if __name__ == "__main__":

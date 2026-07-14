@@ -87,10 +87,10 @@ Documenti\AniimoItalianTranslation\backups
 
 ## Stato della traduzione
 
-- Copertura: **92.984 / 92.984 chiavi**.
-- Versioni del gioco verificate: **3032670**, **3036569** e **3048640**.
+- Copertura: **93.029 / 93.029 chiavi**.
+- Versioni del gioco verificate: **3032670**, **3036569**, **3048640** e **3053563**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.15 beta**.
+- Versione della traduzione: **0.3.16 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -121,6 +121,9 @@ Documenti\AniimoItalianTranslation\backups
 - Installer v0.3.15: rileva, salva e corregge indipendentemente sia l'overlay Lua dell'hot update sia l'archivio base/fallback, verificandoli dopo la copia e mantenendo compatibili i vecchi backup.
 - Timer v0.3.15: il conto alla rovescia delle card del negozio non mostra più unità cinesi come `15分0秒`, ma il formato compatto `15 m 0 s`.
 - Correzioni v0.3.15: `Gratis` resta su una sola riga nelle card strette e Jilly dice correttamente `Sono impressionata`.
+- Compatibilità v0.3.16: verificata la build **3053563** sull'installazione reale. Integrate tutte le 45 nuove chiavi, equivalenti a 9 testi unici, e aggiornate le 5 sorgenti inglesi modificate dal gioco.
+- Revisione v0.3.16: tradotte le nuove descrizioni di Uova Aniimo, Aniimo Prismana, materiali, squadre e missioni d'indagine; corrette le quattro traduzioni il cui significato ufficiale è cambiato.
+- Font v0.3.16: riconosciuto il nuovo bundle della build `3053563` e verificato nuovamente il reindirizzamento dello slot English al font con accenti italiani completi.
 
 La verifica non si limita a controllare che ogni chiave abbia un valore: confronta numero e fingerprint delle chiavi con la build realmente verificata. Nelle versioni precedenti l'installer recuperava anche 359 voci significative che lo slot English esponeva come `0`; dalla build 3048640 quei testi sono finalmente presenti nell'English ufficiale.
 

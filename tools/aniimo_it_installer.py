@@ -124,6 +124,7 @@ FONT_CACHE_RELS = (
     Path(r"worldx_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\CacheBundleFiles"),
 )
 FONT_BUNDLE_HASHES = (
+    "c3aa9ce8cbbd8c1c6f9a26b09d202ad9",  # hot update 3053563
     "e7d36f54529f2284a0d49f91b851242f",  # hot update 3036569
     "1407a625504745c29c260cd06d634e8c",  # base package 3032670
 )

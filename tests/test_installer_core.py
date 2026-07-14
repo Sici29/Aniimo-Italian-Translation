@@ -68,6 +68,16 @@ class BuildMapAndBinTests(unittest.TestCase):
             bundle.write_bytes(b"bundle")
             self.assertEqual(installer.find_font_bundle(game), bundle)
 
+    def test_3053563_font_bundle_is_supported(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            game = Path(temp_dir)
+            digest = "c3aa9ce8cbbd8c1c6f9a26b09d202ad9"
+            bundle = game / installer.FONT_CACHE_RELS[0] / digest[:2] / digest / "cdata.uab"
+            bundle.parent.mkdir(parents=True)
+            bundle.write_bytes(b"bundle")
+            self.assertIn(digest, installer.FONT_BUNDLE_HASHES)
+            self.assertEqual(installer.find_font_bundle(game), bundle)
+
     def test_recovered_english_fallbacks_are_marked_as_translated(self) -> None:
         raw = json.dumps([10, 20]).encode("utf-8")
         updated, added = installer.mark_english_fallbacks_as_translated(

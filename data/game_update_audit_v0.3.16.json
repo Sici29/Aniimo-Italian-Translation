@@ -1,0 +1,372 @@
+{
+  "version": "0.3.16-beta",
+  "game_update": 3053563,
+  "observed_local_digest": "9f98d07072c84de5ecff4110d7ce1d0f",
+  "revision_authority": "Digest diagnostico del verlist; la compatibilità è verificata tramite versione pacchetto, fingerprint delle chiavi e hash dell'overlay Lua ufficiale.",
+  "previous_key_count": 92984,
+  "key_count": 93029,
+  "key_sha256": "3ab71d88b66c52d71d14d789e8d0137e1bd2ecdb7396b02f3a186c503a9f4a45",
+  "added_keys": 45,
+  "unique_added_sources": 9,
+  "removed_keys": 0,
+  "refreshed_english_sources": 5,
+  "semantic_italian_revisions": 4,
+  "source_only_refreshes": 1,
+  "font": {
+    "bundle_hash": "c3aa9ce8cbbd8c1c6f9a26b09d202ad9",
+    "official_size": 1760928,
+    "official_sha256": "075246577bce3abe0ae16f8f826cb38b9c43d6c188cd06e5a8c236765a9e859c",
+    "patched_size": 1767724,
+    "patched_sha256": "2133bf8cf257eeee3eacf6aeb06d7039d6126416bc40e0503d0f5af1f352d789",
+    "english_uses_vietnamese": true
+  },
+  "archives": [
+    {
+      "path": "F:\\Pawprint\\Aniimo\\game\\Aniimo_Data\\cvs\\res\\lua\\LuaScripts.xdf",
+      "size": 74837700,
+      "sha256": "767ead7b4362079be7b291f8f7fa063a7da0b02e2d30cbf60e8ded184355ba58",
+      "entry_count": 5406,
+      "locales": [
+        "en",
+        "ja",
+        "ja_JP",
+        "ko",
+        "ko_KR",
+        "ru_RU",
+        "vi_VN",
+        "zh_CN",
+        "zh_TW"
+      ],
+      "locale_counts": {
+        "en": 93029,
+        "ja": 83402,
+        "ja_JP": 93029,
+        "ko": 83429,
+        "ko_KR": 93029,
+        "ru_RU": 93029,
+        "vi_VN": 93029,
+        "zh_CN": 93037,
+        "zh_TW": 93029
+      },
+      "dates_already_italian": false,
+      "date_patch_compatible": true,
+      "date_error": null
+    },
+    {
+      "path": "F:\\Pawprint\\Aniimo\\game\\Aniimo_Data\\StreamingAssets\\cvs\\res\\lua\\LuaScripts.xdf",
+      "size": 75430219,
+      "sha256": "d42041d7c2c4660f36bbd13ddedacbc172d54069f295ab599f2321ce60831df9",
+      "entry_count": 5398,
+      "locales": [
+        "en",
+        "ja",
+        "ja_JP",
+        "ko",
+        "ko_KR",
+        "ru_RU",
+        "vi_VN",
+        "zh_CN",
+        "zh_TW"
+      ],
+      "locale_counts": {
+        "en": 92822,
+        "ja": 83402,
+        "ja_JP": 92822,
+        "ko": 83429,
+        "ko_KR": 92918,
+        "ru_RU": 92822,
+        "vi_VN": 92918,
+        "zh_CN": 92904,
+        "zh_TW": 92918
+      },
+      "dates_already_italian": true,
+      "date_patch_compatible": true,
+      "date_error": null
+    }
+  ],
+  "countdown": {
+    "metadata_path": "F:\\Pawprint\\Aniimo\\game\\Aniimo_Data\\il2cpp_data\\Metadata\\global-metadata.dat",
+    "size": 23378280,
+    "sha256": "dfd6b764978664474f73211634be9c9f21595057c2bbca1fdd5ca4e5962000a5",
+    "cjk_pattern_count": 0,
+    "italian_pattern_count": 1,
+    "already_italian": true,
+    "patch_compatible": true,
+    "would_change": false,
+    "error": null
+  },
+  "new_entries": [
+    {
+      "key": "1102478660",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1111956336",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1157293513",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1182482169",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1186947927",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1239368926",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1278709365",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1287599037",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1301190365",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1317846411",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1321245981",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1343211088",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1357430674",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1397073071",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1427074823",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1443196165",
+      "source_en": "Unable to join. Team is full.",
+      "it": "Impossibile unirsi: la squadra è al completo."
+    },
+    {
+      "key": "1466805996",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1501801072",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1506054339",
+      "source_en": "Special Material",
+      "it": "Materiale Speciale"
+    },
+    {
+      "key": "1507972172",
+      "source_en": "This Aniimo Egg can hatch a rare <style=Hint_BgL>Sparkling Aniimo</style>. Use an <style=Hint_BgL>Aniipod Ultra</style> to boost its Potential.",
+      "it": "Da questo Uovo Aniimo può nascere un raro <style=Hint_BgL>Aniimo scintillante</style>. Usa un <style=Hint_BgL>Aniipod Ultra</style> per aumentarne il Potenziale."
+    },
+    {
+      "key": "1616421587",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1627580496",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1630200527",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1636643320",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1641508524",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1662711342",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1728175387",
+      "source_en": "Area {0}",
+      "it": "Area {0}"
+    },
+    {
+      "key": "1731727537",
+      "source_en": "1. The Polaris Institute will provide you with real-time bonus effects during searches based on your investigation quest progress in the Research Center.",
+      "it": "1. Il Polaris Institute fornirà bonus in tempo reale durante le ricerche in base ai progressi nelle missioni d'indagine presso il Centro Ricerca."
+    },
+    {
+      "key": "1737469330",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1749103030",
+      "source_en": "1. You’ll receive corresponding rewards upon completing investigation quests issued by the Polaris Institute.",
+      "it": "1. Completa le missioni d'indagine assegnate dal Polaris Institute per ricevere le relative ricompense."
+    },
+    {
+      "key": "1771399178",
+      "source_en": "My Initial Design",
+      "it": "Il Mio Progetto Iniziale"
+    },
+    {
+      "key": "1783755189",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1827468686",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1943232128",
+      "source_en": "1. The Polaris Institute will provide you with real-time bonus effects during searches based on your investigation quest progress in the Research Center.",
+      "it": "1. Il Polaris Institute fornirà bonus in tempo reale durante le ricerche in base ai progressi nelle missioni d'indagine presso il Centro Ricerca."
+    },
+    {
+      "key": "1952416455",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1965223624",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1983087009",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "1985336810",
+      "source_en": "1. You’ll receive corresponding rewards upon completing investigation quests issued by the Polaris Institute.",
+      "it": "1. Completa le missioni d'indagine assegnate dal Polaris Institute per ricevere le relative ricompense."
+    },
+    {
+      "key": "1992398181",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "2024630800",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "2040776533",
+      "source_en": "1. You’ll receive corresponding rewards upon completing investigation quests issued by the Polaris Institute.",
+      "it": "1. Completa le missioni d'indagine assegnate dal Polaris Institute per ricevere le relative ricompense."
+    },
+    {
+      "key": "2041771476",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    },
+    {
+      "key": "2073557682",
+      "source_en": "Standard Material",
+      "it": "Materiale Standard"
+    },
+    {
+      "key": "2081649008",
+      "source_en": "1. The Polaris Institute will provide you with real-time bonus effects during searches based on your investigation quest progress in the Research Center.",
+      "it": "1. Il Polaris Institute fornirà bonus in tempo reale durante le ricerche in base ai progressi nelle missioni d'indagine presso il Centro Ricerca."
+    },
+    {
+      "key": "2138717770",
+      "source_en": "This Aniimo Egg can hatch an extremely rare <style=Hint_BgL>Prismana Aniimo</style>. A <style=Hint_BgL>Sparkling Cube</style> is highly recommended!",
+      "it": "Da questo Uovo Aniimo può nascere un rarissimo <style=Hint_BgL>Aniimo Prismana</style>. Si consiglia vivamente di usare un <style=Hint_BgL>Cubo Scintillante</style>!"
+    }
+  ],
+  "source_changes": [
+    {
+      "key": "1835417967",
+      "old_source_en": "While she sleeps, I uses scales to shield her with a barrier, just like the one at the entrance to Lumenfly Valley.",
+      "new_source_en": "While she sleeps, I use scales to shield her with a barrier, just like the one at the entrance to Lumenfly Valley.",
+      "old_it": "Mentre dorme, uso le scaglie per proteggerla con una barriera, proprio come quella all'ingresso di Lumenfly Valley.",
+      "new_it": "Mentre dorme, uso le scaglie per proteggerla con una barriera, proprio come quella all'ingresso di Lumenfly Valley.",
+      "reason": "Correzione grammaticale della sola sorgente inglese; l'italiano resta valido.",
+      "translation_changed": false
+    },
+    {
+      "key": "1903051455",
+      "old_source_en": "Correct, cultivation increases the chance of spawning sparkling Aniimo.\nBut it doesn’t help if you want to get an Irisalis.\nOk, next question.",
+      "new_source_en": "That’s not quite right. Your partner has its own unique advantages.\nBut it isn’t the most suitable choice for this setup. See if another option fits better.",
+      "old_it": "Esatto: la vitalizzazione aumenta la probabilità che compaiano Aniimo scintillanti.\nMa non serve a ottenere Irisalis.\nBene, prossima domanda.",
+      "new_it": "Non è proprio così. Il tuo compagno possiede vantaggi unici.\nMa non è la scelta più adatta a questa configurazione. Prova a vedere se un'altra opzione funziona meglio.",
+      "reason": "Il testo ufficiale è stato sostituito completamente con un feedback sulla scelta del compagno.",
+      "translation_changed": true
+    },
+    {
+      "key": "1956616762",
+      "old_source_en": "The Prismana Sigil is a precious special offering. When used during nurturing, the gathered Prismatic Energy has a higher chance of attracting special hidden Prismana Aniimo.",
+      "new_source_en": "Prismana Sigils are exceptionally precious offerings. When used during ecosystem nurturing, the Prismatic Energy generated when you catch Aniimo from the corresponding Wild Surge will be converted in a unique way. Instead of affecting the current area’s Prismana status, it will gather in a mysterious shared space beyond any one area, and the more Prismatic Energy gathers there, the higher the chance of attracting special hidden Prismana Aniimo.",
+      "old_it": "Il Sigillo Prismana è una preziosa offerta speciale. Quando viene usato durante la Vitalizzazione, l'Energia Prismatica raccolta ha una probabilità più alta di attirare speciali Aniimo Prismana nascosti.",
+      "new_it": "I Sigilli Prismana sono offerte eccezionalmente preziose. Quando vengono usati durante la vitalizzazione dell'ecosistema, l'Energia Prismatica generata catturando Aniimo nel corrispondente Impeto Selvaggio viene convertita in modo speciale. Anziché influire sullo stato Prismana dell'area attuale, confluisce in un misterioso spazio condiviso che trascende le singole aree. Più Energia Prismatica vi si accumula, maggiore sarà la probabilità di attirare speciali Aniimo Prismana nascosti.",
+      "reason": "Descrizione estesa aggiornata al nuovo funzionamento condiviso dell'Energia Prismatica.",
+      "translation_changed": true
+    },
+    {
+      "key": "1256119465",
+      "old_source_en": "Add Friends",
+      "new_source_en": "Add Friend",
+      "old_it": "Aggiungi Amici",
+      "new_it": "Aggiungi Amico",
+      "reason": "Etichetta aggiornata al singolare, coerente con la nuova sorgente.",
+      "translation_changed": true
+    },
+    {
+      "key": "1593720613",
+      "old_source_en": "Empty NPC - Used for interaction hooks",
+      "new_source_en": "Empty NPC - Interaction Placeholder",
+      "old_it": "NPC vuoto - Usato come punto d'aggancio per le interazioni",
+      "new_it": "NPC vuoto - Segnaposto per le interazioni",
+      "reason": "Descrizione tecnica aggiornata al nuovo significato di interaction placeholder.",
+      "translation_changed": true
+    }
+  ]
+}
