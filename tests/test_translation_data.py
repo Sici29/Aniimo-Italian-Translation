@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 from collections import Counter
+import hashlib
 import json
 import re
 import unittest
@@ -24,6 +25,7 @@ TOPONYM_AUDIT_V0313 = ROOT / "data" / "toponym_audit_v0.3.13.json"
 TOPONYM_FACILITY_AUDIT_V0313 = ROOT / "data" / "toponym_facility_audit_v0.3.13.json"
 GAME_UPDATE_AUDIT_V0314 = ROOT / "data" / "game_update_audit_v0.3.14.json"
 GAME_UPDATE_AUDIT_V0316 = ROOT / "data" / "game_update_audit_v0.3.16.json"
+GAME_UPDATE_AUDIT_V0317 = ROOT / "data" / "game_update_audit_v0.3.17.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -513,7 +515,12 @@ class TranslationDataTests(unittest.TestCase):
                 self.assertTrue(
                     any(
                         note.startswith(
-                            ("review_v0.3.12_", "review_v0.3.13_", "game_update_3048640_")
+                            (
+                                "review_v0.3.12_",
+                                "review_v0.3.13_",
+                                "game_update_3048640_",
+                                "game_update_3062823_",
+                            )
                         )
                         for note in row["note"].split(";")
                     ),
@@ -729,7 +736,13 @@ class TranslationDataTests(unittest.TestCase):
                 self.assertTrue(
                     "review_v0.3.12_post_editorial" in row["note"].split(";")
                     or any(
-                        note.startswith(("review_v0.3.13_", "game_update_3048640_"))
+                        note.startswith(
+                            (
+                                "review_v0.3.13_",
+                                "game_update_3048640_",
+                                "game_update_3062823_",
+                            )
+                        )
                         for note in row["note"].split(";")
                     ),
                     key,
@@ -864,6 +877,8 @@ class TranslationDataTests(unittest.TestCase):
 
         for entry in audit["new_entries"]:
             row = by_key[entry["key"]]
+            if "game_update_3062823_reviewed" in row["note"].split(";"):
+                continue
             later = later_changes.get(entry["key"])
             expected_source = later["new_source_en"] if later else entry["source_en"]
             expected_it = later["new_it"] if later else entry["it"]
@@ -877,6 +892,8 @@ class TranslationDataTests(unittest.TestCase):
         ):
             for entry in group:
                 row = by_key[entry["key"]]
+                if "game_update_3062823_reviewed" in row["note"].split(";"):
+                    continue
                 later = later_changes.get(entry["key"])
                 expected_it = later["new_it"] if later else entry["new_it"]
                 self.assertEqual(expected_it, row["it"], entry["key"])
@@ -912,6 +929,8 @@ class TranslationDataTests(unittest.TestCase):
 
         for entry in audit["new_entries"]:
             row = by_key[entry["key"]]
+            if "game_update_3062823_reviewed" in row["note"].split(";"):
+                continue
             self.assertEqual(entry["source_en"], row["source_en"], entry["key"])
             self.assertEqual(entry["it"], row["it"], entry["key"])
             self.assertIn("game_update_3053563_new", row["note"].split(";"))
@@ -935,6 +954,32 @@ class TranslationDataTests(unittest.TestCase):
         self.assertTrue(audit["countdown"]["patch_compatible"])
         self.assertEqual("c3aa9ce8cbbd8c1c6f9a26b09d202ad9", audit["font"]["bundle_hash"])
         self.assertTrue(audit["font"]["english_uses_vietnamese"])
+
+    def test_v0317_game_update_audit_is_fully_applied(self) -> None:
+        audit = json.loads(GAME_UPDATE_AUDIT_V0317.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in self.production}
+
+        self.assertEqual(3062823, audit["game_build"])
+        self.assertEqual(93_029, audit["total_keys"])
+        self.assertEqual(2, len(audit["added_keys"]))
+        self.assertEqual(2, len(audit["removed_keys"]))
+        self.assertEqual(28, len(audit["changed_keys"]))
+        self.assertEqual(
+            set(audit["added_keys"]) | set(audit["changed_keys"]),
+            {entry["key"] for entry in audit["verified_entries"]},
+        )
+
+        marker = audit["review_marker"]
+        for entry in audit["verified_entries"]:
+            row = by_key[entry["key"]]
+            source_sha256 = hashlib.sha256(row["source_en"].encode("utf-8")).hexdigest()
+            italian_sha256 = hashlib.sha256(row["it"].encode("utf-8")).hexdigest()
+            self.assertEqual(entry["source_sha256"], source_sha256, entry["key"])
+            self.assertEqual(entry["it_sha256"], italian_sha256, entry["key"])
+            self.assertIn(marker, row["note"].split(";"), entry["key"])
+
+        for key in audit["removed_keys"]:
+            self.assertNotIn(key, by_key)
 
 
 if __name__ == "__main__":

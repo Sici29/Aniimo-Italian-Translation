@@ -206,6 +206,19 @@ def sha256_keys(keys: list[str]) -> str:
     return hashlib.sha256("\n".join(sorted(keys)).encode("utf-8")).hexdigest()
 
 
+def sha256_keyed_text(values: dict[str, str]) -> str:
+    """Return an unambiguous fingerprint for a key-to-text mapping."""
+    digest = hashlib.sha256()
+    for key in sorted(values):
+        key_bytes = key.encode("utf-8")
+        text_bytes = values[key].encode("utf-8")
+        digest.update(len(key_bytes).to_bytes(4, "little"))
+        digest.update(key_bytes)
+        digest.update(len(text_bytes).to_bytes(8, "little"))
+        digest.update(text_bytes)
+    return digest.hexdigest()
+
+
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
@@ -373,18 +386,31 @@ def translation_csv_for_slot(slot: str) -> Path:
     return DATA_DIR / "translation_it.csv"
 
 
-def load_translations(slot: str | None = None) -> dict[str, str]:
+def load_translation_catalog(slot: str | None = None) -> dict[str, dict[str, str]]:
     csv_path = translation_csv_for_slot(slot or default_target_language_slot())
     if not csv_path.exists():
         raise FileNotFoundError(f"Missing translation file: {csv_path}")
-    translations: dict[str, str] = {}
+    catalog: dict[str, dict[str, str]] = {}
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
         for row in csv.DictReader(f):
             key = (row.get("key") or "").strip()
-            text = row.get("it") or ""
-            if key and text:
-                translations[key] = text
-    return translations
+            if not key:
+                continue
+            if key in catalog:
+                raise ValueError(f"Duplicate translation key: {key}")
+            catalog[key] = {
+                "source_en": row.get("source_en") or "",
+                "it": row.get("it") or "",
+            }
+    return catalog
+
+
+def load_translations(slot: str | None = None) -> dict[str, str]:
+    return {
+        key: row["it"]
+        for key, row in load_translation_catalog(slot).items()
+        if row["it"]
+    }
 
 
 def recovered_english_fallback_keys() -> list[str]:
@@ -852,17 +878,11 @@ def detect_translation_installation(game_dir: Path) -> dict:
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, english_records, _ = load_language(zf, "en")
     archives = iter_lua_archives(paths)
-    date_italian = all(archive_dates_are_italian(archive) for archive in archives)
-    metadata_path = game_dir / COUNTDOWN_METADATA_REL
-    try:
-        countdown_italian = countdown_units_are_italian(metadata_path.read_bytes())
-    except OSError:
-        countdown_italian = False
+    technical = technical_compatibility_status(paths)
+    date_italian = technical["date_italian"]
+    countdown_italian = technical["countdown_italian"]
     result = translation_match_status(english_records, load_translations("en"))
-    try:
-        font_accented = english_uses_vietnamese_font(find_font_bundle(game_dir))
-    except (FileNotFoundError, OSError, RuntimeError, ValueError):
-        font_accented = False
+    font_accented = technical["font_accented"]
     result["font_accented"] = font_accented
     result["date_italian"] = date_italian
     result["countdown_italian"] = countdown_italian
@@ -880,25 +900,157 @@ def detect_translation_installation(game_dir: Path) -> dict:
     result["texts_supported"] = compatibility["supported"]
     result["key_count"] = compatibility["key_count"]
     result["key_sha256"] = compatibility["key_sha256"]
+    result["text_compatibility_mode"] = compatibility["mode"]
+    result["unknown_text_count"] = compatibility["unknown_text_count"]
+    result["current_content_sha256"] = compatibility["current_content_sha256"]
+    result["technical_resources_supported"] = technical["supported"]
+    result["technical_compatibility_issues"] = technical["issues"]
+    result["resources_supported"] = compatibility["supported"] and technical["supported"]
     return result
 
 
-def check_supported(source_records: list[dict], force: bool) -> dict:
-    manifest = local_manifest()
-    keys = [r["key"] for r in source_records]
-    current = {
+def classify_text_resources(
+    source_records: list[dict],
+    catalog: dict[str, dict[str, str]] | None = None,
+    manifest: dict | None = None,
+) -> dict:
+    """Classify the live English slot by keys and actual text contents.
+
+    A game build number is only informational: an unseen build is safe when its
+    localization data is byte-for-byte equivalent to either the known official
+    English source, the bundled Italian translation, or a mix of the two.  A
+    mostly Italian archive is also accepted so an older installed translation
+    can upgrade itself after editorial changes in a newer installer.
+    """
+    catalog = catalog if catalog is not None else load_translation_catalog("en")
+    manifest = manifest if manifest is not None else local_manifest()
+
+    keys = [str(record["key"]) for record in source_records]
+    current_by_key = {str(record["key"]): str(record["text"]) for record in source_records}
+    catalog_keys = list(catalog)
+    seen_keys: set[str] = set()
+    duplicate_keys: list[str] = []
+    for key in keys:
+        if key in seen_keys:
+            duplicate_keys.append(key)
+        else:
+            seen_keys.add(key)
+    duplicate_keys = sorted(set(duplicate_keys))
+
+    current_key_sha256 = sha256_keys(keys)
+    catalog_key_sha256 = sha256_keys(catalog_keys)
+    expected_key_count = manifest.get("known_source_key_count")
+    expected_key_sha256 = manifest.get("known_source_key_sha256")
+    keys_match_catalog = (
+        not duplicate_keys
+        and len(keys) == len(catalog_keys)
+        and current_key_sha256 == catalog_key_sha256
+    )
+    catalog_matches_manifest = (
+        len(catalog_keys) == expected_key_count
+        and catalog_key_sha256 == expected_key_sha256
+    )
+
+    official_by_key = {key: str(row.get("source_en") or "") for key, row in catalog.items()}
+    italian_by_key = {key: str(row.get("it") or "") for key, row in catalog.items()}
+    current_content_sha256 = sha256_keyed_text(current_by_key)
+    official_content_sha256 = sha256_keyed_text(official_by_key)
+    italian_content_sha256 = sha256_keyed_text(italian_by_key)
+
+    source_matches = 0
+    italian_matches = 0
+    unknown_keys: list[str] = []
+    if keys_match_catalog:
+        for key, current_text in current_by_key.items():
+            # Check Italian first so labels that are intentionally identical in
+            # both languages still count towards an installed-translation ratio.
+            if current_text == italian_by_key[key]:
+                italian_matches += 1
+            elif current_text == official_by_key[key]:
+                source_matches += 1
+            else:
+                unknown_keys.append(key)
+
+    total = len(catalog_keys)
+    italian_match_ratio = italian_matches / total if total else 0.0
+    if duplicate_keys or not keys_match_catalog:
+        mode = "key_mismatch"
+    elif not catalog_matches_manifest:
+        mode = "catalog_mismatch"
+    elif current_content_sha256 == italian_content_sha256:
+        mode = "italian_exact"
+    elif current_content_sha256 == official_content_sha256:
+        mode = "official_exact"
+    elif not unknown_keys:
+        mode = "known_mix"
+    elif italian_match_ratio >= 0.90:
+        mode = "installed_translation_upgrade"
+    else:
+        mode = "unknown"
+
+    supported = (
+        keys_match_catalog
+        and catalog_matches_manifest
+        and (not unknown_keys or italian_match_ratio >= 0.90)
+    )
+    return {
+        "supported": supported,
+        "mode": mode,
         "key_count": len(keys),
-        "key_sha256": sha256_keys(keys),
-        "expected_key_count": manifest.get("known_source_key_count"),
-        "expected_key_sha256": manifest.get("known_source_key_sha256"),
+        "key_sha256": current_key_sha256,
+        "expected_key_count": expected_key_count,
+        "expected_key_sha256": expected_key_sha256,
+        "catalog_key_count": len(catalog_keys),
+        "catalog_key_sha256": catalog_key_sha256,
+        "current_content_sha256": current_content_sha256,
+        "official_content_sha256": official_content_sha256,
+        "italian_content_sha256": italian_content_sha256,
+        "source_matches": source_matches,
+        "italian_matches": italian_matches,
+        "italian_match_ratio": italian_match_ratio,
+        "unknown_text_count": len(unknown_keys),
+        "unknown_keys": unknown_keys[:10],
+        "duplicate_keys": duplicate_keys[:10],
+        "keys_match_catalog": keys_match_catalog,
+        "catalog_matches_manifest": catalog_matches_manifest,
     }
-    ok = current["key_count"] == current["expected_key_count"] and current["key_sha256"] == current["expected_key_sha256"]
-    current["supported"] = ok
-    if not ok and not force:
+
+
+def compatibility_mode_label(mode: str | None) -> str:
+    return {
+        "official_exact": "automatico: testi ufficiali invariati",
+        "italian_exact": "automatico: traduzione italiana corrente",
+        "known_mix": "automatico: contenuti ufficiali/italiani noti",
+        "installed_translation_upgrade": "automatico: traduzione precedente aggiornabile",
+        "key_mismatch": "struttura dei testi cambiata",
+        "catalog_mismatch": "dati interni dell'installer incoerenti",
+        "unknown": "testi nuovi da revisionare",
+    }.get(mode, "non verificabile")
+
+
+def check_supported(
+    source_records: list[dict],
+    force: bool,
+    catalog: dict[str, dict[str, str]] | None = None,
+    manifest: dict | None = None,
+) -> dict:
+    current = classify_text_resources(source_records, catalog=catalog, manifest=manifest)
+    if not current["supported"] and not force:
+        if current["mode"] == "key_mismatch":
+            detail = (
+                f"Righe note: {current['catalog_key_count']} | "
+                f"Righe trovate: {current['key_count']}"
+            )
+        elif current["mode"] == "catalog_mismatch":
+            detail = "Il catalogo incluso non corrisponde ai dati di controllo dell'installer."
+        else:
+            detail = (
+                f"Testi nuovi o modificati da verificare: {current['unknown_text_count']}"
+            )
         raise RuntimeError(
             "Versione testi del gioco non supportata. Scarica una release aggiornata della traduzione, "
             "oppure usa --force solo se accetti che eventuali testi nuovi restino non tradotti.\n"
-            f"Righe note: {current['expected_key_count']} | Righe trovate: {current['key_count']}"
+            + detail
         )
     return current
 
@@ -1265,6 +1417,10 @@ def load_font_config(font_bundle: Path):
 
 def english_uses_vietnamese_font(font_bundle: Path) -> bool:
     _, _, tree = load_font_config(font_bundle)
+    return font_tree_uses_vietnamese(tree)
+
+
+def font_tree_uses_vietnamese(tree: dict) -> bool:
     entries = tree.get("entries") or []
     variants = entries[0].get("variants") if len(entries) == 1 else []
     return any(
@@ -1292,6 +1448,45 @@ def patch_font_bundle(source: Path, destination: Path) -> dict:
         "source_size": source.stat().st_size,
         "patched_size": destination.stat().st_size,
         "mapping": "English -> UI_Font_Vietnamese",
+    }
+
+
+def technical_compatibility_status(paths: GamePaths) -> dict:
+    """Verify that font, date and countdown resources are known and patchable."""
+    issues: list[str] = []
+    date_italian = True
+    for archive in iter_lua_archives(paths):
+        try:
+            with zipfile.ZipFile(archive.xdf, "r") as zf:
+                date_italian = date_italian and zip_dates_are_italian(zf)
+                localized_date_replacements(zf)
+        except (FileNotFoundError, OSError, KeyError, RuntimeError, ValueError, zipfile.BadZipFile):
+            issues.append(f"date:{archive_relative_dir(paths, archive)}")
+            date_italian = False
+
+    font_accented = False
+    try:
+        font_bundle = find_font_bundle(paths.game_dir)
+        _, _, font_tree = load_font_config(font_bundle)
+        font_accented = font_tree_uses_vietnamese(font_tree)
+        redirect_english_font_variant(font_tree)
+    except (FileNotFoundError, OSError, RuntimeError, ValueError, KeyError, IndexError):
+        issues.append("font")
+
+    countdown_italian = False
+    try:
+        metadata = (paths.game_dir / COUNTDOWN_METADATA_REL).read_bytes()
+        countdown_italian = countdown_units_are_italian(metadata)
+        patch_countdown_units(metadata)
+    except (FileNotFoundError, OSError, RuntimeError, ValueError):
+        issues.append("timer")
+
+    return {
+        "supported": not issues,
+        "issues": issues,
+        "date_italian": date_italian,
+        "font_accented": font_accented,
+        "countdown_italian": countdown_italian,
     }
 
 
@@ -1679,14 +1874,20 @@ def cmd_check(args: argparse.Namespace) -> int:
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, source_records, _ = load_language(zf, "en")
         status = check_supported(source_records, args.force)
+    technical = technical_compatibility_status(paths)
     print("Cartella gioco:", paths.game_dir)
     print("Risorse Lua:", paths.lua_dir)
     version_info = read_game_version_info(paths.game_dir)
     print("Versione gioco rilevata:", version_info["update"] or "non disponibile")
     print("Digest locale (diagnostico):", version_info["revision"] or "non disponibile")
-    print("Versioni gioco dichiarate compatibili:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
+    print("Build già testate:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
     print("Stringhe:", status["key_count"])
-    print("Versione supportata:", "sì" if status["supported"] else "no")
+    print("Controllo contenuti:", compatibility_mode_label(status["mode"]))
+    print("Testi nuovi o sconosciuti:", status["unknown_text_count"])
+    print("Strutture tecniche:", "compatibili" if technical["supported"] else "da aggiornare")
+    if technical["issues"]:
+        print("Componenti da verificare:", ", ".join(technical["issues"]))
+    print("Versione supportata:", "sì" if status["supported"] and technical["supported"] else "no")
     return 0
 
 
@@ -1893,6 +2094,11 @@ def collect_startup_status() -> dict:
         "countdown_units_italian": None,
         "translation_slot": None,
         "text_resources_supported": None,
+        "technical_resources_supported": None,
+        "technical_compatibility_issues": [],
+        "game_resources_supported": None,
+        "text_compatibility_mode": None,
+        "unknown_text_count": None,
         "update": check_for_updates(silent=True),
     }
     try:
@@ -1915,6 +2121,11 @@ def collect_startup_status() -> dict:
             result["installed_translation_version"] = recorded_translation_version(game_dir)
         result["translation_slot"] = translation.get("detected_slot")
         result["text_resources_supported"] = translation["texts_supported"]
+        result["technical_resources_supported"] = translation.get("technical_resources_supported")
+        result["technical_compatibility_issues"] = translation.get("technical_compatibility_issues", [])
+        result["game_resources_supported"] = translation.get("resources_supported")
+        result["text_compatibility_mode"] = translation.get("text_compatibility_mode")
+        result["unknown_text_count"] = translation.get("unknown_text_count")
         result["detected_game_revision"] = effective_game_revision(
             game_dir, result["detected_game_revision"], translation["installed"]
         )
@@ -1928,6 +2139,9 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
     update = status["update"]
     detected = status.get("detected_game_update")
     texts_supported = status.get("text_resources_supported")
+    resources_supported = status.get("game_resources_supported")
+    if resources_supported is None:
+        resources_supported = texts_supported
     game_dir = status.get("game_dir")
     path_source = status.get("game_path_source")
     installed = status.get("translation_installed")
@@ -1939,7 +2153,7 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
 
     if game_dir:
         path_note = "trovato automaticamente" if path_source == "automatico" else "percorso salvato"
-        if detected and texts_supported is True:
+        if detected and resources_supported is True:
             game_label = color_text(
                 f"✓ v{detected} compatibile ({path_note})", ConsoleColor.GREEN, colors
             )
@@ -1987,7 +2201,7 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
     else:
         translation_label = color_text("? stato non verificabile", ConsoleColor.YELLOW, colors)
 
-    if texts_supported is False:
+    if resources_supported is False:
         if installed is True:
             translation_label = color_text(
                 "⚠ installata, ma non verificata con questa build",
@@ -2007,6 +2221,12 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         )
         message = f"La versione {detected or 'rilevata'} richiede una traduzione aggiornata."
         action = "Controlla gli aggiornamenti dell'installer prima di installare."
+    elif resources_supported is False:
+        headline = color_text(
+            "⚠ FILE DEL GIOCO DA VERIFICARE", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
+        )
+        message = "I testi sono compatibili, ma un componente tecnico è cambiato o manca."
+        action = "Avvia Aniimo una volta; se l'avviso resta, aggiorna l'installer."
     elif update.get("update_available"):
         headline = color_text(
             "↑ NUOVO INSTALLER DISPONIBILE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors
@@ -2023,7 +2243,7 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         )
         message = f"L'installer contiene la traduzione v{proposed_translation_version}."
         action = "Premi Invio per aggiornarla."
-    elif texts_supported is True:
+    elif resources_supported is True:
         headline = color_text(
             "✓ PRONTA PER L'INSTALLAZIONE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors
         )
@@ -2068,13 +2288,20 @@ def print_technical_status(status: dict, colors: bool) -> None:
     date_italian = status.get("dynamic_date_italian")
     countdown_italian = status.get("countdown_units_italian")
     texts_supported = status.get("text_resources_supported")
+    technical_supported = status.get("technical_resources_supported")
+    compatibility_mode = status.get("text_compatibility_mode")
+    unknown_text_count = status.get("unknown_text_count")
     print(color_text("Dettagli tecnici", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
     print("Cartella gioco     :", status.get("game_dir") or "non rilevata")
     print("Build rilevata     :", status.get("detected_game_update") or "non rilevata")
-    print("Build supportate   :", ", ".join(supported_game_updates(manifest)) or "non specificate")
+    print("Build già testate  :", ", ".join(supported_game_updates(manifest)) or "non specificate")
     print("Digest locale      :", revision or "non rilevato")
     print("Testi compatibili  :", "sì" if texts_supported is True else "no" if texts_supported is False else "non verificabile")
+    print("Strutture tecniche :", "sì" if technical_supported is True else "no" if technical_supported is False else "non verificabile")
+    print("Controllo contenuti:", compatibility_mode_label(compatibility_mode))
+    if unknown_text_count:
+        print("Testi da revisionare:", unknown_text_count)
     print("Date GG/MM/AAAA    :", "sì" if date_italian is True else "no" if date_italian is False else "non verificabile")
     print("Timer con unità IT :", "sì" if countdown_italian is True else "no" if countdown_italian is False else "non verificabile")
     print("=" * 58)

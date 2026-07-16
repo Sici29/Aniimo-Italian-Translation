@@ -36,7 +36,7 @@ All'apertura compare un riepilogo immediato, senza un elenco di codici tecnici:
 - tre sole righe mostrano **Gioco**, **Traduzione** e **Installer**;
 - sotto **COSA FARE** trovi una sola istruzione chiara, per esempio `Premi Invio per installarla`.
 
-Hash, build supportate, digest, verifica delle date e unità del timer restano disponibili soltanto scegliendo `6. Mostra i dettagli tecnici`.
+Hash, build già testate, digest, verifica dei contenuti, date e unità del timer restano disponibili soltanto scegliendo `6. Mostra i dettagli tecnici`.
 
 L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
@@ -88,9 +88,9 @@ Documenti\AniimoItalianTranslation\backups
 ## Stato della traduzione
 
 - Copertura: **93.029 / 93.029 chiavi**.
-- Versioni del gioco verificate: **3032670**, **3036569**, **3048640** e **3053563**.
+- Versioni del gioco verificate: **3032670**, **3036569**, **3048640**, **3053563**, **3058113** e **3062823**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.16 beta**.
+- Versione della traduzione: **0.3.17 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -124,8 +124,12 @@ Documenti\AniimoItalianTranslation\backups
 - Compatibilità v0.3.16: verificata la build **3053563** sull'installazione reale. Integrate tutte le 45 nuove chiavi, equivalenti a 9 testi unici, e aggiornate le 5 sorgenti inglesi modificate dal gioco.
 - Revisione v0.3.16: tradotte le nuove descrizioni di Uova Aniimo, Aniimo Prismana, materiali, squadre e missioni d'indagine; corrette le quattro traduzioni il cui significato ufficiale è cambiato.
 - Font v0.3.16: riconosciuto il nuovo bundle della build `3053563` e verificato nuovamente il reindirizzamento dello slot English al font con accenti italiani completi.
+- Installer v0.3.17: la compatibilità non dipende più dall'elenco dei numeri di build. L'installer confronta automaticamente tutte le chiavi e i contenuti reali con l'English ufficiale e la traduzione italiana inclusa.
+- Verifica build 3058113: **93.029 chiavi invariate**, nessuna aggiunta, rimozione o sorgente inglese modificata; viene quindi riconosciuta automaticamente come compatibile senza richiedere un aggiornamento dedicato dell'installer.
+- Compatibilità v0.3.17: verificata la build **3062823**. Il totale resta di **93.029 chiavi**, ma l'aggiornamento aggiunge 2 chiavi, ne rimuove 2 e modifica 28 sorgenti English; tutte le 30 righe interessate sono state tradotte e revisionate.
+- Revisione v0.3.17: aggiornati i testi della Closed Beta Globale e del Lancio Globale, premi e trofei evento, check-in con fuso orario, descrizioni Aniimo, Sensore di movimento ed elenco dei bloccati; corretti in italiano anche i refusi presenti in tre duplicati English.
 
-La verifica non si limita a controllare che ogni chiave abbia un valore: confronta numero e fingerprint delle chiavi con la build realmente verificata. Nelle versioni precedenti l'installer recuperava anche 359 voci significative che lo slot English esponeva come `0`; dalla build 3048640 quei testi sono finalmente presenti nell'English ufficiale.
+La verifica non si limita a contare le chiavi: confronta anche il contenuto di ciascuna stringa. Una build mai vista viene accettata automaticamente se contiene soltanto testi ufficiali già conosciuti, la traduzione italiana inclusa o una combinazione sicura dei due. Se cambia anche una sola sorgente ufficiale, oppure vengono aggiunte o rimosse chiavi, l'installazione si ferma e richiede una revisione. Nelle versioni precedenti l'installer recuperava anche 359 voci significative che lo slot English esponeva come `0`; dalla build 3048640 quei testi sono finalmente presenti nell'English ufficiale.
 
 I conteggi e il confronto con tutte le lingue ufficiali sono documentati nell'[audit completo delle lingue](LANGUAGE_AUDIT.md). Il metodo usato per le concordanze è descritto nell'[audit dei generi](GENDER_AUDIT.md). La passata editoriale più recente è riepilogata nell'[audit qualità v0.3.11](QUALITY_AUDIT.md).
 
@@ -156,9 +160,9 @@ L'installer impedisce l'apertura contemporanea di più finestre. Ogni tentativo 
 
 Questa funzione è disponibile dalla versione **0.3.0 beta** in poi. Se il controllo non è disponibile, per esempio perché il PC è offline, installazione e ripristino continuano a funzionare normalmente.
 
-Se Aniimo riceve un aggiornamento non ancora verificato, il pannello lo segnala chiaramente. Il controllo delle chiavi di testo impedisce l'installazione su risorse incompatibili, salvo uso volontario dell'opzione avanzata `--force`.
+Se Aniimo riceve un aggiornamento, l'installer esamina direttamente i testi del gioco. Se la localizzazione non è cambiata, il pannello mostra subito la nuova build come compatibile senza attendere un nuovo installer. Se trova chiavi o testi ufficiali realmente nuovi, blocca invece l'installazione fino alla pubblicazione della traduzione aggiornata, salvo uso volontario dell'opzione avanzata `--force`.
 
-Alcuni hot update mantengono lo stesso numero di versione del gioco. L'installer usa quindi build, fingerprint completo delle chiavi e struttura degli archivi per decidere la compatibilità. Un digest locale lasciato da una precedente installazione non viene considerato automaticamente una nuova revisione ufficiale; le informazioni diagnostiche sono visibili solo nei dettagli tecnici.
+Il numero di build è quindi un'informazione, non il criterio decisivo. L'installer usa il fingerprint completo delle chiavi e dei relativi contenuti, riconosce anche una traduzione già installata o da aggiornare e controlla separatamente le strutture tecniche necessarie a font, date e timer. Un digest locale lasciato da una precedente installazione non viene considerato automaticamente una nuova revisione ufficiale; le informazioni diagnostiche sono visibili solo nei dettagli tecnici.
 
 Se l'aggiornamento automatico non riesce, l'installer mostra sempre il collegamento per il download manuale.
 

@@ -1,28 +1,30 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.16-beta",
+  "translation_version": "0.3.17-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
   "known_source_key_count": 93029,
-  "known_source_key_sha256": "3ab71d88b66c52d71d14d789e8d0137e1bd2ecdb7396b02f3a186c503a9f4a45",
+  "known_source_key_sha256": "89b93bd162f94fa47c8e5425f3a427048b9f9a5cd2aeba65f2f7bd542f1919a6",
   "supported_game_updates": [
     3032670,
     3036569,
     3048640,
-    3053563
+    3053563,
+    3058113,
+    3062823
   ],
-  "latest_supported_game_update": 3053563,
+  "latest_supported_game_update": 3062823,
   "supported_game_revisions": [
     "7113f88e39827a2d13591a55b395f1c6",
     "4eb81a98d0e3934af67064cbde06218e"
   ],
-  "tested_game_update": "3053563",
+  "tested_game_update": "3062823",
   "tested_game_revision": null,
-  "tested_archive_sha256": "767ead7b4362079be7b291f8f7fa063a7da0b02e2d30cbf60e8ded184355ba58",
-  "tested_date": "2026-07-14",
-  "coverage": "93029/93029 modern text keys; 45 new keys and 5 refreshed English sources from build 3053563 are fully integrated; 5 technical zeros confirmed",
+  "tested_archive_sha256": "50a49279d747d3957ce8b23c767fdfbbd902756a1e9276a85b3a1018542a5cce",
+  "tested_date": "2026-07-16",
+  "coverage": "93029/93029 modern text keys; build 3062823 adds 2 keys, removes 2 keys and changes 28 English sources; all 30 affected rows are translated and reviewed; 5 technical zeros confirmed",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
@@ -36,6 +38,10 @@
     "The language audit compares every modern official locale and recovers meaningful entries stored as zero in the English slot.",
     "Build 3053563 uses the verified font bundle c3aa9ce8cbbd8c1c6f9a26b09d202ad9; the English slot is still redirected to Aniimo's bundled Vietnamese font for complete Italian accents.",
     "Build 3053563 is verified by its package version, 93029-key fingerprint, and official active Lua overlay SHA-256; the diagnostic verlist digest is not treated as the compatibility authority.",
+    "Build 3058113 keeps the same 93029 keys and English contents; it is accepted by the automatic content check and its active Lua overlay SHA-256 is recorded for diagnostics only.",
+    "Build 3062823 keeps 93029 total keys but adds 2 keys, removes 2 keys and changes 28 English sources; every affected row has been translated and reviewed.",
+    "Compatibility is determined automatically from the full key set and the actual English/Italian text contents; an unseen build with unchanged localization is accepted without adding its build number.",
+    "New or changed official text values are rejected until reviewed, even when the total key count remains unchanged.",
     "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."
   ]
 }

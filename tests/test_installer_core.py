@@ -705,6 +705,101 @@ class VersionAndUpdaterTests(unittest.TestCase):
             self.assertFalse(target.with_suffix(".exe.download").exists())
 
 
+class TextCompatibilityTests(unittest.TestCase):
+    @staticmethod
+    def catalog(size: int = 20) -> dict[str, dict[str, str]]:
+        return {
+            str(index): {
+                "source_en": f"English {index}",
+                "it": f"Italiano {index}",
+            }
+            for index in range(size)
+        }
+
+    @staticmethod
+    def manifest(catalog: dict[str, dict[str, str]]) -> dict:
+        keys = list(catalog)
+        return {
+            "known_source_key_count": len(keys),
+            "known_source_key_sha256": installer.sha256_keys(keys),
+        }
+
+    @staticmethod
+    def records(values: dict[str, str]) -> list[dict]:
+        return [{"key": key, "text": text} for key, text in values.items()]
+
+    def test_unseen_build_with_unchanged_official_texts_is_supported(self) -> None:
+        catalog = self.catalog()
+        records = self.records({key: row["source_en"] for key, row in catalog.items()})
+        status = installer.check_supported(
+            records, force=False, catalog=catalog, manifest=self.manifest(catalog)
+        )
+        self.assertTrue(status["supported"])
+        self.assertEqual("official_exact", status["mode"])
+        self.assertEqual(0, status["unknown_text_count"])
+
+    def test_current_italian_translation_is_supported(self) -> None:
+        catalog = self.catalog()
+        records = self.records({key: row["it"] for key, row in catalog.items()})
+        status = installer.check_supported(
+            records, force=False, catalog=catalog, manifest=self.manifest(catalog)
+        )
+        self.assertTrue(status["supported"])
+        self.assertEqual("italian_exact", status["mode"])
+
+    def test_known_official_and_italian_mix_is_supported(self) -> None:
+        catalog = self.catalog()
+        values = {
+            key: row["it"] if int(key) % 2 else row["source_en"]
+            for key, row in catalog.items()
+        }
+        status = installer.check_supported(
+            self.records(values), force=False, catalog=catalog, manifest=self.manifest(catalog)
+        )
+        self.assertTrue(status["supported"])
+        self.assertEqual("known_mix", status["mode"])
+        self.assertEqual(0, status["unknown_text_count"])
+
+    def test_same_keys_with_a_changed_official_text_are_rejected(self) -> None:
+        catalog = self.catalog()
+        values = {key: row["source_en"] for key, row in catalog.items()}
+        values["7"] = "Brand-new official text"
+        with self.assertRaisesRegex(RuntimeError, "Testi nuovi o modificati da verificare: 1"):
+            installer.check_supported(
+                self.records(values),
+                force=False,
+                catalog=catalog,
+                manifest=self.manifest(catalog),
+            )
+        status = installer.check_supported(
+            self.records(values), force=True, catalog=catalog, manifest=self.manifest(catalog)
+        )
+        self.assertFalse(status["supported"])
+        self.assertEqual("unknown", status["mode"])
+        self.assertEqual(["7"], status["unknown_keys"])
+
+    def test_previous_italian_translation_can_upgrade_itself(self) -> None:
+        catalog = self.catalog()
+        values = {key: row["it"] for key, row in catalog.items()}
+        values["3"] = "Vecchia traduzione"
+        status = installer.check_supported(
+            self.records(values), force=False, catalog=catalog, manifest=self.manifest(catalog)
+        )
+        self.assertTrue(status["supported"])
+        self.assertEqual("installed_translation_upgrade", status["mode"])
+        self.assertAlmostEqual(0.95, status["italian_match_ratio"])
+
+    def test_changed_key_set_is_rejected(self) -> None:
+        catalog = self.catalog()
+        values = {key: row["source_en"] for key, row in catalog.items()}
+        values.pop("19")
+        status = installer.check_supported(
+            self.records(values), force=True, catalog=catalog, manifest=self.manifest(catalog)
+        )
+        self.assertFalse(status["supported"])
+        self.assertEqual("key_mismatch", status["mode"])
+
+
 class DetectionTests(unittest.TestCase):
     def test_translation_is_detected_from_actual_text_matches(self) -> None:
         translations = {str(i): f"Italiano {i}" for i in range(200)}
@@ -876,6 +971,34 @@ class DetectionTests(unittest.TestCase):
         self.assertIn("Gioco       : ⚠ v3048640 da verificare", panel)
         self.assertIn("Controlla gli aggiornamenti dell'installer prima di installare.", panel)
         self.assertNotIn("87eaffe8c13e", panel)
+
+    def test_status_panel_blocks_changed_technical_resources(self) -> None:
+        status = {
+            "manifest": {
+                "translation_version": "0.3.17-beta",
+                "supported_game_updates": [3053563],
+                "supported_game_revisions": [],
+            },
+            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_path_source": "automatico",
+            "detected_game_update": "3059000",
+            "detected_game_revision": "abc",
+            "translation_installed": False,
+            "translation_matches_installer": False,
+            "installed_translation_version": None,
+            "dynamic_date_italian": False,
+            "text_resources_supported": True,
+            "technical_resources_supported": False,
+            "game_resources_supported": False,
+            "update": {"current": "0.3.17-beta", "latest": "v0.3.17-beta", "update_available": False},
+        }
+        output = io.StringIO()
+        with redirect_stdout(output):
+            installer.print_status_panel(status, colors=False)
+        panel = output.getvalue()
+        self.assertIn("⚠ FILE DEL GIOCO DA VERIFICARE", panel)
+        self.assertIn("I testi sono compatibili, ma un componente tecnico è cambiato o manca.", panel)
+        self.assertIn("Gioco       : ⚠ v3059000 da verificare", panel)
 
     def test_official_revision_survives_patched_verlist(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

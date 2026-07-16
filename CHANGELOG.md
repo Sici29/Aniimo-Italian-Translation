@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.17 Beta - 2026-07-16
+
+- Resa automatica la verifica di compatibilità: il numero di build è ora informativo e l'installer confronta l'intero insieme di chiavi e il contenuto reale di ogni stringa.
+- Le build mai viste vengono accettate senza aggiornare l'installer quando i testi corrispondono all'English ufficiale noto, alla traduzione italiana inclusa o a una combinazione sicura dei due.
+- L'installazione viene bloccata se cambia la struttura delle chiavi o se compare anche un testo ufficiale sconosciuto; i dettagli tecnici indicano il tipo di controllo e il numero di stringhe da revisionare.
+- Riconosciute le traduzioni già installate e quelle precedenti aggiornabili, evitando che un archivio italiano venga scambiato per un aggiornamento incompatibile del gioco.
+- Verificata la build Aniimo `3058113`: 93.029 chiavi, nessuna chiave aggiunta o rimossa e nessuna sorgente English modificata rispetto alla build `3053563`; compatibilità rilevata automaticamente.
+- Aggiunto il supporto verificato alla build `3062823`: il totale resta di 93.029 chiavi, con 2 chiavi aggiunte, 2 rimosse e 28 sorgenti English aggiornate.
+- Tradotte e revisionate tutte le 30 righe interessate, inclusi i nuovi testi della Closed Beta Globale, del Lancio Globale, i premi evento, i check-in con fuso orario, il Sensore di movimento e l'elenco dei bloccati.
+- Corretti anche tre refusi presenti nell'English ufficiale (`Global Launc` e `Global Launcha`) interpretandoli in modo coerente come `Global Launch` grazie al confronto con le stringhe duplicate e le altre lingue.
+- Il flusso interno di migrazione conserva ora le note storiche degli audit e gli spazi significativi dei testi già revisionati, evitando regressioni silenziose durante i futuri aggiornamenti.
+
 ## 0.3.16 Beta - 2026-07-14
 
 - Aggiunto il supporto verificato alla build Aniimo `3053563` usando l'installazione reale aggiornata da Pawprint.
