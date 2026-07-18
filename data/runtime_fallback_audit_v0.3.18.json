@@ -1,0 +1,37 @@
+{
+  "release": "0.3.18-beta",
+  "game_build": 3064863,
+  "issue": "English runtime fallback bypassed the patched text map for historical zero-value keys",
+  "runtime_allowlist": "xfs/luascripts/Data/I18N/AITranslatedItems/AITranslatedItems_en.json",
+  "historical_marker": "review_v0.3.5_zero_fallback",
+  "historical_key_count": 359,
+  "official_allowlist_missing_count": 359,
+  "fix": "Re-add every historically recovered key to the English runtime allow-list while building the patch",
+  "reported_rows": [
+    {
+      "key": "1086054185",
+      "source_sha256": "b22d1a1a1885f47853dbd56f522f10b9419f8cea7797ed9f2ae82a1246a5f69c",
+      "it_sha256": "1a78a977875fab7b36c05c291962f59a165983b706a48cda899a4f43af6c77c6"
+    },
+    {
+      "key": "1096665518",
+      "source_sha256": "3dbcdbb5499a1b69859256d3caadc12aa256cb9db20aa82cb42c70c9eabd43f3",
+      "it_sha256": "71d4f5a9c7dc056751e0a17c96914271676a2a6b0a20ccdd671ee6bfc3939314"
+    },
+    {
+      "key": "1154494384",
+      "source_sha256": "959a607f38d90a6236c9aa8c9c892645c7f2a1205ef38c2cec323aa70edbd299",
+      "it_sha256": "69ba917955ed37af2f77915fbf12e6ac7f364c0d3d2714140b47630eb2b0dd98"
+    },
+    {
+      "key": "1182361434",
+      "source_sha256": "fe86c7293f6346e068e6b5fcfaf71a14dc171415db2415f57d050f2b6fed93b5",
+      "it_sha256": "a6f2cdb8804e8d25bd2f6ca9fbe0f18da3eab1454a2339ba417af157ab985146"
+    },
+    {
+      "key": "1824781388",
+      "source_sha256": "a1a3accdf5879657d168022fd2ceff96d059ef25248ea597eef6dacee8edaf05",
+      "it_sha256": "a9de423bd5d517f20b53bf0a9c6050b4c76b2b2f29136fee137118b1edc5216b"
+    }
+  ]
+}

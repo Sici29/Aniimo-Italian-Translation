@@ -3,6 +3,7 @@ __pycache__/
 build/
 dist/
 *.spec
+!Aniimo-Italian-Translation.spec
 *.zip
 *.7z
 *.rar

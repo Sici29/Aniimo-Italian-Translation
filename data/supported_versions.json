@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.17-beta",
+  "translation_version": "0.3.18-beta",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -13,18 +13,19 @@
     3048640,
     3053563,
     3058113,
-    3062823
+    3062823,
+    3064863
   ],
-  "latest_supported_game_update": 3062823,
+  "latest_supported_game_update": 3064863,
   "supported_game_revisions": [
     "7113f88e39827a2d13591a55b395f1c6",
     "4eb81a98d0e3934af67064cbde06218e"
   ],
-  "tested_game_update": "3062823",
+  "tested_game_update": "3064863",
   "tested_game_revision": null,
-  "tested_archive_sha256": "50a49279d747d3957ce8b23c767fdfbbd902756a1e9276a85b3a1018542a5cce",
-  "tested_date": "2026-07-16",
-  "coverage": "93029/93029 modern text keys; build 3062823 adds 2 keys, removes 2 keys and changes 28 English sources; all 30 affected rows are translated and reviewed; 5 technical zeros confirmed",
+  "tested_archive_sha256": "cf78211d07961cd5490db8b4ca0029f62b882d1e5f8576f965ea1131d356cf7e",
+  "tested_date": "2026-07-18",
+  "coverage": "93029/93029 modern text keys; build 3064863 keeps the exact key set and English contents of build 3062823; all 359 historical English runtime fallbacks are explicitly enabled and translated; 5 reported Fannie rows were re-reviewed",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
@@ -40,6 +41,8 @@
     "Build 3053563 is verified by its package version, 93029-key fingerprint, and official active Lua overlay SHA-256; the diagnostic verlist digest is not treated as the compatibility authority.",
     "Build 3058113 keeps the same 93029 keys and English contents; it is accepted by the automatic content check and its active Lua overlay SHA-256 is recorded for diagnostics only.",
     "Build 3062823 keeps 93029 total keys but adds 2 keys, removes 2 keys and changes 28 English sources; every affected row has been translated and reviewed.",
+    "Build 3064863 keeps the exact 93029 keys and English contents of build 3062823 and is accepted automatically by the content check.",
+    "Aniimo's English runtime allow-list omits 359 historically recovered rows even though their source text now exists; the installer explicitly enables every audited key so the patched Italian text is not bypassed by an English fallback.",
     "Compatibility is determined automatically from the full key set and the actual English/Italian text contents; an unseen build with unchanged localization is accepted without adding its build number.",
     "New or changed official text values are rejected until reviewed, even when the total key count remains unchanged.",
     "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.18 Beta - 2026-07-18
+
+- Verificata la build Aniimo `3064863`: 93.029 chiavi, nessuna aggiunta o rimozione e nessuna sorgente English modificata rispetto alla build `3062823`; compatibilità riconosciuta automaticamente.
+- Individuata la causa delle battute English segnalate nella sequenza di Fannie: il gioco usa un elenco runtime separato e ignorava il testo italiano per 359 chiavi storicamente recuperate, pur essendo tutte tradotte nel master.
+- Corretto l'installer affinché reinserisca sempre le 359 chiavi nell'elenco `AITranslatedItems_en`, evitando il fallback inglese per l'intero gruppo e non soltanto per le cinque righe segnalate.
+- Rilette e rifinite le cinque battute mostrate negli screenshot, mantenendo tag, ritorni a capo e terminologia della Base.
+- Aggiunta all'eseguibile una nuova icona ad alta risoluzione con mascotte Aniimo e badge della bandiera italiana, completa delle dimensioni Windows da 16 a 256 pixel.
+- Estesi audit e test di regressione per verificare numero delle chiavi recuperate, presenza delle cinque segnalazioni e contenuti italiani attesi.
+
 ## 0.3.17 Beta - 2026-07-16
 
 - Resa automatica la verifica di compatibilità: il numero di build è ora informativo e l'installer confronta l'intero insieme di chiavi e il contenuto reale di ogni stringa.

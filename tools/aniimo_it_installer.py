@@ -414,7 +414,15 @@ def load_translations(slot: str | None = None) -> dict[str, str]:
 
 
 def recovered_english_fallback_keys() -> list[str]:
-    """Keys whose official English value is 0 but whose Italian text is complete."""
+    """Keys that Aniimo may bypass unless explicitly enabled for English.
+
+    Early game builds exposed these rows as ``0`` in the English text map.  The
+    source strings are now present in newer builds, but the runtime still omits
+    the same keys from ``AITranslatedItems_en.json`` and therefore falls back to
+    English after our map has been patched.  Keep using the historical audit
+    marker as the durable source of truth; accepting ``source_en == '0'`` also
+    preserves compatibility with older masters.
+    """
     csv_path = translation_csv_for_slot("en")
     recovered: list[str] = []
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
@@ -422,7 +430,13 @@ def recovered_english_fallback_keys() -> list[str]:
             key = (row.get("key") or "").strip()
             source = (row.get("source_en") or "").strip()
             text = (row.get("it") or "").strip()
-            if key and source == "0" and text and text != "0":
+            notes = {
+                marker.strip()
+                for marker in (row.get("note") or "").split(";")
+                if marker.strip()
+            }
+            historical_fallback = "review_v0.3.5_zero_fallback" in notes
+            if key and text and text != "0" and (source == "0" or historical_fallback):
                 recovered.append(key)
     return recovered
 

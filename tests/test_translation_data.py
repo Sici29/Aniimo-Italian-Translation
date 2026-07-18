@@ -26,6 +26,7 @@ TOPONYM_FACILITY_AUDIT_V0313 = ROOT / "data" / "toponym_facility_audit_v0.3.13.j
 GAME_UPDATE_AUDIT_V0314 = ROOT / "data" / "game_update_audit_v0.3.14.json"
 GAME_UPDATE_AUDIT_V0316 = ROOT / "data" / "game_update_audit_v0.3.16.json"
 GAME_UPDATE_AUDIT_V0317 = ROOT / "data" / "game_update_audit_v0.3.17.json"
+RUNTIME_FALLBACK_AUDIT_V0318 = ROOT / "data" / "runtime_fallback_audit_v0.3.18.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -980,6 +981,29 @@ class TranslationDataTests(unittest.TestCase):
 
         for key in audit["removed_keys"]:
             self.assertNotIn(key, by_key)
+
+    def test_v0318_runtime_fallback_audit_is_fully_applied(self) -> None:
+        audit = json.loads(RUNTIME_FALLBACK_AUDIT_V0318.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in self.production}
+        historical = [
+            row
+            for row in self.production
+            if audit["historical_marker"] in row["note"].split(";")
+        ]
+
+        self.assertEqual(3064863, audit["game_build"])
+        self.assertEqual(359, audit["historical_key_count"])
+        self.assertEqual(audit["historical_key_count"], len(historical))
+        self.assertTrue(all(row["it"] and row["it"] != "0" for row in historical))
+        self.assertEqual(5, len(audit["reported_rows"]))
+
+        for entry in audit["reported_rows"]:
+            row = by_key[entry["key"]]
+            source_sha256 = hashlib.sha256(row["source_en"].encode("utf-8")).hexdigest()
+            italian_sha256 = hashlib.sha256(row["it"].encode("utf-8")).hexdigest()
+            self.assertEqual(entry["source_sha256"], source_sha256, entry["key"])
+            self.assertEqual(entry["it_sha256"], italian_sha256, entry["key"])
+            self.assertIn("runtime_fallback_v0.3.18_reviewed", row["note"].split(";"))
 
 
 if __name__ == "__main__":

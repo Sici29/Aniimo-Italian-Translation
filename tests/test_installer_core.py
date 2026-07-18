@@ -86,9 +86,16 @@ class BuildMapAndBinTests(unittest.TestCase):
         self.assertEqual(2, added)
         self.assertEqual([10, 20, 30, 40], json.loads(updated))
 
-    def test_current_production_no_longer_needs_english_zero_fallbacks(self) -> None:
+    def test_historical_english_zero_fallbacks_remain_enabled(self) -> None:
         keys = installer.recovered_english_fallback_keys()
-        self.assertEqual([], keys)
+        self.assertEqual(359, len(keys))
+        self.assertTrue({
+            "1086054185",
+            "1096665518",
+            "1154494384",
+            "1182361434",
+            "1824781388",
+        }.issubset(keys))
 
     def test_dynamic_date_bytecode_is_changed_to_day_month_year(self) -> None:
         original = b"prefix" + installer.DATE_YMD_BYTECODE + b"suffix"

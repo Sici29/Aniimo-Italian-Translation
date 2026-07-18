@@ -88,9 +88,9 @@ Documenti\AniimoItalianTranslation\backups
 ## Stato della traduzione
 
 - Copertura: **93.029 / 93.029 chiavi**.
-- Versioni del gioco verificate: **3032670**, **3036569**, **3048640**, **3053563**, **3058113** e **3062823**.
+- Versioni del gioco verificate: **3032670**, **3036569**, **3048640**, **3053563**, **3058113**, **3062823** e **3064863**.
 - Revisioni hot update verificate: **7113f88e39827a2d13591a55b395f1c6** e **4eb81a98d0e3934af67064cbde06218e**.
-- Versione della traduzione: **0.3.17 beta**.
+- Versione della traduzione: **0.3.18 beta**.
 - Lingua da selezionare nel gioco: **Inglese**.
 - Revisione: terminologia, dialoghi, generi, UI, tag, spaziature e naturalezza dell'italiano.
 - Audit v0.3.5: **359 fallback recuperati**, **220 residui inglesi corretti** e **651 uniformazioni di glossario e coerenza**, incluso `Principal` → `Preside`.
@@ -128,6 +128,9 @@ Documenti\AniimoItalianTranslation\backups
 - Verifica build 3058113: **93.029 chiavi invariate**, nessuna aggiunta, rimozione o sorgente inglese modificata; viene quindi riconosciuta automaticamente come compatibile senza richiedere un aggiornamento dedicato dell'installer.
 - Compatibilità v0.3.17: verificata la build **3062823**. Il totale resta di **93.029 chiavi**, ma l'aggiornamento aggiunge 2 chiavi, ne rimuove 2 e modifica 28 sorgenti English; tutte le 30 righe interessate sono state tradotte e revisionate.
 - Revisione v0.3.17: aggiornati i testi della Closed Beta Globale e del Lancio Globale, premi e trofei evento, check-in con fuso orario, descrizioni Aniimo, Sensore di movimento ed elenco dei bloccati; corretti in italiano anche i refusi presenti in tre duplicati English.
+- Compatibilità v0.3.18: verificata la build **3064863**, che conserva esattamente le 93.029 chiavi e tutti i contenuti English della build precedente; il nuovo controllo automatico la riconosce correttamente senza modifiche dedicate ai testi.
+- Fallback v0.3.18: corretto l'elenco runtime separato con cui Aniimo decide quali battute English sono disponibili. Tutte le **359 chiavi storicamente recuperate** vengono ora abilitate esplicitamente, impedendo al gioco di ignorare l'italiano già presente nell'archivio.
+- Revisione v0.3.18: rifinite le cinque battute di Fannie segnalate nella sequenza introduttiva della Base e aggiunto all'installer un simbolo dedicato con mascotte Aniimo e badge della bandiera italiana.
 
 La verifica non si limita a contare le chiavi: confronta anche il contenuto di ciascuna stringa. Una build mai vista viene accettata automaticamente se contiene soltanto testi ufficiali già conosciuti, la traduzione italiana inclusa o una combinazione sicura dei due. Se cambia anche una sola sorgente ufficiale, oppure vengono aggiunte o rimosse chiavi, l'installazione si ferma e richiede una revisione. Nelle versioni precedenti l'installer recuperava anche 359 voci significative che lo slot English esponeva come `0`; dalla build 3048640 quei testi sono finalmente presenti nell'English ufficiale.
 
