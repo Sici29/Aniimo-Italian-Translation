@@ -1,0 +1,64 @@
+{
+  "game_build": 3090396,
+  "previous_game_build": 3064863,
+  "previous_total_keys": 93029,
+  "total_keys": 93040,
+  "key_sha256": "a18450ac5ec0167f26c931dba60049f637d74c7820d3dd93b7b572309045117b",
+  "official_content_sha256": "4fb3e06b3b9528dec3ab5632f5934687b11fe8995136e38bca8382912717b784",
+  "italian_content_sha256": "a9559081e45029c2a6dcf92d23e005aa5ca753daea7d7d84391ede2ce0ab2d32",
+  "added_keys": [
+    "1149408115",
+    "1181266102",
+    "1260796381",
+    "1345756708",
+    "1367394688",
+    "1517803979",
+    "1537219154",
+    "1615927396",
+    "1670276191",
+    "1683753389",
+    "1809609059",
+    "1907781478",
+    "2108163235"
+  ],
+  "removed_keys": [
+    "1296370288",
+    "1581488272"
+  ],
+  "changed_key_count": 375,
+  "changed_unique_source_count": 37,
+  "automatic_carry_rows": 36,
+  "reviewed_rows": 352,
+  "reviewed_unique_sources": 30,
+  "review_marker": "review_v0.3.19_game_update",
+  "consistency_corrections": 29,
+  "reviewed_categories": {
+    "ui_short": 199,
+    "systems_ui": 134,
+    "ui_misc_short": 2,
+    "dialogue_lore": 10,
+    "misc_context": 7
+  },
+  "regression_samples": {
+    "1082353616": "Battaglia ad Alta Difficoltà",
+    "1081882196": "Battaglia Normale",
+    "1149408115": "Collega email",
+    "1181266102": "Fai già parte di una squadra. Esci dalla squadra e riprova.",
+    "1237531888": "Nessun Punto Capacità assegnato: nulla da reimpostare.",
+    "1367394688": "I servizi PlayStation™Network non sono al momento disponibili. Riprova più tardi.",
+    "1383857653": "Moderato: gli Aniimo Prismana hanno una discreta probabilità di apparire.",
+    "1657124277": "Vuoto: gli Aniimo Prismana hanno una probabilità estremamente bassa di apparire.",
+    "1907781478": "Molto alto: gli Aniimo Prismana hanno una probabilità estremamente elevata di apparire.",
+    "1811494747": "Al termine dell'accumulo di energia, puoi cogliere il Frutto della Vena per ottenere ricompense.",
+    "2007626113": "Esatto. Quando l'energia della Vena viene vitalizzata, gli Aniimo compaiono in gran numero.\nL'Istituto chiama questo fenomeno <style=Hint_BgD>Impeto Selvaggio</style>.",
+    "2113195492": "Raccogli Monete Voxel in tutta Astra e potrai scambiarle con Monete Starwish."
+  },
+  "official_archive": {
+    "xdf_bytes": 85661395,
+    "xdf_md5": "bbe2437d690264b4443b257b6d595cf7",
+    "xdf_sha256": "b95cd08693ba98704baeae034c524b888508a0b55a40869a6c90be2875900951",
+    "xdt_bytes": 1734798,
+    "xdt_md5": "02396b56d8ac08e933fff53d5a39b2dd",
+    "xdt_sha256": "4b86d27869bb6506ed5b673de8e4e5262308667310d9f2465e7e4426b02ea319"
+  }
+}

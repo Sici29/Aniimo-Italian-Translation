@@ -23,6 +23,7 @@ import urllib.request
 import webbrowser
 import zipfile
 from dataclasses import dataclass
+from collections import deque
 from pathlib import Path
 
 
@@ -373,11 +374,18 @@ def write_json(path: Path, data: object) -> None:
 
 
 def looks_like_game_dir(path: Path) -> bool:
-    return (path / "Aniimo_Data").exists() or any((path / rel / XDF_NAME).exists() for rel in LUA_RELS)
+    # Empty directories left by a preload/partial download are not an install.
+    return any((path / rel / XDF_NAME).is_file() and (path / rel / XDT_NAME).is_file()
+               for rel in LUA_RELS)
 
 
 def default_target_language_slot() -> str:
     return "en"
+
+
+def final_text_profile() -> bool:
+    """Final client: keep native fonts, date scripts and runtime metadata intact."""
+    return local_manifest().get("runtime_profile") == "final-native-text-only"
 
 
 def translation_csv_for_slot(slot: str) -> Path:
@@ -400,6 +408,7 @@ def load_translation_catalog(slot: str | None = None) -> dict[str, dict[str, str
                 raise ValueError(f"Duplicate translation key: {key}")
             catalog[key] = {
                 "source_en": row.get("source_en") or "",
+                "source_sha256": row.get("source_sha256") or "",
                 "it": row.get("it") or "",
             }
     return catalog
@@ -423,6 +432,8 @@ def recovered_english_fallback_keys() -> list[str]:
     marker as the durable source of truth; accepting ``source_en == '0'`` also
     preserves compatibility with older masters.
     """
+    if final_text_profile():
+        return sorted(load_translations("en"), key=int)
     csv_path = translation_csv_for_slot("en")
     recovered: list[str] = []
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
@@ -449,6 +460,13 @@ def mark_english_fallbacks_as_translated(raw: bytes, keys: list[str]) -> tuple[b
     patched text map and the runtime injects an English sentence instead.
     """
     values = json.loads(raw.decode("utf-8-sig"))
+    if final_text_profile() and isinstance(values, list) and values and all(
+        isinstance(value, dict) and isinstance(value.get("id"), int)
+        and isinstance(value.get("workflow_state"), str) for value in values
+    ):
+        # Final client uses workflow records, not the beta integer allow-list.
+        # Preserve them byte-for-byte; inventing a workflow state is unsafe.
+        return raw, 0
     if not isinstance(values, list) or any(not isinstance(value, int) for value in values):
         raise ValueError("Elenco delle traduzioni English di Aniimo non valido.")
     existing = set(values)
@@ -471,11 +489,13 @@ def parse_steam_libraries() -> list[Path]:
             (
                 "$paths=@(); "
                 "foreach($k in 'HKLM:\\SOFTWARE\\WOW6432Node\\Valve\\Steam','HKCU:\\SOFTWARE\\Valve\\Steam'){"
-                "try{$p=(Get-ItemProperty $k -ErrorAction Stop).InstallPath; if($p){$paths+=$p}}catch{}}; "
+                "try{$s=Get-ItemProperty $k -ErrorAction Stop; "
+                "foreach($p in $s.InstallPath,$s.SteamPath){if($p){$paths+=$p}}}catch{}}; "
                 "$paths -join [Environment]::NewLine"
             ),
         ]
-        output = subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL)
+        output = subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL,
+                                         timeout=8, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     except Exception:
         output = ""
     for line in output.splitlines():
@@ -485,13 +505,122 @@ def parse_steam_libraries() -> list[Path]:
         libraries.append(steam)
         vdf = steam / "steamapps" / "libraryfolders.vdf"
         if vdf.exists():
-            text = vdf.read_text(encoding="utf-8", errors="ignore")
+            try:
+                text = vdf.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
             for match in re.finditer(r'"path"\s+"([^"\\]*(?:\\.[^"\\]*)*)"', text):
                 raw = match.group(1).replace("\\\\", "\\")
                 p = Path(raw)
                 if p.exists():
                     libraries.append(p)
     return list(dict.fromkeys(libraries))
+
+
+def steam_aniimo_installations(libraries: list[Path] | None = None) -> list[dict]:
+    """Read install names from manifests; depotcache is never a game folder."""
+    found = []
+    for library in libraries if libraries is not None else parse_steam_libraries():
+        try:
+            manifests = list((library / "steamapps").glob("appmanifest_*.acf"))
+        except OSError:
+            continue
+        for manifest in manifests:
+            try:
+                if manifest.stat().st_size > 1024 * 1024:
+                    continue
+                fields = dict(re.findall(r'"([^"\r\n]+)"\s+"([^"\r\n]*)"',
+                                         manifest.read_text(encoding="utf-8-sig", errors="replace")))
+                if fields.get("appid") != "4126040" and fields.get("name", "").casefold() != "aniimo":
+                    continue
+                relative = Path(fields.get("installdir", ""))
+                if not relative.parts or relative.is_absolute() or relative.drive or ".." in relative.parts:
+                    continue
+                root = library / "steamapps/common" / relative
+                total, done = int(fields.get("BytesToDownload", "0")), int(fields.get("BytesDownloaded", "0"))
+                found.append({"path": root, "build": fields.get("buildid", "0"),
+                              "download_complete": total > 0 and done >= total,
+                              "files_ready": looks_like_game_dir(root) or looks_like_game_dir(root / "game")})
+            except (OSError, ValueError):
+                continue
+    return found
+
+
+def local_drive_roots() -> list[Path]:
+    if os.name != "nt":
+        return []
+    import ctypes
+    # Ignore disconnected network shares and empty optical drives.
+    return [Path(f"{letter}:\\") for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            if ctypes.windll.kernel32.GetDriveTypeW(f"{letter}:\\") in {2, 3}]
+
+
+def registered_aniimo_dirs() -> list[Path]:
+    if os.name != "nt":
+        return []
+    import winreg
+    results = []
+    uninstall = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
+    for hive in (winreg.HKEY_CURRENT_USER, winreg.HKEY_LOCAL_MACHINE):
+        for view in (winreg.KEY_WOW64_32KEY, winreg.KEY_WOW64_64KEY):
+            try:
+                with winreg.OpenKey(hive, uninstall, 0, winreg.KEY_READ | view) as root:
+                    for index in range(winreg.QueryInfoKey(root)[0]):
+                        try:
+                            name = winreg.EnumKey(root, index)
+                            with winreg.OpenKey(root, name) as key:
+                                def value(field):
+                                    try:
+                                        return str(winreg.QueryValueEx(key, field)[0])
+                                    except OSError:
+                                        return ""
+                                if not re.search(r"aniimo|pawprint", name + " " + value("DisplayName"), re.I):
+                                    continue
+                                location = value("InstallLocation").strip().strip('"')
+                                if location:
+                                    results.append(Path(os.path.expandvars(location)))
+                                for field in ("DisplayIcon", "UninstallString"):
+                                    match = re.match(r'^\s*"?(.+?\.exe)"?(?:\s|,|$)', value(field), re.I)
+                                    if match:
+                                        results.append(Path(os.path.expandvars(match.group(1))).parent)
+                        except OSError:
+                            continue
+            except OSError:
+                continue
+    return list(dict.fromkeys(results))
+
+
+def shortcut_aniimo_dirs() -> list[Path]:
+    """Resolve only Aniimo/Pawprint shortcuts; never execute their targets."""
+    if os.name != "nt":
+        return []
+    script = (
+        "$w=New-Object -ComObject WScript.Shell; "
+        "$roots=@([Environment]::GetFolderPath('Desktop'),[Environment]::GetFolderPath('CommonDesktopDirectory'),"
+        "[Environment]::GetFolderPath('StartMenu'),[Environment]::GetFolderPath('CommonStartMenu')); "
+        "foreach($r in $roots){if($r){Get-ChildItem -LiteralPath $r -Filter '*.lnk' -Recurse -ErrorAction SilentlyContinue | "
+        "Where-Object {$_.BaseName -match 'Aniimo|Pawprint'} | ForEach-Object {"
+        "try{$s=$w.CreateShortcut($_.FullName); if($s.TargetPath){$s.TargetPath}}catch{}}}}"
+    )
+    try:
+        output = subprocess.check_output(["powershell", "-NoProfile", "-Command", script],
+                                         text=True, stderr=subprocess.DEVNULL, timeout=8,
+                                         creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        return list(dict.fromkeys(Path(line.strip()).parent for line in output.splitlines() if line.strip()))
+    except (OSError, subprocess.SubprocessError):
+        return []
+
+
+def launcher_game_dirs(launcher: Path) -> list[Path]:
+    """Read only native_game_path from Pawprint, never account/settings fields."""
+    prefs = launcher / "prefs/worldx_global_setting.ini"
+    try:
+        if prefs.stat().st_size > 1024 * 1024:
+            return []
+        match = re.search(r"^native_game_path\s*=\s*(.+)$", prefs.read_text(encoding="utf-8-sig"), re.M)
+        return [Path(os.path.expandvars(match.group(1).strip().strip('"'))).parent] if match else []
+    except (OSError, UnicodeError):
+        return []
 
 
 def candidate_game_dirs() -> list[Path]:
@@ -503,39 +632,98 @@ def candidate_game_dirs() -> list[Path]:
     # Best user experience: extract the release into the game root and run it.
     candidates.extend([APP_DIR, APP_DIR.parent, Path.cwd(), Path.cwd().parent])
 
-    for drive in [f"{letter}:\\" for letter in "CDEFGHIJKLMNOPQRSTUVWXYZ"]:
-        root = Path(drive)
-        if not root.exists():
-            continue
+    candidates.extend(registered_aniimo_dirs())
+    candidates.extend(shortcut_aniimo_dirs())
+    for root in local_drive_roots():
         candidates.extend(
             [
                 root / "Pawprint" / "Aniimo" / "game",
                 root / "Pawprint" / "Aniimo",
                 root / "Aniimo" / "game",
                 root / "Aniimo",
+                root / "Games" / "Aniimo",
+                root / "Games" / "Pawprint" / "Aniimo",
+                root / "Program Files" / "Pawprint" / "Aniimo",
+                root / "Program Files (x86)" / "Pawprint" / "Aniimo",
             ]
         )
-    for lib in parse_steam_libraries():
+    libraries = parse_steam_libraries()
+    candidates.extend(record["path"] for record in steam_aniimo_installations(libraries))
+    for lib in libraries:
         candidates.extend(
             [
                 lib / "steamapps" / "common" / "Aniimo" / "game",
                 lib / "steamapps" / "common" / "Aniimo",
             ]
         )
-    return list(dict.fromkeys(candidates))
+    expanded = []
+    for candidate in dict.fromkeys(candidates):
+        expanded.extend([candidate, candidate / "game"])
+        expanded.extend(launcher_game_dirs(candidate))
+    return list(dict.fromkeys(expanded))
+
+
+def search_custom_game_dirs(roots: list[Path] | None = None, *, max_seconds: float = 5.0,
+                            max_dirs: int = 12000, max_depth: int = 5) -> list[Path]:
+    """Bounded fallback search without following Windows junctions or links."""
+    roots = local_drive_roots() if roots is None else roots
+    queue = deque((root, 0) for root in roots)
+    deadline, visited, found = time.monotonic() + max_seconds, 0, []
+    skip = {"windows", "$recycle.bin", "system volume information", "appdata", "programdata",
+            "node_modules", ".git", "aniimo_data", "depotcache", "downloading", "steamapps"}
+    while queue and visited < max_dirs and time.monotonic() < deadline:
+        folder, depth = queue.popleft()
+        visited += 1
+        if looks_like_game_dir(folder):
+            found.append(folder)
+            continue
+        for target in launcher_game_dirs(folder):
+            if looks_like_game_dir(target):
+                found.append(target)
+        if depth >= max_depth:
+            continue
+        try:
+            with os.scandir(folder) as entries:
+                for entry in entries:
+                    if time.monotonic() >= deadline:
+                        break
+                    if entry.name.casefold() in skip or entry.name.startswith('.'):
+                        continue
+                    if entry.is_dir(follow_symlinks=False):
+                        if getattr(entry.stat(follow_symlinks=False), "st_file_attributes", 0) & 0x400:
+                            continue
+                        queue.append((Path(entry.path), depth + 1))
+        except OSError:
+            continue
+    return list(dict.fromkeys(found))
+
+
+def normalize_game_path(raw: str) -> Path:
+    value = os.path.expandvars(raw.strip().strip('"').strip("'"))
+    path = Path(value).expanduser()
+    if path.suffix.casefold() == ".exe":
+        path = path.parent
+    return path.resolve()
 
 
 def resolve_game_dir_with_source(raw: str | None) -> tuple[Path, str]:
     if raw:
-        p = Path(raw).expanduser().resolve()
+        p = normalize_game_path(raw)
         if looks_like_game_dir(p):
             return p, "manuale"
         if looks_like_game_dir(p / "game"):
             return (p / "game").resolve(), "manuale"
-        raise FileNotFoundError(f"Invalid Aniimo folder: {p}")
+        for target in launcher_game_dirs(p):
+            if looks_like_game_dir(target):
+                return target.resolve(), "manuale"
+        raise FileNotFoundError(f"Qui non trovo i file completi di Aniimo: {p}. Completa il download dal launcher o da Steam.")
+    # Deliberate placement beside the game wins over a saved other installation.
+    for p in (APP_DIR, APP_DIR / "game"):
+        if looks_like_game_dir(p):
+            return p.resolve(), "automatico"
     saved = str(load_settings().get("game_dir") or "").strip()
     if saved:
-        p = Path(saved).expanduser().resolve()
+        p = normalize_game_path(saved)
         if looks_like_game_dir(p):
             return p, "salvato"
         if looks_like_game_dir(p / "game"):
@@ -543,9 +731,12 @@ def resolve_game_dir_with_source(raw: str | None) -> tuple[Path, str]:
     for candidate in candidate_game_dirs():
         if looks_like_game_dir(candidate):
             return candidate.resolve(), "automatico"
+    extra = search_custom_game_dirs()
+    if extra:
+        return extra[0].resolve(), "automatico"
     raise FileNotFoundError(
-        "Cartella di Aniimo non trovata. Metti questo eseguibile nella root del gioco, "
-        "accanto ad Aniimo_Data, oppure avvialo con --game-dir \"PERCORSO\\game\"."
+        "Percorso non trovato. Sposta Aniimo-Italian-Translation.exe nella stessa cartella "
+        "di Aniimo.exe, poi riapri l'installer della traduzione."
     )
 
 
@@ -559,7 +750,7 @@ def choose_game_dir_windows() -> str | None:
     script = (
         "Add-Type -AssemblyName System.Windows.Forms; "
         "$dialog=New-Object System.Windows.Forms.FolderBrowserDialog; "
-        "$dialog.Description='Seleziona la cartella di Aniimo che contiene Aniimo_Data'; "
+        "$dialog.Description='Seleziona la cartella che contiene Aniimo.exe'; "
         "$dialog.ShowNewFolderButton=$false; "
         "if($dialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK){$dialog.SelectedPath}"
     )
@@ -568,6 +759,7 @@ def choose_game_dir_windows() -> str | None:
             ["powershell", "-NoProfile", "-STA", "-Command", script],
             text=True,
             stderr=subprocess.DEVNULL,
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
         ).strip()
         return output or None
     except (OSError, subprocess.CalledProcessError):
@@ -575,11 +767,15 @@ def choose_game_dir_windows() -> str | None:
 
 
 def print_game_path_help() -> None:
-    print("Come trovare la cartella giusta:")
-    print("  1. Apri la cartella in cui Pawprint ha installato Aniimo.")
-    print("  2. Apri la sottocartella 'game', se presente.")
-    print("  3. Seleziona la cartella che contiene 'Aniimo_Data'.")
-    print(r"     Esempio: F:\Pawprint\Aniimo\game")
+    print("PERCORSO NON TROVATO? ECCO LA SOLUZIONE PIÙ SEMPLICE")
+    print("  Sposta Aniimo-Italian-Translation.exe nella stessa cartella di Aniimo.exe.")
+    print("  Poi fai doppio clic sull'installer della traduzione.")
+    print()
+    print("Dove trovare questa cartella:")
+    print("  Steam: Libreria > tasto destro su Aniimo > Gestisci > Sfoglia i file locali.")
+    print("  Pawprint: apri la cartella del gioco; se c'è 'game', entra in quella cartella.")
+    print("  La cartella giusta contiene Aniimo.exe e Aniimo_Data.")
+    print("  Non spostare Aniimo.exe: devi spostare solo l'installer della traduzione.")
 
 
 def configure_game_dir() -> Path | None:
@@ -593,7 +789,8 @@ def configure_game_dir() -> Path | None:
     try:
         game_dir, _ = resolve_game_dir_with_source(raw)
     except FileNotFoundError:
-        print("La cartella scelta non contiene Aniimo_Data. Nessun percorso è stato salvato.")
+        print("Non trovo i file completi del gioco nella cartella scelta. Nessun percorso è stato salvato.")
+        print("Se hai solo il pre-download Steam, attendi lo sblocco e completa l'installazione.")
         return None
     save_game_dir(game_dir)
     print("Percorso verificato e salvato:", game_dir)
@@ -823,6 +1020,8 @@ def countdown_units_are_italian(metadata: bytes) -> bool:
 
 
 def localized_date_replacements(zf: zipfile.ZipFile) -> tuple[dict[str, bytes], dict]:
+    if final_text_profile():
+        return {}, {"mode": "native_unchanged", "verified_italian_dates": False}
     date_script, chapter_changed = patch_dynamic_date_order(zf.read(DATE_SCRIPT))
     localized_script, ui_changed = patch_localized_date_order(
         zf.read(LOCALIZED_DATE_SCRIPT)
@@ -904,8 +1103,8 @@ def detect_translation_installation(game_dir: Path) -> dict:
     result["matches_current"] = (
         result["matches_current"]
         and font_accented
-        and date_italian
-        and countdown_italian
+        and (date_italian or final_text_profile())
+        and (countdown_italian or final_text_profile())
     )
     result["installed_slots"] = ["en"] if result["installed"] else []
     result["detected_slot"] = "en"
@@ -969,6 +1168,8 @@ def classify_text_resources(
     italian_by_key = {key: str(row.get("it") or "") for key, row in catalog.items()}
     current_content_sha256 = sha256_keyed_text(current_by_key)
     official_content_sha256 = sha256_keyed_text(official_by_key)
+    if catalog and all(row.get("source_sha256") for row in catalog.values()):
+        official_content_sha256 = manifest.get("known_source_content_sha256", "")
     italian_content_sha256 = sha256_keyed_text(italian_by_key)
 
     source_matches = 0
@@ -980,7 +1181,10 @@ def classify_text_resources(
             # both languages still count towards an installed-translation ratio.
             if current_text == italian_by_key[key]:
                 italian_matches += 1
-            elif current_text == official_by_key[key]:
+            elif current_text == official_by_key[key] or (
+                catalog[key].get("source_sha256")
+                and hashlib.sha256(current_text.encode("utf-8")).hexdigest() == catalog[key]["source_sha256"]
+            ):
                 source_matches += 1
             else:
                 unknown_keys.append(key)
@@ -997,7 +1201,7 @@ def classify_text_resources(
         mode = "official_exact"
     elif not unknown_keys:
         mode = "known_mix"
-    elif italian_match_ratio >= 0.90:
+    elif italian_match_ratio >= 0.90 and manifest.get("runtime_profile") != "final-native-text-only":
         mode = "installed_translation_upgrade"
     else:
         mode = "unknown"
@@ -1005,7 +1209,7 @@ def classify_text_resources(
     supported = (
         keys_match_catalog
         and catalog_matches_manifest
-        and (not unknown_keys or italian_match_ratio >= 0.90)
+        and (not unknown_keys or (italian_match_ratio >= 0.90 and manifest.get("runtime_profile") != "final-native-text-only"))
     )
     return {
         "supported": supported,
@@ -1467,6 +1671,28 @@ def patch_font_bundle(source: Path, destination: Path) -> dict:
 
 def technical_compatibility_status(paths: GamePaths) -> dict:
     """Verify that font, date and countdown resources are known and patchable."""
+    if final_text_profile():
+        issues = []
+        bundles = local_manifest().get("native_font_bundles", [])
+        if not bundles:
+            issues.append("native_font_manifest")
+        for bundle in bundles:
+            relative = Path(bundle["relative"])
+            if relative.is_absolute() or ".." in relative.parts:
+                issues.append("native_font_path")
+                continue
+            candidate = paths.game_dir / relative
+            # Same resource can be shipped as base or hot-update content.
+            if not candidate.is_file():
+                candidate = paths.game_dir / str(relative).replace(
+                    "Aniimo_Data\\cvs\\", "Aniimo_Data\\StreamingAssets\\cvs\\"
+                )
+            if not candidate.is_file() or sha256_file(candidate) != bundle["sha256"]:
+                issues.append("native_font_changed")
+        return {"supported": not issues, "issues": issues,
+                "date_italian": False, "countdown_italian": False,
+                "font_accented": not issues, "font_validation": "static_glyph_coverage",
+                "runtime_validation": "pending"}
     issues: list[str] = []
     date_italian = True
     for archive in iter_lua_archives(paths):
@@ -1563,7 +1789,7 @@ def verify_archive_pair(
             raise RuntimeError(f"Archivio Lua corrotto ({bad_entry}): {xdf}")
         if int(manifest.get("CMEntryNum", -1)) != len(zf.infolist()):
             raise RuntimeError(f"Indice XDT incompleto dopo la modifica: {xdt}")
-        if not zip_dates_are_italian(zf):
+        if not final_text_profile() and not zip_dates_are_italian(zf):
             raise RuntimeError(f"Date italiane non verificate nell'archivio: {xdf}")
         translation_matches = None
         if require_current_translation:
@@ -1575,7 +1801,7 @@ def verify_archive_pair(
     return {
         "xdf_sha256": sha256_file(xdf),
         "xdt_sha256": sha256_file(xdt),
-        "date_verified": True,
+        "date_verified": not final_text_profile(),
         "translation_verified": translation_matches,
     }
 
@@ -1679,14 +1905,18 @@ def backup_live(paths: GamePaths) -> Path:
         src = paths.game_dir / name
         if src.exists():
             shutil.copy2(src, backup / name)
-    font_bundle = find_font_bundle(paths.game_dir)
-    font_relative = font_bundle.relative_to(paths.game_dir)
-    font_backup = backup / FONT_PATCH_DIR
-    font_backup.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(font_bundle, font_backup / "cdata.uab")
-    font_info = font_bundle.with_name("cinfo.bin")
-    if font_info.is_file():
-        shutil.copy2(font_info, font_backup / "cinfo.bin")
+    font_relative = ""
+    font_info_present = False
+    if not final_text_profile():
+        font_bundle = find_font_bundle(paths.game_dir)
+        font_relative = font_bundle.relative_to(paths.game_dir)
+        font_backup = backup / FONT_PATCH_DIR
+        font_backup.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(font_bundle, font_backup / "cdata.uab")
+        font_info = font_bundle.with_name("cinfo.bin")
+        font_info_present = font_info.is_file()
+        if font_info_present:
+            shutil.copy2(font_info, font_backup / "cinfo.bin")
     metadata_source = paths.game_dir / COUNTDOWN_METADATA_REL
     if not metadata_source.is_file():
         raise FileNotFoundError(f"Metadati runtime di Aniimo non trovati: {metadata_source}")
@@ -1704,7 +1934,7 @@ def backup_live(paths: GamePaths) -> Path:
         "original_i18n_files": sorted(original_i18n_files),
         "created_i18n_files": [],
         "font_bundle_relative": str(font_relative),
-        "font_info_present": font_info.is_file(),
+        "font_info_present": font_info_present,
         "metadata_relative": str(COUNTDOWN_METADATA_REL),
         "metadata_backup": str(metadata_backup_relative),
         "metadata_sha256": sha256_file(metadata_backup),
@@ -1725,6 +1955,8 @@ def record_created_i18n_files(backup: Path, patch_dir: Path) -> list[str]:
 
 
 def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple[Path, dict]:
+    if final_text_profile() and not technical_compatibility_status(paths)["supported"]:
+        raise RuntimeError("Risorse native cambiate: questa build richiede una nuova verifica.")
     patch_dir = USER_WORK_DIR / "patches" / time.strftime("%Y%m%d-%H%M%S")
     replacements: dict[str, bytes] = {}
     stats: dict[str, object] = {
@@ -1799,6 +2031,12 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             "relative_dir": str(archive_relative_dir(paths, archive)),
             **verification,
         })
+    if final_text_profile():
+        stats["font"] = {"mode": "native_unchanged", "runtime_validation": "pending"}
+        stats["countdown_units"] = {"mode": "native_unchanged", "verified": False}
+        stats["local_manifests"] = update_local_manifests(paths, patch_dir)
+        write_json(patch_dir / "patch_stats.json", stats)
+        return patch_dir, stats
     metadata_source = paths.game_dir / COUNTDOWN_METADATA_REL
     if not metadata_source.is_file():
         raise FileNotFoundError(f"Metadati runtime di Aniimo non trovati: {metadata_source}")
@@ -1840,9 +2078,10 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         )
     patched_metadata = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / COUNTDOWN_METADATA_REL.name
     live_metadata = paths.game_dir / COUNTDOWN_METADATA_REL
-    shutil.copy2(patched_metadata, live_metadata)
-    if not countdown_units_are_italian(live_metadata.read_bytes()):
-        raise RuntimeError("Verifica del timer italiano non riuscita dopo la copia.")
+    if patched_metadata.is_file():
+        shutil.copy2(patched_metadata, live_metadata)
+        if not countdown_units_are_italian(live_metadata.read_bytes()):
+            raise RuntimeError("Verifica del timer italiano non riuscita dopo la copia.")
     patch_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     if patch_i18n.exists():
@@ -1947,7 +2186,11 @@ def cmd_install(args: argparse.Namespace) -> int:
     record_installed_state(paths, official_info)
     print("Patch installata.")
     print("Lingua da selezionare in gioco: Inglese")
-    print("Font accentato: ✓ English usa il font vietnamita incluso in Aniimo")
+    if final_text_profile():
+        print("Font nativi invariati. Date e timer conservano il formato originale del gioco.")
+        print("Build di prova: la resa grafica deve ancora essere confermata in gioco.")
+    else:
+        print("Font accentato: ✓ English usa il font vietnamita incluso in Aniimo")
     print("Statistiche:", json.dumps(stats.get("languages", {}), ensure_ascii=False))
     return 0
 
@@ -2123,6 +2366,7 @@ def collect_startup_status() -> dict:
         result["detected_game_update"] = version_info["update"]
         result["detected_game_revision"] = version_info["revision"]
     except (FileNotFoundError, OSError):
+        result["steam_pending"] = [record for record in steam_aniimo_installations() if not record["files_ready"]]
         return result
     try:
         translation = detect_translation_installation(game_dir)
@@ -2345,12 +2589,26 @@ def run_menu() -> int:
     print_status_panel(startup, colors)
     if not startup.get("game_dir"):
         print()
-        print("Aniimo non è stato trovato automaticamente.")
+        pending = startup.get("steam_pending", [])
+        if pending:
+            if any(record["download_complete"] for record in pending):
+                print("STEAM: PRE-DOWNLOAD COMPLETATO, GIOCO NON ANCORA INSTALLABILE")
+                print("Attendi lo sblocco da Steam e il completamento dell'installazione, poi riapri questa mod.")
+            else:
+                print("STEAM: INSTALLAZIONE NON COMPLETATA")
+                print("Completa il download e l'installazione da Steam, poi riapri questa mod.")
+            print("Se usi anche Pawprint, puoi selezionare la sua cartella qui sotto.")
+        else:
+            print("Aniimo non è stato trovato automaticamente.")
+        print_game_path_help()
         answer = input("Vuoi indicare adesso la cartella del gioco? [S/n]: ").strip().lower()
         if answer in {"", "s", "si", "sì", "y", "yes"} and configure_game_dir():
             print()
             startup = collect_startup_status()
             print_status_panel(startup, colors)
+        if not startup.get("game_dir"):
+            print("Nessun file modificato. Riapri l'installer quando il gioco è pronto.")
+            return 1
     update = startup["update"]
     if update.get("update_available"):
         print()

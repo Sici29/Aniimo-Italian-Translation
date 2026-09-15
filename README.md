@@ -1,6 +1,35 @@
 # Aniimo — Traduzione italiana
 
-Traduzione italiana amatoriale completa per **Aniimo**, con installazione automatica, backup e ripristino.
+## Anteprima del client finale — 0.4.0 Preview
+
+[☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
+
+**Sorgenti di una build di prova per Aniimo 3509129. La nuova release è in bozza, in attesa della verifica in gioco.**
+
+- Traduzione presente per **111.941 / 112.065 chiavi (99,89%)**.
+- **124 chiavi ambigue** mantengono temporaneamente il testo originale.
+- Revisione editoriale approfondita ancora da completare.
+- Font nativi invariati: accenti verificati nei dati, resa grafica ancora da confermare.
+- Date, timer e metadati workflow restano originali: le vecchie correzioni beta non sono compatibili con il nuovo formato.
+
+### Installazione della build di prova
+
+1. Chiudi Aniimo e il launcher.
+2. Apri il solo file **Aniimo-Italian-Translation.exe** e premi Invio.
+3. Nel gioco seleziona **Inglese**.
+
+Se il gioco non viene trovato, **sposta l'installer accanto ad Aniimo.exe e riaprilo**, oppure scegli la cartella dalla finestra proposta. Su Steam: Libreria → Aniimo → Gestisci → Sfoglia i file locali. Il pre-download non ancora sbloccato non è installabile.
+
+L'installer crea un backup. Per tornare agli originali, chiudi il gioco, riapri l'installer e scegli **2**.
+
+**Modifica file locali del client; non è un loader esterno.** Traduzione non ufficiale, senza garanzie contro controlli anticheat o sanzioni. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
+
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note della nuova build](RELEASE_NOTES_v0.4.0-preview.md) · [Verifiche tecniche](BUILD_QA_v0.4.0-preview.md)
+
+<details>
+<summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>
+
+Le informazioni sotto descrivono le vecchie release. Non costituiscono verifica della nuova build.
 
 ## ☕ Sostieni il progetto
 
@@ -50,28 +79,37 @@ La traduzione continua a usare lo slot English, sempre disponibile nel gioco. L'
 
 ## Se l'installer non trova Aniimo
 
-Se il percorso non viene trovato, l'installer propone subito di selezionarlo con una normale finestra di Windows. Scegli la cartella che contiene `Aniimo_Data`:
+**Sposta `Aniimo-Italian-Translation.exe` nella stessa cartella di `Aniimo.exe`, poi riapri l'installer della traduzione.** Non spostare l'eseguibile del gioco.
+
+Per trovare la cartella:
+
+- **Steam:** Libreria → tasto destro su Aniimo → Gestisci → Sfoglia i file locali.
+- **Pawprint:** apri la cartella in cui è installato Aniimo, poi entra in `game`, se presente.
+
+Puoi anche scegliere la cartella dalla finestra proposta dall'installer, senza spostare nulla. La cartella giusta contiene entrambi `Aniimo.exe` e `Aniimo_Data`:
 
 ```text
 Aniimo\game\
 ├── Aniimo_Data\
+├── Aniimo.exe
 └── Aniimo-Italian-Translation.exe
 ```
 
-Per recuperare il percorso:
-
-1. apri la cartella in cui **Pawprint** ha installato Aniimo;
-2. entra nella sottocartella `game`, se presente;
-3. verifica che al suo interno sia presente `Aniimo_Data`;
-4. seleziona quella cartella nella finestra dell'installer.
-
-Esempio:
+Esempio (può essere anche un altro disco o una cartella personalizzata):
 
 ```text
 F:\Pawprint\Aniimo\game
 ```
 
 È anche possibile incollare direttamente il percorso. Dopo la verifica verrà salvato e riutilizzato automaticamente. Per cambiarlo successivamente, apri l'installer e scegli l'opzione `4`.
+
+**Hai soltanto il pre-download Steam?** Attendi lo sblocco del gioco e il completamento dell'installazione. Aver scaricato tutti i dati non significa che i file siano già utilizzabili: l'installer non modifica i pacchetti ancora bloccati.
+
+## Modifica dei file e rischio per l'account
+
+Questa è una traduzione amatoriale, non approvata ufficialmente da Pawprint. L'installer modifica file locali del gioco; non è un loader esterno che lascia intatto il client. Le versioni beta intervengono su archivi di localizzazione, font, script delle date e testi del timer nei metadati runtime, con backup e ripristino.
+
+Non possiamo garantire l'assenza di controlli d'integrità, segnalazioni o sanzioni sull'account. L'assenza di problemi durante le prove non è un'autorizzazione ufficiale, e il backup non protegge da eventuali sanzioni. I [termini Pawprint](https://pawprintstudio.com/terms-of-use/en) limitano traduzioni e modifiche non autorizzate: per chiarimenti sull'ammissibilità della patch, contatta il supporto ufficiale.
 
 ## Ripristina i file originali
 
@@ -203,3 +241,5 @@ Dalla versione 0.3.6 non viene più mantenuta una seconda copia “accentata”:
 ## Nota legale
 
 Questa è una traduzione amatoriale non ufficiale e non è affiliata agli sviluppatori o al publisher di Aniimo. Per utilizzarla è necessaria una copia installata del gioco.
+
+</details>

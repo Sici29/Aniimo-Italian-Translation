@@ -1,50 +1,44 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.3.18-beta",
+  "translation_version": "0.4.0-preview",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
-  "known_source_key_count": 93029,
-  "known_source_key_sha256": "89b93bd162f94fa47c8e5425f3a427048b9f9a5cd2aeba65f2f7bd542f1919a6",
+  "known_source_key_count": 112065,
+  "known_source_key_sha256": "a497435df9d7e63242e83d3ab0d0d61cee1ee9e2e5bcd9f7c247bdf62904792c",
   "supported_game_updates": [
-    3032670,
-    3036569,
-    3048640,
-    3053563,
-    3058113,
-    3062823,
-    3064863
+    3509129
   ],
-  "latest_supported_game_update": 3064863,
-  "supported_game_revisions": [
-    "7113f88e39827a2d13591a55b395f1c6",
-    "4eb81a98d0e3934af67064cbde06218e"
-  ],
-  "tested_game_update": "3064863",
+  "latest_supported_game_update": 3509129,
+  "supported_game_revisions": [],
+  "tested_game_update": "3509129",
   "tested_game_revision": null,
-  "tested_archive_sha256": "cf78211d07961cd5490db8b4ca0029f62b882d1e5f8576f965ea1131d356cf7e",
-  "tested_date": "2026-07-18",
-  "coverage": "93029/93029 modern text keys; build 3064863 keeps the exact key set and English contents of build 3062823; all 359 historical English runtime fallbacks are explicitly enabled and translated; 5 reported Fannie rows were re-reviewed",
+  "tested_archive_sha256": "303ace0a98840efe68f2714f99686fb7e425815a22552d45d648e24127da34f3",
+  "tested_date": "2026-09-15",
+  "coverage": "111941/112065 keys filled (99.89%); 124 ambiguous keys retain the game's original text. Deep editorial review pending.",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
-  "install_hint": "Run Aniimo-Italian-Translation.exe, press Enter, then select English in game. The installer keeps the English text slot, assigns Aniimo's bundled Vietnamese font, changes every verified visible date to DD/MM/YYYY, and replaces the built-in CJK countdown units with h/m/s. If automatic detection fails, place the EXE next to Aniimo_Data.",
+  "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "The default installation uses the visible English text slot and redirects only its font to Aniimo's bundled Vietnamese font.",
-    "The public translation uses standard Italian spelling and real accented letters.",
-    "Every verified visible date surface is generated dynamically and reordered locally to DD/MM/YYYY, including quest chapters, mail, albums, photo details and event panels.",
-    "The built-in CJK countdown labels used by shop cards are replaced locally with the neutral h/m/s abbreviations without changing metadata offsets.",
-    "Both the downloaded Lua overlay and the base runtime archive are backed up, patched independently and verified before installation.",
-    "The language audit compares every modern official locale and recovers meaningful entries stored as zero in the English slot.",
-    "Build 3053563 uses the verified font bundle c3aa9ce8cbbd8c1c6f9a26b09d202ad9; the English slot is still redirected to Aniimo's bundled Vietnamese font for complete Italian accents.",
-    "Build 3053563 is verified by its package version, 93029-key fingerprint, and official active Lua overlay SHA-256; the diagnostic verlist digest is not treated as the compatibility authority.",
-    "Build 3058113 keeps the same 93029 keys and English contents; it is accepted by the automatic content check and its active Lua overlay SHA-256 is recorded for diagnostics only.",
-    "Build 3062823 keeps 93029 total keys but adds 2 keys, removes 2 keys and changes 28 English sources; every affected row has been translated and reviewed.",
-    "Build 3064863 keeps the exact 93029 keys and English contents of build 3062823 and is accepted automatically by the content check.",
-    "Aniimo's English runtime allow-list omits 359 historically recovered rows even though their source text now exists; the installer explicitly enables every audited key so the patched Italian text is not bypassed by an English fallback.",
-    "Compatibility is determined automatically from the full key set and the actual English/Italian text contents; an unseen build with unchanged localization is accepted without adding its build number.",
-    "New or changed official text values are rejected until reviewed, even when the total key count remains unchanged.",
-    "The installer builds patched resources locally from the user owned game files; this repository does not include original game archives."
+    "Preview delivery for final client 3509129, not a claim of complete editorial or in-game QA.",
+    "Native fonts are unchanged; static character/fallback coverage includes all 12 Italian accented letters.",
+    "Date scripts and runtime metadata remain unchanged; old beta date/timer patches are not applied to unverified final bytecode.",
+    "Final-client workflow metadata is preserved byte-for-byte; the beta integer allow-list workaround is not applied to a different format.",
+    "Original source text is not redistributed: each key stores its SHA-256 for compatibility checks."
+  ],
+  "known_source_content_sha256": "2fb1fe6b8fd481863905c366a90474d4f17c0ec72c8fdbb9576a1adddb4562e5",
+  "runtime_profile": "final-native-text-only",
+  "runtime_validation": "pending_user_test",
+  "native_font_bundles": [
+    {
+      "relative": "Aniimo_Data/cvs/res/uab/win/DefaultPackage/CacheBundleFiles/ab/abc126a6fab1aac86d26fe769569e4c3/cdata.uab",
+      "sha256": "acd8e0aa32f12603392f43dea4d24b336d3a3f9ba610ebcd9cf239e4ae8face9"
+    },
+    {
+      "relative": "Aniimo_Data/cvs/res/uab/win/DefaultPackage/CacheBundleFiles/a6/a6ecd6d73c3049fcb5abf6aeb5caeda4/cdata.uab",
+      "sha256": "373533d111f898f99037d9c300d993b8b538a59adb473a303d432ef9e158846b"
+    }
   ]
 }

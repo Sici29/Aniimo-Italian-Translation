@@ -88,7 +88,11 @@ class BuildMapAndBinTests(unittest.TestCase):
 
     def test_historical_english_zero_fallbacks_remain_enabled(self) -> None:
         keys = installer.recovered_english_fallback_keys()
-        self.assertEqual(359, len(keys))
+        expected = len(installer.load_translations("en")) if installer.final_text_profile() else 359
+        self.assertEqual(expected, len(keys))
+        if installer.final_text_profile():
+            self.assertEqual(set(keys), set(installer.load_translations("en")))
+            return  # The beta's removed keys are not part of the final catalog.
         self.assertTrue({
             "1086054185",
             "1096665518",
@@ -842,7 +846,10 @@ class DetectionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             game = root / "Aniimo" / "game"
-            (game / "Aniimo_Data").mkdir(parents=True)
+            archive = game / installer.LUA_RELS[0]
+            archive.mkdir(parents=True)
+            (archive / installer.XDF_NAME).write_bytes(b"test archive")
+            (archive / installer.XDT_NAME).write_bytes(b"test index")
             work = root / "work"
             with patch.object(installer, "USER_WORK_DIR", work), patch.object(
                 installer, "candidate_game_dirs", return_value=[]
@@ -856,7 +863,10 @@ class DetectionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             game = root / "Aniimo" / "game"
-            (game / "Aniimo_Data").mkdir(parents=True)
+            archive = game / installer.LUA_RELS[0]
+            archive.mkdir(parents=True)
+            (archive / installer.XDF_NAME).write_bytes(b"test archive")
+            (archive / installer.XDT_NAME).write_bytes(b"test index")
             work = root / "work"
             with patch.object(installer, "USER_WORK_DIR", work), patch.object(
                 installer, "choose_game_dir_windows", return_value=str(game.parent)

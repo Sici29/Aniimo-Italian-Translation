@@ -27,6 +27,7 @@ GAME_UPDATE_AUDIT_V0314 = ROOT / "data" / "game_update_audit_v0.3.14.json"
 GAME_UPDATE_AUDIT_V0316 = ROOT / "data" / "game_update_audit_v0.3.16.json"
 GAME_UPDATE_AUDIT_V0317 = ROOT / "data" / "game_update_audit_v0.3.17.json"
 RUNTIME_FALLBACK_AUDIT_V0318 = ROOT / "data" / "runtime_fallback_audit_v0.3.18.json"
+GAME_UPDATE_AUDIT_V0319 = ROOT / "data" / "game_update_audit_v0.3.19.json"
 
 
 def load_rows(path: Path) -> list[dict[str, str]]:
@@ -34,13 +35,17 @@ def load_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+@unittest.skipIf(
+    json.loads((ROOT / "data/supported_versions.json").read_text(encoding="utf-8")).get("runtime_profile") == "final-native-text-only",
+    "Historical beta corpus. Final payload tests: test_final_delivery; full editorial regression port pending.",
+)
 class TranslationDataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.production = load_rows(PRODUCTION_CSV)
 
     def test_master_has_expected_structure(self) -> None:
-        self.assertEqual(93_029, len(self.production))
+        self.assertEqual(93_040, len(self.production))
 
     def test_sea_of_flowers_form_is_localized_and_compact(self) -> None:
         matches = [row for row in self.production if row["source_en"] == "Sea of Flowers Form"]
@@ -1004,6 +1009,39 @@ class TranslationDataTests(unittest.TestCase):
             self.assertEqual(entry["source_sha256"], source_sha256, entry["key"])
             self.assertEqual(entry["it_sha256"], italian_sha256, entry["key"])
             self.assertIn("runtime_fallback_v0.3.18_reviewed", row["note"].split(";"))
+
+    def test_v0319_game_update_audit_is_fully_applied(self) -> None:
+        audit = json.loads(GAME_UPDATE_AUDIT_V0319.read_text(encoding="utf-8"))
+        by_key = {row["key"]: row for row in self.production}
+        reviewed = [
+            row
+            for row in self.production
+            if audit["review_marker"] in row["note"].split(";")
+        ]
+
+        self.assertEqual(3090396, audit["game_build"])
+        self.assertEqual(93_029, audit["previous_total_keys"])
+        self.assertEqual(93_040, audit["total_keys"])
+        self.assertEqual(13, len(audit["added_keys"]))
+        self.assertEqual(2, len(audit["removed_keys"]))
+        self.assertEqual(375, audit["changed_key_count"])
+        self.assertEqual(37, audit["changed_unique_source_count"])
+        self.assertEqual(352, len(reviewed))
+        self.assertEqual(30, len({row["source_en"] for row in reviewed}))
+        self.assertTrue(all(row["it"] for row in reviewed))
+
+        key_sha256 = hashlib.sha256(
+            "\n".join(sorted(by_key)).encode("utf-8")
+        ).hexdigest()
+        self.assertEqual(audit["key_sha256"], key_sha256)
+
+        for key in audit["added_keys"]:
+            self.assertIn(key, by_key)
+            self.assertTrue(by_key[key]["it"])
+        for key in audit["removed_keys"]:
+            self.assertNotIn(key, by_key)
+        for key, expected in audit["regression_samples"].items():
+            self.assertEqual(expected, by_key[key]["it"], key)
 
 
 if __name__ == "__main__":

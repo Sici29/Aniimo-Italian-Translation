@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = [('data', 'data')]
+datas = [('data/translation_it.csv', 'data'), ('data/supported_versions.json', 'data')]
 binaries = []
 hiddenimports = []
 tmp_ret = collect_all('UnityPy')
