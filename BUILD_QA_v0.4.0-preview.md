@@ -8,6 +8,7 @@
 - Installazione e ripristino provati su una copia isolata: 9 file ripristinati byte per byte.
 - Gioco reale non modificato. Font e metadati runtime rimasti identici.
 - EXE confezionato eseguito in modalità check: 112.065 chiavi, zero sorgenti sconosciute, compatibilità tecnica positiva.
+- Anche l'EXE effettivamente consegnato è stato eseguito con install e restore su una copia isolata: entrambi terminati con codice 0, versione e percorso registrati correttamente, 9 file ripristinati byte per byte. Il profilo utente del test era interno all'area di lavoro; il gioco reale è rimasto invariato.
 - EXE: 25.376.778 byte, icona italiana incorporata, firma digitale assente.
 - SHA-256: C858198B087EBEBAEC70471DB200B9FD103FE877E073B56D3AF9B5D4F749106A.
 
