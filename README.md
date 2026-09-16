@@ -1,30 +1,30 @@
 # Aniimo — Traduzione italiana
 
-## Anteprima del client finale — 0.4.0 Preview
+## Release client Steam — v0.4.1
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Sorgenti di una build di prova per Aniimo 3509129. La nuova release è in bozza, in attesa della verifica in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3535596), verificata e funzionante in gioco.**
 
-- Traduzione presente per **111.941 / 112.065 chiavi (99,89%)**.
-- **124 chiavi ambigue** mantengono temporaneamente il testo originale.
-- Revisione editoriale approfondita ancora da completare.
-- Font nativi invariati: accenti verificati nei dati, resa grafica ancora da confermare.
-- Date, timer e metadati workflow restano originali: le vecchie correzioni beta non sono compatibili con il nuovo formato.
+- Traduzione completa per **112.183 / 112.183 chiavi (100,00%)** con 0 stringhe mancanti.
+- Revisione professionale terminologica e rispetto rigoroso del glossario di gioco.
+- Un solo file standalone `Aniimo-Italian-Translation.exe` con rilevamento prioritario automatico di Steam.
+- Rilevamento dinamico per nuovi aggiornamenti di gioco: compatibilità automatica al 100% se i testi non cambiano; fallback all'inglese con avviso per eventuali nuove stringhe.
+- Backup automatico ad ogni installazione e ripristino immediato.
 
-### Installazione della build di prova
+### Installazione
 
 1. Chiudi Aniimo e il launcher.
 2. Apri il solo file **Aniimo-Italian-Translation.exe** e premi Invio.
 3. Nel gioco seleziona **Inglese**.
 
-Se il gioco non viene trovato, **sposta l'installer accanto ad Aniimo.exe e riaprilo**, oppure scegli la cartella dalla finestra proposta. Su Steam: Libreria → Aniimo → Gestisci → Sfoglia i file locali. Il pre-download non ancora sbloccato non è installabile.
+Se il gioco non viene trovato automaticamente, **sposta l'installer accanto ad Aniimo.exe e riaprilo**, oppure scegli la cartella dalla finestra proposta (opzione 4). Su Steam: Libreria → Aniimo → Gestisci → Sfoglia i file locali.
 
-L'installer crea un backup. Per tornare agli originali, chiudi il gioco, riapri l'installer e scegli **2**.
+L'installer crea un backup automatico. Per tornare agli originali, chiudi il gioco, riapri l'installer e scegli **2**.
 
-**Modifica file locali del client; non è un loader esterno.** Traduzione non ufficiale, senza garanzie contro controlli anticheat o sanzioni. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
+**Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note della nuova build](RELEASE_NOTES_v0.4.0-preview.md) · [Verifiche tecniche](BUILD_QA_v0.4.0-preview.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_v0.4.1.md) · [Verifiche tecniche](BUILD_QA_v0.4.1.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>

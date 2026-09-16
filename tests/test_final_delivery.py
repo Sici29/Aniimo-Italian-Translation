@@ -9,9 +9,9 @@ class FinalDeliveryTests(unittest.TestCase):
     def test_public_payload_has_hashes_not_original_sources(self):
         with (ROOT / "data/translation_it.csv").open(encoding="utf-8", newline="") as f:
             r=csv.DictReader(f); self.assertEqual(r.fieldnames, ["key","source_sha256","it"]); rows=list(r)
-        self.assertEqual(len(rows),112065)
-        self.assertEqual(len({r["key"] for r in rows}),112065)
-        self.assertEqual(sum(not r["it"] for r in rows),124)
+        self.assertEqual(len(rows),112183)
+        self.assertEqual(len({r["key"] for r in rows}),112183)
+        self.assertEqual(sum(not r["it"] for r in rows),0)
         self.assertTrue(all(len(r["source_sha256"])==64 for r in rows))
 
     def test_final_workflow_records_remain_byte_identical(self):
@@ -31,19 +31,28 @@ class FinalDeliveryTests(unittest.TestCase):
             result=installer.technical_compatibility_status(SimpleNamespace(game_dir=Path(".")))
         self.assertFalse(result["supported"])
 
-    def test_source_hash_compatibility_and_unknown_text_rejection(self):
+    def test_source_hash_compatibility_and_unknown_text_fallback(self):
         catalog={"1":{"source_en":"","source_sha256":hashlib.sha256(b"Hello").hexdigest(),"it":"Ciao"}}
         manifest={"known_source_key_count":1,"known_source_key_sha256":installer.sha256_keys(["1"]),"known_source_content_sha256":installer.sha256_keyed_text({"1":"Hello"}),"runtime_profile":"final-native-text-only"}
         result=installer.classify_text_resources([{"key":"1","text":"Hello"}],catalog,manifest)
         self.assertTrue(result["supported"]);self.assertEqual(result["mode"],"official_exact")
+        self.assertTrue(result["is_100pct_compatible"])
         result=installer.classify_text_resources([{"key":"1","text":"New"}],catalog,manifest)
-        self.assertFalse(result["supported"])
+        self.assertTrue(result["supported"]);self.assertEqual(result["mode"],"fallback_partial")
+        self.assertFalse(result["is_100pct_compatible"])
+        self.assertEqual(result["unknown_text_count"],1)
+        self.assertEqual(result["modified_keys"],["1"])
 
-    def test_final_mostly_italian_does_not_allow_unknown_changes(self):
+    def test_final_mostly_italian_with_unknown_changes_uses_fallback(self):
         catalog={str(i):{"source_en":"English","it":"Italiano"} for i in range(100)}
         manifest={"known_source_key_count":100,"known_source_key_sha256":installer.sha256_keys(list(catalog)),"runtime_profile":"final-native-text-only"}
         records=[{"key":str(i),"text":"Italiano" if i else "Unverified"} for i in range(100)]
-        self.assertFalse(installer.classify_text_resources(records,catalog,manifest)["supported"])
+        result=installer.classify_text_resources(records,catalog,manifest)
+        self.assertTrue(result["supported"])
+        self.assertEqual(result["mode"],"fallback_partial")
+        self.assertFalse(result["is_100pct_compatible"])
+        self.assertEqual(result["unknown_text_count"],1)
+        self.assertEqual(result["modified_keys"],["0"])
 
 if __name__=="__main__":unittest.main()
 

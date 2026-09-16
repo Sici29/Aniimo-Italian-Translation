@@ -660,7 +660,17 @@ def candidate_game_dirs() -> list[Path]:
     for candidate in dict.fromkeys(candidates):
         expanded.extend([candidate, candidate / "game"])
         expanded.extend(launcher_game_dirs(candidate))
-    return list(dict.fromkeys(expanded))
+    unique_candidates = list(dict.fromkeys(expanded))
+
+    def _candidate_sort_key(p: Path) -> tuple[int, int]:
+        if not looks_like_game_dir(p):
+            return (0, 0)
+        upd = read_game_update(p)
+        upd_num = int(upd) if upd and upd.isdigit() else 0
+        return (1, upd_num)
+
+    unique_candidates.sort(key=_candidate_sort_key, reverse=True)
+    return unique_candidates
 
 
 def search_custom_game_dirs(roots: list[Path] | None = None, *, max_seconds: float = 5.0,
@@ -1172,47 +1182,64 @@ def classify_text_resources(
         official_content_sha256 = manifest.get("known_source_content_sha256", "")
     italian_content_sha256 = sha256_keyed_text(italian_by_key)
 
+    new_keys: list[str] = []
+    modified_keys: list[str] = []
     source_matches = 0
     italian_matches = 0
-    unknown_keys: list[str] = []
-    if keys_match_catalog:
-        for key, current_text in current_by_key.items():
-            # Check Italian first so labels that are intentionally identical in
-            # both languages still count towards an installed-translation ratio.
-            if current_text == italian_by_key[key]:
-                italian_matches += 1
-            elif current_text == official_by_key[key] or (
-                catalog[key].get("source_sha256")
-                and hashlib.sha256(current_text.encode("utf-8")).hexdigest() == catalog[key]["source_sha256"]
-            ):
-                source_matches += 1
-            else:
-                unknown_keys.append(key)
 
+    for key, current_text in current_by_key.items():
+        if key not in catalog:
+            new_keys.append(key)
+        elif current_text == italian_by_key[key]:
+            italian_matches += 1
+        elif current_text == official_by_key[key] or (
+            catalog[key].get("source_sha256")
+            and hashlib.sha256(current_text.encode("utf-8")).hexdigest() == catalog[key]["source_sha256"]
+        ):
+            source_matches += 1
+        else:
+            modified_keys.append(key)
+
+    unknown_keys = new_keys + modified_keys
     total = len(catalog_keys)
     italian_match_ratio = italian_matches / total if total else 0.0
-    if duplicate_keys or not keys_match_catalog:
+    is_final = manifest.get("runtime_profile") == "final-native-text-only"
+
+    if duplicate_keys:
         mode = "key_mismatch"
+        supported = False
     elif not catalog_matches_manifest:
         mode = "catalog_mismatch"
+        supported = False
     elif current_content_sha256 == italian_content_sha256:
         mode = "italian_exact"
+        supported = True
     elif current_content_sha256 == official_content_sha256:
         mode = "official_exact"
-    elif not unknown_keys:
+        supported = True
+    elif not unknown_keys and keys_match_catalog:
         mode = "known_mix"
-    elif italian_match_ratio >= 0.90 and manifest.get("runtime_profile") != "final-native-text-only":
+        supported = True
+    elif not is_final and not keys_match_catalog:
+        mode = "key_mismatch"
+        supported = False
+    elif not is_final and italian_match_ratio >= 0.90:
         mode = "installed_translation_upgrade"
-    else:
+        supported = True
+    elif not is_final:
         mode = "unknown"
+        supported = False
+    else:
+        # Final runtime profile with unknown / modified / new strings:
+        # allow installation with English fallback
+        mode = "fallback_partial"
+        supported = True
 
-    supported = (
-        keys_match_catalog
-        and catalog_matches_manifest
-        and (not unknown_keys or (italian_match_ratio >= 0.90 and manifest.get("runtime_profile") != "final-native-text-only"))
-    )
+    is_100pct = (len(unknown_keys) == 0 and supported and mode in {"official_exact", "italian_exact", "known_mix"})
+
     return {
         "supported": supported,
+        "is_100pct_compatible": is_100pct,
         "mode": mode,
         "key_count": len(keys),
         "key_sha256": current_key_sha256,
@@ -1228,6 +1255,8 @@ def classify_text_resources(
         "italian_match_ratio": italian_match_ratio,
         "unknown_text_count": len(unknown_keys),
         "unknown_keys": unknown_keys[:10],
+        "new_keys": new_keys,
+        "modified_keys": modified_keys,
         "duplicate_keys": duplicate_keys[:10],
         "keys_match_catalog": keys_match_catalog,
         "catalog_matches_manifest": catalog_matches_manifest,
@@ -1236,13 +1265,13 @@ def classify_text_resources(
 
 def compatibility_mode_label(mode: str | None) -> str:
     return {
-        "official_exact": "automatico: testi ufficiali invariati",
-        "italian_exact": "automatico: traduzione italiana corrente",
-        "known_mix": "automatico: contenuti ufficiali/italiani noti",
-        "installed_translation_upgrade": "automatico: traduzione precedente aggiornabile",
-        "key_mismatch": "struttura dei testi cambiata",
-        "catalog_mismatch": "dati interni dell'installer incoerenti",
-        "unknown": "testi nuovi da revisionare",
+        "official_exact": "Traduzione 100% compatibile (testi ufficiali invariati)",
+        "italian_exact": "Traduzione 100% compatibile (testi italiani correnti)",
+        "known_mix": "Traduzione 100% compatibile (testi noti)",
+        "installed_translation_upgrade": "Aggiornamento da traduzione precedente",
+        "key_mismatch": "Struttura delle chiavi diversa",
+        "catalog_mismatch": "Dati interni dell'installer incoerenti",
+        "unknown": "Testi da verificare (disponibile con fallback all'inglese)",
     }.get(mode, "non verificabile")
 
 
@@ -1251,9 +1280,10 @@ def check_supported(
     force: bool,
     catalog: dict[str, dict[str, str]] | None = None,
     manifest: dict | None = None,
+    allow_fallback: bool = False,
 ) -> dict:
     current = classify_text_resources(source_records, catalog=catalog, manifest=manifest)
-    if not current["supported"] and not force:
+    if not current["supported"] and not force and not allow_fallback:
         if current["mode"] == "key_mismatch":
             detail = (
                 f"Righe note: {current['catalog_key_count']} | "
@@ -1687,6 +1717,14 @@ def technical_compatibility_status(paths: GamePaths) -> dict:
                 candidate = paths.game_dir / str(relative).replace(
                     "Aniimo_Data\\cvs\\", "Aniimo_Data\\StreamingAssets\\cvs\\"
                 )
+            if not candidate.is_file():
+                digest = relative.parent.name if relative.parent else ""
+                if digest and len(digest) == 32:
+                    steam_dir = paths.game_dir / "Aniimo_Data" / "StreamingAssets" / "cvs" / "res" / "uab" / "win" / "DefaultPackage"
+                    if steam_dir.is_dir():
+                        matches = list(steam_dir.glob(f"*_{digest}.uab"))
+                        if matches:
+                            candidate = matches[0]
             if not candidate.is_file() or sha256_file(candidate) != bundle["sha256"]:
                 issues.append("native_font_changed")
         return {"supported": not issues, "issues": issues,
@@ -1967,8 +2005,12 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, source_records, _ = load_language(zf, "en")
         stats["version_check"] = check_supported(source_records, force)
+        version_check = stats["version_check"]
+        modified_keys_set = set(version_check.get("modified_keys", []))
         for lang in target_langs:
             translations = load_translations(lang)
+            if modified_keys_set:
+                translations = {k: v for k, v in translations.items() if k not in modified_keys_set}
             _, _, header = load_language(zf, lang)
             map_bytes, bin_bytes, lang_stats = build_map_and_bin(source_records, translations, header)
             replacements[TEXT_MAP.format(lang=lang)] = map_bytes
@@ -2136,7 +2178,11 @@ def cmd_check(args: argparse.Namespace) -> int:
     print("Build già testate:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
     print("Stringhe:", status["key_count"])
     print("Controllo contenuti:", compatibility_mode_label(status["mode"]))
-    print("Testi nuovi o sconosciuti:", status["unknown_text_count"])
+    if status.get("unknown_text_count", 0) > 0:
+        print(f"Testi nuovi o modificati (fallback inglese): {status['unknown_text_count']}")
+        print(f"Avviso: {status['unknown_text_count']} stringhe non saranno tradotte; attendere un update dell'installer.")
+    else:
+        print("Testi nuovi o modificati: 0 (100% compatibile)")
     print("Strutture tecniche:", "compatibili" if technical["supported"] else "da aggiornare")
     if technical["issues"]:
         print("Componenti da verificare:", ", ".join(technical["issues"]))
@@ -2184,6 +2230,21 @@ def cmd_install(args: argparse.Namespace) -> int:
             f"Installazione non riuscita; il backup è stato ripristinato correttamente: {install_error}"
         ) from install_error
     record_installed_state(paths, official_info)
+    v_check = stats.get("version_check", {})
+    unknown_cnt = v_check.get("unknown_text_count", 0)
+    if unknown_cnt > 0:
+        new_cnt = len(v_check.get("new_keys", []))
+        mod_cnt = len(v_check.get("modified_keys", []))
+        print()
+        print("!" * 58)
+        print("ATTENZIONE: NUOVA VERSIONE RILEVATA CON FALLBACK INGLESE")
+        print(f"Nel gioco sono state rilevate {unknown_cnt} stringhe non verificate ({new_cnt} nuove, {mod_cnt} modificate).")
+        print(f"La traduzione è stata installata mantenendo queste {unknown_cnt} stringhe in lingua originale.")
+        print("Sarà necessario attendere un aggiornamento dell'installer per la traduzione completa.")
+        print("!" * 58)
+        print()
+    else:
+        print("✓ Traduzione 100% compatibile applicata con successo!")
     print("Patch installata.")
     print("Lingua da selezionare in gioco: Inglese")
     if final_text_profile():
@@ -2479,6 +2540,13 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         )
         message = f"La versione {detected or 'rilevata'} richiede una traduzione aggiornata."
         action = "Controlla gli aggiornamenti dell'installer prima di installare."
+    elif status.get("text_compatibility_mode") == "fallback_partial":
+        unknown_cnt = status.get("unknown_text_count", 0)
+        headline = color_text(
+            "⚠ NUOVA VERSIONE GIOCO (FALLBACK INGLESE)", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
+        )
+        message = f"Rilevate {unknown_cnt} stringhe nuove o modificate che rimarranno temporaneamente in inglese."
+        action = "Premi Invio per installare con fallback (attendere update dell'installer per il 100%)."
     elif resources_supported is False:
         headline = color_text(
             "⚠ FILE DEL GIOCO DA VERIFICARE", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
@@ -2492,7 +2560,7 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         message = f"È disponibile {latest}."
         action = "Accetta l'aggiornamento automatico consigliato."
     elif installed is True and matches_installer is True:
-        headline = color_text("✓ TUTTO AGGIORNATO", ConsoleColor.BOLD + ConsoleColor.GREEN, colors)
+        headline = color_text("✓ TUTTO AGGIORNATO (100% COMPATIBILE)", ConsoleColor.BOLD + ConsoleColor.GREEN, colors)
         message = "La traduzione installata coincide con quella dell'installer."
         action = "Non devi fare nulla."
     elif installed is True:
@@ -2503,9 +2571,9 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         action = "Premi Invio per aggiornarla."
     elif resources_supported is True:
         headline = color_text(
-            "✓ PRONTA PER L'INSTALLAZIONE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors
+            "✓ TRADUZIONE 100% COMPATIBILE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors
         )
-        message = f"La traduzione v{proposed_translation_version} è compatibile con il gioco."
+        message = f"La traduzione v{proposed_translation_version} è pronta e compatibile al 100% con il gioco."
         action = "Premi Invio per installarla."
     else:
         headline = color_text("? CONTROLLO INCOMPLETO", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors)
