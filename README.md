@@ -1,14 +1,15 @@
 # Aniimo — Traduzione italiana
 
-## Release client Steam — v0.4.1
+## Release client Steam — v0.4.2
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3535596), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3544783), verificata e funzionante in gioco.**
 
-- Traduzione completa per **112.183 / 112.183 chiavi (100,00%)** con 0 stringhe mancanti.
-- Revisione professionale terminologica e rispetto rigoroso del glossario di gioco.
+- Traduzione completa per **112.187 / 112.187 chiavi (100,00%)** con 0 stringhe mancanti.
+- Revisione professionale terminologica (Hexxin, eventi Sparkelf, contratti, ecosistemi) e rispetto rigoroso del glossario di gioco.
 - Un solo file standalone `Aniimo-Italian-Translation.exe` con rilevamento prioritario automatico di Steam.
+- Sincronizzazione automatica tra `StreamingAssets` e cache `cvs` per garantire compatibilità immediata agli update.
 - Rilevamento dinamico per nuovi aggiornamenti di gioco: compatibilità automatica al 100% se i testi non cambiano; fallback all'inglese con avviso per eventuali nuove stringhe.
 - Backup automatico ad ogni installazione e ripristino immediato.
 
@@ -24,7 +25,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_v0.4.1.md) · [Verifiche tecniche](BUILD_QA_v0.4.1.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_v0.4.2.md) · [Verifiche tecniche](BUILD_QA_v0.4.2.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>

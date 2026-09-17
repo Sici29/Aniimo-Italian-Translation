@@ -819,8 +819,27 @@ def resolve_paths(game_dir: Path) -> GamePaths:
         checked = "\n".join(str(game_dir / rel) for rel in LUA_RELS)
         raise FileNotFoundError(f"Non trovo {XDF_NAME}/{XDT_NAME}. Percorsi controllati:\n{checked}")
     # The downloaded XFS archive under Aniimo_Data\cvs is the live localization
-    # overlay and must remain the primary source even after another archive is
-    # copied later and therefore gets a newer filesystem timestamp.
+    # overlay, unless a major game update bumped the client version in StreamingAssets
+    # and left an older LuaCacheVer behind in cvs.
+    game_update_str = read_game_update(game_dir)
+    game_update = int(game_update_str) if game_update_str and game_update_str.isdigit() else 0
+
+    def is_stale_cache(candidate: LuaArchivePaths) -> bool:
+        cache_ver_file = candidate.lua_dir / "LuaCacheVer.txt"
+        if not cache_ver_file.is_file():
+            return False
+        try:
+            content = cache_ver_file.read_text(encoding="utf-8-sig", errors="replace").strip()
+            match = re.search(r"\b(\d{7,})\b", content)
+            if match and game_update:
+                cache_ver = int(match.group(1))
+                if cache_ver < game_update:
+                    return True
+        except OSError:
+            pass
+        return False
+
+    candidates.sort(key=lambda c: 1 if is_stale_cache(c) else 0)
     primary = candidates[0]
     return GamePaths(
         game_dir,
@@ -1706,26 +1725,30 @@ def technical_compatibility_status(paths: GamePaths) -> dict:
         bundles = local_manifest().get("native_font_bundles", [])
         if not bundles:
             issues.append("native_font_manifest")
-        for bundle in bundles:
-            relative = Path(bundle["relative"])
-            if relative.is_absolute() or ".." in relative.parts:
-                issues.append("native_font_path")
-                continue
-            candidate = paths.game_dir / relative
-            # Same resource can be shipped as base or hot-update content.
-            if not candidate.is_file():
-                candidate = paths.game_dir / str(relative).replace(
-                    "Aniimo_Data\\cvs\\", "Aniimo_Data\\StreamingAssets\\cvs\\"
-                )
-            if not candidate.is_file():
-                digest = relative.parent.name if relative.parent else ""
-                if digest and len(digest) == 32:
-                    steam_dir = paths.game_dir / "Aniimo_Data" / "StreamingAssets" / "cvs" / "res" / "uab" / "win" / "DefaultPackage"
-                    if steam_dir.is_dir():
-                        matches = list(steam_dir.glob(f"*_{digest}.uab"))
-                        if matches:
-                            candidate = matches[0]
-            if not candidate.is_file() or sha256_file(candidate) != bundle["sha256"]:
+        else:
+            found_match = False
+            for bundle in bundles:
+                relative = Path(bundle["relative"])
+                if relative.is_absolute() or ".." in relative.parts:
+                    continue
+                candidate = paths.game_dir / relative
+                # Same resource can be shipped as base or hot-update content.
+                if not candidate.is_file():
+                    candidate = paths.game_dir / str(relative).replace(
+                        "Aniimo_Data\\cvs\\", "Aniimo_Data\\StreamingAssets\\cvs\\"
+                    )
+                if not candidate.is_file():
+                    digest = relative.parent.name if relative.parent else ""
+                    if digest and len(digest) == 32:
+                        steam_dir = paths.game_dir / "Aniimo_Data" / "StreamingAssets" / "cvs" / "res" / "uab" / "win" / "DefaultPackage"
+                        if steam_dir.is_dir():
+                            matches = list(steam_dir.glob(f"*_{digest}.uab"))
+                            if matches:
+                                candidate = matches[0]
+                if candidate.is_file() and sha256_file(candidate) == bundle["sha256"]:
+                    found_match = True
+                    break
+            if not found_match:
                 issues.append("native_font_changed")
         return {"supported": not issues, "issues": issues,
                 "date_italian": False, "countdown_italian": False,
@@ -2045,13 +2068,15 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
                 "date": stats.get("dynamic_date", {}),
             })
             continue
+        sec_replacements = dict(replacements)
         with zipfile.ZipFile(archive.xdf, "r") as zf:
             date_replacements, date_stats = localized_date_replacements(zf)
+        sec_replacements.update(date_replacements)
         staged = archive_patch_dir(paths, patch_dir, archive)
         repack_xdf(
             archive.xdf,
             archive.xdt,
-            date_replacements,
+            sec_replacements,
             staged / XDF_NAME,
             staged / XDT_NAME,
         )
@@ -2067,7 +2092,7 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
         verification = verify_archive_pair(
             staged / XDF_NAME,
             staged / XDT_NAME,
-            require_current_translation=archive.xdf.resolve() == paths.xdf.resolve(),
+            require_current_translation=True,
         )
         stats["archive_verification"].append({
             "relative_dir": str(archive_relative_dir(paths, archive)),
@@ -2116,7 +2141,7 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         verify_archive_pair(
             archive.xdf,
             archive.xdt,
-            require_current_translation=archive.xdf.resolve() == paths.xdf.resolve(),
+            require_current_translation=True,
         )
     patched_metadata = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / COUNTDOWN_METADATA_REL.name
     live_metadata = paths.game_dir / COUNTDOWN_METADATA_REL
