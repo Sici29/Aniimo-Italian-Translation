@@ -1326,10 +1326,13 @@ def normalize_version(version: str) -> tuple[int, ...]:
     raw = version.strip().lower().lstrip("v")
     core, separator, suffix = raw.partition("-")
     nums = [int(part) for part in re.findall(r"\d+", core)]
-    nums = (nums + [0, 0, 0])[:3]
-    stable_rank = 1 if not separator else 0
     suffix_nums = [int(part) for part in re.findall(r"\d+", suffix)]
-    return tuple(nums + [stable_rank] + suffix_nums)
+    if suffix.startswith("r"):
+        return tuple(nums + [1] + suffix_nums)
+    elif separator:
+        return tuple(nums + [0] + suffix_nums)
+    else:
+        return tuple(nums + [1, 0])
 
 
 def fetch_latest_release(manifest: dict) -> dict | None:

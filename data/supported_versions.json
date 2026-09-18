@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "0.4.2",
+  "translation_version": "1.0.3551601.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -8,23 +8,24 @@
   "known_source_key_count": 112187,
   "known_source_key_sha256": "a9d7e25ba08e05a68267cedd4aac9d37b693c4648d8d22224d69251113b4a514",
   "supported_game_updates": [
+    3551601,
     3544783,
     3535596,
     3509129
   ],
-  "latest_supported_game_update": 3544783,
+  "latest_supported_game_update": 3551601,
   "supported_game_revisions": [],
-  "tested_game_update": "3544783",
+  "tested_game_update": "3551601",
   "tested_game_revision": null,
-  "tested_archive_sha256": "1453295f7ce585e218ae625cc164c7c56b5ac30876504194326ee92a92b29cbb",
-  "tested_date": "2026-09-17",
-  "coverage": "112187/112187 keys translated (100.00%). Steam build 3544783 full professional coverage.",
+  "tested_archive_sha256": "8fd48f07d907e038f120dee4328ca8ee2e6931dc0c4b04465c3dc5fd205d63bb",
+  "tested_date": "2026-09-18",
+  "coverage": "112187/112187 keys translated (100.00%). Steam build 3551601 (patch 1.0.3551601.0) full professional coverage.",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "Rilascio per la build Steam 3544783 con copertura di traduzione al 100%.",
+    "Rilascio per la build Steam 3551601 (patch 1.0.3551601.0) con copertura di traduzione al 100%.",
     "Font nativi invariati; static character/fallback coverage includes all 12 Italian accented letters.",
     "Date scripts and runtime metadata remain unchanged; old beta date/timer patches are not applied to unverified final bytecode.",
     "Final-client workflow metadata is preserved byte-for-byte; the beta integer allow-list workaround is not applied to a different format.",
@@ -41,6 +42,10 @@
     {
       "relative": "Aniimo_Data/cvs/res/uab/win/DefaultPackage/CacheBundleFiles/a6/a6ecd6d73c3049fcb5abf6aeb5caeda4/cdata.uab",
       "sha256": "373533d111f898f99037d9c300d993b8b538a59adb473a303d432ef9e158846b"
+    },
+    {
+      "relative": "Aniimo_Data/cvs/res/uab/win/DefaultPackage/CacheBundleFiles/bb/bb25716c229ac94cbe6a0ffdadcf48aa/cdata.uab",
+      "sha256": "a91003fe309dee65292d63eceea8164f77c246e1ecf455fb178bee552c4a1417"
     }
   ]
 }
