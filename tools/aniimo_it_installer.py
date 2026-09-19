@@ -1145,6 +1145,31 @@ def archive_dates_are_italian(archive: LuaArchivePaths) -> bool:
         return False
 
 
+def check_loose_i18n_sync(archive: LuaArchivePaths, lang: str = "en") -> bool:
+    i18n_dir = archive.lua_dir / "LuaScripts" / "Data" / "I18N"
+    if not i18n_dir.is_dir():
+        return True
+    bin_file = i18n_dir / f"Compress_{lang}.bin"
+    map_file = i18n_dir / f"NewTextMap_{lang}.json"
+    bin_exists = bin_file.is_file()
+    map_exists = map_file.is_file()
+    if not bin_exists and not map_exists:
+        return True
+    if bin_exists != map_exists:
+        return False
+    try:
+        with zipfile.ZipFile(archive.xdf, "r") as zf:
+            arch_bin = zf.read(COMPRESS.format(lang=lang))
+            arch_map = zf.read(TEXT_MAP.format(lang=lang))
+        if sha256_file(bin_file) != hashlib.sha256(arch_bin).hexdigest():
+            return False
+        if sha256_file(map_file) != hashlib.sha256(arch_map).hexdigest():
+            return False
+    except Exception:
+        return False
+    return True
+
+
 def detect_translation_installation(game_dir: Path) -> dict:
     paths = resolve_paths(game_dir)
     with zipfile.ZipFile(paths.xdf, "r") as zf:
@@ -1158,12 +1183,15 @@ def detect_translation_installation(game_dir: Path) -> dict:
     result["font_accented"] = font_accented
     result["date_italian"] = date_italian
     result["countdown_italian"] = countdown_italian
+    loose_i18n_in_sync = all(check_loose_i18n_sync(archive, "en") for archive in archives)
+    result["loose_i18n_in_sync"] = loose_i18n_in_sync
     result["installed"] = result["installed"] and font_accented
     result["matches_current"] = (
         result["matches_current"]
         and font_accented
         and (date_italian or final_text_profile())
         and (countdown_italian or final_text_profile())
+        and loose_i18n_in_sync
     )
     result["installed_slots"] = ["en"] if result["installed"] else []
     result["detected_slot"] = "en"
@@ -2003,6 +2031,15 @@ def backup_live(paths: GamePaths) -> Path:
         if cache_ver_present:
             shutil.copy2(cache_ver_file, archive_backup / "LuaCacheVer.txt")
             cache_ver_sha = sha256_file(archive_backup / "LuaCacheVer.txt")
+        arch_i18n = archive.lua_dir / "LuaScripts" / "Data" / "I18N"
+        arch_i18n_files: list[str] = []
+        if arch_i18n.is_dir():
+            for file in arch_i18n.glob("*.*"):
+                if file.is_file():
+                    arch_i18n_files.append(file.name)
+                    target = archive_backup / "LuaScripts" / "Data" / "I18N" / file.name
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(file, target)
         archive_backups.append({
             "relative_dir": str(relative),
             "backup_dir": str(backup_relative),
@@ -2010,6 +2047,8 @@ def backup_live(paths: GamePaths) -> Path:
             "xdt_sha256": sha256_file(archive_backup / XDT_NAME),
             "cache_ver_present": cache_ver_present,
             "cache_ver_sha256": cache_ver_sha,
+            "original_i18n_files": sorted(arch_i18n_files),
+            "created_i18n_files": [],
         })
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     original_i18n_files: list[str] = []
@@ -2066,9 +2105,14 @@ def record_created_i18n_files(backup: Path, patch_dir: Path) -> list[str]:
     manifest = read_json(manifest_path)
     original = set(manifest.get("original_i18n_files", []))
     patch_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
-    patch_files = {file.name for file in patch_i18n.glob("*.*") if file.is_file()}
+    patch_files = {file.name for file in patch_i18n.glob("*.*") if file.is_file()} if patch_i18n.exists() else set()
     created = sorted(patch_files - original)
     manifest["created_i18n_files"] = created
+
+    for arch in manifest.get("lua_archives", []):
+        arch_orig = set(arch.get("original_i18n_files", []))
+        arch["created_i18n_files"] = sorted(patch_files - arch_orig)
+
     write_json(manifest_path, manifest)
     return created
 
@@ -2215,11 +2259,12 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         if not countdown_units_are_italian(live_metadata.read_bytes()):
             raise RuntimeError("Verifica del timer italiano non riuscita dopo la copia.")
     patch_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
-    live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     if patch_i18n.exists():
-        live_i18n.mkdir(parents=True, exist_ok=True)
-        for file in patch_i18n.glob("*.*"):
-            shutil.copy2(file, live_i18n / file.name)
+        for archive in iter_lua_archives(paths):
+            archive_i18n = archive.lua_dir / "LuaScripts" / "Data" / "I18N"
+            archive_i18n.mkdir(parents=True, exist_ok=True)
+            for file in patch_i18n.glob("*.*"):
+                shutil.copy2(file, archive_i18n / file.name)
     patched_font = patch_dir / FONT_PATCH_DIR / "cdata.uab"
     if patched_font.is_file():
         shutil.copy2(patched_font, find_font_bundle(paths.game_dir))
@@ -2424,6 +2469,19 @@ def cmd_restore(args: argparse.Namespace) -> int:
             elif live_cache_ver.is_file():
                 line = make_lua_cache_ver_line(live_cache_ver, paths.game_dir, live_archive / XDT_NAME)
                 live_cache_ver.write_text(line, encoding="utf-8")
+            arch_i18n = live_archive / "LuaScripts" / "Data" / "I18N"
+            if arch_i18n.exists():
+                for name in entry.get("created_i18n_files", manifest.get("created_i18n_files", [])):
+                    if Path(name).name != name:
+                        continue
+                    target = arch_i18n / name
+                    if target.is_file():
+                        target.unlink()
+            arch_backup_i18n = saved_archive / "LuaScripts" / "Data" / "I18N"
+            if arch_backup_i18n.exists():
+                arch_i18n.mkdir(parents=True, exist_ok=True)
+                for file in arch_backup_i18n.glob("*.*"):
+                    shutil.copy2(file, arch_i18n / file.name)
     else:
         # Backward compatibility with backups created by installers up to 0.3.14.
         shutil.copy2(backup / XDF_NAME, paths.xdf)
@@ -2554,6 +2612,7 @@ def collect_startup_status() -> dict:
         result["translation_matches_installer"] = translation["matches_current"]
         result["dynamic_date_italian"] = translation.get("date_italian")
         result["countdown_units_italian"] = translation.get("countdown_italian")
+        result["loose_i18n_in_sync"] = translation.get("loose_i18n_in_sync", True)
         if translation["installed"]:
             result["installed_translation_version"] = recorded_translation_version(game_dir)
         result["translation_slot"] = translation.get("detected_slot")
@@ -2583,6 +2642,7 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
     path_source = status.get("game_path_source")
     installed = status.get("translation_installed")
     matches_installer = status.get("translation_matches_installer")
+    loose_i18n_in_sync = status.get("loose_i18n_in_sync", True)
     installed_translation_version = status.get("installed_translation_version")
     proposed_translation_version = str(manifest.get("translation_version") or update.get("current") or "0.0.0").lstrip("v")
     current = f"v{str(update.get('current', '0.0.0')).lstrip('v')}"
@@ -2624,6 +2684,8 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
                 installed_text = f"{installed_version} installata"
             else:
                 installed_text = "installata (versione non registrata)"
+            if not loose_i18n_in_sync:
+                installed_text += " (file lingua disallineati)"
             translation_label = color_text(
                 f"⚠ {installed_text} → v{proposed_translation_version} disponibile",
                 ConsoleColor.YELLOW,
@@ -2682,11 +2744,18 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         message = "La traduzione installata coincide con quella dell'installer."
         action = "Non devi fare nulla."
     elif installed is True:
-        headline = color_text(
-            "↑ TRADUZIONE DA AGGIORNARE", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
-        )
-        message = f"L'installer contiene la traduzione v{proposed_translation_version}."
-        action = "Premi Invio per aggiornarla."
+        if not loose_i18n_in_sync:
+            headline = color_text(
+                "↑ FILE LINGUA DISALLINEATI", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
+            )
+            message = "I file lingua su disco contengono residui disallineati di un aggiornamento precedente."
+            action = "Premi Invio per sincronizzare e aggiornare la traduzione."
+        else:
+            headline = color_text(
+                "↑ TRADUZIONE DA AGGIORNARE", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors
+            )
+            message = f"L'installer contiene la traduzione v{proposed_translation_version}."
+            action = "Premi Invio per aggiornarla."
     elif resources_supported is True:
         headline = color_text(
             "✓ TRADUZIONE 100% COMPATIBILE", ConsoleColor.BOLD + ConsoleColor.GREEN, colors

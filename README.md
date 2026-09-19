@@ -1,17 +1,17 @@
 # Aniimo — Traduzione italiana
 
-## Release client Steam — 1.0.3551601.0-R1
+## Release client Steam — 1.0.3551601.0-R2
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3551601, patch 1.0.3551601.0-R1), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3551601, patch 1.0.3551601.0-R2), verificata e funzionante in gioco.**
 
 - Traduzione completa per **112.187 / 112.187 chiavi (100,00%)** con 0 stringhe mancanti.
 - Revisione professionale terminologica (Hexxin, eventi Sparkelf, contratti, ecosistemi) e rispetto rigoroso del glossario di gioco.
 - Un solo file standalone `Aniimo-Italian-Translation.exe` con rilevamento prioritario automatico di Steam.
-- Sincronizzazione automatica tra `StreamingAssets` e cache `cvs` per garantire compatibilità immediata agli update.
+- Sincronizzazione automatica tra `StreamingAssets` e cache `cvs` (file compresi e sciolti) per garantire compatibilità immediata agli update ed evitare testi troncati.
 - Rilevamento dinamico per nuovi aggiornamenti di gioco: compatibilità automatica al 100% se i testi non cambiano; fallback all'inglese con avviso per eventuali nuove stringhe.
-- Backup automatico ad ogni installazione e ripristino immediato con sincronizzazione di `LuaCacheVer.txt`.
+- Backup automatico ad ogni installazione e ripristino immediato con sincronizzazione di `LuaCacheVer.txt` e file sciolti.
 - Cartella di lavoro e backup posizionata in `%LOCALAPPDATA%\AniimoItalianTranslation` (compatibile con l'Accesso alle cartelle controllato di Windows Defender) e configurabile tramite parametro `--work-dir` o variabile `ANIIMO_WORK_DIR`.
 - Opzione rapida nel menu (tasto **5**) per aprire direttamente la cartella dei backup in Esplora file.
 
@@ -27,7 +27,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3551601.0-R1.md) · [Verifiche tecniche](BUILD_QA_1.0.3551601.0-R1.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3551601.0-R2.md) · [Verifiche tecniche](BUILD_QA_1.0.3551601.0-R2.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>
