@@ -150,7 +150,26 @@ else:
     BUNDLE_DIR = APP_DIR
 
 DATA_DIR = BUNDLE_DIR / "data"
-USER_WORK_DIR = Path.home() / "Documents" / "AniimoItalianTranslation"
+
+
+def default_work_dir() -> Path:
+    env_dir = os.environ.get("ANIIMO_WORK_DIR")
+    if env_dir:
+        return Path(env_dir).resolve()
+    local_app_data = os.environ.get("LOCALAPPDATA")
+    if local_app_data:
+        return Path(local_app_data) / "AniimoItalianTranslation"
+    return Path.home() / "AppData" / "Local" / "AniimoItalianTranslation"
+
+
+USER_WORK_DIR = default_work_dir()
+
+
+def set_user_work_dir(path: Path | str) -> None:
+    global USER_WORK_DIR
+    USER_WORK_DIR = Path(path).resolve()
+
+
 INSTALLER_ASSET_NAME = "Aniimo-Italian-Translation.exe"
 UPDATE_APPLY_COMMAND = "_apply-update"
 UPDATE_COMPLETE_COMMAND = "--update-complete"
@@ -280,14 +299,19 @@ def supported_game_revisions(manifest: dict) -> list[str]:
 
 
 def load_settings() -> dict:
-    path = USER_WORK_DIR / "settings.json"
-    if not path.is_file():
-        return {}
-    try:
-        data = read_json(path)
-        return data if isinstance(data, dict) else {}
-    except (OSError, json.JSONDecodeError):
-        return {}
+    candidates = [USER_WORK_DIR / "settings.json"]
+    legacy = Path.home() / "Documents" / "AniimoItalianTranslation" / "settings.json"
+    if legacy != candidates[0]:
+        candidates.append(legacy)
+    for path in candidates:
+        try:
+            if path.is_file():
+                data = read_json(path)
+                if isinstance(data, dict):
+                    return data
+        except (OSError, json.JSONDecodeError):
+            pass
+    return {}
 
 
 def save_game_dir(game_dir: Path) -> None:
@@ -295,14 +319,19 @@ def save_game_dir(game_dir: Path) -> None:
 
 
 def load_installed_state() -> dict:
-    path = USER_WORK_DIR / "installed_state.json"
-    if not path.is_file():
-        return {}
-    try:
-        data = read_json(path)
-        return data if isinstance(data, dict) else {}
-    except (OSError, json.JSONDecodeError):
-        return {}
+    candidates = [USER_WORK_DIR / "installed_state.json"]
+    legacy = Path.home() / "Documents" / "AniimoItalianTranslation" / "installed_state.json"
+    if legacy != candidates[0]:
+        candidates.append(legacy)
+    for path in candidates:
+        try:
+            if path.is_file():
+                data = read_json(path)
+                if isinstance(data, dict):
+                    return data
+        except (OSError, json.JSONDecodeError):
+            pass
+    return {}
 
 
 def recorded_translation_version(game_dir: Path) -> str | None:
@@ -356,16 +385,17 @@ def game_info_before_install(paths: GamePaths) -> dict:
 
 
 def clear_installed_state(game_dir: Path) -> None:
-    path = USER_WORK_DIR / "installed_state.json"
-    if not path.is_file():
-        return
-    state = load_installed_state()
-    try:
-        same_game = Path(str(state.get("game_dir") or "")).resolve() == game_dir.resolve()
-    except (OSError, ValueError):
-        same_game = False
-    if same_game:
-        path.unlink()
+    for base in [USER_WORK_DIR, Path.home() / "Documents" / "AniimoItalianTranslation"]:
+        try:
+            path = base / "installed_state.json"
+            if not path.is_file():
+                continue
+            state = load_installed_state()
+            same_game = Path(str(state.get("game_dir") or "")).resolve() == game_dir.resolve()
+            if same_game:
+                path.unlink()
+        except (OSError, ValueError):
+            pass
 
 
 def write_json(path: Path, data: object) -> None:
@@ -1936,10 +1966,27 @@ def update_local_manifests(paths: GamePaths, patch_dir: Path) -> dict:
     return result
 
 
+def make_lua_cache_ver_line(existing_file: Path | None, game_dir: Path, xdt_path: Path) -> str:
+    version_prefix = ""
+    if existing_file and existing_file.is_file():
+        try:
+            first_line = existing_file.read_text(encoding="utf-8-sig", errors="replace").splitlines()[0].strip()
+            if "," in first_line:
+                version_prefix = first_line.split(",", 1)[0]
+        except (OSError, IndexError):
+            pass
+    if not version_prefix:
+        update = read_game_update(game_dir)
+        version_prefix = f"1.0.{update}" if update else "1.0.0"
+    size = xdt_path.stat().st_size
+    md5 = md5_file(xdt_path)
+    return f"{version_prefix},{size},{md5}\n"
+
+
 def backup_live(paths: GamePaths) -> Path:
     backup = USER_WORK_DIR / "backups" / time.strftime("%Y%m%d-%H%M%S")
     backup.mkdir(parents=True, exist_ok=True)
-    archive_backups: list[dict[str, str]] = []
+    archive_backups: list[dict[str, object]] = []
     for archive in iter_lua_archives(paths):
         relative = archive_relative_dir(paths, archive)
         if archive.xdf.resolve() == paths.xdf.resolve():
@@ -1950,11 +1997,19 @@ def backup_live(paths: GamePaths) -> Path:
         archive_backup.mkdir(parents=True, exist_ok=True)
         shutil.copy2(archive.xdf, archive_backup / XDF_NAME)
         shutil.copy2(archive.xdt, archive_backup / XDT_NAME)
+        cache_ver_file = archive.lua_dir / "LuaCacheVer.txt"
+        cache_ver_present = cache_ver_file.is_file()
+        cache_ver_sha = ""
+        if cache_ver_present:
+            shutil.copy2(cache_ver_file, archive_backup / "LuaCacheVer.txt")
+            cache_ver_sha = sha256_file(archive_backup / "LuaCacheVer.txt")
         archive_backups.append({
             "relative_dir": str(relative),
             "backup_dir": str(backup_relative),
             "xdf_sha256": sha256_file(archive_backup / XDF_NAME),
             "xdt_sha256": sha256_file(archive_backup / XDT_NAME),
+            "cache_ver_present": cache_ver_present,
+            "cache_ver_sha256": cache_ver_sha,
         })
     live_i18n = paths.lua_dir / "LuaScripts" / "Data" / "I18N"
     original_i18n_files: list[str] = []
@@ -2092,6 +2147,10 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
     stats["archive_verification"] = []
     for archive in iter_lua_archives(paths):
         staged = archive_patch_dir(paths, patch_dir, archive)
+        cache_ver_file = archive.lua_dir / "LuaCacheVer.txt"
+        if cache_ver_file.is_file():
+            line = make_lua_cache_ver_line(cache_ver_file, paths.game_dir, staged / XDT_NAME)
+            (staged / "LuaCacheVer.txt").write_text(line, encoding="utf-8")
         verification = verify_archive_pair(
             staged / XDF_NAME,
             staged / XDT_NAME,
@@ -2140,6 +2199,9 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         staged = archive_patch_dir(paths, patch_dir, archive)
         shutil.copy2(staged / XDF_NAME, archive.xdf)
         shutil.copy2(staged / XDT_NAME, archive.xdt)
+        staged_cache_ver = staged / "LuaCacheVer.txt"
+        if staged_cache_ver.is_file():
+            shutil.copy2(staged_cache_ver, archive.lua_dir / "LuaCacheVer.txt")
     for archive in iter_lua_archives(paths):
         verify_archive_pair(
             archive.xdf,
@@ -2168,8 +2230,19 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
 
 
 def latest_backup_for_game(game_dir: Path) -> Path:
-    backup_root = USER_WORK_DIR / "backups"
-    candidates = sorted((path for path in backup_root.glob("*") if path.is_dir()), reverse=True)
+    backup_roots = [USER_WORK_DIR / "backups"]
+    legacy_root = Path.home() / "Documents" / "AniimoItalianTranslation" / "backups"
+    if legacy_root != USER_WORK_DIR / "backups":
+        backup_roots.append(legacy_root)
+
+    candidates: list[Path] = []
+    for root in backup_roots:
+        try:
+            if root.is_dir():
+                candidates.extend(path for path in root.glob("*") if path.is_dir())
+        except OSError:
+            pass
+    candidates.sort(key=lambda p: p.name, reverse=True)
     unscoped: list[Path] = []
     for backup in candidates:
         manifest_path = backup / "backup_manifest.json"
@@ -2186,7 +2259,7 @@ def latest_backup_for_game(game_dir: Path) -> Path:
     if unscoped:
         return unscoped[0]
     raise FileNotFoundError(
-        r"Nessun backup per questa installazione in Documenti\AniimoItalianTranslation\backups"
+        f"Nessun backup trovato per questa installazione in {USER_WORK_DIR / 'backups'}"
     )
 
 
@@ -2341,10 +2414,27 @@ def cmd_restore(args: argparse.Namespace) -> int:
             live_archive.mkdir(parents=True, exist_ok=True)
             shutil.copy2(saved_xdf, live_archive / XDF_NAME)
             shutil.copy2(saved_xdt, live_archive / XDT_NAME)
+            saved_cache_ver = saved_archive / "LuaCacheVer.txt"
+            live_cache_ver = live_archive / "LuaCacheVer.txt"
+            if saved_cache_ver.is_file():
+                expected_cache_ver = str(entry.get("cache_ver_sha256") or "").lower()
+                if expected_cache_ver and sha256_file(saved_cache_ver) != expected_cache_ver:
+                    raise RuntimeError(f"Backup LuaCacheVer.txt danneggiato: {relative}")
+                shutil.copy2(saved_cache_ver, live_cache_ver)
+            elif live_cache_ver.is_file():
+                line = make_lua_cache_ver_line(live_cache_ver, paths.game_dir, live_archive / XDT_NAME)
+                live_cache_ver.write_text(line, encoding="utf-8")
     else:
         # Backward compatibility with backups created by installers up to 0.3.14.
         shutil.copy2(backup / XDF_NAME, paths.xdf)
         shutil.copy2(backup / XDT_NAME, paths.xdt)
+        saved_cache_ver = backup / "LuaCacheVer.txt"
+        live_cache_ver = paths.lua_dir / "LuaCacheVer.txt"
+        if saved_cache_ver.is_file():
+            shutil.copy2(saved_cache_ver, live_cache_ver)
+        elif live_cache_ver.is_file():
+            line = make_lua_cache_ver_line(live_cache_ver, paths.game_dir, paths.xdt)
+            live_cache_ver.write_text(line, encoding="utf-8")
     backup_i18n = backup / "LuaScripts" / "Data" / "I18N"
     primary_relative = str(manifest.get("primary_lua_relative") or "")
     if primary_relative:
@@ -2661,6 +2751,30 @@ def print_technical_status(status: dict, colors: bool) -> None:
     print("=" * 58)
 
 
+def open_backup_folder() -> int:
+    backup_dir = USER_WORK_DIR / "backups"
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    print("=" * 58)
+    print("Cartella backup:", backup_dir)
+    print("=" * 58)
+    opened = False
+    try:
+        if os.name == "nt":
+            os.startfile(str(backup_dir))
+            opened = True
+        elif sys.platform == "darwin":
+            subprocess.Popen(["open", str(backup_dir)])
+            opened = True
+        else:
+            subprocess.Popen(["xdg-open", str(backup_dir)])
+            opened = True
+    except Exception as exc:
+        print(f"Non è stato possibile aprire automaticamente la cartella: {exc}")
+    if opened:
+        print("✓ Cartella aperta in Esplora file.")
+    return 0
+
+
 def show_credits() -> int:
     manifest = local_manifest()
     github_url = str(manifest.get("github_project_url") or "https://github.com/Sici29/Aniimo-Italian-Translation")
@@ -2722,8 +2836,9 @@ def run_menu() -> int:
     print("2. Ripristina i file originali")
     print("3. Controlla se esiste una nuova versione")
     print("4. Indica o modifica la cartella di Aniimo")
-    print("5. Crediti, GitHub e sostieni il progetto")
-    print("6. Mostra i dettagli tecnici")
+    print("5. Apri la cartella dei backup")
+    print("6. Crediti, GitHub e sostieni il progetto")
+    print("7. Mostra i dettagli tecnici")
     print("0. Esci")
     print()
     choice = input("Scelta [Invio = installa]: ").strip() or "1"
@@ -2740,14 +2855,23 @@ def run_menu() -> int:
         return cmd_update(Args())
     if choice == "4":
         return run_menu() if configure_game_dir() else 1
-    if choice == "5":
-        return show_credits()
+    if choice in {"5", "b", "backup"}:
+        open_backup_folder()
+        if sys.stdin and sys.stdin.isatty():
+            try:
+                input("\nPremi Invio per tornare al menu...")
+            except (EOFError, KeyboardInterrupt):
+                return 0
+            return run_menu()
+        return 0
     if choice == "6":
+        return show_credits()
+    if choice == "7":
         print()
         print_technical_status(startup, colors)
         return 0
     if choice != "1":
-        print("Scelta non valida. Riapri l'installer e digita un numero da 0 a 6.")
+        print("Scelta non valida. Riapri l'installer e digita un numero da 0 a 7.")
         return 1
     class Args:
         game_dir = None
@@ -2780,6 +2904,17 @@ def print_update_complete(previous_version: str | None) -> None:
 
 
 def main() -> int:
+    if os.environ.get("ANIIMO_WORK_DIR"):
+        set_user_work_dir(Path(os.environ["ANIIMO_WORK_DIR"]))
+    if "--work-dir" in sys.argv:
+        try:
+            idx = sys.argv.index("--work-dir")
+            if idx + 1 < len(sys.argv):
+                set_user_work_dir(Path(sys.argv[idx + 1]))
+                del sys.argv[idx:idx + 2]
+        except (ValueError, IndexError):
+            pass
+
     menu_mode = len(sys.argv) == 1
     if menu_mode:
         if not acquire_installer_instance_lock():
@@ -2825,6 +2960,7 @@ def main() -> int:
     common.add_argument("--game-dir", help="Aniimo game folder")
     common.add_argument("--force", action="store_true", help="Install even if the game text version is unknown")
     common.add_argument("--no-update-check", action="store_true", help="Skip GitHub update check")
+    common.add_argument("--work-dir", help="Cartella di lavoro per backup, impostazioni e patch")
     check = sub.add_parser("check", parents=[common], help="Check compatibility")
     check.set_defaults(func=cmd_check)
     install = sub.add_parser("install", parents=[common], help="Install Italian translation")
@@ -2835,11 +2971,15 @@ def main() -> int:
     install.set_defaults(func=cmd_install)
     update = sub.add_parser("update", help="Check GitHub for a newer translation release")
     update.set_defaults(func=cmd_update)
-    restore = sub.add_parser("restore", help="Restore latest backup")
-    restore.add_argument("--game-dir", help="Aniimo game folder")
+    restore = sub.add_parser("restore", parents=[common], help="Restore latest backup")
     restore.add_argument("--force-open", action="store_true")
     restore.set_defaults(func=cmd_restore)
+    backup_cmd = sub.add_parser("backup-dir", help="Mostra o apri la cartella dei backup")
+    backup_cmd.add_argument("--work-dir", help="Cartella di lavoro per backup, impostazioni e patch")
+    backup_cmd.set_defaults(func=lambda args: open_backup_folder())
     args = parser.parse_args()
+    if getattr(args, "work_dir", None):
+        set_user_work_dir(Path(args.work_dir))
     try:
         return args.func(args)
     except Exception as exc:

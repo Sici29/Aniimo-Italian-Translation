@@ -5,6 +5,7 @@ import hashlib
 import io
 import importlib.util
 import json
+import os
 import struct
 import sys
 import tempfile
@@ -1110,6 +1111,136 @@ class MenuTests(unittest.TestCase):
         ), patch.object(installer, "pause_if_needed"), patch.object(installer, "run_menu") as menu:
             self.assertEqual(installer.main(), 4)
         menu.assert_not_called()
+
+
+class WorkDirAndLuaCacheVerTests(unittest.TestCase):
+    def test_default_work_dir_uses_localappdata(self) -> None:
+        with patch.dict(os.environ, {"LOCALAPPDATA": r"C:\Users\Test\AppData\Local"}, clear=True):
+            self.assertEqual(
+                installer.default_work_dir(),
+                Path(r"C:\Users\Test\AppData\Local\AniimoItalianTranslation"),
+            )
+
+    def test_default_work_dir_overridden_by_env(self) -> None:
+        with patch.dict(os.environ, {"ANIIMO_WORK_DIR": r"D:\CustomWork", "LOCALAPPDATA": r"C:\Users\Test\AppData\Local"}):
+            self.assertEqual(
+                installer.default_work_dir(),
+                Path(r"D:\CustomWork").resolve(),
+            )
+
+    def test_open_backup_folder_creates_dir(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            work = Path(temp_dir) / "work"
+            with patch.object(installer, "USER_WORK_DIR", work), patch("os.startfile", create=True) as mock_start:
+                res = installer.open_backup_folder()
+                self.assertEqual(res, 0)
+                self.assertTrue((work / "backups").is_dir())
+                if os.name == "nt":
+                    mock_start.assert_called_once_with(str(work / "backups"))
+
+    def test_backup_live_and_restore_with_lua_cache_ver(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            overlay_rel = installer.LUA_RELS[0]
+            overlay = game / overlay_rel
+            overlay.mkdir(parents=True)
+            (overlay / installer.XDF_NAME).write_bytes(b"original-xdf")
+            (overlay / installer.XDT_NAME).write_bytes(b"original-xdt-data")
+            (overlay / "LuaCacheVer.txt").write_text("1.0.3551601,16,abc123md5\n", encoding="utf-8")
+            (game / installer.COUNTDOWN_METADATA_REL).parent.mkdir(parents=True)
+            (game / installer.COUNTDOWN_METADATA_REL).write_bytes(b"metadata")
+
+            work = root / "user-work"
+            paths = installer.resolve_paths(game)
+            with patch.object(installer, "USER_WORK_DIR", work):
+                backup = installer.backup_live(paths)
+                self.assertTrue((backup / "LuaCacheVer.txt").is_file())
+                self.assertEqual(
+                    (backup / "LuaCacheVer.txt").read_text(encoding="utf-8").strip(),
+                    "1.0.3551601,16,abc123md5",
+                )
+                manifest = installer.read_json(backup / "backup_manifest.json")
+                self.assertTrue(manifest["lua_archives"][0]["cache_ver_present"])
+
+                # Now simulate that the game played and LuaCacheVer was modified by gameplay
+                (overlay / installer.XDT_NAME).write_bytes(b"patched-xdt-data-longer")
+                (overlay / "LuaCacheVer.txt").write_text("1.0.3551601,23,def456md5\n", encoding="utf-8")
+
+                # Restore
+                args = argparse.Namespace(game_dir=str(game), force_open=True)
+                with patch.object(installer, "process_running", return_value=[]):
+                    self.assertEqual(installer.cmd_restore(args), 0)
+
+                # LuaCacheVer.txt must be restored to the pristine original!
+                self.assertEqual(
+                    (overlay / "LuaCacheVer.txt").read_text(encoding="utf-8").strip(),
+                    "1.0.3551601,16,abc123md5",
+                )
+                self.assertEqual((overlay / installer.XDT_NAME).read_bytes(), b"original-xdt-data")
+
+    def test_legacy_backup_restore_resyncs_lua_cache_ver(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            overlay_rel = installer.LUA_RELS[0]
+            overlay = game / overlay_rel
+            overlay.mkdir(parents=True)
+            (overlay / installer.XDF_NAME).write_bytes(b"patched-xdf")
+            (overlay / installer.XDT_NAME).write_bytes(b"patched-xdt")
+            (overlay / "LuaCacheVer.txt").write_text("1.0.3551601,999,patchedmd5\n", encoding="utf-8")
+
+            work = root / "user-work"
+            backup = work / "backups" / "20260713-230000"
+            backup.mkdir(parents=True)
+            (backup / installer.XDF_NAME).write_bytes(b"original-xdf")
+            original_xdt_content = b"original-xdt-bytes-content"
+            (backup / installer.XDT_NAME).write_bytes(original_xdt_content)
+            # Legacy backup does NOT contain LuaCacheVer.txt!
+            (game / installer.COUNTDOWN_METADATA_REL).parent.mkdir(parents=True)
+            (game / installer.COUNTDOWN_METADATA_REL).write_bytes(b"metadata")
+            metadata_backup = backup / installer.COUNTDOWN_METADATA_PATCH_DIR / installer.COUNTDOWN_METADATA_REL.name
+            metadata_backup.parent.mkdir(parents=True)
+            metadata_backup.write_bytes(b"metadata")
+
+            installer.write_json(backup / "backup_manifest.json", {
+                "game_dir": str(game),
+                "primary_lua_relative": str(overlay_rel),
+                "lua_archives": [
+                    {"relative_dir": str(overlay_rel), "backup_dir": "."},
+                ],
+                "created_i18n_files": [],
+                "metadata_relative": str(installer.COUNTDOWN_METADATA_REL),
+                "metadata_backup": str(Path(installer.COUNTDOWN_METADATA_PATCH_DIR) / installer.COUNTDOWN_METADATA_REL.name),
+                "metadata_sha256": installer.sha256_file(metadata_backup),
+            })
+
+            args = argparse.Namespace(game_dir=str(game), force_open=True)
+            with patch.object(installer, "USER_WORK_DIR", work), patch.object(
+                installer, "process_running", return_value=[]
+            ):
+                self.assertEqual(installer.cmd_restore(args), 0)
+
+            # LuaCacheVer.txt must be automatically re-synchronized with restored original xdt!
+            lines = (overlay / "LuaCacheVer.txt").read_text(encoding="utf-8").strip().split(",")
+            self.assertEqual(lines[0], "1.0.3551601")
+            self.assertEqual(int(lines[1]), len(original_xdt_content))
+            self.assertEqual(lines[2], installer.md5_bytes(original_xdt_content))
+
+    def test_latest_backup_for_game_cfa_safe(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            game = root / "game"
+            game.mkdir()
+            work = root / "empty-work"
+            work.mkdir()
+
+            with patch.object(installer, "USER_WORK_DIR", work), patch(
+                "pathlib.Path.home", return_value=root / "fake_home"
+            ):
+                with self.assertRaises(FileNotFoundError) as ctx:
+                    installer.latest_backup_for_game(game)
+                self.assertIn("Nessun backup", str(ctx.exception))
 
 
 if __name__ == "__main__":

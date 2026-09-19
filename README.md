@@ -1,17 +1,19 @@
 # Aniimo — Traduzione italiana
 
-## Release client Steam — 1.0.3551601.0
+## Release client Steam — 1.0.3551601.0-R1
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3551601, patch 1.0.3551601.0), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3551601, patch 1.0.3551601.0-R1), verificata e funzionante in gioco.**
 
 - Traduzione completa per **112.187 / 112.187 chiavi (100,00%)** con 0 stringhe mancanti.
 - Revisione professionale terminologica (Hexxin, eventi Sparkelf, contratti, ecosistemi) e rispetto rigoroso del glossario di gioco.
 - Un solo file standalone `Aniimo-Italian-Translation.exe` con rilevamento prioritario automatico di Steam.
 - Sincronizzazione automatica tra `StreamingAssets` e cache `cvs` per garantire compatibilità immediata agli update.
 - Rilevamento dinamico per nuovi aggiornamenti di gioco: compatibilità automatica al 100% se i testi non cambiano; fallback all'inglese con avviso per eventuali nuove stringhe.
-- Backup automatico ad ogni installazione e ripristino immediato.
+- Backup automatico ad ogni installazione e ripristino immediato con sincronizzazione di `LuaCacheVer.txt`.
+- Cartella di lavoro e backup posizionata in `%LOCALAPPDATA%\AniimoItalianTranslation` (compatibile con l'Accesso alle cartelle controllato di Windows Defender) e configurabile tramite parametro `--work-dir` o variabile `ANIIMO_WORK_DIR`.
+- Opzione rapida nel menu (tasto **5**) per aprire direttamente la cartella dei backup in Esplora file.
 
 ### Installazione
 
@@ -25,7 +27,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3551601.0.md) · [Verifiche tecniche](BUILD_QA_1.0.3551601.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3551601.0-R1.md) · [Verifiche tecniche](BUILD_QA_1.0.3551601.0-R1.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>
@@ -66,7 +68,7 @@ All'apertura compare un riepilogo immediato, senza un elenco di codici tecnici:
 - tre sole righe mostrano **Gioco**, **Traduzione** e **Installer**;
 - sotto **COSA FARE** trovi una sola istruzione chiara, per esempio `Premi Invio per installarla`.
 
-Hash, build già testate, digest, verifica dei contenuti, date e unità del timer restano disponibili soltanto scegliendo `6. Mostra i dettagli tecnici`.
+Hash, build già testate, digest, verifica dei contenuti, date e unità del timer restano disponibili soltanto scegliendo `7. Mostra i dettagli tecnici`.
 
 L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
@@ -210,7 +212,7 @@ Se l'aggiornamento automatico non riesce, l'installer mostra sempre il collegame
 
 ## Crediti e collegamenti
 
-L'installer mostra il collegamento GitHub direttamente nel pannello. Con l'opzione `5` è possibile visualizzare:
+L'installer mostra il collegamento GitHub direttamente nel pannello. Con l'opzione `6` è possibile visualizzare:
 
 - crediti del progetto e della traduzione italiana: **Sici29**;
 - repository GitHub;
