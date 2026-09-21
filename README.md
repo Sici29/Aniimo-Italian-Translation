@@ -101,7 +101,7 @@ Aniimo\game\
 Esempio (può essere anche un altro disco o una cartella personalizzata):
 
 ```text
-F:\Pawprint\Aniimo\game
+C:\Program Files (x86)\Steam\steamapps\common\Aniimo
 ```
 
 È anche possibile incollare direttamente il percorso. Dopo la verifica verrà salvato e riutilizzato automaticamente. Per cambiarlo successivamente, apri l'installer e scegli l'opzione `4`.
@@ -123,8 +123,10 @@ Non possiamo garantire l'assenza di controlli d'integrità, segnalazioni o sanzi
 Verrà ripristinato automaticamente l'ultimo backup. I backup sono conservati in:
 
 ```text
-Documenti\AniimoItalianTranslation\backups
+%LOCALAPPDATA%\AniimoItalianTranslation\backups
 ```
+
+(oppure puoi aprire la cartella direttamente dal menu dell'installer con l'opzione **5**).
 
 ## Stato della traduzione
 

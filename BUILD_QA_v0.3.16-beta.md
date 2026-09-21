@@ -5,7 +5,7 @@ Data: 14 luglio 2026
 ## Compatibilità Aniimo
 
 - Build verificata: `3053563`.
-- Installazione reale: `F:\Pawprint\Aniimo\game`.
+- Installazione reale: client di gioco.
 - Chiavi ufficiali: `93029`.
 - Fingerprint chiavi: `3ab71d88b66c52d71d14d789e8d0137e1bd2ecdb7396b02f3a186c503a9f4a45`.
 - Overlay Lua ufficiale SHA-256: `767EAD7B4362079BE7B291F8F7FA063A7DA0B02E2D30CBF60E8DED184355BA58`.

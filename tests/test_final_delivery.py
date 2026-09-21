@@ -54,5 +54,27 @@ class FinalDeliveryTests(unittest.TestCase):
         self.assertEqual(result["unknown_text_count"],1)
         self.assertEqual(result["modified_keys"],["0"])
 
+    def test_verify_archive_pair_fallback_mode(self):
+        import tempfile
+        import zipfile
+        with tempfile.TemporaryDirectory() as td:
+            temp_dir = Path(td)
+            xdf = temp_dir / "LuaScripts.xdf"
+            xdt = temp_dir / "LuaScripts.xdt"
+            records = [{"key": "1099705801", "text": "Tempo missione scaduto."}, {"key": "9999999999", "text": "English fallback"}]
+            map_bytes, bin_bytes, _ = installer.build_map_and_bin(records, {"1099705801": "Tempo missione scaduto."}, b"\x00\x00\x00\x00")
+            with zipfile.ZipFile(xdf, "w") as zf:
+                zf.writestr(installer.TEXT_MAP.format(lang="en"), map_bytes)
+                zf.writestr(installer.COMPRESS.format(lang="en"), bin_bytes)
+            xdt_data = {
+                "CMDataLen": xdf.stat().st_size,
+                "CMDataMD5": installer.md5_file(xdf),
+                "CMEntryNum": 2,
+            }
+            installer.write_json(xdt, xdt_data)
+            res = installer.verify_archive_pair(xdf, xdt, require_current_translation=False)
+            self.assertTrue(res["translation_verified"])
+
 if __name__=="__main__":unittest.main()
+
 

@@ -1920,6 +1920,12 @@ def verify_archive_pair(
             translation_matches = bool(match["matches_current"])
             if not translation_matches:
                 raise RuntimeError(f"Traduzione non verificata nell'archivio: {xdf}")
+        else:
+            _, records, _ = load_language(zf, "en")
+            match = translation_match_status(records, load_translations("en"))
+            translation_matches = bool(match.get("installed") or match.get("matched", 0) > 0)
+            if not translation_matches:
+                raise RuntimeError(f"Nessuna traduzione verificata nell'archivio: {xdf}")
     return {
         "xdf_sha256": sha256_file(xdf),
         "xdt_sha256": sha256_file(xdt),
@@ -2188,7 +2194,11 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             "date": date_stats,
         })
     stats["lua_archives"] = archive_stats
-    stats["archive_verification"] = []
+    version_check = stats.get("version_check", {})
+    require_current = (
+        not modified_keys_set
+        and version_check.get("mode") in {"official_exact", "italian_exact", "known_mix"}
+    )
     for archive in iter_lua_archives(paths):
         staged = archive_patch_dir(paths, patch_dir, archive)
         cache_ver_file = archive.lua_dir / "LuaCacheVer.txt"
@@ -2198,7 +2208,7 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
         verification = verify_archive_pair(
             staged / XDF_NAME,
             staged / XDT_NAME,
-            require_current_translation=True,
+            require_current_translation=require_current,
         )
         stats["archive_verification"].append({
             "relative_dir": str(archive_relative_dir(paths, archive)),
@@ -2239,6 +2249,16 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
 
 
 def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
+    stats_file = patch_dir / "patch_stats.json"
+    require_current = True
+    if stats_file.is_file():
+        try:
+            p_stats = read_json(stats_file)
+            vc = p_stats.get("version_check", {})
+            if vc.get("mode") == "fallback_partial" or vc.get("modified_keys"):
+                require_current = False
+        except Exception:
+            pass
     for archive in iter_lua_archives(paths):
         staged = archive_patch_dir(paths, patch_dir, archive)
         shutil.copy2(staged / XDF_NAME, archive.xdf)
@@ -2250,7 +2270,7 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
         verify_archive_pair(
             archive.xdf,
             archive.xdt,
-            require_current_translation=True,
+            require_current_translation=require_current,
         )
     patched_metadata = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / COUNTDOWN_METADATA_REL.name
     live_metadata = paths.game_dir / COUNTDOWN_METADATA_REL

@@ -13,7 +13,7 @@ body:
     id: percorso
     attributes:
       label: Percorso del gioco
-      placeholder: es. F:\Pawprint\Aniimo\game
+      placeholder: es. C:\Program Files (x86)\Steam\steamapps\common\Aniimo
   - type: input
     id: versione
     attributes:

@@ -22,7 +22,7 @@
   },
   "archives": [
     {
-      "path": "F:\\Pawprint\\Aniimo\\game\\Aniimo_Data\\cvs\\res\\lua\\LuaScripts.xdf",
+      "path": "Aniimo_Data\\cvs\\res\\lua\\LuaScripts.xdf",
       "size": 74837700,
       "sha256": "767ead7b4362079be7b291f8f7fa063a7da0b02e2d30cbf60e8ded184355ba58",
       "entry_count": 5406,
@@ -53,7 +53,7 @@
       "date_error": null
     },
     {
-      "path": "F:\\Pawprint\\Aniimo\\game\\Aniimo_Data\\StreamingAssets\\cvs\\res\\lua\\LuaScripts.xdf",
+      "path": "Aniimo_Data\\StreamingAssets\\cvs\\res\\lua\\LuaScripts.xdf",
       "size": 75430219,
       "sha256": "d42041d7c2c4660f36bbd13ddedacbc172d54069f295ab599f2321ce60831df9",
       "entry_count": 5398,
@@ -85,7 +85,7 @@
     }
   ],
   "countdown": {
-    "metadata_path": "F:\\Pawprint\\Aniimo\\game\\Aniimo_Data\\il2cpp_data\\Metadata\\global-metadata.dat",
+    "metadata_path": "Aniimo_Data\\il2cpp_data\\Metadata\\global-metadata.dat",
     "size": 23378280,
     "sha256": "dfd6b764978664474f73211634be9c9f21595057c2bbca1fdd5ca4e5962000a5",
     "cjk_pattern_count": 0,

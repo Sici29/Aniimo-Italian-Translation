@@ -884,7 +884,7 @@ class DetectionTests(unittest.TestCase):
                 "supported_game_updates": [3032670],
                 "supported_game_revisions": ["7113f88e39827a2d13591a55b395f1c6"],
             },
-            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_dir": Path(r"C:\Games\Aniimo"),
             "game_path_source": "automatico",
             "detected_game_update": "3032670",
             "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
@@ -914,7 +914,7 @@ class DetectionTests(unittest.TestCase):
                 "supported_game_updates": [3036569],
                 "supported_game_revisions": ["4eb81a98d0e3934af67064cbde06218e"],
             },
-            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_dir": Path(r"C:\Games\Aniimo"),
             "game_path_source": "automatico",
             "detected_game_update": "3036569",
             "detected_game_revision": "4eb81a98d0e3934af67064cbde06218e",
@@ -943,7 +943,7 @@ class DetectionTests(unittest.TestCase):
                     current_revision,
                 ],
             },
-            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_dir": Path(r"C:\Games\Aniimo"),
             "game_path_source": "automatico",
             "detected_game_update": "3036569",
             "detected_game_revision": current_revision,
@@ -969,7 +969,7 @@ class DetectionTests(unittest.TestCase):
                 "supported_game_updates": [3032670, 3036569],
                 "supported_game_revisions": [],
             },
-            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_dir": Path(r"C:\Games\Aniimo"),
             "game_path_source": "automatico",
             "detected_game_update": "3048640",
             "detected_game_revision": "87eaffe8c13ec791e4348298ca6e5aa0",
@@ -997,7 +997,7 @@ class DetectionTests(unittest.TestCase):
                 "supported_game_updates": [3053563],
                 "supported_game_revisions": [],
             },
-            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_dir": Path(r"C:\Games\Aniimo"),
             "game_path_source": "automatico",
             "detected_game_update": "3059000",
             "detected_game_revision": "abc",
@@ -1036,7 +1036,7 @@ class DetectionTests(unittest.TestCase):
             self.assertEqual(result, official)
 
     def test_reinstall_keeps_previously_recorded_official_revision(self) -> None:
-        game = Path(r"F:\Pawprint\Aniimo\game")
+        game = Path(r"C:\Games\Aniimo")
         official = "a" * 32
         patched = "b" * 32
         paths = installer.GamePaths(game, game / "lua", game / "lua" / "LuaScripts.xdf", game / "lua" / "LuaScripts.xdt")
@@ -1068,7 +1068,7 @@ class MenuTests(unittest.TestCase):
                 "supported_game_updates": [3032670],
                 "supported_game_revisions": ["7113f88e39827a2d13591a55b395f1c6"],
             },
-            "game_dir": Path(r"F:\Pawprint\Aniimo\game"),
+            "game_dir": Path(r"C:\Games\Aniimo"),
             "game_path_source": "automatico",
             "detected_game_update": "3032670",
             "detected_game_revision": "7113f88e39827a2d13591a55b395f1c6",
