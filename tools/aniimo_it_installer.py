@@ -2124,19 +2124,21 @@ def record_created_i18n_files(backup: Path, patch_dir: Path) -> list[str]:
 
 
 def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple[Path, dict]:
-    if final_text_profile() and not technical_compatibility_status(paths)["supported"]:
-        raise RuntimeError("Risorse native cambiate: questa build richiede una nuova verifica.")
     patch_dir = USER_WORK_DIR / "patches" / time.strftime("%Y%m%d-%H%M%S")
     replacements: dict[str, bytes] = {}
     stats: dict[str, object] = {
         "target_languages": target_langs,
         "game_update": read_game_update(paths.game_dir),
         "languages": {},
+        "archive_verification": [],
     }
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, source_records, _ = load_language(zf, "en")
         stats["version_check"] = check_supported(source_records, force)
         version_check = stats["version_check"]
+        if final_text_profile() and not technical_compatibility_status(paths)["supported"]:
+            if not force and version_check.get("mode") != "fallback_partial":
+                raise RuntimeError("Risorse native cambiate: questa build richiede una nuova verifica.")
         modified_keys_set = set(version_check.get("modified_keys", []))
         for lang in target_langs:
             translations = load_translations(lang)
@@ -2151,7 +2153,7 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             (out_i18n / f"NewTextMap_{lang}.json").write_bytes(map_bytes)
             (out_i18n / f"Compress_{lang}.bin").write_bytes(bin_bytes)
             stats["languages"][lang] = lang_stats
-        if "en" in target_langs:
+        if "en" in target_langs and AI_TRANSLATED_EN in zf.namelist():
             fallback_keys = recovered_english_fallback_keys()
             translated_items, added = mark_english_fallbacks_as_translated(
                 zf.read(AI_TRANSLATED_EN), fallback_keys
