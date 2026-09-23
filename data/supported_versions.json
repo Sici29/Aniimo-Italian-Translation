@@ -1,41 +1,41 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3551601.0-R2",
+  "translation_version": "1.0.3584014.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
-  "known_source_key_count": 112187,
-  "known_source_key_sha256": "a9d7e25ba08e05a68267cedd4aac9d37b693c4648d8d22224d69251113b4a514",
+  "known_source_key_count": 112207,
+  "known_source_key_sha256": "a69b1244c67adc817bdd0a5e0ffc394af19186091e8d87b81515181135b2c64f",
   "supported_game_updates": [
+    3584014,
     3551601,
     3544783,
     3535596,
     3509129
   ],
-  "latest_supported_game_update": 3551601,
+  "latest_supported_game_update": 3584014,
   "supported_game_revisions": [],
-  "tested_game_update": "3551601",
+  "tested_game_update": "3584014",
   "tested_game_revision": null,
   "tested_archive_sha256": "8fd48f07d907e038f120dee4328ca8ee2e6931dc0c4b04465c3dc5fd205d63bb",
-  "tested_date": "2026-09-19",
-  "coverage": "112187/112187 keys translated (100.00%). Steam build 3551601 (patch 1.0.3551601.0-R2) full professional coverage.",
+  "tested_date": "2026-09-23",
+  "coverage": "112207/112207 keys translated (100.00%). Steam build 3584014 (patch 1.0.3584014.0) full professional coverage.",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "Revisione R2 per la build Steam 3551601 (patch 1.0.3551601.0-R2) con copertura di traduzione al 100%.",
-    "Risolto disallineamento multi-archivio dei file loose I18N (NewTextMap_en.json e Compress_en.bin): sincronizzazione e verifica su tutti gli archivi Lua (StreamingAssets e cvs), eliminando il caricamento di vecchi file binari da build precedenti che causavano stringhe troncate/sfasate in gioco.",
-    "Risolto blocco di Windows Defender (Accesso alle cartelle controllato): cartella di lavoro spostata in %LOCALAPPDATA% con supporto a --work-dir e ANIIMO_WORK_DIR.",
-    "Risolto disallineamento al ripristino: LuaCacheVer.txt incluso nel backup e ripristinato/risincronizzato fedelmente con LuaScripts.xdt.",
-    "Aggiunta opzione 5 nel menu per aprire direttamente la cartella dei backup in Esplora file.",
+    "Aggiornamento per la build Steam 3584014 (patch 1.0.3584014.0) con copertura di traduzione al 100% (112.207 chiavi).",
+    "Tradotte tutte le 837 stringhe nuove e modificate della build 3584014 con revisione incrociata rispetto ai testi ufficiali francesi e spagnoli.",
+    "Aggiunto supporto al nuovo bundle font xgui_font_94caf04d33b30d3bf95fff3d59018c81.uab.",
+    "Sincronizzazione e verifica su tutti gli archivi Lua (StreamingAssets e cvs) con compatibilità sia per installazioni pulite che con fallback.",
+    "Cartella di lavoro in %LOCALAPPDATA% con supporto a --work-dir e ANIIMO_WORK_DIR contro i blocchi Defender.",
+    "Verifica atomica di LuaCacheVer.txt sincronizzata fedelmente con LuaScripts.xdt al ripristino e all'installazione.",
     "Font nativi invariati; static character/fallback coverage includes all 12 Italian accented letters.",
-    "Date scripts and runtime metadata remain unchanged; old beta date/timer patches are not applied to unverified final bytecode.",
-    "Final-client workflow metadata is preserved byte-for-byte; the beta integer allow-list workaround is not applied to a different format.",
     "Original source text is not redistributed: each key stores its SHA-256 for compatibility checks."
   ],
-  "known_source_content_sha256": "2d3300fb629b027fea016915e76b57727f562cd08e331dc19f8496c82ecdb22a",
+  "known_source_content_sha256": "286a26a5dcb22722eaa10501ea02cb8584ffe42a8b9e2255ced3bd41b4aecd73",
   "runtime_profile": "final-native-text-only",
   "runtime_validation": "verified_in_game",
   "native_font_bundles": [
@@ -50,6 +50,10 @@
     {
       "relative": "Aniimo_Data/cvs/res/uab/win/DefaultPackage/CacheBundleFiles/bb/bb25716c229ac94cbe6a0ffdadcf48aa/cdata.uab",
       "sha256": "a91003fe309dee65292d63eceea8164f77c246e1ecf455fb178bee552c4a1417"
+    },
+    {
+      "relative": "Aniimo_Data/StreamingAssets/cvs/res/uab/win/DefaultPackage/xgui_font_94caf04d33b30d3bf95fff3d59018c81.uab",
+      "sha256": "8a75ddaed7cade899bfe89baad5bec738c111b62295bebd0b73d2856177e8cde"
     }
   ]
 }
