@@ -81,7 +81,7 @@ class FinalDeliveryTests(unittest.TestCase):
             temp_dir = Path(td)
             game_dir = temp_dir / "game"
             game_dir.mkdir()
-            (game_dir / "verlist.txt").write_text("3584014\n", encoding="utf-8")
+            (game_dir / "verlist.txt").write_text("3595896\n", encoding="utf-8")
             (game_dir / "md5list.txt").write_text("", encoding="utf-8")
             lua_dir = game_dir / "Aniimo_Data" / "StreamingAssets" / "cvs" / "res" / "lua"
             lua_dir.mkdir(parents=True)

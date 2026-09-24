@@ -54965,7 +54965,7 @@ E, naturalmente, non dimenticare la cosa più importante: tornare a casa incolum
 Il professor Bohr guiderà personalmente la squadra, mentre Lita si occuperà della sicurezza. Cominceranno molto presto."
 1229785136,646933e5744f2cca762b5be620791bda60c00c0b8a1a10e683e5b938d97ec964,Sul murale nella caverna...
 1229815306,18693111c2c2bc446f5ff03008acb679921430b640edf05d0699c84536179822,Quindi dici che il capo non è splendente quanto l'Icho?
-1229856692,1d0500b722c9baa0e1114bfe40c4e413a8648f17c5bbe08aabadf98d46ab2474,L’Ombra Fluttuante Scintillante si usa solo negli slot iniziali. Numero di slot compatibili: {0}.
+1229856692,40a6dd2793db5080b413c02c9d87df81202cd6c10c74e35bd1aba74067628cfd,L'<color=#b767e1>Ombra Fluttuante Scintillante</color> può essere usata solo per i primi {0} slot.
 1229867943,5031a1152f94706d0e9137bbdbe99ca8ad7096abdadc83e840b8a2db7112ae24,[Festival della Luna del Raccolto] Panoramica della Stagione Base
 1229873592,3f40af814144c5feff1d514f3376f0a153478f8d4448d88527d7585fda350d63,Solo Scambio
 1229887217,859c8136e59dfe41ca97d09a7865b05665094c67d90912491543e6efbda32494,Incendiario
@@ -56685,7 +56685,7 @@ Poi, tra mille impegni, non l'ho quasi mai riportato a fare un giro..."
 1243639624,c357adfd06c24c274965b95bfcf637943e575e686acda555406c0cf055c1052e,Un albero gigantesco che domina fiero la terra sottostante.
 1555814799,c357adfd06c24c274965b95bfcf637943e575e686acda555406c0cf055c1052e,Un albero gigantesco che domina fiero la terra sottostante.
 1243640248,98c31f5e3c31b0b069f8fff9d9dee1dd43fabb8687a81c863da010dfbbd65f6b,Spray Primo Soccorso
-1243644204,299bb78983a05edef8c3559dd4c899af313aeb096bb3ced60d54be1e64684b0a,Con gli slot bloccati puoi usare solo oggetti Radiosi. Vuoi disattivare l'uso esclusivo dell'Ombra Fluttuante Scintillante?
+1243644204,2af2250cc2eb2d657ee796aba066a43dd5f54abd29f75b2c84feda5082acc0d5,Gli slot bloccati possono usare solo l'<color=#e49b43>Ombra di Sogno Radiosa</color>. Vuoi deselezionare e usare solo l'<color=#b767e1>Ombra Fluttuante Scintillante</color>?
 1243686637,f3b4e65d2cf4bcd3f50bb3e97f74caaf4e23c560a53fdc15c8290d09fd947ad6,Tutto pronto (Riscatta ricompense)
 1243821052,83e169014a9e6f8ac938cb3cade80b45941ba3a7869479aa68e8f2c406e32850,Nascondi a Te
 1243847599,77596a8a7a2955ef46519c24fead1aaf3431770c41fc85b4ea6dbc6efa566141,Informazioni Rango
@@ -64484,7 +64484,7 @@ Sotto la guida dell’istituto, <style=Hint_BgD>allievi</style> e <style=Hint_Bg
 2006649422,14390dd842bdacf4eb1dbeec5bc53d4eb8d4e14826fe046c2601b5f814ea86ca,Thornblade Anziano
 2025568750,14390dd842bdacf4eb1dbeec5bc53d4eb8d4e14826fe046c2601b5f814ea86ca,Thornblade Anziano
 1313980357,b8b311b0f2739e0cc32af32a91b5913e852ed565cf319a4eceb58898e3f50a9c,Solido
-1313990903,3f026f003159b006ff06257853d215841bb8b4451b3b2892d725fb4315319489,"Un giradischi per la tua Base, custode di ricordi che rivivono nella musica. Quando i fiori sbocciano e la luna è piena, riunisciti con qualche amico per ascoltare insieme una canzone al chiaro di luna."
+1313990903,9825aa3f1b1548c75e6c980852e72043833ad97ce4bd63396a1cf18ce511bed0,"Un giradischi per la tua Base, custode di ricordi che rivivono nella musica. Usalo nella tua Area Residenziale per cambiare la musica di sottofondo della tua casa. Quando i fiori sbocciano e la luna è piena, riunisciti con qualche amico per condividere una canzone sotto la loro dolce luce."
 1314000251,c705c145af916d4e349fdab822b88df809f2d4e59b370c0ea148e0f5df73c8ec,Colore della Terra: Blitz
 1314030202,7c68ea6e4cc215f2c6c628a6ccde08e366f1f3f96555e2e1779891ae48e3f5ec,Costo Creazione Gemma Oggetto Tenuto
 1314050650,de0bf1dedea116c4a550407bf75880406b1f95d93ff061aec165b665247f40e6,"Nessun problema, non tengo mai Kim che non sia mio."
@@ -82747,7 +82747,7 @@ Durante il viaggio, gli Aniimo saranno i tuoi compagni più preziosi.
 — Dr. Lewis"
 1547059176,67cec79f7818b56b21baed568622bed5b4e99799a397a081f180f27742f26dec,"Aumenta complessivamente gli effetti di <style=Hint_BgL><customRichText(calcData,buff, 215630101,param2,1,%d)>%</style><style=Hint_BgL><link=""source_8020""><u>[Nube di Spore]</u></link></style> e fa sì che <style=Hint_BgL><link=""source_8021""><u>[Fungo della Rovina]</u></link></style> salti la fase d'interramento ed emerga subito al livello del Terreno. L'effetto dura <style=Hint_BgL><customRichText(buffConfigData,2156303,duration)></style> s."
 1547103846,380512c224a82cf2c57193f1309564d2277a8a9d87e6881354acfe554d321809,"Grazie, Ripristinatore della Vena. Il piccolo Hummin me l'ha già detto."
-1547120291,8a97cb329ea44ef6c10a238af9312f7d4a3560cab40247881c7bc207b4ca8f8a,Ottieni uno sconto del <style=Hint_BgL>5%</style> sui pagamenti ufficiali e accumula Punti Polaris da scambiare con oggetti rari.
+1547120291,5a6165cdc90e22f163b0645d0abf42620c80d364463fa6e22b8f67d0515ccfd2,Ottieni il <style=Hint_BgL>5% di sconto</style> sugli acquisti di <style=Hint_BgL>Cristalli Lumin</style> con il Pagamento Ufficiale.
 1547138517,2974ef9a1a799c6566270cfb5279aada1d67d28968404f0ee0e860d081f399e4,"+<style=Hint_BgL><customRichText(calcData,buff,2042000,param1,1,%d)>%</style> DIF F e DIF M
 Ogni <style=Hint_BgL><customRichText(calcData,buff,2042000,param10,1)></style>s, infligge Danno Puro pari al <style=Hint_BgL><customRichText(calcData,buff,2042000,param4,1,%d)>%</style> di DIF F e DIF M ai bersagli entro <style=Hint_BgL><customRichText(getConfigData,random_buff_data,2042000,param0)></style>m e applica <style=Hint_BgL><customRichText(calcData,buff,2042000,param13,1)></style> cariche di [Bruciatura]. Si accumula fino a <style=Hint_BgL><customRichText(calcData,buff,20420000,param1,1)></style> volte e dura <style=Hint_BgL><customRichText(buffConfigData,20420000,duration)></style>s. Quando [Bruciatura] raggiunge le cariche massime o il bersaglio viene sconfitto, esplode, infliggendo Danno Puro pari al <style=Hint_BgL><customRichText(calcData,buff,20420001,param4,1,%d)>%</style> di DIF F e DIF M ai bersagli vicini e applicando <style=Hint_BgL><customRichText(calcData,buff,20420001,param5,1)></style> cariche di [Bruciatura]."
 1547165575,cfa9f247e32b737ce344797f17a027e15a1dd1a8b4e0d69d1f914738f37d1c65,Ehi! Solo perché si sono evoluti non devi andarci così pesante!
@@ -87658,7 +87658,7 @@ Ripensaci."
 1625327564,1146084433c3291979719eb4ce49392890fc899a68cd31082a3c79f2a17666e2,Attira Aniimo Prismana
 1855726284,1146084433c3291979719eb4ce49392890fc899a68cd31082a3c79f2a17666e2,Attira Aniimo Prismana
 1625337487,afad4f7851c1bb337a7cd7b6aa767d8eeb1372d5ef5a9b20f18e1377030abb8d,Completa Santuario: Acque gelide.
-1625373652,f5b87794b8423d65c3ab9ff0ba8e2e4fbf70f536eebe5e3b9f03dc4365be5138,Ti stai perdendo lo sconto del <style=Hint_BgL>5%</style> su ogni pagamento! Tocca qui per approfittarne subito.
+1625373652,9cbf277ff58064787d3575b2f1b73936b44a5493a1fe525780554c67cc3c2cd3,Risparmia il <style=Hint_BgL>5%</style> ogni volta che acquisti <style=Hint_BgL>Cristalli Lumin</style> con il pagamento ufficiale. Tocca per ottenere lo sconto!
 1625387765,5ae562926157f2cad35e03be1a25250577b40fbc3a32deb6903c9d28bcf42bda,La maggior parte dei Bolty è del tutto comune.
 1625393308,f85558423ccb1fe53f07fd6a5e4dc4639f7cec484e2069cb0f05fbd5df6a3149,Recupero Rapido II
 1625394845,2adec4c80260bf86a32ae81b6a61e3e8b7cdea48c794d2c85ada27a41865a911,Kit di Modifica
@@ -96902,7 +96902,7 @@ ma monitora anche i nostri parametri vitali e può teletrasportarci in una zona 
 1757768122,b380a3c748f2a62def9d3de3a8033a302302801bf6b35b7ff7fcd864387d17fa,"Il vento sfiora le pianure, toccando dolcemente ogni essere vivente. Seguilo verso la libertà e viaggia accanto a un mondo pieno di vita."
 1888199055,b380a3c748f2a62def9d3de3a8033a302302801bf6b35b7ff7fcd864387d17fa,"Il vento sfiora le pianure, toccando dolcemente ogni essere vivente. Seguilo verso la libertà e viaggia accanto a un mondo pieno di vita."
 1757768239,b67ed19687678246c7c697742da28cdceae24b6ed15e34cb34702c5d1ce2eb68,Q2608_Bloomville Square
-1757773855,5388936597b9e375d3d3bd8483377591dd66fad4cd922097b7e4ce8f1a23c763,<style=Hint_BgL>5%</style> di sconto per ordine
+1757773855,7010b5d77167a122f1be4ad3a704236ad80a83746795c73ba76336278e7bba28,<style=Hint_BgL>5% DI SCONTO</style> sui Cristalli Lumin
 1757796629,6e46810a79ae7dc51f32d1f090ec3385041a511145b02f0c7a862cd53f563884,"Il fungo lampeggia, sembra così strano!"
 1757830330,39a1865da5275a38bb1451a2888465700a1b930fa0c6962f37d95498e112ec3c,Schianto Potente
 1757882655,019889a8be43241d2a4d748b181002c83ab4952a5c50c5b54c1cd1685cc6ec79,"Sblocca <link=""item_4020044""><style=Hint_BgL><u>Formula Rapida: Cocco</u></style></link> per <link=""item_4040021""><style=Hint_BgL><u>Woodland</u></style></link> nella tua Base."
@@ -97255,7 +97255,7 @@ Se ti manca una coltura mutata, puoi chiedere aiuto a un amico o donare agli ami
 1763240959,444d9b21e5baaf8243d5c327c5db2634dc37e0a7ef8835dc395a412f269dc44d,Crossplay
 1763300009,4f9f0a08ff62e1c84c749b6a285ee5757eb22edd3c2d81e63c5d58b27410cdec,Lo spazio-tempo [Passato] è in un freddo inverno. I fiumi sono ghiacciati e la vegetazione è appassita. Ora puoi attraversare il fiume.
 1763338632,28d684e3acafafb5101cff894051794987994e4b4b1c28c2a9fb914ce36c00a6,Hai petali così belli.
-1763349619,7cf4579f39304efe809fcfc33c7d2de5313e0ec268544b1d49125dc6367e3107,Pagamento Ufficiale attivo. Ogni ordine gode di uno sconto del <style=Hint_BgL>5%</style>.
+1763349619,b7b2f9f0f30221938aedfda540c4ddc5c5d6f93272553a89c946c89ec4d5a2f1,Stai usando il Pagamento Ufficiale e benefici del <style=Hint_BgL>5% di sconto</style> sugli acquisti di <style=Hint_BgL>Cristalli Lumin</style>.
 1763416001,28d893917a29fb9a967cbe183786ccbec7bcad04689a035b4e8320054d37d567,In Uso
 1763424731,1af33e9aecb6af1eae698f5e2e5aed3364061e7a2773ab88fb36b84117ae76f2,È la fine della strada.
 1763498130,241bedc574b0d7b67d5d20766ce8f23cc4a090198f2dde3eae8736a793add9a9,Molto appesantito
@@ -105691,7 +105691,7 @@ Quando l’avremo presa, avremo completato la raccolta di tutti i materiali!"
 <style=Hint_BgL>Tieni premuto</style> <style=Hint_BgL>#kCatch/Focus#z</style> per <style=Hint_BgL>annullare</style> l'aggancio."
 1928181619,46ab47c1607cb7fa056b19e9a6d0d453bd536ee7cd5128f044383a691310278c,Consiglio: segui prima l'indizio “Un Bolty al Telefono?”. Tocca qui per i dettagli.
 1928206963,9594b22fdae3eddef472f8ae9e172f80fda71ea3a345c0dd09c64d4f827e608f,"Vieni a provarci, yo. <style=Hint_BgD>Segui il ritmo e calcola bene i salti!</style> Stiamo per cominciare, yo. Ci sei?"
-1928213059,48241fd95c0326944504c46a37192c6656e26963aa77e2ca88de85c81d260f41,Non puoi usare soltanto l’Ombra Fluttuante Scintillante se ci sono slot bloccati.
+1928213059,aca87816a5e0407e14d264921bd833a677e0f6c9f901c0653510010ce1552e73,L'<color=#b767e1>Ombra Fluttuante Scintillante</color> non può essere usata esclusivamente se ci sono slot bloccati.
 1928217604,08d4dffbc860f76f744ba88e1adbed242d120d41f52f4736c5866d22a08f04cd,Visualizzazione Monete Voxel
 1928221178,75ea11ab1e0a8549b553e8c402476c3254ebe4a12aef4147e31f9ebb408593c6,"Non lo so... Sono venuti tutti qui, quindi li ho solo seguiti..."
 1928272783,cce3e205c87c6951387fa3d3633ed21096a2f39349f2abdfe5a10a97e6af9879,"Gli Omni-guanti sono gadget basati su Lumintech forniti dal Polaris Institute. Sono integrati con più app e funzioni come potenziamento della sincronia, lancio abilità, trasmissione energetica e altro."
@@ -113311,7 +113311,7 @@ In breve, tutto ciò che ti sta a cuore."
 2094591332,4189c2a5d685f26f1aa4f8d2facd5ecb285083f3efbac692c76248c9961a57a6,Helmut a destra
 2094720295,7b7ff5a7f71a15ede27490a6cbb1cd24e1a73cdae0a9f065450a10980873c8cb,"Oh? Quindi hai trovato Spezie rappresentative?
 Hai fatto in fretta. Fammi vedere..."
-2094725741,56b876684566567ea695daf8bd3419857303cd0a4fdfc47fd972582085e0359b,Punti Polaris (Punti)
+2094725741,e8f298fe48a41954256ab0f3219810bdd22041d7bf414b76232509208beb3bfe,Riscatto Punti (Prossimamente)
 2094741786,f2d87cb977acde200e165394f7c07daa1ecdf8cd223db4a02cb20a4872f656e7,Abilità Combattimento
 2094760392,59a8a129fd1ea0c4d39beb60d3e8dd3a3bff98919b5520d07d7abc872cd0ad42,"Mmh, sì. Questi piccoli batuffoli sono i miei amici più cari."
 2094805763,40ebc1ca4052c9743ff89e4eaf17d0710b4c64a6e7ebd90abaf8e7141f7398b9,{0} insufficienti. Richiede <color=#CF9831>{1}</color> punti.
@@ -114068,7 +114068,7 @@ Buona fortuna. Attendo con interesse i tuoi prossimi progressi."
 2111619113,758b6eca5d3cd1b2868a572fe79b17f24f72fc95c6a917b9f9cadf761a8c847b,Sembra solo cibo!
 2111630779,35d16a0aca654cc6c4fccd7fdc3e08c61746e08756c010cd275287db81dcdf73,Velocità furtiva
 2121198840,35d16a0aca654cc6c4fccd7fdc3e08c61746e08756c010cd275287db81dcdf73,Velocità furtiva
-2111652548,f6a264ec35e42517c8f6357a311d49d52c0e65c86dd7d2a91aacf83193415b0a,"Un giradischi per la tua Base, custode di ricordi che rivivono nella musica. Usalo per cambiare la musica di sottofondo della Base. Quando i fiori sbocciano e la luna è piena, riunisciti con qualche amico per ascoltare insieme una canzone al chiaro di luna."
+2111652548,9825aa3f1b1548c75e6c980852e72043833ad97ce4bd63396a1cf18ce511bed0,"Un giradischi per la tua Base, custode di ricordi che rivivono nella musica. Usalo nella tua Area Residenziale per cambiare la musica di sottofondo della tua casa. Quando i fiori sbocciano e la luna è piena, riunisciti con qualche amico per condividere una canzone sotto la loro dolce luce."
 2111660640,12ec2100e0f3ef6e5c5fdd7e3dfb9852a74c2318101b380c8282d269141d8ebb,Softdown Wilds
 2111664776,ab728c4d793c8875cf21905ff670d0bb213f606eaf2ea9488649210ce77b83a0,"Cattura Aniimo diversi a Blitzwood per aumentare il <style=Hint_BgL>Completamento Catture dell'Area</style>, <style=Hint_BgL>sconfiggi gli Alpha</style> e <style=Hint_BgL>raccogli Ambra Lumin</style>: otterrai i relativi distintivi.
 
@@ -119275,7 +119275,7 @@ I Punti Polaris possono essere usati per riscattare oggetti nel Negozio punti."
 1928361015,e0bff004d934e6994e291e5c5e2e0521d58fb4aacd08d3336ebdf3854614b604,Aniimo Illusori ottenuti: {0}/{1}
 1933238634,72055e550b9ad04d8231b736146447ac80129478a750b8b0451fb08b5f83601d,Bosco dei Sogni delle Farfalle
 1941631051,1b2c08a8733d7ff1d06e726107a977124929c975066a3a606d19055dfd4e3dbd,Qualità
-1962736755,72055e550b9ad04d8231b736146447ac80129478a750b8b0451fb08b5f83601d,Bosco dei Sogni delle Farfalle
+1962736755,3920a30a05fe0dc93ea1661ff59b70c92f7d83daa83684586b12630ec23f91b9,Ambra del Sogno di Farfalla
 1964236758,a6eb054e71c82e63dfffe654b5c8c1ff6b6574e806fc52e68fa89694c6ad2757,Bagliore d'Onda Radioso
 1977566505,a96c02937acd74bbee5857840f138ce53fc618ac032770625a41b29da68a0916,Tocca un punto vuoto per chiudere
 1978671355,2cc63d26648aa7926c79a60f47b0f56fc5b6ae78176ec22cc49ceb132e38e2c2,Hai raggiunto il limite settimanale di ottenimento di Timbri stagionali.
