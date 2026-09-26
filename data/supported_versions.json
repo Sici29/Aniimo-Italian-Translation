@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3595896.0",
+  "translation_version": "1.0.3603741.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -8,6 +8,7 @@
   "known_source_key_count": 112207,
   "known_source_key_sha256": "a69b1244c67adc817bdd0a5e0ffc394af19186091e8d87b81515181135b2c64f",
   "supported_game_updates": [
+    3603741,
     3595896,
     3584014,
     3551601,
@@ -15,20 +16,20 @@
     3535596,
     3509129
   ],
-  "latest_supported_game_update": 3595896,
+  "latest_supported_game_update": 3603741,
   "supported_game_revisions": [],
-  "tested_game_update": "3595896",
-  "tested_game_revision": "9ed50e272cc74f59e92b36b65903b9cd",
-  "tested_archive_sha256": "1c996aacbeb1c15855becff79cde3c4f7eff17ef45b699fbac139de1498dd6ab",
-  "tested_date": "2026-09-24",
-  "coverage": "112207/112207 keys translated (100.00%). Steam build 3595896 (patch 1.0.3595896.0) full professional coverage.",
+  "tested_game_update": "3603741",
+  "tested_game_revision": "f17c5c6a92c2144352f838b5b8ebb396",
+  "tested_archive_sha256": "d69998fbbb9cf30c6b4af16d87c75d614c2d7c15c8320865ae39ada0e345f117",
+  "tested_date": "2026-09-26",
+  "coverage": "112207/112207 keys translated (100.00%). Steam build 3603741 (patch 1.0.3603741.0) full professional coverage.",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "Aggiornamento per la build Steam 3595896 (patch 1.0.3595896.0) con copertura di traduzione al 100% (112.207 chiavi).",
-    "Tradotte tutte le 11 stringhe nuove e modificate della build 3595896 con revisione incrociata rispetto ai testi ufficiali francesi e spagnoli (concordanza di genere e terminologia coerente).",
+    "Aggiornamento per la build Steam 3603741 (patch 1.0.3603741.0) con copertura di traduzione al 100% (112.207 chiavi).",
+    "Tradotte tutte le 122 stringhe modificate della build 3603741 con revisione incrociata rispetto ai testi ufficiali francesi e spagnoli (concordanza di genere e terminologia coerente).",
     "Supporto nativo confermato per bundle font xgui_font_94caf04d33b30d3bf95fff3d59018c81.uab.",
     "Sincronizzazione e verifica su tutti gli archivi Lua con compatibilità sia per installazioni pulite che con fallback.",
     "Cartella di lavoro in %LOCALAPPDATA% con supporto a --work-dir e ANIIMO_WORK_DIR contro i blocchi Defender.",
@@ -36,7 +37,7 @@
     "Font nativi invariati; static character/fallback coverage includes all 12 Italian accented letters.",
     "Original source text is not redistributed: each key stores its SHA-256 for compatibility checks."
   ],
-  "known_source_content_sha256": "f7364b8b9e0fc4324738da085da5ae0083c582602f54e04430635826c43d7397",
+  "known_source_content_sha256": "d0ab53ed893806cc315b0d71af5fa8c1232cef88d356ad181dc42374bc82c62c",
   "runtime_profile": "final-native-text-only",
   "runtime_validation": "verified_in_game",
   "native_font_bundles": [
