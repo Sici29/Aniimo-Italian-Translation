@@ -1083,7 +1083,9 @@ class MenuTests(unittest.TestCase):
         ) as install, patch.object(installer, "collect_startup_status", return_value=self.status):
             self.assertEqual(installer.run_menu(), 0)
         install.assert_called_once()
-        self.assertEqual(install.call_args.args[0].target, "en")
+        # The menu leaves the slot unset so cmd_install resolves the stored
+        # preference itself, defaulting to English.
+        self.assertIsNone(install.call_args.args[0].target)
 
     def test_unknown_choice_does_not_install(self) -> None:
         with patch("builtins.input", return_value="abc"), patch.object(
