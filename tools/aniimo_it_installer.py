@@ -384,18 +384,35 @@ def read_game_update(game_dir: Path) -> str | None:
     return read_game_version_info(game_dir)["update"]
 
 
-def steam_build_from_verlist(game_dir: Path) -> str | None:
-    """The build Steam installed, read from verlist.txt alone.
+PACKAGE_VERSION_RELS = (
+    Path(r"Aniimo_Data\cvs\res\uab\win\DefaultPackage\ManifestFiles\PackageManifest_DefaultPackage.version"),
+    Path(r"Aniimo_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\PackageManifest_DefaultPackage.version"),
+    Path(r"worldx_Data\StreamingAssets\cvs\res\uab\win\DefaultPackage\PackageManifest_DefaultPackage.version"),
+)
 
-    ``read_game_update`` prefers the PackageManifest versions, and those live
-    *inside* ``cvs``: when they are present and still stale it reports the old
-    build, hiding the very mismatch we are looking for. Reading verlist.txt on
-    its own keeps the two sides of the comparison independent.
+
+def installed_build_candidates(game_dir: Path) -> list[str]:
+    """Every build number the installation claims, from all of its own sources.
+
+    They disagree more often than one would hope: verlist.txt can lag behind the
+    package manifests, or even go back to an earlier build, and the manifests can
+    hold different numbers from each other. Taking the newest of the lot is the
+    only reading that survives that.
     """
+    candidates: list[str] = []
     verlist = game_dir / "verlist.txt"
-    if not verlist.is_file():
-        return None
-    return parse_game_update(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+    if verlist.is_file():
+        build = parse_game_update(verlist.read_text(encoding="utf-8-sig", errors="replace"))
+        if build:
+            candidates.append(build)
+    for relative in PACKAGE_VERSION_RELS:
+        path = game_dir / relative
+        if not path.is_file():
+            continue
+        value = path.read_text(encoding="utf-8-sig", errors="replace").strip()
+        if value.isdigit():
+            candidates.append(value)
+    return candidates
 
 
 def lua_cache_build(archive: LuaArchivePaths) -> str | None:
@@ -409,23 +426,33 @@ def lua_cache_build(archive: LuaArchivePaths) -> str | None:
 
 
 def pending_cvs_download(paths: GamePaths) -> dict:
-    """Detect a game folder whose cvs data is older than the installed build.
+    """Detect a game folder whose text tables are older than the installed build.
 
     Everything under ``cvs`` comes from the CDN through the in-game patcher,
     which runs when the game starts, while Steam updates the executable right
-    away. Between the two the folder is a mix: patching then works on the old
-    text tables and the patcher overwrites the result at the next launch.
+    away. Between the two moments the folder is a mix: patching then works on the
+    old text tables, and the patcher overwrites the result at the next launch.
+
+    Only an *older* Lua cache is a problem. A cache newer than some of the other
+    version files is what a finished download looks like, because those files are
+    not all refreshed together.
     """
-    steam_build = steam_build_from_verlist(paths.game_dir)
+    candidates = installed_build_candidates(paths.game_dir)
+    newest = max((int(build) for build in candidates), default=None)
     stale: list[dict[str, str]] = []
-    for archive in iter_lua_archives(paths):
-        cache_build = lua_cache_build(archive)
-        if steam_build and cache_build and cache_build != steam_build:
-            stale.append({
-                "relative_dir": str(archive_relative_dir(paths, archive)),
-                "cache_build": cache_build,
-            })
-    return {"pending": bool(stale), "steam_build": steam_build, "stale_archives": stale}
+    if newest is not None:
+        for archive in iter_lua_archives(paths):
+            cache_build = lua_cache_build(archive)
+            if cache_build and int(cache_build) < newest:
+                stale.append({
+                    "relative_dir": str(archive_relative_dir(paths, archive)),
+                    "cache_build": cache_build,
+                })
+    return {
+        "pending": bool(stale),
+        "installed_build": str(newest) if newest is not None else None,
+        "stale_archives": stale,
+    }
 
 
 def supported_game_updates(manifest: dict) -> list[str]:
@@ -2703,8 +2730,8 @@ def cmd_install(args: argparse.Namespace) -> int:
         stale = ", ".join(
             f"{item['relative_dir']} ({item['cache_build']})" for item in pending["stale_archives"]
         )
-        print(f"Aniimo e' alla build {pending['steam_build']}, ma i file di gioco sono ancora "
-              f"alla precedente: {stale}.")
+        print(f"Aniimo e' alla build {pending['installed_build']}, ma i file di gioco sono "
+              f"ancora alla precedente: {stale}.")
         print("Avvia il gioco una volta per far scaricare l'aggiornamento, poi chiudilo e "
               "reinstalla la traduzione.")
         print("Installare adesso significa tradurre i testi vecchi, che verrebbero sovrascritti "
