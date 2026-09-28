@@ -13,17 +13,18 @@
 > **[⬇ Scarica Gioca in Italiano](https://github.com/Sici29/gioca-in-italiano/releases/latest/download/GiocaInItaliano.exe)** · gratis, per Windows 10 e 11
 <!-- gioca-in-italiano:fine -->
 
-## Release client Steam — 1.0.3603741.0
+## Release client Steam — 1.0.3616231.0
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3603741, patch 1.0.3603741.0), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3616231, patch 1.0.3616231.0), verificata e funzionante in gioco.**
 
-- Traduzione completa per **112.207 / 112.207 chiavi (100,00%)** con 0 stringhe mancanti.
-- Revisione professionale terminologica (Hexxin, eventi Sparkelf, contratti, ecosistemi) e rispetto rigoroso del glossario di gioco, con confronto con le versioni ufficiali francesi e spagnole per la concordanza di genere.
+- Traduzione completa per **112.214 / 112.214 chiavi (100,00%)** con 0 stringhe mancanti.
+- **Selezione della lingua da sostituire** (opzione 8 nel menu o `--target`): possibilità di scegliere quale slot sostituire (es. portoghese, francese, spagnolo, tedesco) per mantenere sia l'**Inglese** che l'**Italiano** attivi e selezionabili nelle impostazioni di gioco!
+- Tradotte tutte le nuove funzioni della build 3616231 (funzione di emergenza *Unstuck / Sbloccati*, avvisi pigmenti speciali e aggiornamenti Forma Prismana).
+- Revisione professionale terminologica e rispetto rigoroso del glossario di gioco, con confronto con le versioni ufficiali francesi e spagnole per la concordanza di genere.
 - Un solo file standalone `Aniimo-Italian-Translation.exe` con rilevamento prioritario automatico di Steam.
-- Sincronizzazione automatica tra `StreamingAssets` e cache `cvs` (file compresi e sciolti) per garantire compatibilità immediata agli update ed evitare testi troncati.
-- Rilevamento dinamico per nuovi aggiornamenti di gioco: compatibilità automatica al 100% se i testi non cambiano; fallback all'inglese con avviso per eventuali nuove stringhe.
+- Guardia automatica sul patcher di gioco e sincronizzazione tra `StreamingAssets` e cache `cvs`.
 - Backup automatico ad ogni installazione e ripristino immediato con sincronizzazione di `LuaCacheVer.txt` e file sciolti.
 - Cartella di lavoro e backup posizionata in `%LOCALAPPDATA%\AniimoItalianTranslation` (compatibile con l'Accesso alle cartelle controllato di Windows Defender) e configurabile tramite parametro `--work-dir` o variabile `ANIIMO_WORK_DIR`.
 - Opzione rapida nel menu (tasto **5**) per aprire direttamente la cartella dei backup in Esplora file.
@@ -32,7 +33,7 @@
 
 1. Chiudi Aniimo e il launcher.
 2. Apri il solo file **Aniimo-Italian-Translation.exe** e premi Invio.
-3. Nel gioco seleziona **Inglese**.
+3. Nel gioco seleziona **Inglese** (oppure la lingua scelta se hai usato l'opzione 8).
 
 Se il gioco non viene trovato automaticamente, **sposta l'installer accanto ad Aniimo.exe e riaprilo**, oppure scegli la cartella dalla finestra proposta (opzione 4). Su Steam: Libreria → Aniimo → Gestisci → Sfoglia i file locali.
 
@@ -40,7 +41,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3603741.0.md) · [Verifiche tecniche](BUILD_QA_1.0.3603741.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3616231.0.md) · [Verifiche tecniche](BUILD_QA_1.0.3616231.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>

@@ -1,6 +1,17 @@
 # Changelog
 
-## 0.3.18 Beta - 2026-07-18
+## 1.0.3616231.0 - 2026-09-28
+
+- **Selezione della lingua da sostituire**: introdotta la possibilità di scegliere quale slot linguistico sostituire con l'Italiano (tra 13 slot disponibili) per mantenere l'Inglese intatto e passare dall'uno all'altro nelle impostazioni di gioco (contributo di @Kaen89 — PR #22).
+- **Nuova guardia automatica sul patcher**: rilevamento automatico del mancato allineamento tra la build di Steam e la cache scaricata dal gioco, impedendo sovrascritture accidentali della patch.
+- **Supporto alla build Steam 3616231**: catalogo aggiornato a 112.214 chiavi al 100.00% con traduzione della funzione *Unstuck* (*Sbloccati*), delle notifiche per i pigmenti speciali e aggiornamento delle descrizioni di Forma Prismana.
+- **Suite di test**: 159 test unitari superati con successo.
+
+## 1.0.3603741.0 - 2026-09-26
+
+- Supporto completo alla build Steam 3603741 (112.207 chiavi al 100,00%).
+- Tradotte tutte le 122 nuove stringhe (Club Polaris, quote timbri stagionali, limiti raccolta, missioni e dialoghi).
+
 
 - Verificata la build Aniimo `3064863`: 93.029 chiavi, nessuna aggiunta o rimozione e nessuna sorgente English modificata rispetto alla build `3062823`; compatibilità riconosciuta automaticamente.
 - Individuata la causa delle battute English segnalate nella sequenza di Fannie: il gioco usa un elenco runtime separato e ignorava il testo italiano per 359 chiavi storicamente recuperate, pur essendo tutte tradotte nel master.
