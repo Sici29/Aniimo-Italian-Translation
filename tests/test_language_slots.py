@@ -192,6 +192,7 @@ class SlotSwitchGuardTests(unittest.TestCase):
         with patch.object(installer, "process_running", return_value=[]), \
                 patch.object(installer, "resolve_game_dir", return_value=Path("C:/game")), \
                 patch.object(installer, "resolve_paths", return_value=self._paths()), \
+                patch.object(installer, "pending_cvs_download", return_value={"pending": False}), \
                 patch.object(installer, "detect_translation_installation",
                              return_value={"detected_slot": "pt_PT"}), \
                 patch.object(installer, "backup_live") as backup:
@@ -206,6 +207,7 @@ class SlotSwitchGuardTests(unittest.TestCase):
         with patch.object(installer, "process_running", return_value=[]), \
                 patch.object(installer, "resolve_game_dir", return_value=Path("C:/game")), \
                 patch.object(installer, "resolve_paths", return_value=self._paths()), \
+                patch.object(installer, "pending_cvs_download", return_value={"pending": False}), \
                 patch.object(installer, "detect_translation_installation",
                              return_value={"detected_slot": "pt_PT"}), \
                 patch.object(installer, "game_info_before_install", return_value={}), \
@@ -219,6 +221,7 @@ class SlotSwitchGuardTests(unittest.TestCase):
         with patch.object(installer, "process_running", return_value=[]), \
                 patch.object(installer, "resolve_game_dir", return_value=Path("C:/game")), \
                 patch.object(installer, "resolve_paths", return_value=self._paths()), \
+                patch.object(installer, "pending_cvs_download", return_value={"pending": False}), \
                 patch.object(installer, "backup_live") as backup:
             buffer = io.StringIO()
             with redirect_stdout(buffer):
@@ -226,6 +229,81 @@ class SlotSwitchGuardTests(unittest.TestCase):
         self.assertEqual(code, 2)
         backup.assert_not_called()
 
+
+
+class PendingCvsDownloadTests(unittest.TestCase):
+    """Steam updates the exe at once; cvs arrives later, from the CDN patcher."""
+
+    def _game(self, tmp: str, steam_build: str, cache_build: str | None) -> "installer.GamePaths":
+        game = Path(tmp)/"game"
+        lua = game/"Aniimo_Data"/"cvs"/"res"/"lua"
+        lua.mkdir(parents=True)
+        (lua/"LuaScripts.xdf").write_bytes(b"")
+        (lua/"LuaScripts.xdt").write_bytes(b"")
+        if cache_build is not None:
+            (lua/"LuaCacheVer.txt").write_text(f"1.0.{cache_build},123,abc", encoding="utf-8")
+        (game/"verlist.txt").write_text(f"{steam_build},deadbeef,42", encoding="utf-8")
+        return installer.resolve_paths(game)
+
+    def test_older_lua_cache_is_reported_as_pending(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = self._game(tmp, "3616231", "3603741")
+            result = installer.pending_cvs_download(paths)
+        self.assertTrue(result["pending"])
+        self.assertEqual(result["steam_build"], "3616231")
+        self.assertEqual(result["stale_archives"][0]["cache_build"], "3603741")
+
+    def test_matching_builds_are_not_pending(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = self._game(tmp, "3616231", "3616231")
+            self.assertFalse(installer.pending_cvs_download(paths)["pending"])
+
+    def test_missing_cache_file_is_not_pending(self) -> None:
+        # Nothing to compare against is not evidence of a stale download.
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = self._game(tmp, "3616231", None)
+            self.assertFalse(installer.pending_cvs_download(paths)["pending"])
+
+    def test_verlist_is_read_directly_not_through_read_game_update(self) -> None:
+        # The PackageManifest versions read_game_update prefers live inside cvs,
+        # so during the window they report the old build and mask the mismatch.
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = self._game(tmp, "3616231", "3603741")
+            manifest = (paths.game_dir/"Aniimo_Data"/"cvs"/"res"/"uab"/"win"/"DefaultPackage"
+                        /"ManifestFiles")
+            manifest.mkdir(parents=True)
+            (manifest/"PackageManifest_DefaultPackage.version").write_text("3603741",
+                                                                          encoding="utf-8")
+            self.assertEqual(installer.read_game_update(paths.game_dir), "3603741")
+            self.assertEqual(installer.steam_build_from_verlist(paths.game_dir), "3616231")
+            self.assertTrue(installer.pending_cvs_download(paths)["pending"])
+
+    def test_install_refuses_while_the_download_is_pending(self) -> None:
+        pending = {"pending": True, "steam_build": "3616231",
+                   "stale_archives": [{"relative_dir": "Aniimo_Data", "cache_build": "3603741"}]}
+        args = installer.argparse.Namespace(
+            game_dir=None, force=False, no_update_check=True, target="pt_PT",
+            force_open=True, ignore_update=True,
+        )
+        with patch.object(installer, "process_running", return_value=[]),                 patch.object(installer, "resolve_game_dir", return_value=Path("C:/game")),                 patch.object(installer, "resolve_paths",
+                             return_value=installer.argparse.Namespace(game_dir=Path("C:/game"))),                 patch.object(installer, "pending_cvs_download", return_value=pending),                 patch.object(installer, "backup_live") as backup:
+            buffer = io.StringIO()
+            with redirect_stdout(buffer):
+                self.assertEqual(installer.cmd_install(args), 2)
+        backup.assert_not_called()
+        self.assertIn("3616231", buffer.getvalue())
+
+    def test_force_installs_anyway(self) -> None:
+        pending = {"pending": True, "steam_build": "3616231",
+                   "stale_archives": [{"relative_dir": "Aniimo_Data", "cache_build": "3603741"}]}
+        args = installer.argparse.Namespace(
+            game_dir=None, force=True, no_update_check=True, target="pt_PT",
+            force_open=True, ignore_update=True,
+        )
+        with patch.object(installer, "process_running", return_value=[]),                 patch.object(installer, "resolve_game_dir", return_value=Path("C:/game")),                 patch.object(installer, "resolve_paths",
+                             return_value=installer.argparse.Namespace(game_dir=Path("C:/game"))),                 patch.object(installer, "pending_cvs_download", return_value=pending),                 patch.object(installer, "detect_translation_installation", return_value={}),                 patch.object(installer, "game_info_before_install", return_value={}),                 patch.object(installer, "backup_live", side_effect=RuntimeError("reached")):
+            with redirect_stdout(io.StringIO()), self.assertRaises(RuntimeError):
+                installer.cmd_install(args)
 
 if __name__ == "__main__":
     unittest.main()
