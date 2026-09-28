@@ -48,6 +48,102 @@ DATE_SCRIPT = "xfs/luascripts/Guis/Panels/SpecialTrainChapterTip/SpecialTrainCha
 LOCALIZED_DATE_SCRIPT = "xfs/luascripts/Utils/LuaUIUtils.lua"
 QUEST_DATE_SCRIPT = "xfs/luascripts/GameApp/Quest/QuestUtils.lua"
 PG_DATE_SCRIPT = "xfs/luascripts/Lib/Pg.lua"
+
+@dataclass(frozen=True)
+class LanguageSlot:
+    """A language the game can display, i.e. a slot the translation may take over.
+
+    ``label_keys`` are the text keys holding this language's own name in the
+    in-game language menu. The menu is rendered from the table of the language
+    that is currently active, so those keys have to be rewritten in every table
+    the list is read from.
+    """
+
+    code: str
+    label: str
+    label_keys: tuple[str, ...]
+
+
+ITALIAN_LABEL = "Italiano"
+ENGLISH_LABEL_IT = "Inglese"
+
+# Ordered as the in-game language menu lists them. ``ja`` and ``ko`` also exist
+# in the archive but are legacy tables with fewer keys and are not selectable,
+# so they are deliberately absent here.
+LANGUAGE_SLOTS: tuple[LanguageSlot, ...] = (
+    LanguageSlot("en", "English", ("1273710177", "1429794432")),
+    LanguageSlot("pt_PT", "Português", ("1867055166",)),
+    LanguageSlot("de_DE", "Deutsch", ("1109401513",)),
+    LanguageSlot("fr_FR", "Français", ("1190882430",)),
+    LanguageSlot("es_ES", "Español", ("1543425567",)),
+    LanguageSlot("id_ID", "Indonesia", ("1823332970",)),
+    LanguageSlot("ru_RU", "Русский", ("1243615111",)),
+    LanguageSlot("th_TH", "ไทย", ("1415287010",)),
+    LanguageSlot("vi_VN", "Tiếng Việt", ("1471560215",)),
+    LanguageSlot("ja_JP", "日本語", ("2044651889", "1845754653")),
+    LanguageSlot("ko_KR", "한국어", ("1715234455",)),
+    LanguageSlot("zh_CN", "简体中文", ("1538447599",)),
+    LanguageSlot("zh_TW", "繁體中文", ("1951169595",)),
+)
+
+LANGUAGE_SLOTS_BY_CODE: dict[str, LanguageSlot] = {slot.code: slot for slot in LANGUAGE_SLOTS}
+ENGLISH_SLOT = LANGUAGE_SLOTS_BY_CODE["en"]
+
+
+def language_slot(code: str) -> LanguageSlot:
+    try:
+        return LANGUAGE_SLOTS_BY_CODE[code]
+    except KeyError:
+        known = ", ".join(slot.code for slot in LANGUAGE_SLOTS)
+        raise ValueError(
+            f"Slot lingua sconosciuto: {code!r}. Slot disponibili: {known}."
+        ) from None
+
+
+def archive_language_slots(zf: zipfile.ZipFile) -> list[str]:
+    """Slots this archive really carries, in menu order.
+
+    ``load_language`` raises ``KeyError`` for a slot whose table is missing, so
+    the choice offered to the user is always taken from the archive, never from
+    the table alone.
+    """
+    names = set(zf.namelist())
+    return [
+        slot.code
+        for slot in LANGUAGE_SLOTS
+        if TEXT_MAP.format(lang=slot.code) in names
+        and COMPRESS.format(lang=slot.code) in names
+    ]
+
+
+def menu_label_overrides(target_slot: str) -> dict[str, str]:
+    """Label fixes to apply inside the table being translated.
+
+    The sacrificed language now holds Italian, so its own entry must read
+    "Italiano"; English keeps its entry, spelled the Italian way. Taking over
+    English itself changes nothing, keeping the historical behaviour intact.
+    """
+    slot = language_slot(target_slot)
+    if slot.code == ENGLISH_SLOT.code:
+        # Taking over English is the historical behaviour: the label already
+        # reads "Inglese" straight from the catalog, so nothing is overridden.
+        return {}
+    overrides = {key: ITALIAN_LABEL for key in slot.label_keys}
+    for key in ENGLISH_SLOT.label_keys:
+        overrides[key] = ENGLISH_LABEL_IT
+    return overrides
+
+
+def donor_label_overrides(target_slot: str) -> dict[str, str]:
+    """Label fix to apply to the English table when another slot is taken over.
+
+    Without it a player sitting in English still reads the donor language's own
+    name and cannot tell where Italian went.
+    """
+    slot = language_slot(target_slot)
+    if slot.code == ENGLISH_SLOT.code:
+        return {}
+    return {key: ITALIAN_LABEL for key in slot.label_keys}
 PHOTO_DATE_SCRIPT = "xfs/luascripts/Guis/Panels/PhotoShow/PhotoShowCtrl.lua"
 TIME_UTILS_SCRIPT = "xfs/luascripts/Common/Utils/TimeUtils.lua"
 ARK_CARN_DATE_SCRIPT = "xfs/luascripts/Guis/Panels/Event/Component/ArkCarnComponent.lua"
@@ -314,8 +410,23 @@ def load_settings() -> dict:
     return {}
 
 
+def save_settings(**values: object) -> None:
+    """Merge keys into settings.json, keeping the ones already stored."""
+    settings = load_settings()
+    settings.update(values)
+    write_json(USER_WORK_DIR / "settings.json", settings)
+
+
 def save_game_dir(game_dir: Path) -> None:
-    write_json(USER_WORK_DIR / "settings.json", {"game_dir": str(game_dir.resolve())})
+    save_settings(game_dir=str(game_dir.resolve()))
+
+
+def configured_target_slot() -> str:
+    """The slot the user picked, falling back to the manifest default."""
+    slot = str(load_settings().get("target_slot") or "").strip()
+    if slot in LANGUAGE_SLOTS_BY_CODE:
+        return slot
+    return default_target_language_slot()
 
 
 def load_installed_state() -> dict:
@@ -362,10 +473,25 @@ def effective_game_revision(game_dir: Path, current_revision: str | None, transl
     return current_revision
 
 
-def record_installed_state(paths: GamePaths, official_info: dict) -> None:
+def recorded_target_slot(game_dir: Path) -> str | None:
+    """Return the slot the translation was last installed into, if we know it."""
+    state = load_installed_state()
+    try:
+        same_game = Path(str(state.get("game_dir") or "")).resolve() == game_dir.resolve()
+    except (OSError, ValueError):
+        same_game = False
+    if not same_game:
+        return None
+    slot = str(state.get("target_slot") or "").strip()
+    return slot if slot in LANGUAGE_SLOTS_BY_CODE else None
+
+
+def record_installed_state(paths: GamePaths, official_info: dict,
+                           target_slot: str = ENGLISH_SLOT.code) -> None:
     patched_info = read_game_version_info(paths.game_dir)
     write_json(USER_WORK_DIR / "installed_state.json", {
         "game_dir": str(paths.game_dir.resolve()),
+        "target_slot": target_slot,
         "translation_version": str(local_manifest().get("translation_version", "")),
         "game_update": official_info.get("update"),
         "official_game_revision": official_info.get("revision"),
@@ -407,103 +533,6 @@ def looks_like_game_dir(path: Path) -> bool:
     # Empty directories left by a preload/partial download are not an install.
     return any((path / rel / XDF_NAME).is_file() and (path / rel / XDT_NAME).is_file()
                for rel in LUA_RELS)
-
-
-@dataclass(frozen=True)
-class LanguageSlot:
-    """A language the game can display, i.e. a slot the translation may take over.
-
-    ``label_keys`` are the text keys holding this language's own name in the
-    in-game language menu. The menu is rendered from the table of the language
-    that is currently active, so those keys have to be rewritten in every table
-    the list is read from.
-    """
-
-    code: str
-    label: str
-    label_keys: tuple[str, ...]
-
-
-ITALIAN_LABEL = "Italiano"
-ENGLISH_LABEL_IT = "Inglese"
-
-# Ordered as the in-game language menu lists them. ``ja`` and ``ko`` also exist
-# in the archive but are legacy tables with fewer keys and are not selectable,
-# so they are deliberately absent here.
-LANGUAGE_SLOTS: tuple[LanguageSlot, ...] = (
-    LanguageSlot("en", "English", ("1273710177", "1429794432")),
-    LanguageSlot("pt_PT", "Português", ("1867055166",)),
-    LanguageSlot("de_DE", "Deutsch", ("1109401513",)),
-    LanguageSlot("fr_FR", "Français", ("1190882430",)),
-    LanguageSlot("es_ES", "Español", ("1543425567",)),
-    LanguageSlot("id_ID", "Indonesia", ("1823332970",)),
-    LanguageSlot("ru_RU", "Русский", ("1243615111",)),
-    LanguageSlot("th_TH", "ไทย", ("1415287010",)),
-    LanguageSlot("vi_VN", "Tiếng Việt", ("1471560215",)),
-    LanguageSlot("ja_JP", "日本語", ("2044651889", "1845754653")),
-    LanguageSlot("ko_KR", "한국어", ("1715234455",)),
-    LanguageSlot("zh_CN", "简体中文", ("1538447599",)),
-    LanguageSlot("zh_TW", "繁體中文", ("1951169595",)),
-)
-
-LANGUAGE_SLOTS_BY_CODE: dict[str, LanguageSlot] = {slot.code: slot for slot in LANGUAGE_SLOTS}
-ENGLISH_SLOT = LANGUAGE_SLOTS_BY_CODE["en"]
-
-
-def language_slot(code: str) -> LanguageSlot:
-    try:
-        return LANGUAGE_SLOTS_BY_CODE[code]
-    except KeyError:
-        known = ", ".join(slot.code for slot in LANGUAGE_SLOTS)
-        raise ValueError(
-            f"Slot lingua sconosciuto: {code!r}. Slot disponibili: {known}."
-        ) from None
-
-
-def archive_language_slots(zf: zipfile.ZipFile) -> list[str]:
-    """Slots this archive really carries, in menu order.
-
-    ``load_language`` raises ``KeyError`` for a slot whose table is missing, so
-    the choice offered to the user is always taken from the archive, never from
-    the table alone.
-    """
-    names = set(zf.namelist())
-    return [
-        slot.code
-        for slot in LANGUAGE_SLOTS
-        if TEXT_MAP.format(lang=slot.code) in names
-        and COMPRESS.format(lang=slot.code) in names
-    ]
-
-
-def menu_label_overrides(target_slot: str) -> dict[str, str]:
-    """Label fixes to apply inside the table being translated.
-
-    The sacrificed language now holds Italian, so its own entry must read
-    "Italiano"; English keeps its entry, spelled the Italian way. Taking over
-    English itself changes nothing, keeping the historical behaviour intact.
-    """
-    slot = language_slot(target_slot)
-    if slot.code == ENGLISH_SLOT.code:
-        # Taking over English is the historical behaviour: the label already
-        # reads "Inglese" straight from the catalog, so nothing is overridden.
-        return {}
-    overrides = {key: ITALIAN_LABEL for key in slot.label_keys}
-    for key in ENGLISH_SLOT.label_keys:
-        overrides[key] = ENGLISH_LABEL_IT
-    return overrides
-
-
-def donor_label_overrides(target_slot: str) -> dict[str, str]:
-    """Label fix to apply to the English table when another slot is taken over.
-
-    Without it a player sitting in English still reads the donor language's own
-    name and cannot tell where Italian went.
-    """
-    slot = language_slot(target_slot)
-    if slot.code == ENGLISH_SLOT.code:
-        return {}
-    return {key: ITALIAN_LABEL for key in slot.label_keys}
 
 
 def default_target_language_slot() -> str:
@@ -906,6 +935,46 @@ def choose_game_dir_windows() -> str | None:
         return None
 
 
+def configure_target_slot() -> bool:
+    """Ask which language the translation should take over. Returns True on change."""
+    try:
+        paths = resolve_paths(resolve_game_dir(None))
+        with zipfile.ZipFile(paths.xdf, "r") as zf:
+            available = archive_language_slots(zf)
+    except (SystemExit, FileNotFoundError, OSError, ValueError, zipfile.BadZipFile):
+        print("Indica prima la cartella di Aniimo (opzione 4).")
+        return False
+    current = configured_target_slot()
+    print()
+    print("Quale lingua vuoi sostituire con l'italiano?")
+    print("La lingua scelta non sara' piu' disponibile nel gioco; tutte le altre restano.")
+    print()
+    for index, code in enumerate(available, start=1):
+        slot = language_slot(code)
+        note = "  <- attuale" if code == current else ""
+        if code == ENGLISH_SLOT.code:
+            note += "  (l'inglese non resta disponibile)"
+        print(f"{index:2}. {slot.label} ({code}){note}")
+    print()
+    try:
+        raw = input("Numero della lingua [Invio = lascia invariato]: ").strip()
+    except (EOFError, KeyboardInterrupt):
+        return False
+    if not raw:
+        return False
+    if not raw.isdigit() or not 1 <= int(raw) <= len(available):
+        print("Scelta non valida.")
+        return False
+    chosen = available[int(raw) - 1]
+    if chosen == current:
+        return False
+    save_settings(target_slot=chosen)
+    print(f"Lingua da sostituire: {language_slot(chosen).label} ({chosen}).")
+    print("Se una traduzione e' gia' installata, ripristina i file originali (opzione 2) "
+          "prima di installare sul nuovo slot.")
+    return True
+
+
 def print_game_path_help() -> None:
     print("PERCORSO NON TROVATO? ECCO LA SOLUZIONE PIÙ SEMPLICE")
     print("  Sposta Aniimo-Italian-Translation.exe nella stessa cartella di Aniimo.exe.")
@@ -1270,20 +1339,60 @@ def check_loose_i18n_sync(archive: LuaArchivePaths, lang: str = "en") -> bool:
     return True
 
 
+def italian_label_slots(zf: zipfile.ZipFile) -> list[str]:
+    """Slots whose own menu entry has been renamed to "Italiano".
+
+    That rename is the marker the installer leaves behind when it takes over a
+    slot other than English, so it is what tells us where Italian lives now.
+    """
+    found: list[str] = []
+    for code in archive_language_slots(zf):
+        if code == ENGLISH_SLOT.code:
+            continue
+        slot = language_slot(code)
+        try:
+            _, records, _ = load_language(zf, code)
+        except (KeyError, ValueError, json.JSONDecodeError):
+            continue
+        by_key = {record["key"]: record["text"] for record in records}
+        if any(by_key.get(key) == ITALIAN_LABEL for key in slot.label_keys):
+            found.append(code)
+    return found
+
+
 def detect_translation_installation(game_dir: Path) -> dict:
     paths = resolve_paths(game_dir)
     with zipfile.ZipFile(paths.xdf, "r") as zf:
         _, english_records, _ = load_language(zf, "en")
+        label_slots = italian_label_slots(zf)
+        # Trust what is on disk first, then what we recorded, then English.
+        candidate = label_slots[0] if label_slots else (
+            recorded_target_slot(game_dir) or ENGLISH_SLOT.code
+        )
+        if candidate == ENGLISH_SLOT.code:
+            slot_records = english_records
+        else:
+            _, slot_records, _ = load_language(zf, candidate)
     archives = iter_lua_archives(paths)
     technical = technical_compatibility_status(paths)
     date_italian = technical["date_italian"]
     countdown_italian = technical["countdown_italian"]
-    result = translation_match_status(english_records, load_translations("en"))
+    slot_keys = {record["key"] for record in slot_records}
+    slot_translations = {
+        key: text for key, text in load_translations(candidate).items() if key in slot_keys
+    }
+    slot_translations.update(menu_label_overrides(candidate))
+    result = translation_match_status(slot_records, slot_translations)
     font_accented = technical["font_accented"]
     result["font_accented"] = font_accented
     result["date_italian"] = date_italian
     result["countdown_italian"] = countdown_italian
-    loose_i18n_in_sync = all(check_loose_i18n_sync(archive, "en") for archive in archives)
+    checked_slots = {ENGLISH_SLOT.code, candidate}
+    loose_i18n_in_sync = all(
+        check_loose_i18n_sync(archive, lang)
+        for archive in archives
+        for lang in sorted(checked_slots)
+    )
     result["loose_i18n_in_sync"] = loose_i18n_in_sync
     result["installed"] = result["installed"] and font_accented
     result["matches_current"] = (
@@ -1293,8 +1402,8 @@ def detect_translation_installation(game_dir: Path) -> dict:
         and (countdown_italian or final_text_profile())
         and loose_i18n_in_sync
     )
-    result["installed_slots"] = ["en"] if result["installed"] else []
-    result["detected_slot"] = "en"
+    result["installed_slots"] = [candidate] if result["installed"] else []
+    result["detected_slot"] = candidate if result["installed"] else None
     result["lua_archive_count"] = len(archives)
     compatibility = check_supported(english_records, force=True)
     result["texts_supported"] = compatibility["supported"]
@@ -2512,9 +2621,28 @@ def cmd_install(args: argparse.Namespace) -> int:
         print("Chiudi prima gioco/launcher:", ", ".join(running))
         return 2
     paths = resolve_paths(resolve_game_dir(args.game_dir))
+    try:
+        target_slot = language_slot(getattr(args, "target", None) or configured_target_slot()).code
+    except ValueError as error:
+        print(error)
+        return 2
+    installed_slot = None
+    try:
+        installed_slot = detect_translation_installation(paths.game_dir).get("detected_slot")
+    except (FileNotFoundError, OSError, ValueError, KeyError, zipfile.BadZipFile, json.JSONDecodeError):
+        pass
+    if installed_slot and installed_slot != target_slot:
+        # A second backup would capture the already patched archive, so a later
+        # restore would return to the previous slot instead of the original files.
+        print(f"La traduzione e' installata sullo slot {language_slot(installed_slot).label} "
+              f"({installed_slot}).")
+        print(f"Ripristina prima i file originali (opzione 2), poi installa su "
+              f"{language_slot(target_slot).label} ({target_slot}).")
+        return 2
     official_info = game_info_before_install(paths)
-    target_langs = ["en"]
+    target_langs = [target_slot]
     print("Cartella gioco:", paths.game_dir)
+    print("Lingua sostituita:", f"{language_slot(target_slot).label} ({target_slot})")
     print("Creo backup...")
     backup = backup_live(paths)
     print("Backup:", backup)
@@ -2539,7 +2667,7 @@ def cmd_install(args: argparse.Namespace) -> int:
         raise RuntimeError(
             f"Installazione non riuscita; il backup è stato ripristinato correttamente: {install_error}"
         ) from install_error
-    record_installed_state(paths, official_info)
+    record_installed_state(paths, official_info, target_slot)
     v_check = stats.get("version_check", {})
     unknown_cnt = v_check.get("unknown_text_count", 0)
     if unknown_cnt > 0:
@@ -2556,7 +2684,12 @@ def cmd_install(args: argparse.Namespace) -> int:
     else:
         print("✓ Traduzione 100% compatibile applicata con successo!")
     print("Patch installata.")
-    print("Lingua da selezionare in gioco: Inglese")
+    if target_slot == ENGLISH_SLOT.code:
+        print("Lingua da selezionare in gioco: Inglese")
+    else:
+        print(f"Lingua da selezionare in gioco: {ITALIAN_LABEL}")
+        print(f"L'inglese resta disponibile; la voce sostituita e' "
+              f"{language_slot(target_slot).label}.")
     if final_text_profile():
         print("Font nativi invariati. Date e timer conservano il formato originale del gioco.")
         print("Build di prova: la resa grafica deve ancora essere confermata in gioco.")
@@ -3072,6 +3205,7 @@ def run_menu() -> int:
     print("5. Apri la cartella dei backup")
     print("6. Crediti, GitHub e sostieni il progetto")
     print("7. Mostra i dettagli tecnici")
+    print(f"8. Scegli la lingua da sostituire (attuale: {language_slot(configured_target_slot()).label})")
     print("0. Esci")
     print()
     choice = input("Scelta [Invio = installa]: ").strip() or "1"
@@ -3103,14 +3237,17 @@ def run_menu() -> int:
         print()
         print_technical_status(startup, colors)
         return 0
+    if choice == "8":
+        configure_target_slot()
+        return run_menu()
     if choice != "1":
-        print("Scelta non valida. Riapri l'installer e digita un numero da 0 a 7.")
+        print("Scelta non valida. Riapri l'installer e digita un numero da 0 a 8.")
         return 1
     class Args:
         game_dir = None
         force = False
         no_update_check = False
-        target = "en"
+        target = None
         also_english = False
         force_open = False
         ignore_update = False
@@ -3197,7 +3334,10 @@ def main() -> int:
     check = sub.add_parser("check", parents=[common], help="Check compatibility")
     check.set_defaults(func=cmd_check)
     install = sub.add_parser("install", parents=[common], help="Install Italian translation")
-    install.add_argument("--target", default="en", choices=["en"], help="Language slot used by the Italian translation")
+    install.add_argument("--target", default=None,
+                         choices=[slot.code for slot in LANGUAGE_SLOTS],
+                         help="Language slot the Italian translation takes over "
+                              "(default: the one chosen in the menu, else English)")
     install.add_argument("--also-english", action="store_true", help=argparse.SUPPRESS)
     install.add_argument("--force-open", action="store_true", help="Install even if game/launcher seem open")
     install.add_argument("--ignore-update", action="store_true", help="Install this package even if GitHub has a newer release")
