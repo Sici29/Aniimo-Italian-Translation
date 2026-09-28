@@ -85,11 +85,20 @@ Hash, build già testate, digest, verifica dei contenuti, date e unità del time
 
 L'installer cerca automaticamente il gioco, controlla la compatibilità e crea un backup prima di modificare qualsiasi file.
 
-### 4. Seleziona Inglese nel gioco
+### 4. Seleziona la lingua nel gioco
 
 Avvia Aniimo e scegli **Inglese** dal menu della lingua.
 
-La traduzione continua a usare lo slot English, sempre disponibile nel gioco. L'installer gli assegna automaticamente il font vietnamita già incluso in Aniimo, che comprende tutte le lettere accentate italiane. Le altre lingue non vengono modificate.
+La traduzione usa per impostazione predefinita lo slot English, sempre disponibile nel gioco. L'installer gli assegna automaticamente il font vietnamita già incluso in Aniimo, che comprende tutte le lettere accentate italiane. Le altre lingue non vengono modificate.
+
+### Scegliere quale lingua sostituire
+
+Con l'opzione **8. Scegli la lingua da sostituire** puoi mettere l'italiano al posto di un'altra lingua, per esempio il portoghese, **così l'inglese resta disponibile** e in gioco trovi due voci separate: **Inglese** e **Italiano**.
+
+- la lingua che scegli non è più selezionabile: è quella che sacrifichi;
+- la voce corrispondente nel menu del gioco diventa **Italiano**, quindi resta riconoscibile anche giocando in inglese;
+- da riga di comando: `--target pt_PT` (o un altro codice fra quelli elencati da `install --help`);
+- se la traduzione è già installata su un'altra lingua, ripristina prima i file originali con l'opzione **2**: l'installer rifiuta di passare da uno slot all'altro senza ripristino, perché altrimenti il backup fotograferebbe file già modificati.
 
 > Non servono Python, programmi aggiuntivi, archivi da estrarre o configurazioni manuali.
 

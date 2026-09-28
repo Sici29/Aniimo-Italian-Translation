@@ -26,7 +26,7 @@
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
-  "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game. If not detected, move this EXE next to Aniimo.exe.",
+  "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game, or pick another language slot with menu option 8 to keep English available. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
     "Aggiornamento per la build Steam 3603741 (patch 1.0.3603741.0) con copertura di traduzione al 100% (112.207 chiavi).",
     "Tradotte tutte le 122 stringhe modificate della build 3603741 con revisione incrociata rispetto ai testi ufficiali francesi e spagnoli (concordanza di genere e terminologia coerente).",
