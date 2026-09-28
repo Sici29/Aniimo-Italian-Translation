@@ -2240,20 +2240,59 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             if not force and version_check.get("mode") != "fallback_partial":
                 raise RuntimeError("Risorse native cambiate: questa build richiede una nuova verifica.")
         modified_keys_set = set(version_check.get("modified_keys", []))
+        available = archive_language_slots(zf)
+        for lang in target_langs:
+            if lang not in available:
+                raise RuntimeError(
+                    f"Lo slot {lang} non esiste in questo archivio. "
+                    f"Slot disponibili: {', '.join(available)}."
+                )
+        out_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
         for lang in target_langs:
             translations = load_translations(lang)
             if modified_keys_set:
                 translations = {k: v for k, v in translations.items() if k not in modified_keys_set}
-            _, _, header = load_language(zf, lang)
-            map_bytes, bin_bytes, lang_stats = build_map_and_bin(source_records, translations, header)
+            # Each slot carries its own key set (English has a handful the others
+            # lack), so the table being rewritten has to be its own source. Using
+            # the English rows here would both drop keys and bake English text
+            # into the slot as the untranslated fallback.
+            if lang == ENGLISH_SLOT.code:
+                slot_records = source_records
+                _, _, header = load_language(zf, lang)
+            else:
+                _, slot_records, header = load_language(zf, lang)
+            slot_keys = {rec["key"] for rec in slot_records}
+            translations = {k: v for k, v in translations.items() if k in slot_keys}
+            translations.update(menu_label_overrides(lang))
+            map_bytes, bin_bytes, lang_stats = build_map_and_bin(slot_records, translations, header)
             replacements[TEXT_MAP.format(lang=lang)] = map_bytes
             replacements[COMPRESS.format(lang=lang)] = bin_bytes
-            out_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
             out_i18n.mkdir(parents=True, exist_ok=True)
             (out_i18n / f"NewTextMap_{lang}.json").write_bytes(map_bytes)
             (out_i18n / f"Compress_{lang}.bin").write_bytes(bin_bytes)
             stats["languages"][lang] = lang_stats
-        if "en" in target_langs and AI_TRANSLATED_EN in zf.namelist():
+
+        # The language list is rendered from the table of the active language, so
+        # a player sitting in English has to be told where Italian went. This is
+        # the one write outside the chosen slot: a single label string.
+        donor_labels: dict[str, str] = {}
+        for lang in target_langs:
+            donor_labels.update(donor_label_overrides(lang))
+        if donor_labels and ENGLISH_SLOT.code not in target_langs:
+            _, en_records, en_header = load_language(zf, ENGLISH_SLOT.code)
+            en_map, en_bin, en_stats = build_map_and_bin(en_records, donor_labels, en_header)
+            replacements[TEXT_MAP.format(lang=ENGLISH_SLOT.code)] = en_map
+            replacements[COMPRESS.format(lang=ENGLISH_SLOT.code)] = en_bin
+            out_i18n.mkdir(parents=True, exist_ok=True)
+            (out_i18n / f"NewTextMap_{ENGLISH_SLOT.code}.json").write_bytes(en_map)
+            (out_i18n / f"Compress_{ENGLISH_SLOT.code}.bin").write_bytes(en_bin)
+            stats["english_menu_label"] = {
+                "keys": sorted(donor_labels),
+                "bin_size": en_stats["bin_size"],
+            }
+        if ENGLISH_SLOT.code in target_langs and AI_TRANSLATED_EN in zf.namelist():
+            # The runtime allow list only exists for English, so this stays tied
+            # to the English slot.
             fallback_keys = recovered_english_fallback_keys()
             translated_items, added = mark_english_fallbacks_as_translated(
                 zf.read(AI_TRANSLATED_EN), fallback_keys
@@ -2263,9 +2302,12 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
                 "recovered_keys": len(fallback_keys),
                 "allow_list_entries_added": added,
             }
-            date_replacements, date_stats = localized_date_replacements(zf)
-            replacements.update(date_replacements)
-            stats["dynamic_date"] = date_stats
+        # The date order follows the text the player reads, not the slot holding
+        # it, so it applies to every target. The secondary archives below already
+        # patch it unconditionally.
+        date_replacements, date_stats = localized_date_replacements(zf)
+        replacements.update(date_replacements)
+        stats["dynamic_date"] = date_stats
     repack_xdf(paths.xdf, paths.xdt, replacements, patch_dir / XDF_NAME, patch_dir / XDT_NAME)
 
     archive_stats: list[dict[str, object]] = []
