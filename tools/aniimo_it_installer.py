@@ -1088,6 +1088,28 @@ def load_language(zf: zipfile.ZipFile, lang: str) -> tuple[dict, list[dict], byt
     return decode_map(zf.read(TEXT_MAP.format(lang=lang)), zf.read(COMPRESS.format(lang=lang)))
 
 
+def expected_slot_translations(slot: str, slot_records: list[dict],
+                               skip_keys: set[str] | None = None) -> dict[str, str]:
+    """The exact text this slot should end up holding.
+
+    Restricted to the keys the slot actually has, and with the language-menu
+    labels applied, so building, detecting and verifying all compare against the
+    same thing.
+    """
+    slot_keys = {record["key"] for record in slot_records}
+    translations = {
+        key: text
+        for key, text in load_translations(slot).items()
+        if key in slot_keys and not (skip_keys and key in skip_keys)
+    }
+    translations.update({
+        key: text
+        for key, text in menu_label_overrides(slot).items()
+        if key in slot_keys
+    })
+    return translations
+
+
 def translation_match_status(source_records: list[dict], translations: dict[str, str]) -> dict:
     comparable = 0
     matched = 0
@@ -1377,12 +1399,9 @@ def detect_translation_installation(game_dir: Path) -> dict:
     technical = technical_compatibility_status(paths)
     date_italian = technical["date_italian"]
     countdown_italian = technical["countdown_italian"]
-    slot_keys = {record["key"] for record in slot_records}
-    slot_translations = {
-        key: text for key, text in load_translations(candidate).items() if key in slot_keys
-    }
-    slot_translations.update(menu_label_overrides(candidate))
-    result = translation_match_status(slot_records, slot_translations)
+    result = translation_match_status(
+        slot_records, expected_slot_translations(candidate, slot_records)
+    )
     font_accented = technical["font_accented"]
     result["font_accented"] = font_accented
     result["date_italian"] = date_italian
@@ -2107,7 +2126,8 @@ def repack_xdf(source_xdf: Path, source_xdt: Path, replacements: dict[str, bytes
 
 
 def verify_archive_pair(
-    xdf: Path, xdt: Path, require_current_translation: bool = False
+    xdf: Path, xdt: Path, require_current_translation: bool = False,
+    slot: str | None = None,
 ) -> dict[str, object]:
     manifest = read_json(xdt)
     if int(manifest.get("CMDataLen", -1)) != xdf.stat().st_size:
@@ -2122,16 +2142,18 @@ def verify_archive_pair(
             raise RuntimeError(f"Indice XDT incompleto dopo la modifica: {xdt}")
         if not final_text_profile() and not zip_dates_are_italian(zf):
             raise RuntimeError(f"Date italiane non verificate nell'archivio: {xdf}")
-        translation_matches = None
+        # The translation lives in the slot it was installed into, so that is
+        # the table to check. Verifying English would fail on every other slot.
+        checked_slot = slot or ENGLISH_SLOT.code
+        _, records, _ = load_language(zf, checked_slot)
+        match = translation_match_status(
+            records, expected_slot_translations(checked_slot, records)
+        )
         if require_current_translation:
-            _, records, _ = load_language(zf, "en")
-            match = translation_match_status(records, load_translations("en"))
             translation_matches = bool(match["matches_current"])
             if not translation_matches:
                 raise RuntimeError(f"Traduzione non verificata nell'archivio: {xdf}")
         else:
-            _, records, _ = load_language(zf, "en")
-            match = translation_match_status(records, load_translations("en"))
             translation_matches = bool(match.get("installed") or match.get("matched", 0) > 0)
             if not translation_matches:
                 raise RuntimeError(f"Nessuna traduzione verificata nell'archivio: {xdf}")
@@ -2358,9 +2380,6 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
                 )
         out_i18n = patch_dir / "LuaScripts" / "Data" / "I18N"
         for lang in target_langs:
-            translations = load_translations(lang)
-            if modified_keys_set:
-                translations = {k: v for k, v in translations.items() if k not in modified_keys_set}
             # Each slot carries its own key set (English has a handful the others
             # lack), so the table being rewritten has to be its own source. Using
             # the English rows here would both drop keys and bake English text
@@ -2370,9 +2389,7 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
                 _, _, header = load_language(zf, lang)
             else:
                 _, slot_records, header = load_language(zf, lang)
-            slot_keys = {rec["key"] for rec in slot_records}
-            translations = {k: v for k, v in translations.items() if k in slot_keys}
-            translations.update(menu_label_overrides(lang))
+            translations = expected_slot_translations(lang, slot_records, modified_keys_set)
             map_bytes, bin_bytes, lang_stats = build_map_and_bin(slot_records, translations, header)
             replacements[TEXT_MAP.format(lang=lang)] = map_bytes
             replacements[COMPRESS.format(lang=lang)] = bin_bytes
@@ -2462,6 +2479,7 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
             staged / XDF_NAME,
             staged / XDT_NAME,
             require_current_translation=require_current,
+            slot=target_langs[0] if target_langs else None,
         )
         stats["archive_verification"].append({
             "relative_dir": str(archive_relative_dir(paths, archive)),
@@ -2504,12 +2522,18 @@ def build_patch(paths: GamePaths, target_langs: list[str], force: bool) -> tuple
 def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
     stats_file = patch_dir / "patch_stats.json"
     require_current = True
+    slot: str | None = None
     if stats_file.is_file():
         try:
             p_stats = read_json(stats_file)
             vc = p_stats.get("version_check", {})
             if vc.get("mode") == "fallback_partial" or vc.get("modified_keys"):
                 require_current = False
+            # The patch records which slot it was built for, so the archive can
+            # be verified against that table instead of always English.
+            targets = [str(code) for code in (p_stats.get("target_languages") or [])]
+            if targets and targets[0] in LANGUAGE_SLOTS_BY_CODE:
+                slot = targets[0]
         except Exception:
             pass
     for archive in iter_lua_archives(paths):
@@ -2524,6 +2548,7 @@ def copy_patch_into_game(paths: GamePaths, patch_dir: Path) -> None:
             archive.xdf,
             archive.xdt,
             require_current_translation=require_current,
+            slot=slot,
         )
     patched_metadata = patch_dir / COUNTDOWN_METADATA_PATCH_DIR / COUNTDOWN_METADATA_REL.name
     live_metadata = paths.game_dir / COUNTDOWN_METADATA_REL
