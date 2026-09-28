@@ -409,8 +409,108 @@ def looks_like_game_dir(path: Path) -> bool:
                for rel in LUA_RELS)
 
 
+@dataclass(frozen=True)
+class LanguageSlot:
+    """A language the game can display, i.e. a slot the translation may take over.
+
+    ``label_keys`` are the text keys holding this language's own name in the
+    in-game language menu. The menu is rendered from the table of the language
+    that is currently active, so those keys have to be rewritten in every table
+    the list is read from.
+    """
+
+    code: str
+    label: str
+    label_keys: tuple[str, ...]
+
+
+ITALIAN_LABEL = "Italiano"
+ENGLISH_LABEL_IT = "Inglese"
+
+# Ordered as the in-game language menu lists them. ``ja`` and ``ko`` also exist
+# in the archive but are legacy tables with fewer keys and are not selectable,
+# so they are deliberately absent here.
+LANGUAGE_SLOTS: tuple[LanguageSlot, ...] = (
+    LanguageSlot("en", "English", ("1273710177", "1429794432")),
+    LanguageSlot("pt_PT", "Português", ("1867055166",)),
+    LanguageSlot("de_DE", "Deutsch", ("1109401513",)),
+    LanguageSlot("fr_FR", "Français", ("1190882430",)),
+    LanguageSlot("es_ES", "Español", ("1543425567",)),
+    LanguageSlot("id_ID", "Indonesia", ("1823332970",)),
+    LanguageSlot("ru_RU", "Русский", ("1243615111",)),
+    LanguageSlot("th_TH", "ไทย", ("1415287010",)),
+    LanguageSlot("vi_VN", "Tiếng Việt", ("1471560215",)),
+    LanguageSlot("ja_JP", "日本語", ("2044651889", "1845754653")),
+    LanguageSlot("ko_KR", "한국어", ("1715234455",)),
+    LanguageSlot("zh_CN", "简体中文", ("1538447599",)),
+    LanguageSlot("zh_TW", "繁體中文", ("1951169595",)),
+)
+
+LANGUAGE_SLOTS_BY_CODE: dict[str, LanguageSlot] = {slot.code: slot for slot in LANGUAGE_SLOTS}
+ENGLISH_SLOT = LANGUAGE_SLOTS_BY_CODE["en"]
+
+
+def language_slot(code: str) -> LanguageSlot:
+    try:
+        return LANGUAGE_SLOTS_BY_CODE[code]
+    except KeyError:
+        known = ", ".join(slot.code for slot in LANGUAGE_SLOTS)
+        raise ValueError(
+            f"Slot lingua sconosciuto: {code!r}. Slot disponibili: {known}."
+        ) from None
+
+
+def archive_language_slots(zf: zipfile.ZipFile) -> list[str]:
+    """Slots this archive really carries, in menu order.
+
+    ``load_language`` raises ``KeyError`` for a slot whose table is missing, so
+    the choice offered to the user is always taken from the archive, never from
+    the table alone.
+    """
+    names = set(zf.namelist())
+    return [
+        slot.code
+        for slot in LANGUAGE_SLOTS
+        if TEXT_MAP.format(lang=slot.code) in names
+        and COMPRESS.format(lang=slot.code) in names
+    ]
+
+
+def menu_label_overrides(target_slot: str) -> dict[str, str]:
+    """Label fixes to apply inside the table being translated.
+
+    The sacrificed language now holds Italian, so its own entry must read
+    "Italiano"; English keeps its entry, spelled the Italian way. Taking over
+    English itself changes nothing, keeping the historical behaviour intact.
+    """
+    slot = language_slot(target_slot)
+    if slot.code == ENGLISH_SLOT.code:
+        # Taking over English is the historical behaviour: the label already
+        # reads "Inglese" straight from the catalog, so nothing is overridden.
+        return {}
+    overrides = {key: ITALIAN_LABEL for key in slot.label_keys}
+    for key in ENGLISH_SLOT.label_keys:
+        overrides[key] = ENGLISH_LABEL_IT
+    return overrides
+
+
+def donor_label_overrides(target_slot: str) -> dict[str, str]:
+    """Label fix to apply to the English table when another slot is taken over.
+
+    Without it a player sitting in English still reads the donor language's own
+    name and cannot tell where Italian went.
+    """
+    slot = language_slot(target_slot)
+    if slot.code == ENGLISH_SLOT.code:
+        return {}
+    return {key: ITALIAN_LABEL for key in slot.label_keys}
+
+
 def default_target_language_slot() -> str:
-    return "en"
+    configured = str(local_manifest().get("default_target_language_slot") or "").strip()
+    if configured in LANGUAGE_SLOTS_BY_CODE:
+        return configured
+    return ENGLISH_SLOT.code
 
 
 def final_text_profile() -> bool:
