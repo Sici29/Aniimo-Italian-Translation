@@ -42,7 +42,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3629693.0.md) · [Verifiche tecniche](BUILD_QA_1.0.3629693.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3629693.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3629693.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>
