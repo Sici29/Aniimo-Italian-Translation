@@ -323,6 +323,30 @@ class PendingCvsDownloadTests(unittest.TestCase):
             with redirect_stdout(io.StringIO()), self.assertRaises(RuntimeError):
                 installer.cmd_install(args)
 
+    def test_secondary_archive_older_than_primary_is_not_pending(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            game = Path(tmp) / "game"
+            primary_lua = game / "Aniimo_Data" / "cvs" / "res" / "lua"
+            secondary_lua = game / "Aniimo_Data" / "StreamingAssets" / "cvs" / "res" / "lua"
+            for d in (primary_lua, secondary_lua):
+                d.mkdir(parents=True)
+                (d / "LuaScripts.xdf").write_bytes(b"")
+                (d / "LuaScripts.xdt").write_bytes(b"")
+            (primary_lua / "LuaCacheVer.txt").write_text("1.0.3629693,123,abc", encoding="utf-8")
+            (secondary_lua / "LuaCacheVer.txt").write_text("1.0.3616231,123,abc", encoding="utf-8")
+            (game / "verlist.txt").write_text("3629693,deadbeef,42", encoding="utf-8")
+            paths = installer.resolve_paths(game)
+            result = installer.pending_cvs_download(paths)
+        self.assertFalse(result["pending"])
+
+    def test_is_steam_game_dir(self) -> None:
+        self.assertTrue(installer.is_steam_game_dir(Path(r"D:\SteamLibrary\steamapps\common\Aniimo")))
+        self.assertTrue(installer.is_steam_game_dir(Path(r"C:\Program Files (x86)\Steam\steamapps\common\Aniimo")))
+        self.assertFalse(installer.is_steam_game_dir(Path(r"C:\Pawprint\Aniimo\game")))
+        self.assertFalse(installer.is_steam_game_dir(Path(r"D:\Games\Aniimo")))
+        self.assertFalse(installer.is_steam_game_dir(None))
+
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.3629693.0 - 2026-09-30
+
+- **Supporto alla build Steam 3629693**: catalogo aggiornato a 112.263 chiavi (49 nuove, 182 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.
+- **Risoluzione falso positivo download pendente (Issue #23)**: corretto il controllo `pending_cvs_download` dando priorità all'archivio primario aggiornato ed evitando che la presenza dell'archivio base Steam depot in `StreamingAssets` bloccasse falsamente l'installazione.
+- **Opzione di forzatura e pulizia cache**: aggiunta la richiesta interattiva per procedere comunque e suggerita la pulizia di `Aniimo_Data\cvs\res\lua` in caso di cache corrotta.
+- **Avviso dedicato versioni non-Steam**: rilevamento automatico e messaggio esplicito nel pannello e nei comandi di check/install per indicare che i launcher non-Steam (Pawprint o standalone) non sono ufficialmente supportati dalla patch.
+- **Suite di test**: estesa a 161 test unitari, tutti superati con successo.
+
 ## 1.0.3616231.0 - 2026-09-28
 
 - **Selezione della lingua da sostituire**: introdotta la possibilità di scegliere quale slot linguistico sostituire con l'Italiano (tra 13 slot disponibili) per mantenere l'Inglese intatto e passare dall'uno all'altro nelle impostazioni di gioco (contributo di @Kaen89 — PR #22).

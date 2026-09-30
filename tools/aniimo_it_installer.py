@@ -441,7 +441,16 @@ def pending_cvs_download(paths: GamePaths) -> dict:
     newest = max((int(build) for build in candidates), default=None)
     stale: list[dict[str, str]] = []
     if newest is not None:
-        for archive in iter_lua_archives(paths):
+        archives = iter_lua_archives(paths)
+        primary_archive = archives[0]
+        primary_build = lua_cache_build(primary_archive)
+        if primary_build and int(primary_build) >= newest:
+            return {
+                "pending": False,
+                "installed_build": str(newest),
+                "stale_archives": [],
+            }
+        for archive in archives:
             cache_build = lua_cache_build(archive)
             if cache_build and int(cache_build) < newest:
                 stale.append({
@@ -774,6 +783,29 @@ def steam_aniimo_installations(libraries: list[Path] | None = None) -> list[dict
             except (OSError, ValueError):
                 continue
     return found
+
+
+def is_steam_game_dir(game_dir: Path | None) -> bool:
+    """Return True if the game folder belongs to an official Steam installation."""
+    if not game_dir:
+        return False
+    try:
+        path = game_dir.resolve()
+        parts = [p.lower() for p in path.parts]
+        if "steamapps" in parts:
+            return True
+        curr = path
+        for _ in range(5):
+            if (curr / "steamapps" / "appmanifest_4126040.acf").is_file():
+                return True
+            if (curr / "appmanifest_4126040.acf").is_file():
+                return True
+            if curr.parent == curr:
+                break
+            curr = curr.parent
+    except OSError:
+        pass
+    return False
 
 
 def local_drive_roots() -> list[Path]:
@@ -2685,6 +2717,11 @@ def cmd_check(args: argparse.Namespace) -> int:
         _, source_records, _ = load_language(zf, "en")
         status = check_supported(source_records, args.force)
     technical = technical_compatibility_status(paths)
+    if not is_steam_game_dir(paths.game_dir):
+        print("ATTENZIONE: Versione non-Steam rilevata (Pawprint / standalone).")
+        print("La traduzione italiana e' sviluppata e testata esclusivamente per la versione Steam di Aniimo.")
+        print("L'utilizzo su Pawprint o altri launcher non e' ufficialmente supportato.")
+        print("-" * 58)
     print("Cartella gioco:", paths.game_dir)
     print("Risorse Lua:", paths.lua_dir)
     version_info = read_game_version_info(paths.game_dir)
@@ -2717,6 +2754,10 @@ def cmd_install(args: argparse.Namespace) -> int:
         print("Chiudi prima gioco/launcher:", ", ".join(running))
         return 2
     paths = resolve_paths(resolve_game_dir(args.game_dir))
+    if not is_steam_game_dir(paths.game_dir):
+        print("ATTENZIONE: Versione non-Steam rilevata (Pawprint / standalone).")
+        print("La traduzione italiana e' sviluppata e testata esclusivamente per la versione Steam di Aniimo.")
+        print("L'utilizzo su Pawprint o altri launcher non e' ufficialmente supportato.")
     try:
         target_slot = language_slot(getattr(args, "target", None) or configured_target_slot()).code
     except ValueError as error:
@@ -2734,9 +2775,21 @@ def cmd_install(args: argparse.Namespace) -> int:
               f"ancora alla precedente: {stale}.")
         print("Avvia il gioco una volta per far scaricare l'aggiornamento, poi chiudilo e "
               "reinstalla la traduzione.")
-        print("Installare adesso significa tradurre i testi vecchi, che verrebbero sovrascritti "
-              "al primo avvio. Usa --force per procedere comunque.")
-        return 2
+        print("Se l'avviso persiste dopo aver avviato il gioco, elimina la cartella Aniimo_Data\\cvs\\res\\lua "
+              "per riscaricarla pulita.")
+        if getattr(args, "interactive", False) and sys.stdin and sys.stdin.isatty():
+            try:
+                answer = input("Vuoi forzare comunque l'installazione dei file attuali? [s/N]: ").strip().lower()
+                if answer in {"s", "si", "sì", "y", "yes"}:
+                    args.force = True
+                else:
+                    return 2
+            except EOFError:
+                return 2
+        else:
+            print("Installare adesso significa tradurre i testi vecchi, che verrebbero sovrascritti "
+                  "al primo avvio. Usa --force per procedere comunque.")
+            return 2
     installed_slot = None
     try:
         installed_slot = detect_translation_installation(paths.game_dir).get("detected_slot")
@@ -3001,12 +3054,14 @@ def collect_startup_status() -> dict:
         "game_resources_supported": None,
         "text_compatibility_mode": None,
         "unknown_text_count": None,
+        "is_steam": False,
         "update": check_for_updates(silent=True),
     }
     try:
         game_dir, source = resolve_game_dir_with_source(None)
         result["game_dir"] = game_dir
         result["game_path_source"] = source
+        result["is_steam"] = is_steam_game_dir(game_dir)
         version_info = read_game_version_info(game_dir)
         result["detected_game_update"] = version_info["update"]
         result["detected_game_revision"] = version_info["revision"]
@@ -3048,6 +3103,7 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
         resources_supported = texts_supported
     game_dir = status.get("game_dir")
     path_source = status.get("game_path_source")
+    is_steam = status.get("is_steam", True) if game_dir else True
     installed = status.get("translation_installed")
     matches_installer = status.get("translation_matches_installer")
     loose_i18n_in_sync = status.get("loose_i18n_in_sync", True)
@@ -3058,6 +3114,8 @@ def status_overview(status: dict, colors: bool) -> dict[str, str]:
 
     if game_dir:
         path_note = "trovato automaticamente" if path_source == "automatico" else "percorso salvato"
+        if not is_steam:
+            path_note += " • non-Steam / Pawprint"
         if detected and resources_supported is True:
             game_label = color_text(
                 f"✓ v{detected} compatibile ({path_note})", ConsoleColor.GREEN, colors
@@ -3190,6 +3248,11 @@ def print_status_panel(status: dict, colors: bool) -> None:
 
     print(color_text("Aniimo - Traduzione Italiana", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
+    if status.get("game_dir") and not status.get("is_steam", True):
+        print(color_text("⚠ AVVISO: VERSIONE NON-STEAM RILEVATA (PAWPRINT / STANDALONE)", ConsoleColor.BOLD + ConsoleColor.YELLOW, colors))
+        print("Questa traduzione è sviluppata e testata esclusivamente per la versione Steam di Aniimo.")
+        print("I launcher alternativi come Pawprint o versioni standalone NON sono supportati dalla nostra patch.")
+        print("-" * 58)
     print(overview["headline"])
     print(overview["message"])
     print()
@@ -3212,9 +3275,11 @@ def print_technical_status(status: dict, colors: bool) -> None:
     technical_supported = status.get("technical_resources_supported")
     compatibility_mode = status.get("text_compatibility_mode")
     unknown_text_count = status.get("unknown_text_count")
+    is_steam = status.get("is_steam", True) if status.get("game_dir") else True
     print(color_text("Dettagli tecnici", ConsoleColor.BOLD + ConsoleColor.CYAN, colors))
     print("=" * 58)
     print("Cartella gioco     :", status.get("game_dir") or "non rilevata")
+    print("Piattaforma        :", "Steam (supportata)" if is_steam else "Non-Steam / Pawprint (non supportata)")
     print("Build rilevata     :", status.get("detected_game_update") or "non rilevata")
     print("Build già testate  :", ", ".join(supported_game_updates(manifest)) or "non specificate")
     print("Digest locale      :", revision or "non rilevato")
@@ -3362,6 +3427,7 @@ def run_menu() -> int:
         also_english = False
         force_open = False
         ignore_update = False
+        interactive = True
     return cmd_install(Args())
 
 

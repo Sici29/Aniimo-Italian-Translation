@@ -13,15 +13,16 @@
 > **[⬇ Scarica Gioca in Italiano](https://github.com/Sici29/gioca-in-italiano/releases/latest/download/GiocaInItaliano.exe)** · gratis, per Windows 10 e 11
 <!-- gioca-in-italiano:fine -->
 
-## Release client Steam — 1.0.3616231.0
+## Release client Steam — 1.0.3629693.0
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3616231, patch 1.0.3616231.0), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3629693, patch 1.0.3629693.0), verificata e funzionante in gioco.**
 
-- Traduzione completa per **112.214 / 112.214 chiavi (100,00%)** con 0 stringhe mancanti.
+- Traduzione completa per **112.263 / 112.263 chiavi (100,00%)** con 0 stringhe mancanti.
+- **Risoluzione blocco download pendente (Issue #23)**: corretto il controllo dell'archivio cache attivo, evitando falsi blocchi causati dai file base depot di Steam.
+- **Avviso dedicato per versioni non-Steam (Pawprint o standalone)**: avviso esplicito che informa che la traduzione è sviluppata e testata unicamente per la versione Steam.
 - **Selezione della lingua da sostituire** (opzione 8 nel menu o `--target`): possibilità di scegliere quale slot sostituire (es. portoghese, francese, spagnolo, tedesco) per mantenere sia l'**Inglese** che l'**Italiano** attivi e selezionabili nelle impostazioni di gioco!
-- Tradotte tutte le nuove funzioni della build 3616231 (funzione di emergenza *Unstuck / Sbloccati*, avvisi pigmenti speciali e aggiornamenti Forma Prismana).
 - Revisione professionale terminologica e rispetto rigoroso del glossario di gioco, con confronto con le versioni ufficiali francesi e spagnole per la concordanza di genere.
 - Un solo file standalone `Aniimo-Italian-Translation.exe` con rilevamento prioritario automatico di Steam.
 - Guardia automatica sul patcher di gioco e sincronizzazione tra `StreamingAssets` e cache `cvs`.
@@ -41,7 +42,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3616231.0.md) · [Verifiche tecniche](BUILD_QA_1.0.3616231.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](RELEASE_NOTES_1.0.3629693.0.md) · [Verifiche tecniche](BUILD_QA_1.0.3629693.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>
