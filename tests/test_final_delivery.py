@@ -9,8 +9,8 @@ class FinalDeliveryTests(unittest.TestCase):
     def test_public_payload_has_hashes_not_original_sources(self):
         with (ROOT / "data/translation_it.csv").open(encoding="utf-8", newline="") as f:
             r=csv.DictReader(f); self.assertEqual(r.fieldnames, ["key","source_sha256","it"]); rows=list(r)
-        self.assertEqual(len(rows),112263)
-        self.assertEqual(len({r["key"] for r in rows}),112263)
+        self.assertEqual(len(rows),112264)
+        self.assertEqual(len({r["key"] for r in rows}),112264)
         self.assertEqual(sum(not r["it"] for r in rows),0)
         self.assertTrue(all(len(r["source_sha256"])==64 for r in rows))
 

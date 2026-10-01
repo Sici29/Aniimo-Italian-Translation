@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3634150.0 - 2026-10-01
+
+- **Supporto alla build Steam 3634150**: catalogo aggiornato a 112.264 chiavi (1 nuova, 15 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.
+- **Revisione e traduzione testi**: inclusa la nuova voce di condivisione estrazioni Tessiluce, il biglietto Operazione: Furto d'Uova (Caos), il comando menu radiale e l'aggiornamento stilistico delle lettere di moderazione.
+- **Suite di test**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3634150.
+
 ## 1.0.3629693.0 - 2026-09-30
 
 - **Supporto alla build Steam 3629693**: catalogo aggiornato a 112.263 chiavi (49 nuove, 182 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.

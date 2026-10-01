@@ -1,13 +1,14 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3629693.0",
+  "translation_version": "1.0.3634150.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
-  "known_source_key_count": 112263,
-  "known_source_key_sha256": "08b42c1b88f0d0fc1c56a54336057405eccf59f5edbeef18eb30d400b81438c8",
+  "known_source_key_count": 112264,
+  "known_source_key_sha256": "cbf2beaac90a0549e2325f7fa19d70dfeb1fdd37554be76429c370571b215dad",
   "supported_game_updates": [
+    3634150,
     3629693,
     3616231,
     3603741,
@@ -18,13 +19,15 @@
     3535596,
     3509129
   ],
-  "latest_supported_game_update": 3629693,
-  "supported_game_revisions": [],
-  "tested_game_update": "3629693",
-  "tested_game_revision": "cf5ae0c5b1f8eca44ce5b4471ff26e7c",
-  "tested_archive_sha256": "8bd720edcabe307b282c096745764bfa2643f9bc9a172980b5b8e3d04786ea3f",
-  "tested_date": "2026-09-30",
-  "coverage": "112263/112263 keys translated (100.00%). Steam build 3629693 (patch 1.0.3629693.0) full professional coverage.",
+  "latest_supported_game_update": 3634150,
+  "supported_game_revisions": [
+    "0ac01a330f8a64fc13e86bdaf0afdcb2"
+  ],
+  "tested_game_update": "3634150",
+  "tested_game_revision": "0ac01a330f8a64fc13e86bdaf0afdcb2",
+  "tested_archive_sha256": "d592fd55ae14bf423dc72a64bbe215c63d0153f13b7f2f51db64af8358be0a6c",
+  "tested_date": "2026-10-01",
+  "coverage": "112264/112264 keys translated (100.00%). Steam build 3634150 (patch 1.0.3634150.0) full professional coverage.",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
@@ -39,7 +42,7 @@
     "Font nativi invariati; static character/fallback coverage includes all 12 Italian accented letters.",
     "Original source text is not redistributed: each key stores its SHA-256 for compatibility checks."
   ],
-  "known_source_content_sha256": "e2fe7ca089c8b3771f239e8d6d6cefdc66bb27c51085b73ba8ae8b4ec6bf2083",
+  "known_source_content_sha256": "140620f493e06742e7886cf32eb0179196314eb14015d8ba0c99f952b8fd95a7",
   "runtime_profile": "final-native-text-only",
   "runtime_validation": "verified_in_game",
   "native_font_bundles": [

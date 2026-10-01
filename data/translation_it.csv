@@ -24574,9 +24574,9 @@ Premi <style=Hint_BgL>Esci</style> per annullare l'aggancio."
 1217226886,3316cf3fd0a3e3fda4b2df0ff9cfcfb51a89882e8a7feb370ded168591f23e1f,Non puoi più trasportare tutto questo peso. Fai spazio nell'inventario il prima possibile.
 1217231057,b962e6175444570d08b31dd4d47c3947d1e09641db1bea41fda503dbf1677136,Raggiungi il livello 40.
 1217235705,71fcb46f0aef5a6ff63bddd9386bc66bd5c6241272d91c38a14c7592b288c6e0,Entra in Posizione Thunderwing per 10s al prossimo lancio di abilità quando Legame del Tuono raggiunge 30 cariche.
-1217240679,f1ab29c6d088fcbaa8044e621f1a494ea914e3f7aaf6129c68cd448fad1efca7,"Salve,
-abbiamo verificato che il tuo avatar nel gioco contiene elementi inappropriati. L'avatar verrà reimpostato. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+1217240679,e28ab09b5059d9c58419c0f2683bdc26de2627bf1edc1a60d976e692d5c52c89,"Gentile Esploratore,
+abbiamo riscontrato che il tuo avatar conteneva contenuti inappropriati e verrà ripristinato a quello predefinito. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1217263989,affa4e17291e40878edcdb3b3f4becc7ac4dffd94bc41a730e2be957580be142,Porta il camper al livello 15.
 1217268774,7eec779d4e5fb5fb3332cf607699228b045f5dda030fd1029da5a1abf54dfd1e,"Seme dal guscio duro, freddo al tatto, ma nato per diventare un albero infuocato della costa."
 1217298206,57eb2be1c6d96f40d00db3b5449a41964a0e1ef80e3f1cff90f2082818617d7a,"Rilascia una corrente elettrica, danneggiando i bersagli davanti."
@@ -42211,8 +42211,7 @@ Magari un nuovo Shelly si evolverà in uno Sherro."
 1389251408,5d891a5e5079f9c95f61801585547797dba48562916edcb8652642ec5ea86ebc,"1 = Attivo, 0 = Disattivo"
 1389255111,97fba3d68b60da074a6bb9fb8d64506fc900aacdae35de4cf845405c4271ef1d,"Un giaciglio d'erba su cui fluttuano soffici nuvolette. Gli Aniimo amano giocarci, lasciando materiali di ogni tipo."
 1389255789,161c7b4bbcc94b2c8e7855ea6d1ace55869b6e4113951a85031c10034d06f185,Porta il camper al livello 13.
-1389256099,8747dd9ce8cdd9ec0f5b6e704c03566afe4772317a89888578b84a2291f4ab7a,"Attesta un'estrazione riuscita in <style=Hint_BgL>Operazione: Furto d'Uova - Modalità Squadra</style>.
-Scambia questo buono con scorte e uova in un Negozio Lumintech."
+1389256099,c7b4b6ed48e5db7c68b7f45e525e470a285468db38de5b64198ed8bb2bf75bcf,Un biglietto necessario per accedere a <style=Hint_BgL>Operazione: Furto d'Uova - Modalità Squadra (Caos)</style>.
 1389279973,cfd7c0467da4359b412e8dc2c3b5f3a9149f842e33ade72853df484fd115b2fa,Lascia che la brezza del mattino ti porti oltre il panorama.
 1389300189,bc442f1a804ed19a267c54d7a216d8fd6593ab85f1ed90616daa3ed0fc471194,Guidavia Nebbia Spettrale
 1389302974,ec904952f945e3808d8f5904170aabc40d746595ec4f4f363cebd36281721469,Ha bisogno di pelle dura per scavare nel terreno compatto degli altipiani.
@@ -42250,6 +42249,7 @@ O vento che attraversi i mari, quando tornerai?"
 1389683147,31258e48b0585624833c974bbf556b748100006fffe7b332a971c9db7a852da8,Sconfiggi di fila 3 Wisptis della tua stessa Forma
 1389683194,be7cf3f3f5b5cee392a4c616303dda21afeae00e57f8bd30ac1e25a7d88b8aae,"Lin Shuang, la responsabile del ChillBeanz, e la sua Glacy, Claire!"
 1389685291,cf4d9e7025909e560f653902678de083b9599e626502671154b83b89897ae994,Bailite Custode
+1389687126,d2403574bfe4c8e00dbf208f30c26dc6c80e433d2341a1da202c0d5911235d98,Ho fatto centro nel Tessiluce con un'unica estrazione! Condivido la mia fortuna con te!
 1389688776,4ee8353288f5f8423ec12104cb5b065589e5045cd4ff261813207dec513ed757,Mantello dell'Imboscata
 1389730932,453d3844b3f9b2bb82a91e8fa654f75522cb7e8065c5a71643d613841d165663,Ineguagliato
 1389749991,b5e5c1721c4529a6d6a6b21c2d87882481034c5347736b3debd19a306e29047a,Ehi!!! Anche tu no!!!
@@ -44624,9 +44624,9 @@ Parti con i tuoi Aniimo, cavalca venti e onde verso l’orizzonte e intraprendi 
 1413925701,2ef620a236b19935922229999dc7e8ef68dc8e6662f80789308967cc4f9ec197,Angolo del Colmo in Tegole Rosse
 1413938166,4205067dabd3708a0947c45986ad78a76a805256c38372561d3e25d71ca9670b,No! È questo il triste addio che il destino ha scritto nella mia storia?!
 1413960162,f591511cf1eb0a1c24d8e5db70a4cfdde53513f23fe156461d62b34cb1fa7f4b,Supporto ricevuto
-1413960612,89c18d3040de69fbe10fb7ac8ad12c4a115eacb42906509e1c0552363eec7925,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nel tuo soprannome, in violazione dell'Accordo Utente. Il soprannome verrà riportato a quello predefinito dal sistema. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+1413960612,628594c2db579c3a92ee7e2aca7f9ab6dcef4698ddb13aad0069e362e38d9e6b,"Gentile Esploratore,
+abbiamo riscontrato che il tuo soprannome conteneva contenuti inappropriati, in violazione del nostro Accordo Utente. Verrà sostituito con uno temporaneo. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1413963143,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1413978918,73ba16d8f5626e8ed7772d9ed5958818d9ed95f1aeebe2bf19ada127df5fbd39,Pulsante Semplice
 1413985448,d08af5736bdb2b577c307f0c8213dcb636dde527f6ccec4ba96fe3c2e3396339,"Boccioli pieni e rotondi si ergono con grazia, custodendo una dolce fragranza che ti attira prima ancora che tu te ne accorga."
@@ -54898,9 +54898,9 @@ Sei qui per il raduno dei Pomegg?"
 1517060690,7d3dbbe076cdd55ec0f14dcbd4a63576802f60daa8cb5b85a01fd0328afb4ac5,"Che rapidità! Bene, vieni a prendere il premio!"
 1517061497,c72058e7a698377c74a8b61fd1d3ab36bfa6a042ecd743caada778aac58ff211,Usa Suprema
 1517062761,5b8dad2f7c7a0de1ac15ac887c19a369fe62113f79f6a8b7fdd40798b5205537,Jerney
-1517065207,533028619b18cec2df0269ff49e86e18071dcb733ad50fa7bb447f520b7f2725,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nelle decorazioni della tua Area Camper, in violazione dell'Accordo Utente. Le decorazioni verranno riportate allo stato predefinito dal sistema. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+1517065207,cc322db7910a9f2da504019ea32ae2c99d90e2763bb82024e6bc22592c0c5df5,"Gentile Esploratore,
+abbiamo riscontrato che le decorazioni della tua Area Camper contenevano contenuti inappropriati, in violazione del nostro Accordo Utente. Verranno ripristinate allo stato predefinito dal sistema. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1517066640,a9ea951a4d437e73895bff79b2e2c12f8466136a40f2d93a95530003aba489ad,Aumenta l’ATT F del 20% quando tutti gli Aniimo della squadra sono Aniimo [I]
 1517076167,dccb4df1570ec19e714488dfcb5d1dc932f376e3aa82288bc8e12b772ff5691b,Apri Mappa
 1517095421,4356a6b17cffa34af7644cef7d907f8eba07a759e99b254e508765a6e95a46be,Ragazza Stilosa
@@ -56812,7 +56812,7 @@ Consumare Primegy è un modo efficiente per <style=Hint_BgL>ottenere materiali d
 1535057111,66e45d32c2a5c3384b5ee2fd9822a528b3f30682ae1a955cade8f8164f9d788a,Fannie
 1535070738,345839a53d84bc0bd0048b4d73ef00824082ebc6c1ceb282980b6ec493548159,Forma Nebbiosa
 1535074825,124ea46904208c0d27c50e29189065325771db52eacfded351a4af96f74c293a,Apri il pannello GM del client dell'Esploratore
-1535078881,10334494f77f6b3a26ac0027aaf6a81000e5a98356bc3a97537ea51da50add85,Apri menu radiale
+1535078881,b7d7549df19df28005c662968bcf8b9b95746901181205560d249950f64bf58d,Apri menu radiale
 1535087912,07607d609f9a3592484e9a0eace33d5a5530379335466648e41279517f7d5859,Illuminazione
 1535093150,c39555ff3faab27e0147dcfe98f774f18b766a2edcdaf92682a2cd757326df82,Posizione Alatuono
 1535100018,49146cdcf18f41d67233abfd0aa48643e3697b57f6b4dcdd7cdcc9caa7cbe6bc,Interlink Holo-Battle
@@ -58899,7 +58899,7 @@ Shelly pensava fossero di nuovo quei Susuta tremendi..."
 1555596735,5532e6803657749d31ab5cce54f8e448ed0d23def500d83d5bbe4c7706fe2a6c,Tempesta Floreale
 1555609152,de45f5a19ad3fef74ce5d240337a835252cf69441b96b726c854433d27871f48,(Versione Funzionalità)
 1555610121,9c8703f7954b485822bc343100e9c77bfdd708555b6afd2ebef678c0b3b4977c,Passi Fantasma
-1555622696,eeb5f27c19da05c9c63be2c12ed833a89150645dfe4b66f9ab39dd1f875d8aaf,Tu? Sfidare me? Neanche per sogno. Io voglio sconfiggere un <style=Hint_BgD>Cozite</style>! Torna più tardi e ti metterò in lista d'attesa!
+1555622696,6fdbcbd7a434d63ce96a22e5280e5f190a1913048235fe51ae7412912d688b0c,Tu? Sfidare me? Neanche per sogno. Io voglio sconfiggere un <style=Hint_BgD>Cozite</style>! Torna più tardi e ti metterò in lista d'attesa!
 1555624205,678202b3c0c345ef8e5ce5451dcd3b7b33d657bd9a1ff73b29ea20988bf5acb8,Noah
 1555632765,c4663452c1a012ea00a3b28237175de0b8b976d39bae649c155e6357fd1fa663,Sono tutti Aniimo nuovi...
 1555636889,bed2db193b3ea2f9c77f4dd530e56d4de5754ce48c7cf868c67ca91b69069557,Cress è molto gentile. Conosce il colore di ogni singolo granello di polvere sulle mie scaglie.
@@ -59371,9 +59371,9 @@ Più tardi potremmo cercare nei pressi del Ramo e magari trovare qualche prova!"
 1559815750,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1559842371,af8ce4dc1c47c90614baefb66596b18c657ea4dfa5356d87631e5af610afee91,ATT +2%
 1559851147,bf0f8feee7d139c3a90712ec3983a97fc300bd5b265193cad56f762e2a238c93,Raddoppia la cura.
-1559853906,fdc9eaeb4c4ef9c0d103b2c60718093262f9e73b4547ce99f2d27e6299fd0127,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nella tua firma personale all'interno del gioco. La firma verrà reimpostata. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+1559853906,5d34038bfaf813fcc496daacb14ee2f4dbfd330e6b6329e9681dd7f44f7ecbbf,"Gentile Esploratore,
+abbiamo riscontrato che la tua biografia conteneva contenuti inappropriati e verrà cancellata. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1559874193,1c1d2e2acdba1ac6eb0b1eaccb72924e77bdfdbb456262771fa1f1707282eefc,Grandi Rovine
 1559877675,2b3f8ca725a8a32b5a4fc44cd82103b8f0adf0eb41c88e5e7600632d53cabe71,"Non vedevo un Helmut coraggioso come quello da molti anni.
 Eppure era troppo debole: attraversare la tempesta da solo l'ha quasi prosciugato del tutto."
@@ -60582,9 +60582,9 @@ Quando i Budclaw si scavano nel terreno, i loro diversi gusci li aiutano efficac
 1572056711,985fac79d2a2ea6282d930e010e586cc1c39676b7d4dd938979dec021be92493,Tromber Alpha
 1572062196,3e12181493944e36fa6172b6374d52094bafe4053ab7b526301bea4c06b740af,Smettila di provare ad arrampicarti su quell'angolo! Non salirai lassù!
 1572115884,e0b13181da865727338482a484a9c147170550af6bda2c223f0ceac3a637cd74,Rosetower Woods
-1572123256,6910966b864fcd534fffaf7f7d213f0871a95726c8f3b444cd62c6ef43852a44,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nella tua Base all'interno del gioco. Le visite alla Base verranno limitate. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+1572123256,ab0431dd7c6d7a02bc3bc24d449e475b4dc36c3b1a3a1076cac9173eeeae8ce1,"Gentile Esploratore,
+abbiamo riscontrato che la tua Base conteneva contenuti inappropriati e le visite alla tua Base verranno limitate. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1572134256,66e45d32c2a5c3384b5ee2fd9822a528b3f30682ae1a955cade8f8164f9d788a,Fannie
 1572143495,4592a52f3ca1da1b340d865785df346e812f40775424fdb7eba6345cf17b8bff,"Realizzato in schiuma elastica che allevia la pressione, questo divano letto offre il giusto equilibrio tra morbidezza e sostegno. Una volta che un Aniimo si sdraia, non ne vuole più sapere di alzarsi."
 1572156075,53e35dc96d35d017deacf7ebb79cd2e4dd7492b2287032beae5c02c57ff7edbd,"Allora, Lady Velouria...
@@ -66988,9 +66988,9 @@ Devi raggiungere il grado [<style=Hint_BgL>Cerca-Uova Elite IV</style>] per avvi
 1634061610,b31c2100d4c595ba94c8cc04060e44ebc5c850d1ab3554f376fc23609fea8fd1,Beeeeee!
 1634061766,221ad833fd6b29467e23ccd84d4e2811e88beb89dbb44619a6a877f1ab87ab0b,Amplificazione Danno
 1634070290,57e94421fc43eb491adf8a41b8518fbf0c6ed8ae1dcfcbbf51ffe1f6525d820f,"Foglie tinte dai colori del tramonto, un cremisi caldo che sussurra l'autunno nella Base."
-1634086377,ca3b7c378863d9b4cf2c908f2a16c3ee91d04ddeb8cd700e68e34b37a5f3a1e6,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nel nome della tua Base all'interno del gioco. Il nome verrà reimpostato. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+1634086377,29cf21e47db09f08ddb28194fc44ac821911090fa7d1cef34020b033a7650ef7,"Gentile Esploratore,
+abbiamo riscontrato che il nome della tua Base conteneva contenuti inappropriati e verrà sostituito con uno temporaneo. In seguito potrai impostarne uno nuovo. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1634104679,b5e4c6f6815e09e338e4175f2366e4dc98727e24b2c7c301951df931e0daae3c,Danni CRIT
 1634114571,378d83808237a4459f234bbfbf1380fff27049305cb4235819c3091f5856ba5f,Forziere
 1634139630,938db8c9f82c8cb58d3f3ef4fd250036a48d26a712753d2fde5abd03a85cabf4,01
@@ -82829,7 +82829,7 @@ Te la senti?"
 1788945439,7a3bcc2f6b49006726a9af34dd32250dd520e9586ac985802e02043ca5443f7c,fino all'inizio
 1788955433,e12a31b86097da037198f6fe1c1b1c357daad997d2f33acbb6f7babce998c017,Materiale per far evolvere Aniimo dell'Elemento Kim allo Stadio Lumin.
 1788966683,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
-1788967467,7aa9c37bdbc89a4883c020977f363de3431cc5fc5e36742c3bd85d634e946899,Ambra del Sogno di Farfalla
+1788967467,72055e550b9ad04d8231b736146447ac80129478a750b8b0451fb08b5f83601d,Bosco delle Farfalle del Sogno
 1788977401,04bdc948a914a3ca9dc1dcdeaeb6b8f3e9cc8a02b0e8d75a047731497648060b,Pietra Scintillante
 1788989669,b204725e134370df8204800b07bcba6af13fa0cd60f25aa19ccd628d810be723,"Scavo, scavo!"
 1789018479,27c9967141771a7ce741a9937250b99cfc0327c6cee109db1490f78e2678f14e,Anomalia della Fenditura
@@ -99740,10 +99740,9 @@ Ma non dovrebbe esserci soltanto questa risposta. Controlliamo le altre opzioni.
 1955612075,7b18f83f9c8cb009dd7f0ab3cb52e165799cb2cf120536e9e5e3f3b11b05cef7,Hoo... eheh!
 1955614199,0d766021daac4d0342620667a7707a7ca64365a8673309ee9c2b212b3b3f4eb4,Forziere Guscio d'Uovo
 1955620958,b9258d14de916636f6331543c0e44ef18fb77ae1b94b267138375094df04d774,Prova del Dr. Glass
-1955621065,b74cc45f14bdbba101453b78353c4afc229947b876bca9e62e6564af1227a264,"Altri Esploratori hanno segnalato il tuo account per una violazione relativa all'avatar di gioco e abbiamo confermato la violazione.
-Provvedimento: il tuo avatar sarà sostituito con quello predefinito. Se desideri cambiarlo, caricane uno nuovo.
-Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza dal gioco.
-Un ambiente di gioco sano richiede il contributo di tutti gli Esploratori. Ti invitiamo a rispettare le regole."
+1955621065,84765682ca7df3b5c2b5ec88c6a07bb1a66e970c5b7e39766779013f836aeb50,"In seguito alle segnalazioni di altri Esploratori, abbiamo riscontrato che il tuo avatar conteneva contenuti inappropriati e verrà ripristinato a quello predefinito. In seguito potrai caricarne uno nuovo.
+Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1955659428,33529f34d21cfa7e2fcb8e0022dfc8dbf881d8e6e77902cf349f1d7844c203b4,Stato attuale: <color=#FFE451>Protezione Principianti</color>. Partite rimanenti: ({0}/{1})
 1955668977,acb821d82bd75f714bdc21ef6c63c74e7d99fcfd8d78f2f017cb34b53242c280,Arredo Test N. 3
 1955673503,aec721323b1bc6128a0250a3fab69ba44f2e506df6419ee070fc03fb7c9134cf,Livello Gratuito Manuale Compagni 39
@@ -102367,10 +102366,9 @@ Rimuovi tutti i detriti per ricevere <link=""item_4001064""><style=Hint_BgL><u>B
 1981847073,9d6a2a82aa8f65d2f5a1d2dc96b3c42594d8c5406890656b992aa6de5ea8df39,Reliquia di Glynsera
 1981854433,8bc18fbb97bfdcd1fd66b2fbb3b467187e332e1612fcabdc5d9077164844843e,Sfida Elite degli Esploratori
 1981856960,4e55973b50e27db8f513b1d900bba734b8020bee9b1fcfaa6f40cfd726d84009,"Nicole, sei tornata dalla tua avventura! Quel “presunto Aniimo di livello Aeon”... è vero?"
-1981873814,8bf71dd4593a57f1fb065d0501d4d4dd379046166d37987539837175ecbd3d5d,"Altri Esploratori hanno segnalato il tuo account per una violazione relativa al nickname di gioco e abbiamo confermato la violazione.
-Provvedimento: il tuo nickname sarà sostituito con quello predefinito.
-Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza dal gioco.
-Un ambiente di gioco sano richiede il contributo di tutti gli Esploratori. Ti invitiamo a rispettare le regole."
+1981873814,3d407fa991603b0e48f855303fa9ea2c874807bfd01bcbe6baf8dcd37a46425c,"In seguito alle segnalazioni di altri Esploratori, abbiamo riscontrato che il tuo soprannome conteneva contenuti inappropriati e verrà sostituito con uno temporaneo. In seguito potrai impostarne uno nuovo.
+Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 1981889460,585e52012a9e2b95ef1fb1f2da63de30c71d10e7bbf4289e14bc3acbd84f3d25,Esci dalla Grotta
 1981896296,029fab0b711223a95d3e9e555105fef88f60f5b44252f96a993107e6a495f457,Hedo
 1981896782,1f5d75edd06c5b4e68064bd1c4c95967055939ec45418e1763ed7e07226a0101,Esplosione Onirica
@@ -104552,9 +104550,9 @@ A quanto pare, da qui dovremo proseguire in volo."
 2002464848,c3178f68e012efa0cd4d3bb921d2ae18af1a69211169df36d9f41fd779c0cdeb,"Dopo aver stretto il patto, qualsiasi %s che equipaggi questo Oggetto Tenuto riceverà un potenziamento dell’abilità principale."
 2002465456,7e8c729e4e4ecc320cb411c4d1419bf5fbad733212d4e9491b7630aaef0b8b1c,Sarah
 2002467579,b251414dcdaf82bb08ccc1e855167d7cc34b0bab26927b8e6d7ae50afbf16e78,Quindi vuoi che io...
-2002478505,d661d35f35bd914aacec945d0b6b99da6240a9cbb6843e778b9c01123552b5c3,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nel tuo modello dello studio fotografico, in violazione dell'Accordo Utente. Il modello verrà riportato allo stato predefinito dal sistema. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+2002478505,7a77fcdc0d367ebb7638ee3a15b1360e9b0d4c749b56ed30aae07d338996478e,"Gentile Esploratore,
+abbiamo riscontrato che il tuo modello per lo studio fotografico conteneva contenuti inappropriati, in violazione del nostro Accordo Utente. Verrà ripristinato allo stato predefinito dal sistema. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 2002508682,d587622d277c4be4a2ed692b5a52d550abf0d9e19adb40469bb837462084dcdd,bonus
 2002525485,41c22aed0eb1a43ffed9d1cf3755bf4b2db67346b34bb6fca7ddf5317672dd4c,Completa il duello con il PNG
 2002533302,f2514a30092e97b0bcdca90e89d0e8cb60f99fbd7a13b093cbfecc6e9a3f4eb8,Accessori Personaggio
@@ -109142,9 +109140,9 @@ L'Emberpup sta per subire un cambiamento straordinario."
 2047918691,fc64fbe58bd0d3cef83575ee9bada761021055d108c244eef13efc693abf7f91,Schiudi Uovo Aniimo
 2047934982,627c4dc575c3a9c94f4c01f0cb6617464ffb5bd9480398ce63feb260be545c5b,Narratore AniimoCare
 2047941040,4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce,3
-2047945200,75de6abe34ec30bf4574bfc33a2cbb52fd0baa07acaf721a5a972e976acc6d5a,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nel tuo modello per le foto all'interno del gioco. Il modello verrà reimpostato. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+2047945200,15092435c080eed871aef92c470603389b36602d8ff801d7f94e5bfa4c8b1a04,"Gentile Esploratore,
+abbiamo riscontrato che il tuo modello fotografico conteneva contenuti inappropriati e verrà ripristinato a quello predefinito. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 2047946452,6ecde687268de8b890d2ac6a20d7208a94ea78b04554d89e3447b6824b68cf9f,"""Sta male? Perché ci mette tanto?"""
 2047961435,47fa0c7d8497dc47f3e3d6f796272f61a3d651989c7e9bcbee5eef83995a229c,Kia
 2047971270,90d0ac802b6115a6b941b36c31f9a660db7d64c07624d6a2acf2eda9553105fb,Non è quella famosa blogger di moda?
@@ -114919,9 +114917,9 @@ Le montagne ritrovarono la pace, ma il suo corpo, arso dal fuoco, divenne rosso 
 2104235844,ad5ac388bc8bc483b0ad2cc9fa3fe8cdc78b1fee41ed46a9c7610a62a3bc9651,Lunara
 2104256282,db68e600ac05f962326277affa5275488a68ac1249ea99aa6bb935c6ff400099,"In Modalità Difesa, ottiene un aumento BREAK pari al 20% della DIF F e un aumento Gusto pari al 10% della DIF F."
 2104268546,be176b0015c424b78e9f343f8bc3014a7a701cc2eb9000b6acbc04d67dbecb8f,Mappa
-2104282187,622ab9c90742de7c8fef43f73475d6b4c9ebc93f04844305e993c552692a3c14,"Salve,
-abbiamo verificato la presenza di contenuti inappropriati nel lotto della tua Base, in violazione dell'Accordo Utente. Il lotto verrà riportato allo stato predefinito dal sistema. Se non sei d'accordo, puoi presentare ricorso contattando l'assistenza all'interno del gioco.
-Per mantenere un ambiente di gioco sano serve la collaborazione di tutti gli Esploratori. Rispetta le regole."
+2104282187,e39431d2bd3a289f2cbcbb0ddf11790cd2ca6fb8980c71091ee04ec760a956cc,"Gentile Esploratore,
+abbiamo riscontrato che i lotti della tua Base contenevano contenuti inappropriati, in violazione del nostro Accordo Utente. Verranno ripristinati allo stato predefinito dal sistema. Se ritieni che si tratti di un errore, puoi contattare l'Assistenza all'interno del gioco per presentare ricorso.
+Aniimo è un luogo per tutti, e mantenerlo tale è qualcosa che facciamo insieme. Grazie per aiutarci a prenderci cura di questo mondo."
 2104284251,4a595b037b9478413cb62d020768549ede0530a8f128130634ca6b5970d84202,...Helmut sembra mostrare grande curiosità
 2104294791,8d67252f03ae644ec280550f0f4c59cc97f36010f9cbb84a0159d7c2aa78929f,Dr. Glass
 2104298415,4b68ab3847feda7d6c62c1fbcbeebfa35eab7351ed5e78f4ddadea5df64b8015,X
