@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3634150.1 - 2026-10-04
+
+- **Risoluzione disallineamenti storici nel catalogo (Issue #25)**: corrette 105 chiavi che presentavano traduzioni scambiate o non pertinenti ereditate dalle prime versioni (titolo missione principale *Assessment: Starlight's Witness*, chip e amplificatori tattici, descrizioni delle decorazioni Susuta, avvisi di sistema).
+- **Revisione terminologica e casi dubbi**: aggiornate le chiavi di *Home Girl* ("Ragazza Casalinga"), *Mantis Lady* ("Signora Mantide"), *Lin Xi's Rest Set* ("Set Riposo di Lin Xi"), ripristinati segnaposto `{0} {1}` / *The Land Reawakens* e corretto il parametro del buff per *Benedizione Spinosa*.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica della coerenza dei tag e dei segnaposto al 100%.
+
 ## 1.0.3634150.0 - 2026-10-01
 
 - **Supporto alla build Steam 3634150**: catalogo aggiornato a 112.264 chiavi (1 nuova, 15 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.

@@ -1,6 +1,6 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3634150.0",
+  "translation_version": "1.0.3634150.1",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
@@ -26,8 +26,8 @@
   "tested_game_update": "3634150",
   "tested_game_revision": "0ac01a330f8a64fc13e86bdaf0afdcb2",
   "tested_archive_sha256": "d592fd55ae14bf423dc72a64bbe215c63d0153f13b7f2f51db64af8358be0a6c",
-  "tested_date": "2026-10-01",
-  "coverage": "112264/112264 keys translated (100.00%). Steam build 3634150 (patch 1.0.3634150.0) full professional coverage.",
+  "tested_date": "2026-10-04",
+  "coverage": "112264/112264 keys translated (100.00%). Steam build 3634150 (patch 1.0.3634150.1) full professional coverage with Issue #25 corrections.",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
