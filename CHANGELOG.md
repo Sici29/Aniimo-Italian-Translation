@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.3668494.0 - 2026-10-09
+
+- **Supporto alla build Steam 3668494**: catalogo aggiornato a 112.308 chiavi (+44 nuove, 99 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.
+- **Traduzione evento Glamour Star (Stella Glamour)**: tradotti tutti i regolamenti delle audizioni del Polaris Institute, le anteprime dei turni preliminari e le descrizioni degli abbinamenti Aniimo/accessori.
+- **Nuove funzionalità di sistema e diagnostica**: tradotto il sistema di invio/caricamento registri e report di rete ("Carica registri", "Diagnostica di rete completata", ecc.).
+- **Revisione terminologica Oggetti Tenuti e Coltivazione**: rifinite e uniformate le descrizioni di coltivazione della Base, le abilità degli Oggetti Tenuti, "Bosco delle Farfalle del Sogno" e "Erlath Umbrale".
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3668494 con 0 fallback.
+
 ## 1.0.3634150.1 - 2026-10-04
 
 - **Risoluzione disallineamenti storici nel catalogo (Issue #25)**: corrette 105 chiavi che presentavano traduzioni scambiate o non pertinenti ereditate dalle prime versioni (titolo missione principale *Assessment: Starlight's Witness*, chip e amplificatori tattici, descrizioni delle decorazioni Susuta, avvisi di sistema).
