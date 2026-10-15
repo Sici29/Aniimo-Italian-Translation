@@ -1,13 +1,14 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3668494.0",
+  "translation_version": "1.0.3732728.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
-  "known_source_key_count": 112308,
-  "known_source_key_sha256": "bde3cbced883d5390f0b6b84c52f291c84b448e9747cb522311fcec33db2b272",
+  "known_source_key_count": 112365,
+  "known_source_key_sha256": "943ba236e0ad34c643a5db04fdb683647b61bfbaa6e365a52de72f51b4f3783e",
   "supported_game_updates": [
+    "3732728",
     "3668494",
     3634150,
     3629693,
@@ -20,16 +21,17 @@
     3535596,
     3509129
   ],
-  "latest_supported_game_update": "3668494",
+  "latest_supported_game_update": "3732728",
   "supported_game_revisions": [
+    "56fd90cbd9dee22164aa1c7912e4adda",
     "7e7dc7895ca2725a52d92fa4ac6cf807",
     "0ac01a330f8a64fc13e86bdaf0afdcb2"
   ],
-  "tested_game_update": "3668494",
-  "tested_game_revision": "7e7dc7895ca2725a52d92fa4ac6cf807",
-  "tested_archive_sha256": "b1185cbd98f0a12e2a05abcd7249b4dfea18357f8da12de15f6a74acb7b8a2c2",
+  "tested_game_update": "3732728",
+  "tested_game_revision": "56fd90cbd9dee22164aa1c7912e4adda",
+  "tested_archive_sha256": "32f4b26dc0fc47e08c288b3ce6ae30042994040e88be57d8ff94203ab900cb18",
   "tested_date": "2026-10-04",
-  "coverage": "112308/112308 keys translated (100.00%)",
+  "coverage": "112365/112365 keys translated (100.00%)",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
@@ -44,7 +46,7 @@
     "Font nativi invariati; static character/fallback coverage includes all 12 Italian accented letters.",
     "Original source text is not redistributed: each key stores its SHA-256 for compatibility checks."
   ],
-  "known_source_content_sha256": "c19dd1cf6c6d951f62a23419a6fd96b840362479c4dd57f83dbab7587aec17c9",
+  "known_source_content_sha256": "c2d0fb5edea675211c318a27ad8f00e3889b92c15db3fd8626034dacb330fbab",
   "runtime_profile": "final-native-text-only",
   "runtime_validation": "verified_in_game",
   "native_font_bundles": [

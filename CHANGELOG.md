@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3732728.0 - 2026-10-15
+
+- **Supporto alla build Steam 3732728**: catalogo aggiornato a 112.365 chiavi (+59 nuove, 211 modificate, 2 rimosse dagli sviluppatori) con copertura professionale al 100,00% e 0 stringhe mancanti.
+- **Traduzione set e accessori tematici Detective (Batlock Holmes)**: tradotte tutte le nuove voci di personalizzazione, acconciature, accessori, descrizioni e citazioni tematiche investigative ("Batlock Holmes", "Asso delle Indagini", "Deduzione Brillante", ecc.).
+- **Nuovi boss Omega e tutorial di costruzione Base**: tradotte le varianti boss Omega ("Infergon Omega", "Tuckin Omega", "Sherro Omega", "Glynsera Omega") e corretti tutti i comandi di posizionamento arredi e combo della Base.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3732728 con 0 fallback.
+
 ## 1.0.3668494.0 - 2026-10-09
 
 - **Supporto alla build Steam 3668494**: catalogo aggiornato a 112.308 chiavi (+44 nuove, 99 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.
