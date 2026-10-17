@@ -13,14 +13,14 @@
 > **[⬇ Scarica Gioca in Italiano](https://github.com/Sici29/gioca-in-italiano/releases/latest/download/GiocaInItaliano.exe)** · gratis, per Windows 10 e 11
 <!-- gioca-in-italiano:fine -->
 
-## Release client Steam — 1.0.3743667.0
+## Release client Steam — 1.0.3746914.0
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3743667, patch 1.0.3743667.0), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3746914, patch 1.0.3746914.0), verificata e funzionante in gioco.**
 
 - Traduzione completa per **112.418 / 112.418 chiavi (100,00%)** con 0 stringhe mancanti.
-- **Supporto all'aggiornamento Steam 3743667**: tradotte tutte le 53 nuove voci (pacchetti a scaglioni del negozio, emote ed accessori tematici, Oggetti Tenuti Leggendari, ricompense Raduno del Raccolto e bonus ESP) e revisionate 21 voci modificate.
+- **Supporto all'aggiornamento Steam 3746914**: piena compatibilità con l'hotfix rilasciato su Steam il 17 ottobre 2026.
 - **Risoluzione disallineamenti storici nel catalogo (Issue #25)**: corrette 105 chiavi con traduzioni scambiate o non pertinenti (titoli missioni, descrizioni chip ed oggetti temporanei, decorazioni Susuta, avvisi di sistema).
 - **Risoluzione blocco download pendente (Issue #23)**: corretto il controllo dell'archivio cache attivo, evitando falsi blocchi causati dai file base depot di Steam.
 - **Avviso dedicato per versioni non-Steam (Pawprint o standalone)**: avviso esplicito che informa che la traduzione è sviluppata e testata unicamente per la versione Steam.
@@ -44,7 +44,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3743667.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3743667.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3746914.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3746914.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3746914.0 - 2026-10-17
+
+- **Supporto alla build Steam 3746914**: piena compatibilità con l'hotfix rilasciato su Steam il 17 ottobre 2026 (aggiornamento formule e dati runtime).
+- **Copertura confermata al 100,00%**: catalogo a 112.418 chiavi interamente tradotto con 0 stringhe mancanti e 0 fallback.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3746914.
+
 ## 1.0.3743667.0 - 2026-10-17
 
 - **Supporto alla build Steam 3743667**: catalogo aggiornato a 112.418 chiavi (+53 nuove, 21 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.
