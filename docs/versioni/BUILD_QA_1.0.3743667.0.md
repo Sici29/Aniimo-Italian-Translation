@@ -1,0 +1,16 @@
+# QA Report — Aniimo Italian Translation 1.0.3743667.0
+
+- **Game Update**: Steam build 3743667 (patch 1.0.3743667.0)
+- **Catalog Size**: 112,418 keys (100.00% translated, 0 fallbacks)
+- **Keys SHA-256**: `e0aefc586bfec5a773a4bf265cdd30e8fa90a3ada4171ed02ce71204395dffa8`
+- **Content SHA-256**: `c0a20dc68fd7a74dd0ae9d7069153e9b1e3712ddf432106fba89a27c8a7ed0ed`
+- **Tested Game Revision**: `a482c47cf649a6c1053854cfc09fde42`
+- **Tested Archive SHA-256**: `f22d47721883abe337e7c0818cd5bd59631af2956ad3e5c04db6684a17c442ed`
+- **Features Tested**:
+  - Live installation on Steam build 3743667 (`D:\SteamLibrary\steamapps\common\Aniimo`)
+  - Target slot selection (13 language slots verified)
+  - Non-Steam / Pawprint explicit warning prompt and status panel detection
+  - Patcher sync guard and cache consistency
+  - Backup & restore integrity
+- **Unit Tests**: 161/161 passed (OK, skipped=42)
+- **Standalone EXE**: Compilato con PyInstaller 6.22.3 (`Aniimo-Italian-Translation.exe`)

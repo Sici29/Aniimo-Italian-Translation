@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3743667.0 - 2026-10-17
+
+- **Supporto alla build Steam 3743667**: catalogo aggiornato a 112.418 chiavi (+53 nuove, 21 modificate) con copertura professionale al 100,00% e 0 stringhe mancanti.
+- **Traduzione pacchetti a scaglioni e doni del negozio**: tradotte tutte le stringhe dei pacchetti consecutivi del negozio ("A Scaglioni", "Grandi Doni a Scaglioni", sblocco in sequenza, stato acquisto e tempo rimanente).
+- **Nuove espressioni e accessori cosmetici**: tradotte le nuove emote e accessori tematici ("Domanda Profonda", "Sudore Tattico", "Stizzito" con relative descrizioni e citazioni).
+- **Oggetti Tenuti Leggendari, forzieri e bonus ESP**: tradotti i selettori degli Oggetti Tenuti Leggendari, la gestione forzieri aperti e il bonus raddoppio ESP sotto il livello 70.
+- **Evento Raduno del Raccolto e rifiniture Glamour Star**: tradotte le ricompense del Raduno del Raccolto, rifinite le audizioni di Glamour Star con valutazione Onda d'Urto, allineati "Stadio Lumin" e "Ambra del Sogno di Farfalla".
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3743667 con 0 fallback.
+
 ## 1.0.3732728.0 - 2026-10-15
 
 - **Supporto alla build Steam 3732728**: catalogo aggiornato a 112.365 chiavi (+59 nuove, 211 modificate, 2 rimosse dagli sviluppatori) con copertura professionale al 100,00% e 0 stringhe mancanti.
