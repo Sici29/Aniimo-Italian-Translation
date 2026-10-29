@@ -1,13 +1,14 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3746914.0",
+  "translation_version": "1.0.3846247.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
-  "known_source_key_count": 112418,
-  "known_source_key_sha256": "e0aefc586bfec5a773a4bf265cdd30e8fa90a3ada4171ed02ce71204395dffa8",
+  "known_source_key_count": 134277,
+  "known_source_key_sha256": "aaed789b568d71d71e9d952ead414ec5b5a06ddd53cbb92cd04e6eb3fc33fd89",
   "supported_game_updates": [
+    "3846247",
     "3746914",
     "3743667",
     "3732728",
@@ -23,34 +24,32 @@
     3535596,
     3509129
   ],
-  "latest_supported_game_update": "3746914",
+  "latest_supported_game_update": "3846247",
   "supported_game_revisions": [
+    "d6872862df8fe7a4edabad5ab1e3b46f",
     "0be02c78f59cc13b8e4cd5d392b5edaf",
     "a482c47cf649a6c1053854cfc09fde42",
     "56fd90cbd9dee22164aa1c7912e4adda",
     "7e7dc7895ca2725a52d92fa4ac6cf807",
     "0ac01a330f8a64fc13e86bdaf0afdcb2"
   ],
-  "tested_game_update": "3746914",
-  "tested_game_revision": "0be02c78f59cc13b8e4cd5d392b5edaf",
-  "tested_archive_sha256": "5e3226ba019cbb8e29f2d0626a4acd59a341d4606195648f95860c17c2c2909a",
-  "tested_date": "2026-10-17",
-  "coverage": "112418/112418 keys translated (100.00%)",
+  "tested_game_update": "3846247",
+  "tested_game_revision": "d6872862df8fe7a4edabad5ab1e3b46f",
+  "tested_archive_sha256": "9c0fa7f5547a06b2cbafa7aaf1f588c29874a37e4e0943dd075b6639aed4f91d",
+  "tested_date": "2026-10-29",
+  "coverage": "134277/134277 keys translated (100.00%)",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game, or pick another language slot with menu option 8 to keep English available. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "Aggiornamento per la build Steam 3629693 (patch 1.0.3629693.0) con copertura di traduzione al 100% (112.263 chiavi).",
-    "Tradotte tutte le 49 nuove chiavi e le 182 chiavi aggiornate della build 3629693 (nuovi completi, eventi e correzioni).",
-    "Avviso di incompatibilità chiaro nel caso di rilevamento di launcher non Steam (come Pawprint o standalone).",
-    "Risolta la segnalazione sul controllo file di gioco, con procedura di sblocco e ripristino per cache disallineate.",
-    "Cartella di lavoro in %LOCALAPPDATA% con supporto a --work-dir e ANIIMO_WORK_DIR contro i blocchi Defender.",
-    "Verifica atomica di LuaCacheVer.txt sincronizzata fedelmente con LuaScripts.xdt al ripristino e all'installazione.",
-    "Font nativi invariati; static character/fallback coverage includes all 12 Italian accented letters.",
-    "Original source text is not redistributed: each key stores its SHA-256 for compatibility checks."
+    "Aggiornamento per la build Steam 3846247 (patch 1.0.3846247.0) - Autumn Wonderfest & Halloween Update con copertura di traduzione al 100% (134.277 chiavi).",
+    "Traduzione integrale e revisione meticolosa di tutte le 21.859 nuove chiavi e modifiche della build 3846247 (Autumn Wonderfest, Halloween, RV Park, nuove missioni, abilità e creature).",
+    "Preservazione assoluta di tutti i tag di formattazione del motore grafico, codici colore, placeholder di genere e formattazione nativa.",
+    "Nomi delle specie Aniimo e personaggi fedeli all'originale secondo le direttive della community.",
+    "Compatibilità garantita con Steam e verifica automatica della cache LuaCacheVer.txt."
   ],
-  "known_source_content_sha256": "c0a20dc68fd7a74dd0ae9d7069153e9b1e3712ddf432106fba89a27c8a7ed0ed",
+  "known_source_content_sha256": "d9b935cc95e21e410e68881288dac3c9f0bfe3edbef56c5fc0597115e73546f7",
   "runtime_profile": "final-native-text-only",
   "runtime_validation": "verified_in_game",
   "native_font_bundles": [
@@ -69,6 +68,14 @@
     {
       "relative": "Aniimo_Data/StreamingAssets/cvs/res/uab/win/DefaultPackage/xgui_font_94caf04d33b30d3bf95fff3d59018c81.uab",
       "sha256": "8a75ddaed7cade899bfe89baad5bec738c111b62295bebd0b73d2856177e8cde"
+    },
+    {
+      "relative": "Aniimo_Data/StreamingAssets/cvs/res/uab/win/DefaultPackage/ar_xgui_xgui_font_8d5437b3_ass_0_2eee296a6439367621bf6cc9db0f8d43.uab",
+      "sha256": "359b35d7484e007b71eff58117e18683d1b0db07c98f2db2dd623bd6539429aa"
+    },
+    {
+      "relative": "Aniimo_Data/StreamingAssets/cvs/res/uab/win/DefaultPackage/xpt21_ar_xgui_3f711bf8_ui_font_8d5437b3_ass_0_738f345503b2ccb4462e1d7db165f74f.uab",
+      "sha256": "a15ede5a0a9fe623c45214d870946af90e55cbfc46ace17f20cf4566c10c0639"
     }
   ]
 }

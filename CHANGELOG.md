@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3846247.0 - 2026-10-29
+
+- **Supporto alla grande espansione Steam 3846247 (Autumn Wonderfest & Halloween Update)**: catalogo aggiornato ad **134.277 chiavi** (+21.859 tra nuove voci e modifiche) con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
+- **Festival delle Meraviglie Autunnale (Autumn Wonderfest)**: tradotti tutti i dialoghi, le sfide, i mini-giochi, le gare di bolle, i raduni, il festival dell'acqua dei Lilipole e Sugarfish e le ricompense del festival.
+- **Speciale Halloween**: tradotti tutti gli eventi a tempo limitato, i dialoghi e le interazioni dell'Aeon Zucca (*Pumpkin Aeon*), decorazioni per l'avamposto e forzieri a tema.
+- **Area camper / Parco camper (RV Park)**: tradotte tutte le funzionalità e le missioni del parco camper (*Sea of Flowers*), potenziamenti delle strutture e spedizioni Aniimo.
+- **Nuove aree, dungeon e creature**: tradotte le missioni delle Cascate Sfioranubi (*Cloudreach Falls*), Gola delle Acque Selvagge, Faglia di Squarciocielo, Villaggio Marespecchio, Prova delle Rapide Impetuose e tutte le nuove creature (Sugartini, Dewple, Ekrim, Jeglid, Lilipole, Popapus, Jeburst, Jabster) e boss Alfa/Omega.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3846247 con 0 fallback.
+
 ## 1.0.3746914.0 - 2026-10-17
 
 - **Supporto alla build Steam 3746914**: piena compatibilità con l'hotfix rilasciato su Steam il 17 ottobre 2026 (aggiornamento formule e dati runtime).
