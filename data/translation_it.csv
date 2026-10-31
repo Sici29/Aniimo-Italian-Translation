@@ -2772,7 +2772,7 @@ Esploratore, raggiungi subito la fenditura. Trova un modo per calmare questo Ani
 330798364,e0c6d9abba33f97a85af19c5ef850f44e06d6194217eb14d86942fd478859218,Sconfiggi l'Alpha Scorchhowl.
 330808224,3aeb028aeea526312ba961c09fb7c85791d14a5fad1e5f34f6a0c5ea05e5c4d4,"I forzieri misteriosi sono sparsi per Idyll. Potrebbero essere bagagli smarriti dai viaggiatori, scorte lasciate dagli Esploratori o tesori sigillati da un'antica civiltà... Tutti aspettano solo di essere trovati e aperti."
 330859272,0e4ad74dd2118cb624346ba649cd740fce5ffa24b3655954954f6fbcdb70f3cd,Voci: La Spina della Tempesta
-330868732,3e7b7f91d546566b289856a2109bcdad70995eb3fbd25c77010d24293a121396,Nuota con i pesci
+330868732,a92f96eb6e9ad6e2e40f4b61e59fc196135f2c3412c29871922351149d805fb9,Viaggia con i pesci.
 330927133,1307eb8c608815f6d734cade82eaa5aa416753ecd79089f30bc9a7288290e19c,I Budsquire stanno facendo un tè?
 330930239,17181acfc3feb7c7a6f69cee7a5f9c2dba9e349cb0394ac56f748b3a8de19b25,"I forzieri misteriosi sono sparsi per Idyll. Potrebbero essere bagagli smarriti dai viaggiatori, scorte lasciate dagli Esploratori o tesori sigillati da un'antica civiltà... Tutti aspettano solo di essere scoperti e aperti."
 330940178,ffca9aa28d50a634f489f2784bc0a94705033dfd2084edd63fc90099f29ff7ac,Questo è un punto ecologico chiave. Modifica la descrizione dettagliata se necessario.
@@ -5067,7 +5067,7 @@ Livello pericolo: medio"
 387395873,1d4e0e4f3718a25ce558bc6c7a067c927ec123612fd4f1fba5180c5e92f097a4,Sfida degli Esploratori
 387430065,25950f7c2957d68758256d392b37cd3c5548bc6457794aec041716d69baf1df4,Raccogli l'energia dispersa dell'Ambra Lumin
 387475390,861515f4b69a68bcd2c23baa6f399a9005a6870cf27a2df8df4d436788ab4504,"Perché l'Helmut si nasconde nel suo Habitat? Perché sono così appassionati del gioco del ""braccio di ferro""?"
-387494356,3e7b7f91d546566b289856a2109bcdad70995eb3fbd25c77010d24293a121396,Nuota con i pesci
+387494356,a92f96eb6e9ad6e2e40f4b61e59fc196135f2c3412c29871922351149d805fb9,Viaggia con i pesci.
 387523892,ed8e80c888388686baf6651abb884bf56eea81ba6e30785cc77900eb42e64376,Elimina i blocchi di gelatina dolce insieme a Itsy.
 387526934,eef51f67214430141d37a80fa1f3ff09ebc4db2168f9b66f3921170dd6af16bc,Un forziere estremamente raro. Potrebbe nascondere qualcosa di prezioso.
 387527749,974554febc38536842ea009ea8e9598de579401e6964c50747de976de792f432,Usa Fuoco per sciogliere il ghiaccio e raggiungi il checkpoint successivo.
@@ -5294,7 +5294,7 @@ Qui puoi <style=Hint_BgL>consegnare le uova</style> o <style=Hint_BgL>lasciare</
 392527539,f4e7f38bb0310917ddb49de8f154192799cd5927c5e083c75ee9046151471456,"Vitalizzati dai Rami, molti Aniimo si radunano qui."
 392545557,3aeb028aeea526312ba961c09fb7c85791d14a5fad1e5f34f6a0c5ea05e5c4d4,"I forzieri misteriosi sono sparsi per Idyll. Potrebbero essere bagagli smarriti dai viaggiatori, scorte lasciate dagli Esploratori o tesori sigillati da un'antica civiltà... Tutti aspettano solo di essere trovati e aperti."
 392567429,1e8f73296e7fc2ad130a45dfe365b876a4517e306bf97c65365a1860338db74c,Cerca Sunia.
-392590842,3e7b7f91d546566b289856a2109bcdad70995eb3fbd25c77010d24293a121396,Nuota con i pesci
+392590842,a92f96eb6e9ad6e2e40f4b61e59fc196135f2c3412c29871922351149d805fb9,Viaggia con i pesci.
 392625760,9c709497a60f5c27d4f92128cd7fca685de8d5313e22d221268664b7329303a6,Semina grano nei tuoi campi agricoli.
 392627980,6b6bf41ddd4a40f79f9270c4f3578d5c2484bf9ec324d652d949d6b4284fb0af,Ambra intrisa di potere Lumin. I rami possono assorbirne l'energia per crescere.
 392632186,01d7e0ea801a1e542ebd7f67435d0e802ca78bd55135ddb2cf1dc4aae1183520,Un forziere estremamente raro: potrebbe nascondere qualcosa di prezioso.
@@ -10559,7 +10559,7 @@ Qui puoi <style=Hint_BgL>consegnare le uova</style> o <style=Hint_BgL>lasciare</
 520626083,73c543b56b0f19501feae2f44563de3f37755b5186288350aaa0a49a85822744,Aiuta Tubster a entrare nella band.
 520630725,85a1765cb3a10393eb6322ffca554919cc6a2761046c2a804564f55a78df2059,Grace spera che tu possa aiutare a trovare il tesoro delle Russet Highlands: il Fiore di Fiamma. Sembra legato alle leggende degli altipiani. <style=Hint_BgL>Vai alle Russet Highlands e completa la missione prerequisito: Guerriero.</style>
 520670461,2b503705c9007cd2ead7830d956bd255392b0a62fdab2e72cce8fddc36c2b5bb,Chiama il Dr. Lewis.
-520710181,bc3cb050545cea52edf8fd0a4bd20798b93805d2436f354a763f3c681d89fbef,Segui Lyrelle.
+520710181,7a0ebe9370c3682b0c889646abdea4358e91b9fd4cd11cc66393a325ff3406e4,Prova a entrare nella bolla e segui Lyrelle.
 520718664,17181acfc3feb7c7a6f69cee7a5f9c2dba9e349cb0394ac56f748b3a8de19b25,"I forzieri misteriosi sono sparsi per Idyll. Potrebbero essere bagagli smarriti dai viaggiatori, scorte lasciate dagli Esploratori o tesori sigillati da un'antica civiltà... Tutti aspettano solo di essere scoperti e aperti."
 520729163,3aeb028aeea526312ba961c09fb7c85791d14a5fad1e5f34f6a0c5ea05e5c4d4,"I forzieri misteriosi sono sparsi per Idyll. Potrebbero essere bagagli smarriti dai viaggiatori, scorte lasciate dagli Esploratori o tesori sigillati da un'antica civiltà... Tutti aspettano solo di essere trovati e aperti."
 520751323,f4e7f38bb0310917ddb49de8f154192799cd5927c5e083c75ee9046151471456,"Vitalizzati dai Rami, molti Aniimo si radunano qui."
@@ -11803,7 +11803,6 @@ Hai ottenuto la certificazione di Allenamento Avanzato, passando da miglior dipl
 1078288768,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1078289899,1f61e9cdfd745eb0c9912986dd7a3145a340e01454636e6236fbfb53345f19f8,Visualizza Esploratore
 1078290587,33e50361afd0146a64026efd367536ea43daee73263cb8e061e03f4f5de1f7d9,Porta il camper al livello 11.
-1078292740,8354dca2b06e60d960123bd4de0195c3f230b2bab2f58dff2034422cf9f17402,Seta specchiata
 1078302036,c763790dd4dc441d76d9137c83c0e75c9495040abd7759cc84406f272e792bd8,Piagnucolone
 1078305588,921594bd87417697e8b0c196e6008ee1cbc79e9c410834753159dbe86244c5e0,"Ehi! Aspetta, aspetta! Dr. Lewis ha un messaggio per te.
 Ha creato un nuovo piano di <style=Hint_BgD>Allenamento Elite</style>, quindi non dimenticare di controllarlo!"
@@ -12268,7 +12267,7 @@ specie di Aniimo (Segnaposto) Sul pianeta Idyll puoi catturare diversi Aniimo ed
 Va bene, allora dovrò dare il massimo anch’io!"
 1082162409,e2f0cafd12c71bae7b36e25ebe2616a660fc9ef09b088723b7299b41c8a45282,Capitolo delle maree e del canto lontano
 1082188564,b1a96dd646bccaa24cef7a3db22a6f995f05658f4f1c3272913e258c03e6fb24,Alpha
-1082193088,4664827f8e89019280ba99cd889f9ea31eaeecf6fc1bb7541c4a0e546685599f,Avanzamento
+1082193088,c1925c68737205641d442f33b16839148b8b589c86d9bcd7df871bb0af54c861,Avanzamento 
 1082196808,a5e86586c24e0f2274220bb3c86b25e07fde77caa04448cf10f47d2f08604f70,Traccia Alpha
 1082202680,72d952729cfdd07d573fedb78a5837771bd14bf099c39b6eaaeb129eb8aca228,Stato Rimbalzo
 1082203773,b45196b1d897842f905f7e83fe6fa45b0d87cacbaa15031097addcdf6773cfd9,Cubby
@@ -12766,7 +12765,7 @@ Poi potrai scambiarlo con dei mobili. Tutto qui."
 1086370057,abfa8a32e3678aa9727c47f55c9adfec0ddbce4b8d1799fbc012927f4f2567f8,Sedia Regolabile
 1086372579,79614a8515eb91b6cc0780dfa27966716fb02dec469a9fb960caaa24c1eed619,Uovo Panpanta Prismana
 1086372750,ea38643a3921547cf4a1fcb6e86d27ff8fdd70a0d27c7fa6ca1eeffa65cbf125,Raggiungi il grado Rising Egg Scout in Operazione: Furto d'Uova
-1086376740,49126d5a9fc488e32591f44703de74b06f81fc216e36ad30392af4d64a33277a,Completa la Storia richiesta
+1086376740,6ceeedda7da87210d990b4a93325906c3abd2097899648de3331df41dcb80f02,Completa la storia richiesta
 1086379433,f1ef7b95490d3cd2c5b382221c6e6c632afbd5eb97076b924e3325679938c4be,"Bene, ecco la domanda del test"
 1086382757,c0f22bffbe19af425a8d79d73a449ca5847f0bb3a12e74351a56127345911de7,Forziere di Legno Usurato
 1086404994,4712b5e16db79a1a0908442784245168e8763206e744dba2b1847236979e04c0,"<style=Hint_BgD>Ecco perché ce ne sono tanti come me a proteggere la casa degli Helmut, vero?</style>"
@@ -12780,7 +12779,7 @@ Poi potrai scambiarlo con dei mobili. Tutto qui."
 1086476061,614007df151f13614f68d4f41ed04aaa429af80b8fd6801ab3c9960784b80735,"La direzione del vento non è ancora cambiata. Quando avrai ottenuto il titolo di <style=Hint_BgD>Pioniere di Grado I</style>, l'esperimento procederà senz'altro molto meglio!"
 1086486532,2ca767f3ea486c083f5161cb86e849d63c54fdfa5f1044e5ecb9016d21cb0d06,Gusto
 1086506009,44f487eb4975e35a2648df8d10850e804e9a891a59f6a02520c16ac50f775b59,Dettagli oggetto oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli oggetto dettagli (segnaposto)
-1086509794,f3b3b89b411ffb2c1b34f15a56d8092b46945f4111034e3723c529eac2d639d8,Argomento di ricerca
+1086509794,7e61847d61d65d9e3ac15c6281f7bfe0d80b8d79d3b53125e9fc2bfc25bb81e8,Argomento
 1086514569,308f675d6b369afe75ed694a018715a8f92598f05fe63b7400cd229a3ea8a3f7,"Ehm... c'è una cosa che vorrei chiederti. Cioè, ehm, chiedo per un amico! Questo mio amico è... beh... è proprio stupido. Non ne fa una giusta. Proprio come me."
 1086526717,58fb51b7eb5425755021c67bf76ae8ce9cfb998c8aa1f5260b3699c0612088e0,Studente di Grado II
 1086549948,52ea2bc7f787e6a3702e199b092a4813165a7f293556adf26c8f1081aab75625,Ciglia 4
@@ -12810,7 +12809,7 @@ No, no, no! Ho perso BINI e Nicole!"
 1086752883,bd9472419c6d5cfa44bc9ac5d9b7dabe2ae66734791edc4fc7d3ec3b583f4638,Importo ricarica ≤ {0}
 1086754138,bc8426b23287e9d0e6c63f66c1f63305cd2457a79dfab8a4666adedb74f03629,"Diventare un Icho è il nostro sogno dal giorno in cui nasciamo.
 Non so nemmeno perché... Forse perché desideriamo tutti fiamme potenti."
-1086770762,eb57636b5c04a1d1f01795a618cae260d7b5f1e8e1a9dec2fbefae9246cfa0c4,Buono doppio consumo
+1086770762,5a27034d19b929547f9676e6a28e533462912846f31b6583527a1560a1d42e62,Biglietto a costo doppio
 1086782965,a578ffd2048d5294a3b7de1555132c34e08fb0862825af4d61cee9e599522a20,"<style=Hint_BgD>Aniipod Ultra</style>: un modello di Aniipod estremamente raro e simbolo dello spirito dei campioni, con prestazioni eccellenti sotto ogni aspetto. Garantisce una cattura riuscita."
 1086783332,83feda83d88cc8975ce4cf859af756b4b5b3f75db31a41970ba4946add70bb47,Aster
 1086786953,4664827f8e89019280ba99cd889f9ea31eaeecf6fc1bb7541c4a0e546685599f,Avanzamento
@@ -14815,7 +14814,7 @@ Fu allora che un Helmwhelp si precipitò sulla vetta e, resistendo al dolore del
 Le montagne ritrovarono la pace, ma il suo corpo, arso dal fuoco, divenne rosso sangue. Da quel momento fu in grado di sputare fiamme ruggenti: si era trasformato nel leggendario Infergon."
 1103618608,2c5a275654c4ee73eb98a16a0818576d202ab68c60a689ac4709fb93d46664d0,"Aspetta, lascia perdere tutto questo per ora. C'è una cosa che devo chiederti. Si tratta di—"
 1103623014,72e1f6303c0726a33b0911b4dc5bc8085dc4544730744d16657b91937df8c2fa,"Ehm, è quella la parte su cui ti stai concentrando...?"
-1103626657,0717f86d615912ed145ad7309a0e3d30987ab40baf0589028cf08b261257abc4,Già accettato
+1103626657,78afbf5596df8abe46188614b355072c3f48ec5ac683f7af6992ec8c4132a0ff,Già accettata
 1103632462,014c398d26ca282e91faa55a902b05692de4280a03f027558cb6c9f03b901895,Segnaposto Pulsante
 1103637053,05bf0ca8d508d720ce701d5f203019479cac11cd92f62882161ef4712dcc12c0,Qualcuno di nuovo! Non ci siamo mai visti!
 1103666637,2c6dc89cee890d7d0219cc7766a460206237748bc9f910a55036447554e79867,Uovo di Aniimo Umbrale
@@ -17257,7 +17256,7 @@ Un uovo di Aniimo nato da un fiore.
 I colori Prismana si rincorrono sul guscio, e un dolce profumo floreale si leva quando lo avvicini.
 ""Che tipo di Aniimo ne nascerà?"""
 1124035275,74fe21a35f0384a06d726365ed51b26796d22d47c67e80b7f5f9ac3cfad28efd,Sembra una truffa telefonica dell’antichità...
-1124036188,4dd382c051256b8c444e7927e3ada515f73913328a26f45806c052bafeb6312c,"Attivare la Sincronia KCP può ridurre la latenza durante le fluttuazioni di rete, ma potrebbe aumentare il consumo di dati."
+1124036188,9600b4e7da0984951a692770149a6383229d36a87de7b06152b81e8eec64aa95,"Attivare una connessione KCP può ridurre gli scatti durante le fluttuazioni di rete, ma potrebbe aumentare il consumo di dati."
 1124039213,84cadc2374666c3a0a74b436d46cff07bb53799cd903c82c5e2aed857305e8b9,Bau! Bau!
 1124063015,40acaa498dc0e55c280367ba97e3877b4473d0554accbeeda992525fbfba6b75,Sunia
 1124075160,3c2bf120ec7f7e8da85d01cd3d94915716739b91c54d291fdba4e830afdd0255,Battaglia ad Alta Difficoltà
@@ -18164,7 +18163,7 @@ Rimodellare la terra è davvero un compito faticoso, e io mi prenderò il giorno
 1131176754,0b244655082c1e10cd569b77fca060d83602d9130f6d92bb9fffad3c42573ce3,Nessun <color=<color=<sprite name=000>0FF>8F56B>SSSS</color>risultato</color>
 1131182412,2996f8aac3ec70fb5abe0487eecf4e61082431c0aef631aff1015aa662c0de7f,"Questo Prisma ancestrale... no, il ""Nucleo"". Ha appena assorbito... l'<style=Hint_BgD>acqua</style> all'interno?"
 1131196057,4ebce4385391d12bd32ee15e1a8f4cb56aea1304053a46051af77ff5d6a50d62,Uovo Dreaple Perfetto
-1131197568,fbf255d93f0fbe579112027c31fc00a67f565375a523187573e4715f6d2f87d4,Punti personali cumulativi di co-costruzione
+1131197568,71d60dd13a3b258ccc026915af668377ab55a5bb555810b8195a3ef60fde0e9d,Punti personali cumulativi di co-costruzione
 1131225355,e996adab7f9878abc4f90f64da254ce13fb202b670c5ec681f67ae475278d046,Iris dei sogni?
 1131226277,0e0bbd066fcd5c654d4140152907753fd01a57605548e2c585e2c951df02fcb6,"A proposito, dopo la caduta della formica, ho scoperto che le Liane sono avvolte intorno ai pilastri di pietra e che l'intensità dei Campi di Vento sopra è diminuita. Sarebbe fantastico se potessimo rimuovere le Liane..."
 1131229830,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
@@ -18444,7 +18443,7 @@ Dovremmo prima prepararci!"
 1133252226,53496a142d475b388998c2f91f7ecd9aa42fdebdb2f794f06477b6e74532cba9,Ripara la Matrice - Finale
 1133254003,3c2bf120ec7f7e8da85d01cd3d94915716739b91c54d291fdba4e830afdd0255,Battaglia ad Alta Difficoltà
 1133260217,bd6a6cf2a4c6904b71ba7277acc95bbb02b516d02ad962054670e98465321e69,"Una pagina mancante da una nota di ricerca sui Fiori Agrodolci e sull'ecosistema di Driftwise Meadow. Il proprietario è Sayn, ricercatore Aniimo."
-1133267933,2e4aaf05df1cbfb30a89bd189df147c7e70f2f46a698a95336b344c0ecb79041,Extra
+1133267933,d587622d277c4be4a2ed692b5a52d550abf0d9e19adb40469bb837462084dcdd,Bonus
 1133268103,f6ac38e9382cd12f5ff718dcb6650e4a8bc4a3200b8b2b0f4814089ade30a4dc,"Ultimamente stai andando benissimo. L'Addestramento Elite procede alla grande.
 L'Istituto ha alcune ricompense per te. Passa da me all'Avamposto quando hai un momento."
 1133280848,c373928ce8f0294ad8742716b64ce2101a7411ca24c2589055f420f1a7ea1f37,Le racconti la storia della fioritura agrodolce...
@@ -19064,7 +19063,7 @@ Con i chip installati, <style=Hint_BgL>aumenta leggermente i danni e la capacit�
 1138480725,47869ceb398914d22c6b2c28a514849b81f51858672da8af0e3152697d152b9a,Preparativi cerimonia
 1138485100,474f4c762521cbb45075cdc961c1e65d660117e5f2c4fb23fd32f89b6a9a2593,"Saltare il filmato ""Un'isola sconosciuta""?"
 1138490533,b6f6f3ad07b3c05fa0bbbbf2e3d257ff1e3e31a83efbe2c9369cd008594f94e0,Imposta
-1138496616,6588ce6c98bc6c3c8a440274c786ead458a9f703689d009b27164e91d727360b,Ricompense doppie
+1138496616,a652534519300045f1632f40505694fb0c107efcc325c820c774d26c916ba4b1,Riscatta ricompense doppie
 1138505753,677a5b94a09e3d05176d97d7ba9531aabe7c6595a26ce2992dab7959df44a3a0,Quadro Momenti di Intimità
 1138531614,9e8a28606f2a12546580dcca58d098d028f3e9d22f6866cf8eebb0f1b5dd9722,Materiale di risonanza esclusivo per la famiglia Wisptis.
 1138534631,b0bccd0b1a3e53c729adc4f383c87a96f73a330e3bd649e4d61ad3f42e671b02,Hummin Peculiare
@@ -21047,7 +21046,7 @@ anni, o quanti guerrieri, siano serviti per formare la <style=Hint_BgD>Thousand-
 1154626663,25820e1c2d84bbb13f2afaaed068a028e040aaeffe00245e73faee6d4394a103,"Quando hai un bersaglio agganciato, premi #kCatch/Focus#z per passare a un altro bersaglio!"
 1154634749,853548c09d57a29364e0968c05988ba73d36bbcd2ed02f6e04398a8380fe0e4e,"Ogni giorno spero in un miracolo, ma non succede mai nulla. Quando toccherà a me?"
 1154640193,fb72497ef2623969069c217f9a69e53240b6556219a75646170b5eff051181d4,"Si dice che il <style=Hint_BgD>Miele Dorato</style> abbia poteri magici capaci di e-esaudire... il desiderio più profondo del tuo cuore! Molto tempo fa, gli umani viaggiavano persino da terre l-lontane fino a quest'isola per chiedere aiuto ai Royalby!"
-1154658381,7086b6512622dc2dc43e043d1d1a71b1db67ba25f284a37b6a725643cf095a6a,Una pesante porta rettangolare in legno che delimita la stanza con una barriera solida e ben definita.
+1154658381,e519ae490c0cc549746918d5543c4304e26a5d902d89a1909d0620d5c1b9bcc1,"Una porta in legno ad arco arrotondato, che veglia con dolcezza su ogni partenza e ritorno."
 1154668617,b7145b2b68638b989b75239a0d4b61c1f6fb4a2733bc738b64fe97310ecbf396,Peperoncino Luna Crescente Gigante
 1154674329,a2b03f456ab1c685f9b1910a3a9a0b337be3fd401061a5cb7ca7d081c50669a3,"Ah, mi piace come suona. La userò come slogan di GoGoHomes il mese prossimo!"
 1154678189,7bd9623de8f72c9f13db5e97cddbce75ff440a3fd88aa3611ce1da45d3b90a7c,Sogno
@@ -21544,7 +21543,7 @@ Insomma, è solo una decorazione, no? Non ha nessun potere particolare..."
 1158629135,5a19e579a658a094a0eb06dc59556673ab26bdb8ece0f97fe211279c133515c8,Un tappeto per la tua Base.
 1158639628,40acaa498dc0e55c280367ba97e3877b4473d0554accbeeda992525fbfba6b75,Sunia
 1158654718,8cb8d6a5b7c972ad8557416121363052a28150337f83df29b535c11661098520,Braccio Destro
-1158658491,1c484268a79c0ff2c9d8536a470dd20ad0d3578d157f9bb55633978ca4e9a5ac,"Scatta vicino al bersaglio e sferra una serie di affondi, applicando il <style=Hint_BgL><customRichText(calcData,buff, 2122303,param0,1,%d)>%</style> di Amplificazione danni per <style=Hint_BgL><customRichText(calcData,ability,12230300,param2,1)></style> s. Se lanciata nello stato di <style=Hint_BgL><link=""source_8280""><u>[Esplosione elastica]</u></link></style>, l'Amplificazione danni aumenta del <style=Hint_BgL><customRichText(calcData,buff, 2122304,param0,1,%d)>%</style>."
+1158658491,e99678141106300481798f9fbc677de6c441a2e344832ceb08e8dbba7f9e5fba,"Scatta vicino al bersaglio e attacca con una rapida serie di affondi. Usarla mentre <style=Hint_BgL><link=""source_8280""><u>[Esplosione elastica]</u></link></style> è attiva aumenta i danni inflitti da chi la usa del <style=Hint_BgL><customRichText(calcData,buff, 2122304,param0,1,%d)>%</style> per <style=Hint_BgL><customRichText(calcData,ability,12230300,param2,1)></style> s."
 1158658596,47184a18b7f6d4b48b0fd546b23d868b338a5841ff99ee251a6c1056989f2fa4,Elettrizzante
 1158666341,dccb4df1570ec19e714488dfcb5d1dc932f376e3aa82288bc8e12b772ff5691b,Apri Mappa
 1158668131,c72058e7a698377c74a8b61fd1d3ab36bfa6a042ecd743caada778aac58ff211,Usa Suprema
@@ -21808,7 +21807,7 @@ Ora viene l'esame teorico, che verterà sul tuo addestramento elite."
 1160826984,52978d34e6fe79862d09814e6fcff35d618a1ba778f49d48647e67447e47c158,Oggi ho trovato il mio! Sono al settimo cielo!
 1160831506,ea84561ec6cfbc9a8b30f3798e51131f057cc3e01c0566824dfab9785de5601c,Di che cosa sta parlando questo tizio?
 1160851235,f579982fa4435d0566164792d44959e8b5c3726e3a3afc2141d43112ad15b18a,Sul guscio color crema compaiono lievi strisce verdi. Il seme piatto cresce in frutti gialli luminosi e pieni.
-1160851856,28f5e72a1c147a73beae0667d7cb00fe87abd87185921a494d00a6f7f64d952d,Oggetti insufficienti
+1160851856,baa0bba8a826024c460dbc7d867107c3073bdf1b294cdc192bacf4a46f295c48,Oggetti insufficienti
 1160862855,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1160897788,f363457853295b2f59dce41cb1eed1120a009a82294c299acfb523082621a072,Si sblocca con il Rilevatore di risorse liv. 10
 1160916204,f4bb416662eb49e209d22c2857f409c94e60507356bf563cc5612e1745faff8a,Profumeria
@@ -22661,7 +22660,7 @@ a tornare a quattro zampe nella tua tana!"
 1167358885,463ee149b7adea9d6916c99b22e7a78d442c0d4d290e97b11c70e8ec9e0c71ac,"Se hai finito di mangiare, cominciamo!"
 1167361263,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
 1167362496,eef24d88ff6a501897dbee95e386ac70a96cfdc4525f1e840512450256e17da0,Interruttore SSAO
-1167369090,b89a51a7fd5c44c6d4517f93e7c8fd782ee5f53024b9e77384ec4fea93c9c726,"BREAK +10%. Se il Potenziale Acquisito BREAK supera 15 punti, l'effetto raddoppia."
+1167369090,2f4da1448969e15467b55e5e01aba80a00aa46d64d05353297d2c9bf9046b0ed,BREAK +10%. Questo effetto raddoppia se il Potenziale BREAK supera 15 punti.
 1167379961,e8d9cd1da6ecaf8926b2ebaec41f9d09bcf91417ddc6411b2a24f4e4d2b6be25,Arredo Test N. 12
 1167396396,b57505bbd148fd371eade615f95aff341c5b2dc74dc3c2e59b0e943a0a4512ae,Buongiorno! Oggi continuiamo con l'arrampicata!
 1167421493,36d58f3920075bd0a4f6c05a34085436cce042300340176c7275db8930842a39,In fondo... È sotto il mare? O sotto il Pilastro della Marea...?
@@ -22934,12 +22933,13 @@ Naturalmente il Preside Oswen non conta!"
 1169521423,c081b8b1a437cce14818b1a49f01e7ae37b62d5e1a48ee725013b99e03fea365,Morbide onde di luce riflettono il luccichio del mare.
 1169529382,38bc9e86c3fadce92db981afd3f27348abd9c6f22f5d954c947a1106361f468e,Zampa Anteriore Destra
 1169539771,e158787c3671046f4428680491a1756ea1c0c59d21603d9f7c58f559971caebd,Jett
-1169560313,918662fb3c4c15d0e312dc75a3294c613235d9a9554ca9e1d3fa377aea06fe87,"Nel sistema <style=Hint_BgL>Risveglio Capacità</style>, puoi consumare Polvere stellare e altri oggetti per <style=Hint_BgL>aumentare</style> il <style=Hint_BgL>Potenziale Acquisito</style> di un Aniimo per l’attributo scelto.
+1169560313,3130269ca9cfca90251023942f3c6cbf0884acab275eea4b7c5e92793c76f3eb,"Gli Aniimo possono sottoporsi al <style=Hint_BgL>Risveglio Capacità</style> consumando oggetti come la Polvere stellare per <style=Hint_BgL>aumentare</style> il <style=Hint_BgL>Potenziale Acquisito</style> degli attributi selezionati.
 1. Ognuno dei sei attributi di un Aniimo possiede un [Potenziale Innato] e un [Potenziale Acquisito].
-Il <style=Hint_BgL>[Potenziale Innato]</style> viene stabilito alla nascita e può essere aumentato solo con metodi speciali, come i Capafruit.
-Il <style=Hint_BgL>[Potenziale Acquisito]</style> può essere aumentato tramite il Risveglio Capacità. Gli aumenti successivi richiedono più oggetti e di rarità maggiore.
-La <style=Hint_BgL>somma di Potenziale Innato e Potenziale Acquisito</style> non può superare <style=Hint_BgL>20</style>. Più alto è il Potenziale, maggiore sarà l’aumento dell’attributo quando l’Aniimo sale di livello.
-2. Puoi aumentare il numero di Risvegli Capacità disponibili per un Aniimo raggiungendo determinati Gradi Stella di Risonanza e aumentando il suo livello."
+Il <style=Hint_BgL>[Potenziale Innato]</style> viene determinato alla nascita e può essere aumentato solo tramite metodi speciali, come i Capafruit.
+Il <style=Hint_BgL>[Potenziale Acquisito]</style> può essere aumentato tramite il Risveglio Capacità. Più volte viene aumentato, più numerosi e rari saranno gli oggetti richiesti.
+Tuttavia, <style=Hint_BgL>la somma di Potenziale Innato e Potenziale Acquisito</style> non può superare <style=Hint_BgL>20</style>. Un Potenziale più elevato fa sì che l'attributo corrispondente aumenti maggiormente quando l'Aniimo sale di livello.
+2. Far salire di livello un Aniimo o raggiungere determinati Gradi Stella di Risonanza conferisce tentativi aggiuntivi di Risveglio Capacità.
+3. Gli Aniimo di livello 60 o superiore possono anche azzerare il [Risveglio Capacità]. Oltre al costo base in Crediti, l'azzeramento richiede un numero di [Carte azzeramento potenziale] pari al numero di [Essenze di cristallostella] precedentemente investite in quell'Aniimo. Per incoraggiare a provare più combinazioni di Aniimo, l'Istituto abbuonerà il costo di 15 [Carte azzeramento potenziale] per ogni azzeramento. Se sono state investite al massimo 15 [Essenze di cristallostella] in totale, basterà spendere solo Crediti per azzerare."
 1169577393,3f0aafa12deb044f793e1680167b715bc81d3a1d5630c2f292687c85a4a1cd31,Possiedi un Aniimo Elite.
 1169585106,84525fd93d191a4e9ecbcdd36347b052c7d9286402aa5442929a00b6036c8c7e,Heee-ho!
 1169608037,26eae8ee823515f73a41cf197fb6f0d8623f22c9533d59915eb4c666d28ac8d2,Allenatore
@@ -25226,7 +25226,7 @@ Non è solo una questione di colore. Alcune parti del loro corpo cambiano, e lo 
 1188555214,f6f13d1bf5b9ef98a4166dd34629e1e44ae34ad5568c043e7d80576f566fb925,Progetto arredo · Notte meravigliosa · Nuvola di zucchero
 1188556947,497a955a72b46865a25b48207c091cbe28f2b766c76336f38976fa47bb12e569,Aven
 1188560191,64bd04423e3ae5537f52e6a1fd5e40cd0dbbbf6816a171b451ec33b9e070403a,Raggiungi il grado Prismatico nel livello di ricerca di Baleetle
-1188577135,3f595fa5caba6cc110e1c36adeee106d7dbae93ee0a05c29c211499aaa121193,"Un arco in legno dalle curve dolci, che veglia su ogni partenza e ogni ritorno."
+1188577135,625cc7ffa51cd078ac706983c62e1a3212b162bd768e5ce8177a5e9b9ba74e60,"Una porta in legno a punta, la cui silhouette fiera ed eretta conferisce alla casa un forte senso di appartenenza."
 1188584293,893ad723a2c423002d95299c4bdba13a0610cdd09b235ba0c849821a6a98d9cc,"Una colonna decorativa in robusto legno d'acero, solida e durevole."
 1188585065,c05896659555b9bccd4e21827f284ad737204ab7f3f37f4c862e0f41fbd631e3,"Nel suo sogno, questa umana desiderava il colore."
 1188587179,dccb4df1570ec19e714488dfcb5d1dc932f376e3aa82288bc8e12b772ff5691b,Apri Mappa
@@ -26875,7 +26875,7 @@ In profumeria, è servito a creare Desiderio Dorato."
 1202967867,ff0d4e9e85a8845dd721f56c8ccdf213324165f80b3810a98bf3b3f51dc44c6b,Sblocca Distintivo - Cercatore nella nebbia
 1202972158,92adb085276ab477a559f50cb48d5a44304fc7b2c832be481e73ba0bc286e0c7,Tornerai?
 1202980311,01a561166983f0ded07fc0547cff1a442cb6d7d52e7b36c6a8687d819d20273a,"Ogni volta che un membro della Squadra infligge uno Stato Anomalo al bersaglio, accumula una carica di Cura Flutter."
-1202986155,833de2c466cc30e2f39b918415901e47aa4726e0d5ef02ac57365a2ac35d45ee,"Trovi un grande stagno con spazio a sufficienza sia per i Lilipole che per i Sugarfish, proprio accanto alla pozza dove Kiki e i suoi amici mettono in scena i loro spettacoli di gorgoglii. Itsy ti chiede di andare a parlarne con Kiki mentre lui aspetta qui novità."
+1202986155,412209659e29e4d41886ec34f558496fe4478e8c7e01743b690b1fef12a8bb30,Hai trovato un grande stagno con spazio sufficiente affinché Lilipole e Sugarfish possano giocare in acqua insieme. La pozza dove Kiki e i suoi amici mettono in scena i loro spettacoli di gorgoglii si trova proprio nelle vicinanze. Itsy ha intenzione di andare a parlarne con Kiki e ti chiede di aspettare qui sue notizie.
 1203000456,089e5aa0de4e0c665163f85ecd508bb37a64da55b6f4d09885a55e41e5106600,Porta il camper al livello 9.
 1203004058,cbd8a1ceb9f28095d69d2005af27821bfa3a8bf5326e55b2457027974fdf223e,Dicono che ci siano tesori nascosti anche tra le nuvole. Meglio salire lassù e dare un'occhiata!
 1203004977,d6bd9afcd54c17cd055148b3bc425710d4628b73959adf0ad0a5206a74b83c69,"C'è un desiderio che vuoi realizzare, vero?
@@ -29417,7 +29417,7 @@ Speriamo che tu ottenga l'Aniimo che desideri. Lumintech non vede l'ora di colla
 1223622783,a93271b0f1a939e9d01523dff65b7dc84d50ae7470147ac8bee3792e8cb79cd5,Ah... credo di non esserti stato davvero d'aiuto...
 1223624061,e00be094adf3a97f63bcba5dc428fff8ee9b83a2e9374c1a907fa48b8245cd28,Il Viaggio di Fiori e Farfalle
 1223624515,c4dc542b511fd74f401665a02dd5a20cf41cebd16daa6a7f78ddfbcce88239fe,Che è successo?
-1223639836,c10635afedd54a3bac4c6f5b302a067e6d8eb9ca3bf3635e9551edb5a9ab4bfa,Aiuta i Lilipole a ripulire la gelatina dolce!
+1223639836,db26e78a79c5755a5bf5bcac4887387e739160d06e8f0ea5f8f1291ca5dfff33,Aiuta i Lilipole a rimuovere i blocchi di gelatina dolce!
 1223664959,16c0760014b5631887acb46c261d44599b3817d6f26f6a265e0e2bf5c30cbfe9,"Sa badare a se stessa benissimo, e si occupa perfino di me!"
 1223669219,c0fc52979df50b0b4c522045ea89c1a139a5676eb4847961d7c6f30e7956901e,Sembra che io sia un po' in ritardo?
 1223671955,879c62166f3c74cb52417437f030f089244795fa57c8bb72cd6be2c2a7ebc8d1,Nessun outfit selezionato per la tintura.
@@ -29591,7 +29591,7 @@ Credo che un giorno riporteremo Helion indietro."
 1225032329,2160558e8649e30c392fc7a66c97792445f705a6e79dd691d0bac49247bc71b8,BINI #9
 1225039383,def7da97cf1086badca92f28e3ae78e9a9be7c1c073e814179283ac1113148bc,"Meno male, meno male. È tutta colpa mia, ho aggiunto troppe Scaglie di Somniwing alla spezia...
 Volevo darle un tocco scintillante, ma si è trasformata in un caso di ipnosi di massa..."
-1225052041,f3b3b89b411ffb2c1b34f15a56d8092b46945f4111034e3723c529eac2d639d8,Argomento di ricerca
+1225052041,7e61847d61d65d9e3ac15c6281f7bfe0d80b8d79d3b53125e9fc2bfc25bb81e8,Argomento
 1225054686,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
 1225055884,9142b6d68029399ea8461a92f8123282303990fb0385245c787fa553d0c82243,Sincronizzati
 1225062832,66c5f75d63749fe533ccdac549797cd92fd354a50b1b9a053694724e199752bf,Protos
@@ -31493,7 +31493,7 @@ ugualmente timidi e ugualmente valorosi."
 1240951544,226bb92e7567ddbb56c95769ab71cc16be3b0110c1bece077aca4c188705b1b4,Gli Esploratori possono teletrasportarsi da qui.
 1240952550,99762dc7a4fc121044dc615654b5d3dedefc99403a2dc728901a1993476ea15d,Testo Segnaposto
 1240962186,ade165f6c32ea7bc6e26f100ea4937fe2a8277a888df4389a06fafbd40e700f2,Guardia Balistica
-1240962729,faded229217ca2ef2542aeb99b9fd379ce44ebd541adac114496339e99597e5e,"Lancia Pennywisp per assistere un alleato per <style=Hint_BgL><customRichText(buffConfigData,2163303,duration)></style> s. Durante questo tempo, applica <style=Hint_BgL><link=""source_8291""><u>[Marchio di Pennywisp]</u></link></style> all'ultimo bersaglio attaccato dalla tua squadra e, finché il <style=Hint_BgL><link=""source_8291""><u>[Marchio di Pennywisp]</u></link></style> è attivo, recupera inoltre <style=Hint_BgL><customRichText(calcData,buff, 2163301,param1,1)></style> di Energia al secondo."
+1240962729,0341ad87b37e9c22ad90802314db479693e7912c99496fe70fab94564b62c5e3,"Lancia un Pennywisp per assistere i membri della squadra per <style=Hint_BgL><customRichText(buffConfigData,2163303,duration)></style> s. Durante questo tempo, applica il <style=Hint_BgL><link=""source_8291""><u>[Marchio di Pennywisp]</u></link></style> all'ultimo bersaglio attaccato dalla squadra e fa sì che il <style=Hint_BgL><link=""source_8291""><u>[Marchio di Pennywisp]</u></link></style> ripristini a chi lo usa <style=Hint_BgL><customRichText(calcData,buff, 2163301,param4,1)></style> di Energia extra ogni secondo."
 1240966651,a0d25245ed4aa5216c19b05de907722ee9e64e2d1a029f2712b5e68aa12a0bfa,Contenuto Filtro (Segnaposto)
 1240967620,160cde243db1ed0dca3958f4615879cd7a6c866a37be4ca59a851437e4acd6bb,Umpf!
 1240970620,1c61d5ee62f55d03faff8920fc9f135e7fb3b019107360c27b44dfb4764620a1,Magari la prossima volta.
@@ -31673,7 +31673,8 @@ Icho sa che la fiamma non si spegnerà mai. E non arderà soltanto a Thousand-Fa
 1242111147,c4aa0d8d6e578aa3796ab0b05a2faae03442b3610d761cd4297eeaa1376965c4,Seleziona la scheda [<style=Hint_BgL>Cibo</style>].
 1242121053,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1242129422,688eb4cbe80c0124987cd5459382aeb385521f6d3ac628708be418e0cebb61d0,"...Quindi parlare non è servito. Per difendere la pace, dovrò ricorrere a un approccio più convincente..."
-1242150346,03c369555ceab0b85d6c786d7c7fe9e285c97513bcbdab80b4f944d2700ed42d,Sposta in blocco {0} Aniimo
+1242150346,9255b7e0ad70ed8fa9ea432adad22d914f19e49f4a69ce9d1f11a4652757a88d,"Deposita in blocco
+{0} Aniimo"
 1242173284,c317808285cb743dee31d6b335929373d0c9663aade817c5cefb5db407237ca9,Risultato ricerca: {0} ({1})
 1242173764,f78bebf2440692091456f22163be9444f5141bb202719ba05b10698a6037fdb2,Bilibili
 1242178294,a231e76b06e77b2a297669ac19c266bdfcf3fa5a3dd3e2166d2d4c891c75d8e2,"#playerName#! Hai raccolto l'essenza profumata? Vieni, ti spiego i passaggi della Profumeria."
@@ -32840,7 +32841,7 @@ Le persone di Bloomville che lo portano con sé riceveranno la Benedizione dell'
 1251599608,30710d568ed2475a0e40e6a1af725150243f4a081c958a7d40d44d12cfe514f8,Il bersaglio è salito di livello
 1251632386,23abf63add0c512157dc1813b789b9a8634084d414b6d4d16891c7ffca7f6e24,Ti hanno rimosso dalla stanza chat vocale.
 1251640415,2299ca4b09752d816e615dc46a673db15d3188c7b9d19bad3caed3b8efa13bd6,Evento Controllabile
-1251648320,1374bb5c415952874c00085634eb35234ce2849d45e005058d5b1c69395a6ea2,Olio solare
+1251648320,f07a7222a4812966f516e5e2c2216ca2d5db7ad207417a3c15c4800a22973382,Crema solare
 1251654036,f90f5bb18d338be9296845975fb72f13bb4bc19183eec2d2e4b7d8b524542266,Premi X.
 1251654252,3d77e75252deb95a01c19b4ca0b46107c8217efa6ebc4a782d71297205a5bf67,Trova Aster
 1251676415,dee34abddb79331176c24333d20e6f7b759416167c0e0fa4040f23d906c11ad9,Continua per ereditare
@@ -32880,7 +32881,7 @@ Le persone di Bloomville che lo portano con sé riceveranno la Benedizione dell'
 1251909612,d9852d1b6fe108d4cd00e48b3c19e3a5c6da4473e4b2e85c0372c7789f32994b,Fungo Blu
 1251915633,51ce260372a573a977a0fcf275f3a9ccbc3144ae99d59dd8a58d4ab5964c20b7,Posizione predefinita:
 1251918337,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
-1251919333,f8d40434512ee15e79520916abe7b0dea8ce244744d876caa12f85abcd4bc859,Ricompense collezione distintivi d'argento dell'area Isole Mormoronda
+1251919333,640959599c13f62820d33f4e0e02e681855ce38fde8fef5c863f3b8a3b0c6ffa,Ricompensa per la raccolta dei Distintivi d'argento nelle regioni delle Isole Sussurromarea
 1251925632,e0bbba527a8f15c005c62150f2bff767ce2ef080b08f4f44a589e797648239aa,Arredo Test N. 17
 1251944128,225d29f6201e1a635684a6dc0e7a65d164c7ffe48588a421fc27b067a55bb02e,Ascolta
 1251962746,a0f9c11e1e33e52f98081f56c11f30dfd060c08bc2e615895b3e63729e32040f,Cozite Borbottante
@@ -33504,10 +33505,10 @@ Grazie ancora."
 1257461013,a3a59090e15421d3f8144ebacaac5e1e85d8f4454c1be49316d4b79894d948e1,"Sai una cosa? Poco dopo esserci separati, ho incontrato un piccolo Popapus e mi ha aiutato a tirare tantissime volte."
 1257471756,9e332832bc73e7a1e8d8323d8002ab7b9ead3e7d98816125d0a79a572aceb0a5,Rosina
 1257478051,0b1f7a36c1fdb23ed7eac6e22c04e55c657e56f7d33fe942d82454b20d5b303c,E se l'avessero raccolta i Lilipole?!
-1257479192,7abf07d9aa4797af8d6eb3677ccfc24074c6e442e406dab3391ffe6d0d8b65a6,"Kim brilla intensamente, Lumin riflette la luce; la luce ruota con l'ombra, e l'ombra nasce dalla luce."
+1257479192,4845425bf4abb75d1782d7a36683559bfd860569bd9a7288b5896724b7da084d,"Uno splendore dorato luccica nello specchio. La luce ruota con l'ombra, e l'ombra nasce dalla luce."
 1257488652,2c6dc89cee890d7d0219cc7766a460206237748bc9f910a55036447554e79867,Uovo di Aniimo Umbrale
 1257504391,3bc51062973c458d5a6f2d8d64a023246354ad7e064b1e4e009ec8a0699a3043,Alice
-1257511594,1a2ff53c18832f92c6bf3e9487a8b3ed31849375bb77a339bca3982e9513e632,Rivincita Sincronia Élite
+1257511594,fac15a2a501f41d00a6d7f731f2407de4fa48af0e98f9d2e300e0d4d0bd14023,Rivincita dell'Esploratore d'élite
 1257527554,681bd9293974dc900d7d9d4d5a8e23da90715e862edbc26814a142f55312584b,Meglio così... Ora nessuno può vedere la mia faccia...
 1257548593,9f2862704f03b482d4a7130f84e2887c07e02a1cfec001a06304bad726f6327a,Arredo Test N. 13
 1257553875,c7412bfac83c31d804c71b46623d546f95bc6229137c275dea40fd85cad7fe0f,Porta il camper al livello 6.
@@ -34379,7 +34380,8 @@ La Valutazione è naturalmente la più difficile, ma credo nella tua prestazione
 1264490823,036ecc11ffd675fa153018cf428aedde3531dd89efc93b21ab74b9b6003fa9ee,Waldo
 1264498755,9159d79cc827c8d7ad79fee94df71587cc2220a473628f0a3838a133f2a69cee,Popota Umbrale
 1264499413,0e91610117029a62a478b7fa7df0b8598bebe3ab1e192d4b1882e310719c9671,Aggiorna
-1264507429,97390ca76cb46d9b676ec69fdd44ba8ff04e42b543dbe126790c17db4dd9bd69,Rimuovi in blocco {0} Aniimo
+1264507429,535ab0273421e87bc27e6a13210676a494a156b74b30370cdaa0d91bd8ad3b49,"Ritira in blocco
+{0} Aniimo"
 1264512095,65b8d4a1cd88b3677b618b720233837e3b88bcd6a19d8f7606b392f2a3a71ff2,"In <style=Hint_BgL>Modalità Comando</style>, premi <style=Hint_BgL>#kHud/SkillE#z</style>, <style=Hint_BgL>#kHud/SkillQ#z</style> o <style=Hint_BgL>#kHud/ExploreSkill#z</style> per usare le Abilità dell’Esploratore."
 1264515753,d230822ca46551217a3e57e38b07235da63a90ab4fe84b28d18968d6d12b38bf,Taglio ad alta velocità
 1264519214,0a50931a0724f8936ecce125b95a1764aea20ec7d9cda31f2ec2024fe0eacb74,Eko
@@ -36112,7 +36114,7 @@ BINI, ingrandisci e scatta una foto... Uff, accidenti."
 1278477547,e8ed7c3e5a6780426c5c4ad080ff29f4360d13fae40313d010f792337c7c83a9,"Eh eh, la mia Squadra Rotolante è temibile e adorabile!"
 1278491130,8d67252f03ae644ec280550f0f4c59cc97f36010f9cbb84a0159d7c2aa78929f,Dr. Glass
 1278503069,99762dc7a4fc121044dc615654b5d3dedefc99403a2dc728901a1993476ea15d,Testo Segnaposto
-1278506273,fc1b6ab781e5f5a63ea8d95fa82e685fc85f2b58840400c2fd2a484438154515,Partecipa all'evento stagionale della Base — Festival della Luna del Raccolto — per ottenere
+1278506273,a14c7bd229d6257c3c358497c67f4bef417c9ee7ad80aae6b90b4aea21a09408,Si ottiene partecipando all'evento stagionale della Base: Festival della Luna del Raccolto
 1278512886,2aabefbf1fc88831b7e59e392fa8b8d7ed809da595cc17c159a63cc3880b89e8,Figurati. Stai ancora cercando Aniimo con forme diverse?
 1278517808,f8e10cb5ffbaf066bcbdcdac8043dea3aa2abf30c480541cb0aab3d59fb76f30,Un concerto tonante... Tutto pronto?
 1278523222,6d43984578928e877eeb869b8392fe0a725a7274ab755ba6b43091047da87eda,Lana
@@ -36239,7 +36241,7 @@ BINI, ingrandisci e scatta una foto... Uff, accidenti."
 Aumenta notevolmente i danni della Suprema.                                                                                                                                                                                                                                                L'uso di una Suprema innesca Esplosioni Elementali di tipo Vento, Ghiaccio e Fulmine."
 1279614834,3e8abbe0a238bc6c9fd4e5a18f91427ede14f66d16febc6ee92db75540a62dc0,Cozite Amante della Pulizia
 1279626642,47f3db1778af1e31c1afe6774b73462403b2d2481f531df324642c03dc298c0f,Ti ho trovato da {0}! Diventiamo amici e divertiamoci insieme!
-1279633398,0945724d819aa27063bb1f6051f3727e75bd7ac3671040a5f8d3e162679b4f90,Una notte per riunirsi
+1279633398,ec4f51dab9e08f0a808f9888de01021817925bc736e7ccc3ca5306d541270e5d,Raduno notturno
 1279642905,378d83808237a4459f234bbfbf1380fff27049305cb4235819c3091f5856ba5f,Forziere
 1279654543,c7412bfac83c31d804c71b46623d546f95bc6229137c275dea40fd85cad7fe0f,Porta il camper al livello 6.
 1279658243,458556af7d03d652f06f2fc28727390e6860989a70246cbb93699995f1766798,Zoe
@@ -39363,13 +39365,13 @@ Visualizza l'abilità Cura e prova a impararla."
 1304845426,ebeb9bde8b6eb4ea464d22b8cf2e803d08f72172c36b10f3cb52c5b30823102c,Evolvi
 1304852266,507fc50a2cb9392095d8eb0b63f9c1b82981f4cdf9ff9cf36b82b6448ae10d2b,Conquistatore Onde
 1304864572,2ccf12b04e0bf0e8f2fb4febec19d6c0c5556a4488c3b00c387cd85b2049ffb3,Scatola Rifornimenti Pregiata
-1304869495,890206fc1548e97021f558d88050702aeefd0b96966358520e84a0a1a44e7da9,Fantasia notturna
+1304869495,a77d79dbc01c4d21f1ef72c685dbd1902ea3d614f7645d991ff679cf0f609a17,Sogno notturno
 1304888535,d5ec0f1cfa630609a9c4b7719cb21783e9de1599fb8d61c52b8bce567d8b3bbd,Si sblocca ottenendo questo Aniimo Prismana
 1304888597,5d6b693221ce320ddec64a37ce82da336cd5f3fc8f903f32c9073f4779528003,Predatori di uova uniti
 1304924120,a48c030ffeb24ba98baf73822675e4483fa5a9fe5db8a4f6b541abeedb873e77,"Selvaggio, audace e affilato come una lama!"
 1304929791,e03112b3005d969f7623b240ef9d385c5c0e078ede08720f66e78c85ad73f3a3,Nicole
 1304934958,dec687262ce9476a593443915f9b0dd9eaa24a6942f6ae72117e8716487fa3d9,Ora vai all'obiettivo tra l'erba alta.
-1304951304,19eb117248001783e4f39a3a91026f364124e0231c62d24683b2a3aec31ddbca,Accettazioni disponibili  {0}/{1}
+1304951304,74ef92cd41c4e0c563b2bcaa8ba013f3f063c973cf7b263ff9df6b72d0bd1e80,Accettazioni disponibili  {0}/{1}
 1304959621,82943c1227a8dcb1671f43d8e95d8ded894c978965bc7dcc1d043d3dc42c8d86,"1. Raggiungi Breezy Plains e partecipa alle attività di esplorazione per raccogliere Petali di Irisalis.
 2. Accumula Petali di Irisalis per raggiungere i traguardi di raccolta e sbloccare le relative ricompense.
 3. I Petali di Irisalis non utilizzati resteranno tuoi per sempre."
@@ -40407,7 +40409,7 @@ Niente male davvero."
 1313345073,3e25c2bdea156442fc0ef6fca0f682561b16dadb1d38e0a7017f284056bab616,Va’! Che quel primo fulmine annunci la tempesta!
 1313345085,314cbe219b6afbdd89392e77f36cc0ac9026cd788de78009872d5372cf0af734,Usi rimanenti:
 1313345964,58b324ab2d5b047b57e0834e48995e1e6fb49a35b21318e1b98194a70f5e4705,"Concentra il potere nella coda, poi la agita con violenza per attaccare i bersagli circostanti, facendoli entrare nello stato Congelamento per {0} secondi."
-1313346307,3f595fa5caba6cc110e1c36adeee106d7dbae93ee0a05c29c211499aaa121193,"Un arco in legno dalle curve dolci, che veglia su ogni partenza e ogni ritorno."
+1313346307,625cc7ffa51cd078ac706983c62e1a3212b162bd768e5ce8177a5e9b9ba74e60,"Una porta in legno a punta, la cui silhouette fiera ed eretta conferisce alla casa un forte senso di appartenenza."
 1313348040,5d397f28c93179e2d282d59bed0add792ff958b1b01bc869191de26a3ad13eea,Lavazar Goloso
 1313351042,e5c796101af07314b3e8fc026cb6b3e36f5d9f9739289f68750e46348704c4b8,Raggiungi il livello Aniimo richiesto
 1313358827,45989de49fb7f66dfe17a8fc26f3a02c7abcd74f7e8e6cf9f39fa0e3775780df,Dettagli
@@ -41081,7 +41083,7 @@ Un ambiente di gioco sano dipende da ogni Esploratore. Ti invitiamo a rispettare
 1319030578,f6d0d9971d93d8f79f6dc279dc5b1b0d2e5bf4798513e152f0c2fd7fc347b21d,Thesseo
 1319047787,77d87b0061d4094d1c654a07a04a3d312076f385cb69f140de5073160a305c34,Bolla
 1319048964,b997b10426487d98182b96f41d83fea5ecb10b929d363dae1148467dcf488427,Ognuno sceglie la propria strada. Un ronzatore deve volare a modo suo. Io farò il tifo per te!
-1319058530,d85b4eee740f0d774abe7e2f5092baa685dc77b77dd3dcdf47a3b43a38f513d8,Forziere potenziato
+1319058530,ea1101d74ec2f4dfb953b3fa020526e83e24c6cc044fbbd34a3c9b6cc2bcc09d,Forziere di potenziamento
 1319059207,8cc3286516926fb3d4f939f2e6ad9f495cd5c236a0ea4aedccc16d1546f4b773,Hummin Strano
 1319060979,40acaa498dc0e55c280367ba97e3877b4473d0554accbeeda992525fbfba6b75,Sunia
 1319067451,cbf126469b1aa9accc12bff0f87c4c9ebb6cba7ad79eec550cea100808f01639,"Gli Aniimo normali e Umbrali nelle varianti regionali o meteorologiche <style=Hint_BgD>con un Potenziale massimo di 10</style>, catturati in Modalità Compagno, possono essere regalati alla persona con cui giochi. Il conteggio è separato da quello delle altre fasce. <style=Hint_BgD>In Modalità Compagno, il bonus condiviso con questa persona quando segnali una cattura aumenta notevolmente</style>."
@@ -41626,7 +41628,7 @@ Quando sei in aria, compare il pulsante Volo. Premilo per entrare nello <style=H
 1323258563,4a4e4c588a943ee448e941c5d533a797e149cc8f7fa371fcd3649b017d4bcabc,Disattivando il gioco multipiattaforma uscirai dalla squadra.
 1323266931,580e149a12b05055e0ebeb109835de5248f2f58e67ff7af4490c007485193ed0,Vuoi scambiarci i contatti e diventare amici?
 1323296346,41cf11c54834f95032c58ac96a1772982bf1d2220729cd7e3b05301ce2a44d2f,Collezionista d'Eccezione
-1323298033,1736fbf05823f7a8ecbeb6f4f78783f0c1f6df2806c85585f398c9c24b450e56,"Quando metti a segno un colpo CRIT, ripristini un valore di ROTTURA pari al 30% dei danni da ROTTURA inflitti in quel momento. Se il tuo valore di ROTTURA è già al massimo, infliggi un ulteriore 30% di danni da ROTTURA al bersaglio."
+1323298033,a1d0917564609716b1fca77802507e0880e091f668d7829d002f06e2e2491385,"Quando metti a segno un colpo CRIT, ripristina la ROTTURA di chi lo usa di un valore pari al 25% dei danni da ROTTURA inflitti da quel colpo. Se la ROTTURA di chi lo usa è già al massimo, infligge invece un ulteriore 25% di danni da ROTTURA al bersaglio."
 1323301354,a6900e644ed9e2ea1315d356f037e0872fdb9c8af820b2cd371e977d0f4b8c59,"Una massa di nuvole blu scuro e cupe, percorsa da deboli bagliori di fulmini."
 1323312665,7130c8ca4395aced085da6807d4ca1c1207ff0997d0e0d1b4d30ebb0932d4da1,Livello Premium Manuale Compagni 78
 1323313616,77d935e1844f03818c54ae20e71e877de7ad33bb50bd3af60965e9973408e3d7,Tubster Alpha
@@ -42658,7 +42660,7 @@ nell’acqua fredda"
 1330809385,a4a87b2c26f9d8268e6261ce9869033e5042151e57b19e7bbf924327a1b137e3,Un distributore di capsule a forma di Popapus. Ogni bolla contiene un regalino preparato con cura da GoGoHomes!
 1330811970,325de1f873410d3c4edf88e3daa3ae58554b62f3f44fe43c7e800e1b025039da,Jeglid intrappolato
 1330815241,fb212f9721bfb456e0c8335673a0f8c69b915b4f88c6d707c8de2b25d0ff9cf7,Espandi Elemento
-1330822623,b463304d390ae09f073c8ab353d26ede8bae68362bbc0214005573f806936b7d,"Infligge danni continui in linea retta frontale. Se chi lo usa ha più di <style=Hint_BgL>2</style> accumuli di <style=Hint_BgL><link=""source_8038""><u>[Malus d'acqua]</u></link></style>, consuma <style=Hint_BgL>2</style> accumuli di <style=Hint_BgL><link=""source_8038""><u>[Malus d'acqua]</u></link></style> per infliggere il <style=Hint_BgL>50%</style> di danni extra."
+1330822623,d6e18156d2844c9fec7d263c8ded22c9977450f0671b84f25aa166a092773e1f,"Infligge danni continui in linea retta davanti a sé. Ogni colpo può consumare <style=Hint_BgL>2</style> accumuli del proprio <style=Hint_BgL><link=""source_8038""><u>[Malus d'acqua]</u></link></style> per infliggere danni aggiuntivi pari al <style=Hint_BgL>50%</style> di Potenza."
 1330835153,93ef8d61c9d0f3d72ab0b1080e07d2f7e011d9aaa84dbfa2150e2e45b9a71712,Reflusso dell'onda d'eco
 1330851835,bfe01b1c28e6716cce5f48d2fa2571bc849401165d478c9e6b219627756289cd,Charstone
 1330877101,372e10f66a5aec30ddaa57966a34968c920f96c9c23b6e8d6b98a35d15d3884c,Emberpup
@@ -44018,7 +44020,7 @@ Grazie per l'aiuto! Ti inserirò nei titoli di coda alla voce ""partecipazione s
 L’area è proprio qui davanti. Tu vai pure, io... ti raggiungo subito."
 1342814127,bccfb944918ce5568d4c527ba547bd8a91db19b63717e5859719b0f9a3f71ebf,ChillBeanz: aperto per la notte
 1342817800,cfc46034cfb095dc4a2f7469929b879fd2b110113ba8faa3e674ca05b2cde080,Ramo Whisperwake Isles
-1342824426,a6a8cf8b9d95b51f6276dfa3688cf33577aea55cc0de6380280d93a1b18dc922,Offerta al Dio Zucca
+1342824426,2e71b63200d340b5cf62a9f1b8a3740cbd0eafe8b9840a8ec232e104f4c98692,Fai un'offerta al Dio Zucca
 1342834331,48fefa8a48fd5e96356a639922b80dbcef96794639e28e870f441f4cb7ff9630,"Attira i bersagli all'interno di un'area frontale a ventaglio, poi infligge danni ad area e riduce la loro Velocità di Movimento del <style=Hint_BgL><customRichText(calcData,buff,2163302,param0,1,%d)>%</style> per <style=Hint_BgL><customRichText(buffConfigData,2163302,duration)></style>s."
 1342856219,faa6b077e9c3dfe94730b2e890ca90b26cf2bb58d5b0d20f8eea6a5f2314e7fa,"Comunque, ora la priorità è andare a trovare Lady Velouria."
 1342857352,2bf0d061c32c791ab02b17ee54d3daf4d7c13405b03f38dd24e5bc6fbc80e2cc,Accessorio Personaggio
@@ -44150,8 +44152,8 @@ Esplora liberamente il vasto mondo e sfida potenti Alpha e Omega. Risolvi i mist
 1343893190,34c88cbba060d2d8713ef3493c42d1c9c1e020a0ad8a48bdcbec3f5ca494e610,Risonanza del Cuore
 1343897573,65d2dbe7b591653160502350fb2667981b2cb116d586281421acb8b3a25109f5,Profumi di sole.
 1343900360,448caf1cea35ce8c7d61078ac81d91032cbf1dcf7da0fb2fa60972b066c00545,Più avanti c'è la Sala Storia dell'Istituto.
-1343900461,2976aa61f0326019f66df1e519a723233204eb56560d0df2228fb0aa3de0705d,"1. Durante l'evento, accedi al gioco ogni giorno per completare il check-in giornaliero e ottenere ricompense in base al numero complessivo di check-in effettuati.
-2. Il conteggio giornaliero dei check-in si azzera alle 04:00 (UTC+0). Effettua il check-in per un totale di 7 giorni per riscattare tutte le ricompense."
+1343900461,e3a33bd0e35386f524d79b420eaa8d387fc7922d3e5a3ca417c8a5ed2f7feca3,"1. Durante l'evento, accedi al gioco ogni giorno per completare il check-in giornaliero e ottenere ricompense in base al numero complessivo di check-in effettuati.
+2. Il conteggio giornaliero dei check-in si azzera alle 04:00 (UTC+0). Effettua il check-in per un totale di 14 giorni per riscattare tutte le ricompense."
 1343901906,9f931d4cab23de2603b301e1e9cf659638b734adc7369bf0a71eb48356d87f40,"+<style=Hint_BgL>{param0}%</style> DIF F e DIF M
 Ogni <style=Hint_BgL>{param1}</style>s, infligge danni puri pari al <style=Hint_BgL>{param3}%</style> della DIF F e della DIF M dell'utilizzatore ai bersagli entro <style=Hint_BgL>{param2}</style> m."
 1343902404,5bc1b3bf7517467f3d2dfcd20d28b6eec3b00d060f42521b8cd06863c94f5288,Indossarlo è come bere un'aranciata ghiacciata: ti dà subito una carica di energia.
@@ -46421,7 +46423,7 @@ Ma la tua scoperta è davvero straordinaria. Fai prima rapporto al preside, poi 
 1362014732,d1807876b80fb375abeeffa1b446d0caac32bd229936031a683f3b8b507af507,Testo Scheda
 1362016997,fc95e7ba71b20e4b9d38b653fe8b22cba09aaba76c31cfb689d4c163556540b3,"I Pattugliatori dell'Isola del Villaggio di Marespecchio, incaricati di pattugliare la Baia della Mezzaluna per avvisare e aiutare gli abitanti. Se ti interessa, contatta Dorothy per unirti a loro."
 1362020506,0a7b945959897f2dfd7a308e51a592b2244307b717754275a52a24fc857a26ab,Preparati alla battaglia
-1362039399,5c8bc83b78dba4afbd7a86790a621fbb3a8133601cdb910ce606bdbc9ff4591c,Storia e lore
+1362039399,7dde675b1b875b20c0ae034d8890a8fc3887edddddbc0bd9984dcc2421ee44eb,Storia principale
 1362055313,32da51240d39367a61d2e1e24b09ecce163e5f81e9b9176121c7bfe5d014a6c2,Deduzione Elementare
 1362055880,f6d0d9971d93d8f79f6dc279dc5b1b0d2e5bf4798513e152f0c2fd7fc347b21d,Thesseo
 1362056279,a902760f0a4bf8c03fccf32e635fbefd11b0cf60189ade8eb94cf9c7ae8bc963,Ta-la!
@@ -50991,7 +50993,7 @@ Sono andato con lui nel mondo esterno... per diventare più forte e poi tornare 
 1399210469,7803cd63d7badb371bff57e91b28da879123cb4add6c36ba1c4ce271791e4fd7,Premi il <style=Hint_BgL>pulsante di salto</style> sulle Pedane Elastiche per saltare e rimbalzare su una piattaforma più alta. Raggiungi il prossimo punto indicato.
 1399215320,e208c0c811ac39432020c927d43cb0f7437a30cf74e50c0854ae3f5983d538ab,"La luce brilla attraverso bolle a forma di cuore, intrecciando un affetto nascosto in un gentile amuleto di protezione."
 1399215964,f11d347356bc5c20aa401389b7afab11d19683c130044691a5d9540884dd2139,Testo chat testo chat testo chat
-1399216142,401e0163946123f34c26ae88a756e113e3873d988182a2e1d41953d95dd3e07b,Sconfiggi questo Aniimo usando un'abilità Terra
+1399216142,502bc1476860dfbe4e24c533b30390599a7138a30ee30528bfdb6ec0a329e4d1,Sconfiggi questo Aniimo usando un'abilità Fulmine
 1399223580,a0d25245ed4aa5216c19b05de907722ee9e64e2d1a029f2712b5e68aa12a0bfa,Contenuto Filtro (Segnaposto)
 1399224703,2ae1942f0938429b7fcf5f17e102cda7d57b64ca18db8f77fcdddb8463977ef3,Voglio andare a casa...
 1399224833,6677a6629fcf9bb9eba4598bd94d1024fbbbd7ed8c59b523299c563a255bc997,"Sì, ho troppa vergogna per restare qui..."
@@ -51858,7 +51860,7 @@ I Truffles ai margini della Foresta sono tutti molto piccoli, e nemmeno il loro 
 1406556689,8918146fbb6f63efa724eda96e6953469b55cd88132537a49ff52c8ccdbf7f62,Danno di tipo Luce
 1406580198,e36b56be77ac055cfaed0cbe17ca00233b3db76f6a7140ea5f109727ddd932b8,"A dire il vero, ora voglio comprarne un paio anche per il mio Aniimo."
 1406583657,c89106dfc67e273e1cb571a0a04b3fade7009edc7402d6a267269db30cff7e93,"Durante l'indagine, l'Aniimo Leader sembra aver risuonato brevemente con l'energia residua di Aniimo leggendari nell'area, risvegliando ulteriormente le sue capacità."
-1406589058,1374bb5c415952874c00085634eb35234ce2849d45e005058d5b1c69395a6ea2,Olio solare
+1406589058,f07a7222a4812966f516e5e2c2216ca2d5db7ad207417a3c15c4800a22973382,Crema solare
 1406598364,4f45d4dee9774d7755cb6ba3b230e0b617510f05f720edcff9240fe7eee7b6a8,Questa forma è ancora un mistero per te
 1406598660,b5e4c6f6815e09e338e4175f2366e4dc98727e24b2c7c301951df931e0daae3c,Danni CRIT
 1406607965,e98d81158088985e5c5fcf755f19fd257d0ea434ab0f25f1c3db0631bb5a504e,Tideblossom Coast
@@ -51929,7 +51931,7 @@ Poi ho portato con me Aniimo e ho fatto ritorno ad Astra..."
 1407150864,48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc,80
 1407151071,c5f5ea4b251ce597aba13a07601319db0f3efe7a432c4a27cd34d7a4ea02cf8b,Evento Rischio
 1407152540,274d2f2900bcbccdc425cb30e08157502a409ca97e489f3ff237735c2a5139ef,Porta il camper al livello 21.
-1407155079,def720a43a9e3f79dd5bb6699f36bec1f6fff6f4d6aa9fd177c50ecf0c005086,Sblocca la personalizzazione degli accessori del personaggio.
+1407155079,f7c06160aa133809e997999b9da2a16248d4efb83481a70ee0834a791d0ef3b7,Usa in [Aspetto] - [Design] per personalizzare l'aspetto.
 1407155693,280b54130b93d736e8ec202b36d2a881601aad59ef7aefe6dde0ab5e97626b2d,Livello Gratuito Manuale Compagni 95
 1407164186,9bb0aacc6d51f1408ed983b84c42e941fca204de70ff5595a4d1b7cff8b22815,Testa
 1407174624,b1a96dd646bccaa24cef7a3db22a6f995f05658f4f1c3272913e258c03e6fb24,Alpha
@@ -52339,7 +52341,7 @@ N-No, non può essere!"
 1410521893,22a20ffd68ecf894c3c416d41f3a682a4c7c3f703bc5ffd854d465f75a821baa,Carta da parati azzurro tenue che addolcisce la luce degli interni e si abbina a ogni stile d'arredo.
 1410535484,940867dc037d1e475e8e140106e8bcdf49343a0d631d3acdc7aa4723b51d5144,Accessorio Aniimo
 1410549836,7854bbf8d20b5d93c252e6eb1c74705897526178c20735683e3c0924fed24a92,Anche se ho un po' paura. Sembri molto più forte di me. Puoi provare a scattare e volare? Voglio davvero sapere che cosa si prova. Ti prego!
-1410550474,bd62ad848b527fbdf10a123f75f6353a111bbcfb873f14a002c4f8002c470f47,Dettagli co-costruzione
+1410550474,961376d1ffc562985d9afe8c137d40f033a7a51b81249afcad66e060fbe74e1d,Dettagli co-costruzione
 1410558548,556694a6de123a1e5e4230fb373211cb62889ea2902162d48a56732250e0f311,Appassionato di Lupi
 1410572996,0bfe6b328c11ca39a92c72eb67d0c8e35625514aac1a67ec6f62ae2c62625f5b,"Oh, che peccato. Non vuoi ripensarci?
 Il Polaris Institute è il posto giusto per te: l'avevo pensato già vedendoti al notiziario."
@@ -53545,7 +53547,7 @@ Mentre riposavo in quest'area ho scoperto qualcosa di interessante!"
 1420974249,11d49e91db2172d3265a874d6d75963659c70257518d2db948a5a90045140e4c,Arredo Test N. 8
 1420983099,801232169c44b2c8ae4cb017a1d8c6fc23841dffc4be8d4c2589ed4a6686c6ae,"Addio, Compagno Mio"
 1420986589,9b5dfdb21b8cab27ab943ae9bc8bb3fa27037aadae3ac1a1cfee4431e2e8585f,"Esecuzione a soglia, esegue all'istante sotto questi PV"
-1420999449,8b69c89a4ea8f6b9dc1f661328c225ccdd5aa9d2c0fdb9d9de9f5ced707f2058,"Quando tutti e dieci i colori si riuniscono, la piantina si anima e infine produce un Uovo di Iris Prismana."
+1420999449,475b99d493317e1908385405a4783d936b6ada763fc9608ab0595e5edb56f311,"Dopo aver raccolto dieci colori da tutto il mondo e averli offerti alla Vena, la Piantina sembra aver risposto. Accanto a essa è apparso un Uovo di Aniimo che brilla con i colori di Prismana: un dono in cambio da parte dei fiori sbocciati."
 1421002474,578213919635f8e70ff3f57c50b992127de783ebfe811ceea5d45dc808b1970e,Pilastro Registro Crescita
 1421006822,d16898633939220682b604441a896984a0eb847062ef9d1001ca014930dec9bb,Tutorial Livello Elemento
 1421007760,0eda936ac743cee10011473c271835254c2b120899989d9c935faa7bda5905af,Spada della protezione
@@ -56278,7 +56280,7 @@ Hai superato la valutazione pratica. Congratulazioni."
 Il capo mi ha detto che devi <style=Hint_BgD>crescere fino a un certo livello</style>... giusto?"
 1442835422,c4e3bcfe6c8f8ac7341ba39b541a0c7836195e4e0680a94656c4de736e26a029,Ho una bella collezione di roba buona qui. Vieni a dare un'occhiata!
 1442851127,43006fbe12c8987c12b0f86d56ff5adf4a5e061586f4c18670509ef918c5c350,Evento di rischio
-1442869839,fee6d2c880d8eb34228a29aa75b8580a1c3c8aa951c438ccda8b7cb1102e3540,Una pesante porta rettangolare in legno che delimita nettamente la stanza.
+1442869839,e519ae490c0cc549746918d5543c4304e26a5d902d89a1909d0620d5c1b9bcc1,"Una porta in legno ad arco arrotondato, che veglia con dolcezza su ogni partenza e ritorno."
 1442880125,c4042261fad9a777a49673a917640b1f33c6e338b9604e2524f3b5a5e8fc75ea,Giglio Rosa
 1442897258,c00ac7b748f63688189f29a46eedb769cf58cec3bacf8977bde3e4a8b3bf8b6e,Avvia Download
 1442902492,ddb33b74d544a669d7a329c7be81b4e248e8ad6f2754ba70ec1f66d11bba22fe,Selens
@@ -57418,7 +57420,7 @@ Ora, il nostro primo bersaglio..."
 1452290077,96d8013ffcfeb06dc6dfd665c021a6f175408f558075ee96db79768d79c377c2,Carica Piro
 1452299814,c9c5e2a7958cf759f5516c9336c31a15c06dd6474027954abd760f3a2bedaae8,"Olio d'oliva appena spremuto, che conserva ancora il naturale aroma delle olive."
 1452309756,04adda4ac0c788b8fd0d1ab8ac3ac5e4f88d92504a0c8f501ae0a7fc11317275,Interagisci
-1452324901,8a552ce1a9d986b146b41b3f903a909f8e0ea6294573cc7adb939b6a3df1cf6e,Hai raccontato a Royalby l'accaduto. Royalby temeva che lo spruzzo d'acqua del Dewple scomparso potesse danneggiare il Polline dell'Habitat. Forse quel Dewlop può aiutarti a trovarlo?
+1452324901,47734760a1acb731d8f23822dcafb4d10f518e2589807d08ef8b34847aea68e7,Hai raccontato a Royalby l'accaduto. Royalby teme che il Dewple scomparso possa spruzzare acqua e danneggiare il Polline nell'Habitat. Forse quel Dewlop può aiutarti a trovarlo?
 1452325861,49fd08ec3430be8377e8d2d4d248582ec143c1bc3b6c8ee6a05496d5939137d6,Collezione Lumin: Gusci Rotolanti
 1452329552,e03112b3005d969f7623b240ef9d385c5c0e078ede08720f66e78c85ad73f3a3,Nicole
 1452345701,29d081f84aabf52e2094f217fba45c170296440ccc5b60a2df8d4b9e8ff5da3e,Non c'è proprio niente sopra!
@@ -58729,7 +58731,7 @@ Ora, avanti, verso i loro sogni!"
 1462559554,5d93dc152dbb8726a2b4311f42d8eeaf45217153a211645a37ebe4be46b49d33,Può essere usato nell'<style=Hint_BgL>Hatchinator dell'Avamposto</style> o nell'<style=Hint_BgL>Hatchinator della Base</style>.
 1462563834,0f4477a916409a125bcc9ee46290711c46e9b45039c3b68561336874ad6bbea3,Papà Gabbiano
 1462567060,1709305c9fa966d14f56f0da3c3614bbc10adcf53d72f90341bb96d24afcfca3,Livello
-1462576154,5dcff6030b0eb35a6acd1e9840268a1ebde2e17eb00bc2d94a9f19f730119724,Raccogli
+1462576154,08a0c33f913a1237c3527175721bc86b9e013d30f3854bbf0bb9212b272f5bd0,Raccogli
 1462578858,01ff89b85b2a383390a26cc2e269f5c0be70fc5e8ed5657a0d1510c4bd9e3815,"Senior Lana, ci rivediamo!"
 1462592508,2299ca4b09752d816e615dc46a673db15d3188c7b9d19bad3caed3b8efa13bd6,Evento Controllabile
 1462603809,10b91279262433d94b3d06838f67c4b9161a347b20103428cd3cb17c804bf4a0,Celestis
@@ -59728,7 +59730,7 @@ Che mantengono per sempre la promessa di non separarsi mai."
 1470817687,02bfab9582ebc37454046a25d92453b833a5cf4800a418b74be0b86c7717e345,Battaglia Normale
 1470834344,92752fc5f42577a798522205dae608e95038489976d05f31bb7c4a047800ab8e,Dov'è il mio <style=Hint_BgD>Diadema di foglie verdi</style>? Lascia che lo cerchi.
 1470835191,5573d18d22a3d79f9df1b3e2c1809c37be8b0b5e3d5d9a98d3c33cea1df391ed,Robot difensivo
-1470842266,65786c6db720ae07401abd21fc2fabd0c7aaacc0277a34f1957cd70669a96cd9,"Quando catturi un Alfa, spendi il doppio per ottenere <style=Hint_BgD>ricompense doppie</style>"
+1470842266,4f749d1af828bf84d1ef8b7e1e0c94bc89694870360526597b773749fe9caa2d,"Quando catturi un Alfa, spendi il doppio per ricevere <style=Hint_BgD>ricompense doppie</style>"
 1470842421,5a3cd655c090e845dd977ad372dd55b36760a325207353c009a8346494928440,Capo Flameruff
 1470846070,696b21fd3022959053ede0881885a8024c248c5e457d4253f1ee28a1fd006e02,Riproduzione...
 1470868443,77d935e1844f03818c54ae20e71e877de7ad33bb50bd3af60965e9973408e3d7,Tubster Alpha
@@ -63205,7 +63207,6 @@ Ma i letti morbidi sono per gli Aniimo. Io starò bene dormendo sulla custodia d
 1500288056,f6d0d9971d93d8f79f6dc279dc5b1b0d2e5bf4798513e152f0c2fd7fc347b21d,Thesseo
 1500292196,d6cd72cdbd2878be827050ba219c351d39a80f7df994298cbd061646c8b8c5c6,Segnaposto Nome Illusorio
 1500302367,52b4d39e80c6a080543a24db9f6da24e31b7fc5ea2c913931d157966d3069ff5,Membro uomo senior della Società Umbrale
-1500305162,077bbe400a43d280c61b0866983d29a495d2b93a89f92567965c881a1828ff48,Modalità immersiva (fai attenzione a come uscire da questa modalità)
 1500317387,57e4df689a1d76ed4cabf0d1be94500be2761de2a18185a78e9b96115c20d065,Jenny
 1500324479,70df18ddf6eb6bf14de5ffc38c86391050a6995fb67b239333063d27c94b8578,Amplificazione Danno Livello 2
 1500333694,392dd25ebe96630494674c0a9096b2c5a68b8c03c82662e8f78d66f01777f67e,"Allora Thousand-Fang Ridge ardeva luminosa, con fiamme che non si spegnevano mai... Ma ne ho solo sentito i racconti: non l'ho mai vista di persona."
@@ -65553,7 +65554,7 @@ Provo a mescolare un’altra bottiglia..."
 1519144902,84ab90cea34057638a6560cf0d09a9a9348d96f04bbd72073ae5728f3353e3fa,"La sfida è Facile: usa le abilità secondo i suggerimenti e segui il percorso indicato per disegnare il motivo, poi la sfida sarà completata."
 1519147568,87106bb85fc0578b351148f0b182a8a13dc97d5cd08820e0e100bdaa71705620,Funghi... adoro i funghi!
 1519150828,28292104b0a7f23173b37e5b67a48a6dc60d2833a3d2ef2ee1fe89db044e90f6,Risolvi Problemi
-1519152348,638b93588234e76770446612dfa85a85761c01684d4f11356f33a53ebfe887fd,Deposito Aniimo <color=#e3dab1>Capacità</color>
+1519152348,94f3213d01287aed75103ee56c1020f2e863b3079b40359a717bb78a8e4b3b97,Deposito Aniimo <color=#ffe866>Limite</color>
 1519158279,1fdf67e8b47d379fc564768bc7693faa761bfb6ba504c8847109b2bca53c8705,"Bene, grazie per la partecipazione! Il concorso inizierà tra poco, attendi un momento."
 1519163874,d067fd90556d261446f6150ca0ade36de16b7564d92492a3a7a0a4fff21d8375,"1. Durante l'evento, il Polaris Institute pubblicherà una Lista Indagini Ecologiche.
 2. Gli Esploratori dovranno seguire la lista e catturare gli Aniimo indicati per aiutare l'Istituto a completare l'indagine ecologica e ottenere Punti Indagine.
@@ -65796,8 +65797,8 @@ Il suo profumo fresco e la sua lucentezza verde ricordano una prateria sconfinat
 1521055819,ae9c3bd11f760426e0edff0fbb001a66b4d447cf32b8442980888349ff33b01b,Coda
 1521066559,de45f5a19ad3fef74ce5d240337a835252cf69441b96b726c854433d27871f48,(Versione Funzionalità)
 1521079869,ae9c3bd11f760426e0edff0fbb001a66b4d447cf32b8442980888349ff33b01b,Coda
-1521081884,1773d78f1348e08a42893e31047153788635ac53d13baba9bab6ffba5e2d0c84,"1. Durante l'evento, accedi ogni giorno per effettuare il check-in giornaliero e riscatta le ricompense in base ai check-in totali effettuati.
-2. Il check-in si azzera ogni giorno alle 04:00. Effettua il check-in per un totale di 7 giorni per riscattare tutte le ricompense."
+1521081884,6b9cee437262c36a4ec914ad00f07028ff483e06a6df54c7556e3f292bbdacba,"1. Durante l'evento, accedi ogni giorno per effettuare il check-in giornaliero e riscatta le ricompense in base ai check-in totali effettuati.
+2. Il check-in si azzera ogni giorno alle 04:00. Effettua il check-in per un totale di 14 giorni per riscattare tutte le ricompense."
 1521081944,ab20df2471708f78b05e239f828868c76f4699d66513290d5016a98a9d8f9a49,Hypnowl
 1521088059,f771dff912935a6575f30d43a92a4543af17185560cda250270ac65e502e5f7b,Fendente Spaccacielo
 1521089133,66e45d32c2a5c3384b5ee2fd9822a528b3f30682ae1a955cade8f8164f9d788a,Fannie
@@ -66215,7 +66216,7 @@ Lo so, sei qui per sfidare il capo e prendere il tesoro!"
 1524727355,66e45d32c2a5c3384b5ee2fd9822a528b3f30682ae1a955cade8f8164f9d788a,Fannie
 1524728511,d531d710b17d5f60fe041cf16237ebd84f26c61d46212d750dab0fdfd407958b,Puffby
 1524739363,0784aa7e3fa5343ff54bdf39630fbf1bcc51b4821ec3a8e4824895a8e981b511,Guardia della Burrasca
-1524739419,42eb6c2325336c89d81f624f48a26d59af67421a8ec710c5f802235781049ad9,Stagione della Base - Notte Magica
+1524739419,cdb174b27f27da3be9b63dde98a9904bbb2dc8baa9c10072d02deca7a12569c3,Stagione della Base - Meravigliosa Notte Magica
 1524742695,dc4b5e3ceb8527c27d8c529a94ee613c2ec5e1857bbcefb30b441b82b55dc39d,Livello Premium Manuale Compagni 59
 1524743685,eda1436113c4a79aa0c4d0fe1e09a5e74574b9ff69dc87619efc841848a20f6c,"Quando eravamo ancora due Iris, ballavamo insieme...
 Pensavo che fosse diventata un'Irisal e se ne fosse andata da qui tanto tempo fa, ma..."
@@ -66858,7 +66859,7 @@ Il mio Aniimo può infliggere <style=Hint_BgD>Sonnolenza</style>, così dormirai
 1529585485,f2d1dab083102e349b1d317e2e3c92698b867995b105756cceb701f976edb109,NPC
 1529591611,e6b3f11dcdfb3c1cc79921d06e518ced6459225c9c441a0978c14a96a0b492db,Canottaggio
 1529597385,6a95d6ea3b32c78392e4a2cd80f3bbd55bdc48dd643f0f8290f245acd2a4eacc,Scontro alla pari
-1529600565,c92f20f82e4d4dc97659f46bcbdcafd120e24dd85cd57add326b32b43bdd8677,"Gli utilizzatori d'élite della Sincronia daranno il massimo in combattimento. Sconfiggerli di nuovo ti permetterà di ottenere Distintivi esclusivi conferiti dall'Accademia, oltre a risorse rare."
+1529600565,81d9000b1434efaf3b15a34ddde2cd2623bf0166ba2f3acedef7f81c6b6c32c6,Gli Esploratori d'élite daranno il massimo: vinci di nuovo il combattimento per ottenere il Distintivo esclusivo dell'Istituto e risorse rare.
 1529608541,00b02c98cbb41f580e929d7352daf0679424fe8b3dc4bd04c1beeb12813db792,Bubbeep Assonnato
 1529623981,02166304a9ec6b77a1ccc5a905dc6ebbca4a0c0cf0d8e60b3d775868c58737c5,Contenuto testo (segnaposto) testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo testo
 1529632652,301359f8030e2be542cdee4e3f303dc057a2175afb0cc7858d5e06e2f57608a8,Lucklet
@@ -67661,7 +67662,7 @@ Lascia stare. Va bene, cominciamo da ciò che sappiamo su Wendell."
 Forse <style=Hint_BgD>una notte</style> atterrerà ancora una volta a Echoback Landing."
 1536162950,f05b31846b53114089701ad4c35a5f45d1b5a537608bcf516ef63d6e754e428d,Piatto principale
 1536164867,002d2b0c7e8273377120492ac895a35ac85dfe11f022c99b1f546ec26973f9d9,Ha-bah!
-1536174889,51accf040c74fd0399deba3a4057269d6ee955c38361c22aba494e5591ec4c2e,"La Sfida dell'Esploratore d'élite è aperta agli Studenti più promettenti dell'Accademia. Tutti gli sfidanti sono Esploratori d'élite certificati dall'Accademia con un curriculum straordinario. Superare la Valutazione non è solo una prova della loro forza, ma fa anche guadagnare loro Distintivi esclusivi e rare risorse conferite dall'Accademia."
+1536174889,fe26611fee6f69a45538d65e8bb11de3203d8536cd8e579d3cc5789de6202f5d,Le Sfide dell'Esploratore d'élite sono aperte agli studenti più promettenti dell'Istituto. Ogni sfida ti contrappone a un Esploratore d'élite certificato con un curriculum straordinario. Superare la prova dimostra la tua forza e ti fa guadagnare un distintivo esclusivo dell'Istituto e risorse rare.
 1536180125,dc30e99e208473859be688844baeaec83b69cb60726be7b7043464039a4e4bb1,"Quando è attivo, colpire un bersaglio con un attacco attiverà automaticamente l'<style=Hint_BgD>Aggancio</style> se non è già attivo. Mentre l'<style=Hint_BgD>Aggancio</style> è attivo, i tuoi attacchi prenderanno automaticamente di mira il nemico agganciato."
 1536183824,76a9b89ba7b0796768481b4bc628d005d12b7d8a1532e748944a2bbc35af6e8d,Affronta il fuoco del mio cuore!
 1536196640,a073504a8743199f60bd769453746901f4fb531b40c6a442ab378e62b6da52e6,Appena sfornato!
@@ -68802,7 +68803,7 @@ Connessione stabilita."
 1545401291,9bb0aacc6d51f1408ed983b84c42e941fca204de70ff5595a4d1b7cff8b22815,Testa
 1545411076,c54996939fb55338b425f8093980cdfb7f8161fc5bda3078508845fda6fe967d,"Tieni premuto #kHud/SkillQ#z per mirare al <style=Hint_BgL>Barile Esplosivo</style>, poi rilascia per sparare."
 1545417214,355e854fbee22927e7657876b625263fe97b75ad9991f648b01aeb8eda3db135,Ottieni un Aniimo scintillante
-1545420776,f4dd46f34a1491188d3db853d2fb1fa4f18976048d54e924247c66fe16ae1415,Radunatevi nelle Isole Whisperwake
+1545420776,def5fc0a9e3b8fb8b88af6d3c7247ccbfce05182947045480865c5cdd7665566,Raccogli nelle Isole Sussurromarea
 1545450880,fa3d737e45dc9498402f303fb97433ba953618acd56611e48ba07b9e3dad35d9,Pomawk
 1545454053,72a99d6fe043d687aec5485e6c6f30bddcbfddf7a78c03a2e205ab0c5e44cc4f,RIGEN +1%
 1545457656,0cb499204bdc7e28cf12bd5165ccb77ea5a9bf55294cc37d60c0bf6cbe077c60,Ah. Sembra che l'abbia disegnato al contrario...
@@ -70569,7 +70570,7 @@ E ho iniziato a studiare al Polaris Institute!"
 1559458528,3888c771057ae7a90535cfec6de24a319639851b1bcb6b4c02ec869dbdf53145,"Spiegarlo agli altri sarebbe una vera seccatura, quindi per ora teniamolo per noi.
 Più tardi potremmo cercare nei pressi del Ramo e magari trovare qualche prova!"
 1559470646,60d40d9b2a83282ad669b9b15e6e04f1096e9901673c29171d308c6d201c42e0,Missioni
-1559474558,487baafaaf8cdd71e62e5f4eadc6a0d80f7693cac0e61924c8e79ca61d2fe0fd,Riscatta nel Negozio della Tessitura di Luce
+1559474558,45ead179de1ec73698e4a887ca3cff67377454a54310920e0f95e130e45d2479,Scambia nel Negozio Tessiluce
 1559475282,b837fc7368a58e1e71bd021edb510f2208a25ae7826edc0d844d2db18323d651,<color=#7c819b><size=52>Progresso: </size></color><color=#3d3d50><b><size=64>{0}/{1}</size></b></color>
 1559481108,72cc1b878dadac82fe16240d0fa51ff9328dbaa251399b509be22ebc2b0d47ec,Indossa una grossa catena d'oro e ruba subito la scena.
 1559488608,fd5b2d8138b2866af5e39a358e8a63871716f56404bb439829d10b667c704115,Materiale di risonanza esclusivo per la famiglia Reefish.
@@ -71604,7 +71605,7 @@ Il nostro evento preliminare di spedizione scientifica terminerà nei prossimi S
 1567623724,4c236daafb445f867f574918b3d07c901d73ac48d2ab87edb940b665d79e0039,Schiera
 1567635905,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1567636251,78de8075130f7c9c125d8da919cb066608bf494e6a8e48cb89032a288c971ba4,Feedback strano?
-1567643505,c26620c384ccac32b55eabcd52203a072541f6cca2b07fb4009ac3ba5260aeb8,"L'Aura piove dall'alto, facendo risplendere i gradini di pietra; la scala a chiocciola invita dolcemente a salire, scintillando nel suo splendore specchiato."
+1567643505,2bf7e221ff60eb6599c9a8d09dd82e87f4247c28cccc8a3032aa4164e86232db,"La luce scende dall'alto, facendo risplendere i gradini di pietra. La scala a chiocciola invita dolcemente a salire, scintillando nel suo splendore specchiato."
 1567644126,dc0e633a908c688024a536141d35334b4e0ed6a7e9e128b7dbd35c2244707a7d,Vai all'Holo-Lab
 1567644596,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1567644803,0832408e6d9b12af5a037b9882e64a0549dae922c38e7bdf52be61af3193803f,"Una mini-cucina ultra minimalista con un fornello e una pentola, perfetta per cucinare piatti semplici durante un viaggio in solitaria."
@@ -72433,7 +72434,7 @@ Quella creatura terribile si trova <style=Hint_BgD>poco più avanti</style>."
 1574953968,5f754b7a38b1ae8e1b879a854e0aa73cb8e4512fa683aec7c5e5795a21283907,Talakki!
 1574962570,c33d6566d58316582e4095b2ac745ed3abde3433de41d5fe30b284b5d0604107,Emberpup intelligente
 1574967514,c399682683c3c5c03f51de325f942d60197b5ad5a1a102048cd5881b77c8fee8,"Se aspettare ti annoia, perché non <style=Hint_BgD>sfidi le quattro Spine Letali qui fuori</style> per “rilassarti” un po’?"
-1574989423,625cc7ffa51cd078ac706983c62e1a3212b162bd768e5ce8177a5e9b9ba74e60,"Una porta in legno a punta, dal profilo slanciato e fiero, che ti fa sentire davvero a casa."
+1574989423,31b5be3a1c257f879b5b7deeab236029caa914621431695e7b2bef68e4d2d7ba,Una pesante porta rettangolare in legno che delimita nettamente la stanza.
 1575007007,e17b8809de54bd3300269c3450cd40a7dec58f1fc5210074b7763ee06c934cb9,"Proprio mentre stai per afferrare l'Ambra Lumin, il Lavazar la ingoia in un sol boccone... e poi..."
 1575026545,bacf344680898cd9618053eb1010b5aedd5bf39f3cca2499409b5f7dfe4c9c42,"Raccolgo e raccolgo, ma queste olive non finiscono proprio mai!"
 1575028244,8ef69d7dde7e50a283203796925436f53a7834d90c7ff2f0fb1f393f7da313da,Nome Oggetto di Sette Caratteri (Segnaposto)
@@ -75182,7 +75183,7 @@ Vediamo quanto valete, tu e i tuoi Aniimo!"
 Ecco, solo per te! Grazie, mio buon amico lontra!"
 1597055098,cb72ec985b5f3d754e23f4172dea5964e9255088c0bcd5ef0bf73cc72059019b,sconto
 1597066899,a1e544e6672dfb1edea1413373fbad8d4391bb920f2e49f8b36194c8dbc147bd,"I Tromber sono noti come ""cantanti della pioggia"", eppure ne ho trovato uno in una giornata di sole. Per un attimo ho creduto di aver scoperto un Tromber mutato. In realtà, non poteva fare a meno dei pettegolezzi."
-1597075465,d1a4a0c8d9def66872fa423ba4508f64305f36877918130aae7a647644189889,Valore di co-costruzione del Parco
+1597075465,ebf24fe99d1161b598ab7a12b9bb1afd2364ef29f52906d982199c3b013ba40d,Punti co-costruzione del Parco
 1597097957,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1597101571,82caf4651dd9af4fbd0e892eaa67dfc1914e3989a223579fd38648c28be9bac8,Hai percepito il pericolo e hai subito lasciato le secche.
 1597106774,233e4b37ba9ac0eb0bc181ac786b710b6753b4cc56dcbbf4c56da8dd953bed1f,Usa per sbloccare il titolo
@@ -75523,7 +75524,7 @@ Assorbire acqua non consuma più le <style=Hint_BgL>Pozzanghere</style>."
 1599901977,55860ffa56b1c248e27c49d5a106780c535ccf1e17a68ad0109b45fd21784f0b,"Ora parliamo degli <style=Hint_BgD>Oggetti Tenuti</style>.
 Con il titolo di Studente di Grado III, hai le capacità e i requisiti necessari per equipaggiarli."
 1599923603,ddc5808b2ec9d9167e1756aaa2912b2bfb0a1774aa7c8ffcd95014b184f54a13,Wisptis
-1599946322,f7046295c41dd8e59f3e85a96c65fde4f0dc1e44e7e5de05e04a2327e8836516,Dewlop è stato inspiegabilmente infilato in una scatola mentre dormiva e gettato qui. Questo è tutto ciò che sa. Ti chiede di farglielo sapere una volta catturato il ladro: vuole accusarlo di persona.
+1599946322,cf1465f4a2975e88a0c5156843204c0d24f74ac0fc3afa754796f1494845e3b4,"Dewlop è stato inspiegabilmente infilato in una scatola mentre dormiva e scaricato qui. Non sa nient'altro. Ti chiede di farglielo sapere quando catturerai il ladro, così da poter accusare il colpevole di persona."
 1599959795,cb266d4c71226c1697013d64589db5a115853ebd5a72c5863ca8c6e5fcdf58a5,Entra nella Grotta
 1600000679,fb9adcf6d5da296d62fca8504279bcdeff35a4fae2c7bd77cc9b26e6db6d6e5b,"Ciao, che piacere rivederti.
 Grazie per l’aiuto dell’altra volta. I dati che ci hai aiutato a raccogliere sono stati preziosissimi per il nostro articolo."
@@ -76536,8 +76537,8 @@ Nuvola Euforica: riduce del 30% la velocità di tutte le unità ostili all'inter
 1607816956,6b5762fe3e484995fb718eb554c8182afb2ab5f5f99ddd924cb33e900de49a9d,Ballerino di Supporto
 1607852213,4b13eca6bd7acaf14bf6cdf6513e235af055f53889df414286787b211f33a210,"Oh, giusto, sì! La sfida è semplice. <style=Hint_BgD>Esegui il numero richiesto di contrattacchi perfetti</style> per sconfiggere i Budsquires che ti sfidano. <style=Hint_BgD>Devono essere contrattacchi perfetti</style>!"
 1607860515,eff8b09d61eedc79c2d571ac99a524ce6f8f20c862b65a30f540b2883f638b80,Esatto. Sconfiggere gli Alpha è uno dei modi principali per ottenere Nuclei.
-1607861729,ac574ae1bba66ccbf394b0b9ca0f055c01d792157b7452e2ab869a72a7ffd4f3,"1. Durante l'evento, accedi al gioco ogni giorno per completare il check-in giornaliero e ottenere ricompense in base al numero complessivo di check-in effettuati.
-2. Il conteggio giornaliero dei check-in si azzera alle 04:00 (UTC–4). Effettua il check-in per un totale di 7 giorni per riscattare tutte le ricompense."
+1607861729,568d2356abe76e08ffff26799703a2abfc217bd406c554a629101dc4834dd264,"1. Durante l'evento, accedi al gioco ogni giorno per completare il check-in giornaliero e ottenere ricompense in base al numero complessivo di check-in effettuati.
+2. Il conteggio giornaliero dei check-in si azzera alle 04:00 (UTC-4). Effettua il check-in per un totale di 14 giorni per riscattare tutte le ricompense."
 1607865473,1a338fec3ddc6acfa13623bbe355ed6c1021fe28de7b89e67ce73a2659019971,Posizionalo nella tua Base per macinare ingredienti.
 1607883310,a4490f1a1fa9fe4bbe3c5793ec825414103ffc1cb69826bcfca1d92146864238,Aiuta lo stanco Sugarslime a riordinare il castello della Principessa Sugartini.
 1607895944,ad79b0aff8f013051b51cfeaa44027aa6de8d0197b579eaa80fdcfdd1173a447,"Bau, bau-bau..."
@@ -77791,7 +77792,7 @@ Ho predisposto un assistente virtuale, così ci sarà sempre qualcuno in servizi
 1618301730,b3aef0a23ee5c0517e1ce64d47f8e403c12101da2291deb0a861e89a933faf44,Lo Sherro precedente era il tuo maestro?
 1618307359,2160558e8649e30c392fc7a66c97792445f705a6e79dd691d0bac49247bc71b8,BINI #9
 1618309764,9890de03d71571f846f093ec413da73630cdf944cccb54db2abfbc16c1a440b7,MSAA
-1618322180,3f2ee824a9b09145f12386d41c5ba58d67860e69e90d3f5a41a4a6ae7e242c4a,Fa' attenzione!
+1618322180,1788ef1c9d661546c19de0ece569c3b029e81deb864a6aab4f85205dcde722aa,Fa' attenzione!
 1618323600,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
 1618324719,0f0ec8abd97b70524631c4fa2536cbe251bfcde860cf84fb2988ea7c02901436,Fai una Pausa
 1618336511,b5e524df57e6a7f88fe7ebe26891651b26ef7aab73e6e214ff08d9829bdf0ee2,Responsabile Fotografia
@@ -78899,7 +78900,7 @@ Quanto a creatività... non ti si può dire niente."
 1627234307,acb821d82bd75f714bdc21ef6c63c74e7d99fcfd8d78f2f017cb34b53242c280,Arredo Test N. 3
 1627240301,e6e42b4027c7eb9fce9adbf4dd9bf72e91e483eaade3e9da96b89c6e8c5bbf43,Hummin
 1627245412,4d90e55ff74ccf530c868fb29fc8dccc6a7b5fd55724ce7fd2f7124443543b1d,Blocco - Marrone Caffè
-1627249446,e856a0c410fcf0c17beb9088c9426d209734ad86ccafae7d22428be716e3def1,Testimonianza di Dewlop
+1627249446,db404f3da35c2cde31281c8af1885f8c6f935d6f8766f00faf57c1f6ea27663d,La testimonianza del Dewlop
 1627278327,eb6dac40cd5feba4f81e1de203524f0af49b4b23402c1017899b4d9352bd26a1,Tocca una struttura a sinistra per selezionarla
 1627283265,e9e59cb2772e9a5e88f6e6c2ffa0a1c504eb0bda03603c57c65bb6f91ec277cf,?(richiesto)
 1627292552,d78772268ed4f5216f7291f823d77c998d5bedf9152141b196856eca194e88e6,È ora di tornare al Villaggio di Marespecchio. Chiederò in giro della <style=Hint_BgD>Terra delle Rapide Ruggenti</style>...
@@ -79752,7 +79753,7 @@ Devi raggiungere il rango [<style=Hint_BgL>Cercatore di uova emergente III</styl
 abbiamo riscontrato che il nome della tua Base nel gioco contiene contenuti inappropriati. Il nome della tua Base verrà reimpostato. Se non sei d'accordo, puoi presentare un ricorso contattando l'Assistenza nel gioco.
 
 Un ambiente di gioco sano dipende da ogni Esploratore. Ti preghiamo di rispettare le regole."
-1634099620,f34a65da104df812c18f44b2bcae40714c1ca64b8305c286048545d3bd3927a4,Contenuti di grande valore attendono di essere sbloccati!
+1634099620,af877d46ba8975e3ffe99dd399a1802ae05f48d2b71a7aa7989e9303bd20f347,Contenuti di grande valore attendono di essere sbloccati!
 1634104679,b5e4c6f6815e09e338e4175f2366e4dc98727e24b2c7c301951df931e0daae3c,Danni CRIT
 1634114571,378d83808237a4459f234bbfbf1380fff27049305cb4235819c3091f5856ba5f,Forziere
 1634119540,1e00c589486f316e7f1b9b519dc10730826365a7951c5f5093233a9b4d2a84fd,Neil
@@ -80172,7 +80173,7 @@ potrebbe essere collegato al racconto degli Echoback."
 1637351342,3bc51062973c458d5a6f2d8d64a023246354ad7e064b1e4e009ec8a0699a3043,Alice
 1637353422,cc41b2bd5a49582cdb59895efe110bf1ab213ee65e17871c8eb9c3b9d7f376da,I tasti speciali non possono essere assegnati come scorciatoie.
 1637360491,fa0de016c4f2965d529d8ee8c2d295156ae160910295bae6134760324198f328,Hai ricevuto 800 Punti Allenamento Simulato!
-1637378110,625cc7ffa51cd078ac706983c62e1a3212b162bd768e5ce8177a5e9b9ba74e60,"Una porta in legno a punta, dal profilo slanciato e fiero, che ti fa sentire davvero a casa."
+1637378110,31b5be3a1c257f879b5b7deeab236029caa914621431695e7b2bef68e4d2d7ba,Una pesante porta rettangolare in legno che delimita nettamente la stanza.
 1637383883,1e6353f3c39d82bbd46c576cf1a14e572aaef7a886a98d7f3f180a3b373e5da0,"Quando sei al buio, riesco a vedere solo una fila di denti bianchi come perle!"
 1637398460,05c300231a75872e8027134c6c44ea30821abc46830e42940c165102d71e499d,Jawling
 1637414718,2f7baf7de80b36b414e38db7204b255642a8086218bbaf653b6aab7c8e603829,"Glub-glub! Vostra Altezza, vi abbiamo quasi persa!"
@@ -83909,7 +83910,7 @@ Per prima cosa, posiziona qui un <style=Hint_BgD>Generatore Scoppiettante</style
 1668306938,ed077f3d8125d60dca1979c7133601bd187d47c73ed9975028f677e49e709942,Apri
 1668316727,2d26176bc8b2c720f6bd85b46f1ff7b4b6a64be95f8d00d675c76a85d979e577,Sherro
 1668336983,d69f3e098d42e6a9ddea7fd518987d300b1011e895029914516cdfa8c92dc6b3,"Soleggiato <sprite name=""UI_Img_Weather_Sunny"">"
-1668341728,638b93588234e76770446612dfa85a85761c01684d4f11356f33a53ebfe887fd,Deposito Aniimo <color=#e3dab1>Capacità</color>
+1668341728,49abd837fcc8fdf1372cf49d472babf1aea397df5cebd3514cce225df3983a4c,Deposito Aniimo <color=#da8000>Capacità</color>
 1668347179,0903dc3f860e55f2d3df0478824e12dffa4432ff3eab949dac73a979cfe3ef38,"Tornati dal banco, tutti concordano sul fatto che sia impossibile fargli cambiare idea. Ricordi loro, allora, che i Reefish possono mimetizzarsi come piccoli coralli e radicarsi nel terreno per resistere alla marea. Al momento opportuno, potranno trasformarsi tutti in corallo e circondarlo per tenerlo al sicuro. L'intero banco è entusiasta dell'idea."
 1668355152,329d2f07a559b774726accd29c0bdd54afc6dfbc0f3c5f07a0a50445cf5c0d75,Sincronizzati con %s
 1668368181,ddb33b74d544a669d7a329c7be81b4e248e8ad6f2754ba70ec1f66d11bba22fe,Selens
@@ -85117,7 +85118,7 @@ Salvatrice o eroina, ormai per me è soltanto noiosa."
 1678391044,5d397f28c93179e2d282d59bed0add792ff958b1b01bc869191de26a3ad13eea,Lavazar Goloso
 1678391324,43006fbe12c8987c12b0f86d56ff5adf4a5e061586f4c18670509ef918c5c350,Evento di rischio
 1678394366,465d08e51309df73296f04eaaabb63730106fa70d010189d7875ec9da4f9a7b5,"Se non l'avessi toccato, probabilmente non si sarebbe aperto affatto. Non essere timido: prendilo!"
-1678397722,5c66a8bc303a2f915ccdf39c3a4f3bde774bc0d310edbb9bc507421b3c04bdcb,Ricerca Aniimo
+1678397722,965a6fdbd6ac862a6cfafe562d74826932b6d8a5a9fc74482aa2c45891174cb7,Argomento Aniimo
 1678412950,560a0d6d25858313eb54eedc43b0b5d4f7d8f445f464d9d17df401022f789866,"Non è una coincidenza, vero?"
 1678433699,b0a3cc260e14376f603893bf2c0c18ccc0db6bc33a3fca07ca10cd8caa222884,Sabbia stellare
 1678445706,a0696360c432902621c9205730bbc878c2a35815522f653e8a9ec61195faea23,"Il fiore all'occhiello di un progettista d'arredi anonimo: linee pulite, misure ben indicate e una cura artigianale che si rivela in ogni dettaglio."
@@ -85761,7 +85762,7 @@ Un Contrattacco Perfetto interrompe l'azione dell'Alpha ed estende il potenziame
 Da qualche parte ci sarà qualcuno capace di capire me e loro..."
 1683598042,a61cc0f1fc0691f93e01312b0864005671e5e54def85ce7ce8c7bb8c8206f5fb,Polvere di Radice di Loto
 1683598784,c7412bfac83c31d804c71b46623d546f95bc6229137c275dea40fd85cad7fe0f,Porta il Camper al livello 6.
-1683614767,050dd9bd4a0fc7f12eaad63519a6e88798ee79791bf05ad5a41703290813a59e,"Puoi spendere {0}<sprite name=""ui_item_{1}_small""> e {2}<sprite name=""ui_item_{3}_small""> per ripristinare il Potenziale Acquisito migliorato. Dopo il ripristino, il 100% degli oggetti utilizzati verrà restituito come segue:"
+1683614767,7e4e01c332ef14f4f9d5865341580d28577ced4f4af5e8092926dd2311925b8f,"Spendi {0}<sprite name=""ui_item_{1}_small""> e {2}<sprite name=""ui_item_151005_small""> per ripristinare il Potenziale Acquisito aumentato. Tutti gli oggetti verranno rimborsati interamente (100%) dopo il ripristino, come segue:"
 1683620693,dcd2d61a4ea8cf14df63d3b0407c2622f21f78cab4eac1f17714b76d99074f0d,Vaso per Conserve (Livello 3)
 1683627181,751f5cf852d346fa5868cf056724c49083e3339022e7f6586197a4fff14c7ae4,"In Sincronia con un Jawling, parti alla ricerca di alcuni Helmut. Ti scambiano per un altro drago e tremano di paura."
 1683646632,56b564b75c7fdb488865f2198ec362f9c0f5c0b631b28c15eb387b43029f28dc,Modelli
@@ -85868,7 +85869,7 @@ Puoi visitare l'<style=Hint_BgL>Avamposto</style> per trovare l'Istruttore <styl
 1684506401,fe86f6272e72a18957e011c46ea14afd6e631ed30a2b2a0781f9e6bc0e7418e8,Introduction testo (segnaposto) testo testo testo testo testo testo testo testo testo testo testo testo testo
 1684517205,c37e919fa6c43fd422699da9e42cca6bf3b2d5288866650c8be115e5f037206b,Una pagina strappata dal diario marittimo scritto dall'Esploratore Hayes.
 1684530499,745759555e55984dc06ae81f1f99a83cb20e1b1a2717524fe67ba925c2454142,Livello Gratuito Manuale Compagni 3
-1684544929,d5b749787b4b71594c39e117d588b419e88fba905a200d78e966ead13a3c4f43,"L'uso di un'abilità o dell'Ultima conferisce 1 accumulo di <style=Hint_BgL><link=""source_8065""><u>[Turbo Boost]</u></link></style>, aumentando il danno e la Rottura del prossimo attacco base del <style=Hint_BgL><customRichText(calcData,buff,91693011,param0,1,%d)>%</style>, accumulabile fino a 2 volte. All'inizio della battaglia, ottiene un'Ultima gratuita che si ricarica ogni <style=Hint_BgL><customRichText(calcData,buff,9169301,param0,1)></style> s."
+1684544929,4bb62741099e7983b38317a221c9ee0ff556c4e09b6962edc81b6438490965d9,"L'uso di un'abilità o dell'Ultima conferisce a chi la usa 1 accumulo di <style=Hint_BgL><link=""source_8065""><u>[Turbo Boost]</u></link></style>, facendo sì che il prossimo Attacco Base infligga un ulteriore <style=Hint_BgL><customRichText(calcData,buff,91693011,param0,1,%d)>%</style> di danni e BREAK. Possono esistere fino a 2 accumuli contemporaneamente. All'ingresso in combattimento, Jeburst ottiene un'Ultima senza costi di risorse. Questa si ricarica ogni <style=Hint_BgL><customRichText(calcData,buff,9169301,param0,1)></style> s."
 1684574471,91c9b0b58655e0f386159c871158e70b0bcceaabf6fca9dc13189a20a6683382,Congiunzioni
 1684586459,879f0aac8e632e8d36b19ef0a81a4a8b02f52ca9b0dfd5f3ab90ee7324116c57,Il mare di corallo più piccolo
 1684595330,5eaf62426eb439bf1d8d6e8c42ff09a4e3b8e291a70ae6cdf0fec40f1a49a20a,Ragazza dalla Veste Nera
@@ -86653,7 +86654,7 @@ O hai voglia di un altro trattamento completo, con bagno e profumi?"
 1690915769,446b8797e97c747473c528cf1f862685cbcf3b16b3c066fb727dce1366934432,Indossalo e cavalca vento e onde.
 1690916747,66b9c8fe2817614bedfa69b715e0bcb0b3b088423c1ccfe6985a79c7e1a7e2c6,Viaggiatore con carico caduto in una fossa
 1690931812,7371d7ff56c06f637451dba94f9270504eb9cbb3aa77b70ed000f324ab37e248,Chirpi Scontroso
-1690948352,332f9d2417001b593be69b34651a5290bfa8eb018122e8519302d05084131e0d,"Punti di luce arancione si radunano a formare un mare di stelle sul terreno, illuminando a poco a poco la Notte delle Meraviglie."
+1690948352,2bf7e221ff60eb6599c9a8d09dd82e87f4247c28cccc8a3032aa4164e86232db,"La luce scende dall'alto, facendo risplendere i gradini di pietra. La scala a chiocciola invita dolcemente a salire, scintillando nel suo splendore specchiato."
 1690949709,dbe20b53501927bc9cbb32049585e17b91f878ea0fa76eb48ccd6dcf747c7c29,Pareti Scalabili
 1690953156,79dcb907c43b5b56f1c0857e6606114711804ea347124533d1e9a13e1029d7f4,Livello Ricerca
 1690963931,7ad96fb5779377bf47a8658cc8822ebcc1137ead6d63c9461275b5ec284fb8c5,Passante
@@ -87723,8 +87724,8 @@ Il Glynsera Prismana, il Melloblum Prismana, il Waleetle Prismana e l'Inferlupa 
 1699713546,2e6373a4b57f6943d655dffe5b2b6bcb9bb3d37d94a9a9e59bf53159b300c62a,Sereno
 1699724824,d9a19191c60ee0aee3680713699ee39953a4cac8d6702a13f4ce5595963b445b,Livello Premium Manuale Compagni 34
 1699729089,651e2ccb8445cc877bf054567f6d221a9c24f3435a2871106d2be8c32bcbd9b5,Esploratore furtivo
-1699735997,4aca8fc2fb1e8bddd347e414918c8b54a3131c9b59d0a6333f47430a586f12a5,"1. Durante l'evento, accedi al gioco ogni giorno per completare il check-in giornaliero e ottenere ricompense in base al numero complessivo di check-in effettuati.
-2. Il conteggio giornaliero dei check-in si azzera alle 04:00 (UTC+8). Effettua il check-in per un totale di 7 giorni per riscattare tutte le ricompense."
+1699735997,8b3e4629a79b6441db7f6b43e875a8e85367b681bf458745ed8f7c87ec631d4e,"1. Durante l'evento, accedi al gioco ogni giorno per completare il check-in giornaliero e ottenere ricompense in base al numero complessivo di check-in effettuati.
+2. Il conteggio giornaliero dei check-in si azzera alle 04:00 (UTC+8). Effettua il check-in per un totale di 14 giorni per riscattare tutte le ricompense."
 1699736322,7bbda8d7f1cb3d2bc7d2780b53f3ac92fc26b6cdc0324457ff59529d913e31dc,Velouria
 1699741295,a0dedaf74c442f4fbd375b8b0334f335b123997403d8aa53cbad823a9fc31778,Punta di Liana Mistwoods
 1699755184,3f993f8ecc0bee12241a4b9ce7a3a0facebb35189fa28b0b9e5ab60a54889966,Non si sa nulla di questa Forma.
@@ -88289,7 +88290,7 @@ a diventare eleganti e belli come me. Allora il mondo sarà un posto migliore."
 1704870225,e9ea675a5be79abea268bbe8fda4157c19a8cd93f187a2459f7aabff612f90d9,Avvio del dungeon non riuscito. Livello Esploratore troppo basso.
 1704870615,2cfb091a5fa283682c477031d2aa9bd1cdd3cfdd36b2e3fb54749d69509b9227,"Avere troppi Aniimo rari e ritrovarsi addosso gli sguardi invidiosi di tutti, tutto il giorno... anche questo è un bel problema."
 1704877594,ab4cc9067d790d16fcc1b6c677ce9e746d9de4c85d1521c9dfa28bfe3506e43c,Trascina #kPlayer/Move#z per muovere il personaggio
-1704892406,991dc7a7aaac6365bf8c5d429bc49fc88e6567453b68d625e09fce8bc932ca5a,"Dopo aver attivato il Pass mensile, puoi consumare il doppio della Primergia per ottenere ricompense doppie ogni volta che sconfiggi un Alfa."
+1704892406,bc2223312331caff046a4f33ddb76dfa9ef04841fef9a2638926392e73c23d9d,"Dopo aver attivato il Pass mensile, puoi spendere il doppio della Primergia per ottenere ricompense doppie ogni volta che sconfiggi un Alfa."
 1704896949,9e04dc0f4412eb3cbe9c1991899ca0726467b577a82bae3a454184464da3ec27,La chat di gruppo non esiste.
 1704899604,55f6dadee7d58092e8808e96cfafedb300868e3ba557a08e03715073fd921fe5,Sasso Carta Forbici
 1704917048,d587622d277c4be4a2ed692b5a52d550abf0d9e19adb40469bb837462084dcdd,bonus
@@ -88738,7 +88739,7 @@ Questa è un'<style=Hint_BgD>unità di deposito</style>. Conserva i materiali pr
 1708244720,29b045c0dd6ef34b07aa790521cda11df2c6800e5164aba146267a694123812e,Osservatore delle Cascate
 1708245648,2bf0d061c32c791ab02b17ee54d3daf4d7c13405b03f38dd24e5bc6fbc80e2cc,Accessorio Personaggio
 1708279444,38bf07485eef8312b148c981c1859f6d51a3baf251e347a7df7877fdcd1c1034,Accessori Aniimo
-1708296304,d85087e15d8ebbf0ff3ba9cc9b37c404d9ac3ae281da0cafea5289bf5fab1786,"Crema solare regalata da Rosina. Da usare con cautela: proteggersi dal sole può sembrare una sciocchezza, ma una reazione allergica non è affatto uno scherzo."
+1708296304,40a0a53352fda3c51e7b5468066158ae00c15b0928a906449e15d3c8a0260c55,"Un prodotto solare regalato da Rosina. Da usare con cautela: proteggersi dai raggi UV è una cosa, ma una reazione allergica è ben altro."
 1708307938,91c3bed9ef2c7c634896240be93dd5228ed25eacbc8c5f956ee173dbf4500dbe,Cuocitore Pesca Premi
 1708312589,45989de49fb7f66dfe17a8fc26f3a02c7abcd74f7e8e6cf9f39fa0e3775780df,Dettagli
 1708312904,d09d618ec3d29dea2ff6efaee8615ffa5c730bd8d34efc746cfd6629d4ab9881,Mulino
@@ -89616,7 +89617,7 @@ Quindi le nostre prime impressioni di questo posto sono uguali!"
 1715723199,5637b691bef1ac341f3ca02e7ce9db292769c561ceecd8f1d352bd12be7bda51,Affretta il passo
 1715725374,3f1d795a7d5e4744adf96cfc447ad1384564f46e0b4e25ac785f3bf5b915be1d,Cozite Timido
 1715730297,20b81b41f72a8250547782fff88ed5a5ac86a1beb675129bbc83b9c15489bbc6,Ti va di venire a rotolarti con noi oggi?
-1715740559,d743a69c8a56a070fabcc96a17158649643bc58c0a74b4011ce49884c573d72c,"Squit, squit!"
+1715740559,180a5dc22ce88d70e8c6cf97d8f5f447d70aa09a2270b119f915c811184026ec,"Squit-squit, squit!"
 1715753950,600b91c8c85c908872bf58d580d364797b938cce9cd753b6397220a87dbfed69,Carta da parati verde lime con un motivo a rombi ornato da Aniimo floreali. Dona agli ambienti un'aria luminosa e primaverile.
 1715762379,c8193f51017fcaafd823e12f11e976ab8bffea2d3e04d6df3a85b37c4bcedb97,"Allora, Thesseo, cos'è esattamente questo <style=Hint_BgD>tesoro</style> di cui continui a parlare? È una leggenda di queste parti?"
 1715781100,2f9b57fa3ae4bcf60329bae46f57ac68281645f79620dea9e5fb7f989d704e85,"Un tè dorato limpido e caldo, dal ricco profumo di cereali tostati. Morbido al palato, lascia un delicato retrogusto dolce."
@@ -91935,7 +91936,7 @@ Premi #kCommon/GamepadCancel#z per chiudere la finestra."
 1734661888,f0e67347b4b6a93b72842a4da5296901afae5a0e030840964edd010cc86960bb,Scorri per selezionare
 1734696729,247c15fdf174dfff5bf6de8b88e8222b389a136d647938f7efb88efe317a2f24,Helmut
 1734710379,f577873cd2415947f24286a08a15c800ec44b813f50a68d33cbec1826dbaa452,Eeee! Namoo!
-1734720419,736e8c187cb4e8d99d10d78e4deae89faf446146373e0cabfe9f56741a3c8e42,"Scatena una generosa pioggia di budini, infliggendo danni ad area e aumentando il potenziamento elementale Ghiaccio di tutti gli alleati di <style=Hint_BgL><customRichText(calcData,buff,915940103,param0,1,%d)></style> per <style=Hint_BgL><customRichText(buffConfigData,915940103,duration)></style>s."
+1734720419,4a5b9c797963484658765dba7ed800c1d7496695b1bdae2f32d985437c2f420c,"Scatena generosamente una pioggia torrenziale di budini, infliggendo danni ad area e aumentando il Potenziamento Elementale Ghiaccio di tutti i membri della squadra di <style=Hint_BgL><customRichText(calcData,buff,915940103,param0,1,%d)></style> per <style=Hint_BgL><customRichText(buffConfigData,915940103,duration)></style> s."
 1734723365,6f8cb1cecaf9050741b5c2ff502a96fda0d11d60bb3d053031cb6c81c1536335,È così lontano... E ci sono così tanti alberi intorno che mi gira la testa.
 1734724031,a7248eeb45eb1ce247f81693283e22e8b39e8a50890cecd22d02e75025547d90,Normale
 1734724383,b74d76b5bd19ecab0e98481e53e70c2142089c505b37f76f51852e3095b39804,Asset ottimizzati
@@ -93117,7 +93118,7 @@ Se posizionato nell'Area Camper, conferisce agli ospiti un bonus di +<style=Hint
 1744848159,f923657cc3906c05ba3056bdb6ef9dd6fbf05cb2078d817a59ba6f4754313cf1,Valore del Filtro
 1744852766,785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09,22
 1744879232,fa3e13b3f7bbc114bd2f19180720491cd4b1da34e10281616c4826c4565d7a70,"Se la felicità arriva solo con le ricompense, allora essere felici diventa così difficile!"
-1744893022,41c5dd914a406f0c7192c8a0add861c6d40bb13add276ea48d6f6b4aac2f627b,"Espande il <style=Hint_BgL>[Dominio della Regina]</style>. Quando l'Aniimo di tipo Vento mandato in campo usa un'abilità, attiva il dominio, infliggendo danni ai bersagli nell'area d'effetto. L'intervallo di attivazione non è inferiore a <style=Hint_BgL>0,5</style> s e il dominio dura <style=Hint_BgL><customRichText(buffConfigData,216140101,duration)></style> s. Dopo aver attivato il dominio, c'è una probabilità del <style=Hint_BgL><customRichText(calcData,buff,216140101,param3,1,%d)></style> di attivarlo un'ulteriore volta."
+1744893022,fa5186eabb8d5db8adf7194bffe33d774fc6ed625ebbe2efc8d4e8588230983b,"Crea il <style=Hint_BgL>[Dominio della Regina]</style>. Quando un Aniimo di tipo Vento in campo usa un'abilità, il dominio si attiva, infliggendo danni ai bersagli nell'area d'effetto. L'intervallo tra le attivazioni del dominio è di almeno <style=Hint_BgL>0,5</style> s e il dominio dura <style=Hint_BgL><customRichText(buffConfigData,216140101,duration)></style> s. Dopo che il dominio si è attivato, c'è una probabilità del <style=Hint_BgL><customRichText(calcData,buff,216140101,param3,1,%d)>%</style> che si attivi un'ulteriore volta."
 1744921683,6c16d3fdb912ab33303627234b4a1522c7cd206b40094283004e7fb57d387b3f,"Dopo aver toccato la nota musicale, appare una corrente d’aria magica. Dovresti riuscire a usarla per <style=Hint_BgL>Volare</style>."
 1744925795,40acaa498dc0e55c280367ba97e3877b4473d0554accbeeda992525fbfba6b75,Sunia
 1744930220,c79769df6d1e74d1abaa0f507fcbda88de632971dd798440b51b5499c23eeabf,"Capito. Grazie, Istruttrice Lita!"
@@ -94340,7 +94341,7 @@ Preside, voglio entrare nel Polaris Institute!"
 1754116549,51e81b7058286840299fd0d213530696ce73b00cce5bb6993dba2c02804bdfaa,Conchiglia Marea
 1754146822,e544b419047485333e9d645d5e73b1ebaa2e67dbec2d475791af207790d67d26,Va bene. Un'ultima volta.
 1754147576,a17578f10295e5138fa9606c8beadf0774380bfb23fc6fa4010c16d6c178bb54,Viaggio ad Astra - Segnaposto 50
-1754150542,5af343f73e30504a68b0e322eb7cbaac7a51342490b3322753ae588566590ba2,Prima vittoria Alfa
+1754150542,6e1d197362cb738620911c6fa523c5e04453aedf87259fc0290f9ae9384fb416,Prima vittoria Alfa
 1754155047,61a9174dd9f324196f33e937729bcdc73ae68dc7edc24845ccc2dc38d95ec768,Sblocca Distintivo - Prato dei sogni velati
 1754164412,406ce397e44ed407a1057395f8096925582cbf7c5d070e3e7ca175b534534979,Becca
 1754168197,280ad01d7a8ec1367e312756d245d9aa9a24d6178d419fb59b56c6fd146eb32c,Uovo Grizbo Prismana
@@ -94627,7 +94628,7 @@ Durante il gioco, usa il comando mostrato nel modulo Aniimo attivo a destra per 
 1756463846,4f356f355df721d07622457ee75e95ce4d90298b17af513e9ba29236134d564f,Bambola Jawling
 1756476950,43006fbe12c8987c12b0f86d56ff5adf4a5e061586f4c18670509ef918c5c350,Evento di rischio
 1756489960,fd1426fc3b44e3b8aa8e593d785e240ac2cddcf580450df4fc826976898daadc,"Ottiene <style=Hint_BgL>1</style> accumulo dopo aver trascorso <style=Hint_BgL><customRichText(calcData,buff,9126103,param0,1)></style>s fuori campo o dopo aver usato un attacco base. Quando il numero di accumuli raggiunge <style=Hint_BgL><customRichText(calcData,buff,91261032,param0,1)></style>, entra nello stato <style=Hint_BgL>[Avvolto nella Nebbia]</style>. L’uso di un’abilità consuma questo stato per potenziarne gli effetti."
-1756509840,846a473182dc8b5226a2b7db829a76e14a91658c995555589d9f635c383bc94e,Dono di Luce Intrecciata
+1756509840,df526e2cebc4275470aab5153383693adef330b09a3024c1e65d108ad2c8f454,Dono Tessiluce
 1756511574,724215766b13afebbd177263bbf3500a999b07314bdfbddbca00f62148b2dfd0,Invito Snap
 1756515419,dea46262c99a8aacc4fa3534fb1539432955bb797d572a8fa09a0f8bd9b41ac9,Una ragazza dal comportamento strano
 1756518303,eb0e357c30ccc8bac883010e640184fd6168e8c8c31c13075061057410ebe647,"I Dewy sono indispensabili per raccogliere aromatisti, quindi prima te ne servirà uno tuo!"
@@ -94649,7 +94650,7 @@ Eh? Che ci fa un'auto a Idyll?"
 1756686009,cb50ac0d066546236d232a6674527f7b08451ec5f962bbeb5215e95a19d47f27,Tutto ciò che serve per curare il giardino e riempire la tua Base di fiori di ogni colore.
 1756693674,7718464ce7f36a6d8dcbdc186ac2e294dd24f4b57ffe4e1401a6d5938b5fbbb3,Asso del Collezionismo
 1756707880,777e4061220c43abd5af351b72b198a3615f09422e420b37bbfe45291aeb9d91,Bonus Guadagni
-1756713461,dc32e6a163bc83955d651225aee84369088cbf9c6940c9a5394c66bf46525965,Vitalizza express settimanale
+1756713461,5f391405079af2088748cf6fd1081ac3e5cc0cc3065782c4944bc8c953ce91e9,Consegna nutriente settimanale
 1756715402,7a13a5e8163c8581e6a2197712765a4aec609dd540a2671295802f20b22231cb,"Ogni accumulo aumenta i danni inflitti del <style=Hint_BgL><customRichText(calcData,buff,402002201,param0,1,%d)>%</style>."
 1756715572,b5884f027f9993fa32cff2a3d3e0f2704908ed5fca67bebb281566380a250720,"Uff... finalmente. Questa giornata mi ha tolto quasi tutte le forze...
 E guarda lui, come dorme..."
@@ -96839,7 +96840,7 @@ Quale sarebbe la tua prima reazione se un amico venisse ferito?"
 1773457018,8eafba1408548c1ce4265349b3ac2dfbb51f41933c6f61ac07866fa19872beeb,"I nostri antenati un tempo vivevano lì, fino al cataclisma finale..."
 1773469384,749ed961770afae7320a6b81b5c30ccad9c4af4c6b3b9035289a68f92448380e,"Le abilità hanno una probabilità maggiore del <style=Hint_BgL><customRichText(getConfigData,extra_random_buff, 3063001,param0)>%</style> di far cadere Monete Allenamento."
 1773483739,bed52f43fdc90da56ccc8e512cb3d5fdb2af27891809b86292738383de30b9d9,Cerca la Fragranza della Vita
-1773485631,73279c19a2147f34bd0a074728fa87c85e26da059f066c29123a9fd48a71e56f,Vuoi rinunciare a questo tentativo di cattura e alla possibilità di riscattare la ricompensa?
+1773485631,c01196be8cdf2b183af0d72cf25ec256faf6fa702a1b7257590e70dfe091ad73,Vuoi rinunciare a questa opportunità di catturare l'Alfa e ottenere ricompense?
 1773494441,8894d0f0fb1be6eecc1519d40da9807a77f83bd8359ebbf4759bc0198d353d53,Sugarfish allegro
 1773497380,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1773498196,d0d64067fe5aecada64993658558d0f5b6b93542c8066cbf5cff2a3e2c87bb6e,Funa è davvero intelligente. Ho sentito che molte persone la pagano per farsi aiutare.
@@ -98468,7 +98469,7 @@ Per questo è importante passare a un Aniimo di un elemento avvantaggiato contro
 1787036597,fb88425e392bddaa68cd5b3b27ac15244499fb29a88720a5520eca71b2c8a6dd,Usa Ora
 1787045007,20ffe0c74dca9864f738c299942b74f88ba9f6c26ae495b2841092fc9783e5c1,Inserisci il codice del volto del personaggio.
 1787048129,b8ee7eeec783837ad8477cad345906b6559663cda49d46581ac009b1e115b206,Per costruire porte nella tua Base.
-1787067217,26dbe70e2b71026cb7ef0775f1917daa041ac379ab56b9649b28d602496b7cd0,"Olio solare mescolato con chissà cosa. Ha un fresco profumo di menta e dona una sensazione Chilly all'applicazione, ma protegge davvero dalle scottature?"
+1787067217,229fffb501c3fac9930683b84cb6efb1aa1eabe2d5ed237b75263f6cdb916503,"Olio solare mescolato con ingredienti sconosciuti. Emana un fresco profumo di menta e lascia una sensazione di freschezza sulla pelle, ma riparerà davvero dal sole?"
 1787069598,dc3248428df6dcb3cd7b8378544566707c0652deb476f4682c7d71eda81c5a08,Completa il numero indicato di Missioni di Ricerca per far avanzare il tuo Traguardo di Ricerca e ottenere un Bonus Ricerca—<color=#ffd267><b>bonus applicato in tempo reale</color></b>!
 1787077008,30be0a03bc1bd7c73f9466e9a235787f5a9897e5cb10fdfad2f599588aa249fa,Indurimento Perfetto
 1787079619,4b2bebbf33aeb7aea11cbab9d95019a647ca038b638f99f593aae85b986ed2e2,Lento
@@ -99535,7 +99536,7 @@ Ma sono qui da diversi giorni e non ho ancora scoperto nulla..."
 1796047720,91c3bed9ef2c7c634896240be93dd5228ed25eacbc8c5f956ee173dbf4500dbe,Cuocitore Pesca Premi
 1796062637,a3859e91b08f496ee34b8933b7b75cdbb33667403f951b1ae10b7d6a97eab892,"I Jawling sono Aniimo della Fase Lumin con la capacità di controllare il vento. Hanno un morso potente e amano limarsi i denti su oggetti duri, ma mostrano anche affetto mordicchiando dolcemente gli altri. Noti per il loro aspetto carino, i Jawling sono una delle specie Aniimo più popolari ad Astra."
 1796067024,59f77df8a12c1a06114d6bd45b7497cfcf29d0138f47816e118aaafd0938df0e,Una Starine rosa traslucida che risveglia il miglior sapore nei ricordi.
-1796077050,224e2b104d6e7961258a2617f9cd31ad39af3b545ce705913c3884578dd892da,Oggetto consegnato: {0}
+1796077050,3c80d252be1ae27348e0d07d4fef20b645a182c29c832834baa93ecc606926a7,Oggetti consegnati: {0}
 1796080637,65a99096311274661f8df132667aa3b5a49eb62152607e3c17296d33d3c887f8,Sherro Omega
 1796099388,008e0f37dac2d0f6d315ebf105cfc5be02918e5d2bf46dc0e57e826f0ef6609b,Richiede il titolo di Studente di Grado II.
 1796099657,452585863038f5caf2afcc00059372ce17fea3dce0a761e9e2b730d82c9aee37,Fai squadra con i tuoi Aniimo per sfidare avversari potenti e dimostrare il tuo valore in vere prove di forza.
@@ -99721,7 +99722,7 @@ In ogni caso, d'ora in poi stai vicino ai tuoi Aniimo e goditi il tempo trascors
 1797387414,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1797405967,8ca87d3c0d98c8daa069c8641682acbe342fb8be19341730d7a74ab36677dafa,Arredo Test N. 9
 1797411460,95dfc72c8cd7121c66e219ef16b3cb154a087c3d93829569b84fa81e9ba8e4d3,Si produce nella Base con la <style=Hint_BgL>Miniera</style>.
-1797426275,8035753dffc9b585734c1df0a75d59d3a85ce395604ecc763031ce261304aa85,"Un regalo di ringraziamento dal Dio Zucca per aver creato insieme ricordi meravigliosi durante la Notte delle Meraviglie. <style=Hint_BgD>Questo Buff si attiva dopo essere entrati una volta nella propria Base.</style>
+1797426275,e805d719ab95cf1963e4fcec044d63921703095631b2c402357dfa53a788dd16,"Un regalo di ringraziamento dal Dio Zucca per i meravigliosi ricordi creati insieme durante la Notte delle Meraviglie. <style=Hint_BgD>Questo Buff si attiva dopo essere entrati una volta nella propria Base.</style>
 
 Buff attuale:"
 1797427213,01bbb0907a45a9dc51e7ba36573ab66e1b2d365632ecfae96ebebc4871cad4c6,"Il nostro prossimo concerto sarà ad Astra! Devi venire!
@@ -102495,7 +102496,7 @@ e il Festival della Fioritura, dove i desideri si avverano..."
 1820410879,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1820420721,173311aed65617ad4736f11a17e4dbdc9a19b36b6d9b110c2c18a02090405bf4,"Atto 8: Strutture, Ordini e Vita Quotidiana: Parte 2"
 1820420765,4bf0ea984638f1396f13a98fb772a6c1ac3becc14adcd775a76259ec1ef1faa3,"Oh, quindi vi conoscete? Grazie al suo aiuto posso finalmente <style=Hint_BgD>raggiungere l’isola attraverso la Sorgente Impetuosa</style>! Partirò subito... Potresti consegnare questo regalo da parte mia?"
-1820424107,31962de4466f1ae6b02b64a0f51a997376ce50eb69bc4b96b484dfc10f930be6,Prismatico incolore
+1820424107,1b30762c69afa883a2fad5a4792e338ad1c1a556f2139af79506d0a83b46408f,L'arcobaleno sbiadito
 1820424635,24ddd66b26452b42d37cbb79968b665e8f45aa4b762746bc96b45fd1847d6e66,"In questo momento sei ovunque nelle tendenze: le prime cinque ricerche parlano tutte di te.
 Dai membri elite della spedizione al pubblico, tutti ad Astra parlano di te."
 1820430455,4af285e3ee9df65394471e9f9de7fa577aa89bd872fa1ef06ed7dca94e75b95f,"Una robusta piattaforma da salto in legno massello, con un soffice pompon appeso sotto, realizzato con il piumino lasciato dai Tubster."
@@ -103179,7 +103180,7 @@ Ogni volta che <link=""appearHelp_119""><color=#5090df><u>l'Energia Prismatica a
 1825915397,cf198aeb6e2b8ebba90e5919985de3058ec15796009503f884d4e938b7a37e68,C’è già qualcuno a dare un’occhiata?
 1825919857,21258b10fe0e7f6ffec7f6d54ee5d79b6c473fdabdf05f8d1d6967d0f763f787,Segnaposto Scheda
 1825930276,a28b56163e7d43b783dd8f38d1ef826058e05d76ccd5e86fc91173a95dc34621,"L'orgogliosa creazione di un anonimo designer d'interni: linee pulite, dimensioni chiaramente indicate e una meticolosa maestria artigianale nascosta in ogni dettaglio."
-1825930836,43126b197533c23c6a81a72c81ded4a48c911eca96a2266504422b5cd3977dff,Scegli uno degli <style=Q_5>Oggetti Tenuti di Qualità leggendaria</style> come ricompensa.
+1825930836,3e7f0aa42823cd1f51209e227ac56bcfb526faa34db811fb3add0333fb4c70c4,Puoi scegliere uno degli Oggetti Tenuti di <style=Q_5>qualità leggendaria</style> come ricompensa.
 1825936095,a5d0314b530ccbc48fb86e758cb6c4c25d3020569da9d58b6b53899d08815e8c,Ha-woo!
 1825937904,d2c468d26452e85a53358bd150eb4a1ceb032d895fa999eb80b70f2bb7828c84,Camper Liv. 16
 1825958935,47d6c70d9f7e374ca5b60f4fc39dd2be490be3877dd8a758cdabbeb0d93d6560,Limite carico Cassaforte Barca delle Uova +10 kg
@@ -103682,7 +103683,7 @@ Puoi usare #kHud/SwitchPetMode#z per far passare il tuo Aniimo tra le modalità 
 1829696706,7e3040c4e71f9b374cd4bd7ccef8a69015ffd44c69cb009d2837aa5d1940bd8f,Infuriato
 1829710828,3a013abf615414bb830e38d4fa3c4095dc980f49b8e1bcc5925d3e2ea04eb73b,Un Pacco Regalo Attività distribuito dal Polaris Institute. Aprilo per ricevere ricompense generose.
 1829729754,6d43984578928e877eeb869b8392fe0a725a7274ab755ba6b43091047da87eda,Lana
-1829729901,b122c80888a36b38dd75318ca4a835634fbbde50017cd27f13cec8a3eea2f151,Scegli un Oggetto Tenuto leggendario
+1829729901,d980535b3d68ef7c010928fc18c1bba4117da560bffd43697d69cebf496b690f,Selezione Oggetto Tenuto leggendario
 1829739986,dcc839a4015c4b7dd9db959a8f757833b8adb92462a751b973386e453c6d58a3,Visualizza
 1829744673,fe82a2110fa3f07f8e0663aa69c09ee108474028518d87ccadf814aff5c583e5,Lita
 1829748422,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
@@ -104190,7 +104191,7 @@ Accumula materiali e fondi per potenziarlo!"
 Accumula materiali e fondi per potenziarlo!"
 1833887085,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1833900152,2160558e8649e30c392fc7a66c97792445f705a6e79dd691d0bac49247bc71b8,BINI #9
-1833902994,4e4171dad02271295d4c32b79aeaa8bef6e3e63706d6596b2ec08470a7577545,Il dono del Dio Zucca
+1833902994,a1bc6f01b943896cfe6b55c54f6f94767f2e1f66c8bf8b2dafbf89af14322983,Regalo di ringraziamento del Dio Zucca
 1833913861,9d9d89ed3cf633d53012dbb53385bbe2ada5a547999519174916857e1a966ddb,"Recupera il <style=Hint_BgL><customRichText(calcData,buff, 2011001,param0,1,%d)>%</style> dei PV max dopo aver lanciato la Suprema."
 1833931701,9108bdcc837890dcede1cedbc76d900aa6b1f347b3fecf83323be78d44b98417,Trasporta
 1833932240,d78b75f4f1e8812f57cd420f8850e3a4a586f555a420408329d7ab954e4dcd25,Braccio Sinistro
@@ -104647,7 +104648,7 @@ Ti risolleva subito il morale e ti riempie di speranza!"
 1837700878,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1837705684,5b59f10afb96bbee8a87279a714346bc1c49ab90b920774db1a4f9c18bc7dddc,"Un prezioso oggetto da collezione lasciato da un'antica civiltà. Di valore inestimabile, può essere esposto e ammirato nella vetrina di Operazione: Furto d'Uova. Ottenerlo sblocca un <style=Hint_BgL>Accessorio Aniimo — Edizione da Collezione</style> <style=Hint_BgL>esclusivo della S1</style>."
 1837716942,50252ccee11895aca2d44d6d8ebf087592822cff3c01d191f153b8bff6ed0b9e,<style=Hint_BgD>Che la luna radiosa della saggezza e dell'armonia ti guidi per sempre.</style>
-1837719257,9b03743c4766fdc161d973cac389f940d8ea05f072b0f2bcde11b22359d01fb4,Utilizza il protocollo KCP (migliora le prestazioni su reti instabili)
+1837719257,07ebdf4942e6596632e305a83dcfdcbc32d99a86e5424ccb1218e371d7659016,Usa protocollo KCP (migliora il gioco su reti deboli)
 1837729289,785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09,22
 1837732179,5a940ff3c358ccd915caf6952919c6916b38dd0c2cc496636869583a0d0a5e07,Icho
 1837733195,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
@@ -106112,7 +106113,7 @@ Ma non dovrebbe esserci soltanto questa risposta. Controlliamo le altre opzioni.
 1850052032,763a85605301888716068f311c63fc2eb2ae213d2b2e866d1a04d5ab36b15228,"Valore di forza dell'ATT fisico dell'Aniimo. Ogni 50 punti di ATT fisico, l'ATT fisico dell'Aniimo aumenta di altri 5 punti."
 1850065202,0c05cccfa0925f9c12fe49fddec19011dae1d7885e7979f32315fbbe94dd332a,"Uno splendido e romantico divano in velluto rosso ornato da intagli vintage in stile rococò, che incarna un'eleganza e un'opulenza senza tempo."
 1850076022,cf81065df89ff3cf9e40866e6d8aec3b47c9c313b6b849cccd2bca66733ce6a6,"Mhm. Il nonno diceva sempre: <style=Hint_BgD>""L'amicizia raddoppia la gioia e il tempo la tiene al sicuro.""</style>"
-1850105463,d0089530ceecab9fd135edd0a7c2a6d2cb06c6431012950626bb73c08fe9c6ab,Abbandona cattura
+1850105463,87a3123778e587ff9864a256b844d6145ccb5613f4af49ea8a5ddcd2526088a0,Annulla cattura
 1850113372,66443efe6ecf5853e9fc80b2250986d9606b07f1d15b1a0a1d5bd1eeeed7a153,Soffice
 1850124014,02bfab9582ebc37454046a25d92453b833a5cf4800a418b74be0b86c7717e345,Battaglia Normale
 1850130966,1b5c18af2b53f366c03c9129845e1d80c7d16b38d5f03ccb4985dc0c3cd7401d,Alga
@@ -106881,7 +106882,7 @@ Dovremo scegliere con cura le nostre destinazioni."
 1856098337,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1856105431,dcde2778fd29dfb2283ee3726904fc0488eb72a8b90d64fd884b13bfe3505ac7,Robot offensivo
 1856114791,96b70aed8b10faeef14a0683840919b3ab5f617cf76f3a9da46aba16838dd5c6,Celadon di Pioggia - Cesto Portaoggetti
-1856120881,673ad56e05cc4f7e014449542fa281a0a1196f8fb730f30309ab92a2fc548071,Protezione dell'Elemento
+1856120881,4bbc91649f52eb35a211adb3f730c24b47a318697f367f994f5ab97f8a1a53a0,Barriera elementale
 1856138425,23abfd2aca5c334e8a780bf7ea363470b6486ec69294f621a08d66e29176387b,Camper Liv. 15
 1856142743,ff6ff3779c632e968095a1a421a6fb4eb4e9fcc982de1e09836bbcd4e8098a87,Rivincita degli Esploratori
 1856146618,d7f99cdb4768a75b889a638bfc83c1003107099c4ec13b5b49347088d53ab732,"Allora è deciso. Cominciamo a raccogliere le risorse necessarie.
@@ -110922,7 +110923,7 @@ Nemmeno il Preside di un tempo poteva competere con te."
 1888657693,7e9f6b14b958a5f1c2f9f581908457b51bf1f49a5475cbf37aa29afd663cbbd5,Livello Gratuito Manuale Compagni 52
 1888659906,3d2f6a7db189260dc972b8ed9880e008f35b963a5d621e0c37d316710f8085bf,Kairanos
 1888659929,e7d930fd42117b403c10297cfe05d9cdfba75b1127fd8639f60c9656ecaef3e3,"I Thornblade sono potenti, ma non credo sappiano volare."
-1888668329,3579cfa3661b3d95f34328287959a768929f2ae32eaa7448267f3ff7929ddef2,"Aspetta, ti curerò tra un istante."
+1888668329,bcd26d0f9147a5aab283f3435f13b6c2826cb1431353cc8adb7908bc4de6cdc4,"Aspetta, ti curerò tra un istante."
 1888673491,9fda90672c2c79834f70e00a366071e957536399ee859b4532fc8197a2947089,"Riduce i danni da Luce subiti del <customRichText(calcData,buff,6003023,param0,2,%d)>%."
 1888686142,5573d18d22a3d79f9df1b3e2c1809c37be8b0b5e3d5d9a98d3c33cea1df391ed,Robot difensivo
 1888686293,d92a15bf60d6e4b924f67fa69741c9929f702f8576ef68a9a2ff0926a7fc2179,Una bevanda da collocare nella tua Base.
@@ -112122,7 +112123,7 @@ Questo mare sembra nascondere parecchi misteri..."
 1898995116,7a36214bb70700515148548076cbe4e3fa4d72f3fe69ec9ff2326af99044415b,Turbo Alpha
 1899025699,8bc4443573de8e763e356345c735390b1b23de96f2b33a80546d2f023521d57d,"Già. Conosci bene quanto me i misteri e i pericoli del Continente di Idyll. Se c'è chi è disposto ad affrontare l'ignoto che ci attende, allora ci sono altri pronti a restare alle loro spalle per sostenerli."
 1899034602,848d9b4d286db724b9697b8c753eb1b3f77fed99ca69681250d848e7aa356066,Un Aniimo raggiunge il Liv. 25.
-1899046503,f990ff1f79b607c2a832dde39056fed16685ef2396355d4ede1a30ae157038ab,Riscatta
+1899046503,d60a318dd8a0cdc8795c2c7da003c336dbfb37c6ce68aacd491137d2322f04a0,Scambia
 1899060074,0dba3a940ac4204e3350ebd76ee8c011f4c52475a23ddd66a7367eb3dfeef66d,Disponibile da apprendere
 1899068086,f4e48e664a603543865edc77bbc76dd1dd53dc9d0c30f651bbad7c8231091348,​
 1899068368,b470794a7c620929daabd30a502c7cba934f77037d7997df02e83877a9231734,Lascia fare a me! Te lo porto subito.
@@ -112605,7 +112606,7 @@ E ora, a seguire: quale sarà il “tesoro” di Eko?"
 1902778407,7bf35e7fb250979f33ea24f97cd12e3c7253a9b3641051ae181094015382b30e,"Senza i tuoi insegnamenti non ce l’avrei fatta, Senior Lana!"
 1902778961,1dd7e0a236dd5fae46fba56eafa537b0647a7bdad9d8f4b888500095ad52625e,Non hai ancora raggiunto il <style=Hint_BgD>grado I dei Pionieri</style>? È come entrare in un museo d'arte senza alcun senso estetico. Va' ad ammirare le magnifiche composizioni della natura e torna quando avrai trovato l'ispirazione!
 1902779588,a536f5002c1c8f3fb4d68a896d1a3ffa7d2e2ad6c4d6a325b30372b1af18d6ca,Kiki
-1902783113,5c66a8bc303a2f915ccdf39c3a4f3bde774bc0d310edbb9bc507421b3c04bdcb,Ricerca Aniimo
+1902783113,965a6fdbd6ac862a6cfafe562d74826932b6d8a5a9fc74482aa2c45891174cb7,Argomento Aniimo
 1902789811,ebdb2694e95cc88fc613edbffdc3fac0f3415fdb95f3c68c35321631b5fbbf38,Budsquire Malconcio
 1902792429,fc8d2dc83944c4b6cf5f55270354a04e4c4d191078b0084f94782a7ad573fbdb,Traduzione IA
 1902796794,b6d1a8bf1e120c54c35242f4ca344ce83d9e7406a17e0671d3f447264f4f0888,Come ti sembra?
@@ -113312,7 +113313,6 @@ C'è persino un <style=Hint_BgL>uovo misterioso</style>?!
 1908668491,84bbe143623c9ce6bee57bf342b95396c2119b16d6d328f782ff5065031a669c,Bene. Vai. Mi aspetto grandi cose da te.
 1908673334,f3555fccd1e136874fb685c79b00834158382c80d592e6e117b9265217d0fa5a,"La luce della bassa marea cade su cicatrici segnate dal tempo, riflettendo i fantasmi del passato."
 1908677474,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
-1908680995,2a1a083077ee7c78321585711fb8d4e31d5a0756dcb5748c8416a63e9ad7b0d0,"Se abilitato, gli elementi principali dell'HUD non verranno più visualizzati, inclusi gli indicatori dei PV degli Aniimo nemici e altre informazioni su schermo."
 1908689501,dbcb4fe7e166566d0aecba0830ea6065e1d23fae7690e94f481431710d5fbde8,Essiccatore Jukebox
 1908692199,9bb0aacc6d51f1408ed983b84c42e941fca204de70ff5595a4d1b7cff8b22815,Testa
 1908698187,586cab180d256c5af03f0068da1005165e48899905293e10c8cd58d954b56c78,Sayn
@@ -117159,7 +117159,7 @@ Prossima tappa: <style=Hint_BgD>Russet Highlands</style>!"
 1940942868,33a42d594c4cf5eb478c6a519cd35b09f2f28f525eadf3e46284434c538d1078,Essenza d'Erba
 1940970749,f00da90a770f0c2ef031a6b876137b294acaf2971799809d6b77b49b020ee6f5,Un dolce speciale di chi gestisce la Sala da tè.
 1940985763,6ae5fa0ffc52b80f1fe3b9c37c39be48a60ce6a14f3e3ef072c85d5fedba00a3,Ah! Gabba-dee!
-1940988664,aa62757f3f22bbfd1f2dbf1091cde0739864adc91d85dc0656624f00135bf41b,"Prodotti abbronzanti regalati da Javier. Usare con cautela. Non abbronzarsi non è un problema, ma scottarsi sì."
+1940988664,c75d76514d01873121662a2efd6215ce7fecec44dd9bce31e9e075710b0bccb0,"Un prodotto abbronzante regalato da Javier. Da usare con cautela: non abbronzarsi non è grave, ma una scottatura fa male."
 1940990574,3665c400f8d1031f84104cad16e9d918645cf48507c1111b8855697ba71b8cf9,Emberpup Spaventato
 1940997721,0dbde113115d5f2d67d0ceb734a2ff8f477569901b6b2e1e55204d8e8515eab5,Grotta di cristallo - Sotterraneo superiore
 1941014554,d0175fba4a46a8b332175d0631a54ad2298e7c1bf555e3721c0629d006a14fd7,Completa l'evoluzione di questo Aniimo
@@ -117406,7 +117406,7 @@ Cominciò a pensare che forse Avetine non le volesse davvero bene, soprattutto q
 Solo quando creò Desiderio Dorato, Baboni comprese: Avetine desiderava davvero vedere la sua apprendista crescere, per potersi fidare di lei e infine lasciarla andare. E Haidt non aveva chiamato quel ramo caduto Risposta Dorata perché fosse straordinario in sé.
 Forse quel tuono non era davvero una risposta di Blazen.
 Ma il legame che avevano condiviso non sarebbe mai svanito."
-1942590217,eef6923c5242667b51924ecb598ee51e71a4271fa36d83f886ac3606c4560325,Viaggio leggendario · Raccogliere gli echi del mare
+1942590217,b91dc2cbf5306cc5719aa03e0de7c8d8ffced8cae2e2102cf66b0445245d2a89,Viaggio leggendario: Echi del mare canoro
 1942594961,f30ba7317e023ffbcc74e0200249b2309ed628c5bc06df781c894dea55f0d7cc,Riduzione DAN
 1942606140,384e0add5afd1babe8892bf9a7cf660e687ed4f1dec44bde40f519871b419576,Lyrelle
 1942607471,b86680c5af417d9a8ea0b865c1b874c21f493db7385ef8615f7e36d68041e9ab,Condensa acqua ai piedi del bersaglio per scatenare un Impeto d'Acqua contro il bersaglio.
@@ -117884,7 +117884,7 @@ Hai perfino il primo incontro di sparring offerto dalla casa come prova gratuita
 1946796203,fc79887600a7861fdc3d8b79835e9cf289340ecfb8a392ddd758648c43130865,Metti davanti il tuo Aniimo <style=Hint_BgD>BREAK</style>! Può incassare i colpi più pesanti mentre martella i punti deboli del bersaglio: guarda quanto sale in fretta la barra BREAK!
 1946807447,77b6d8e502df0275092378bac50bf75f3b4317180006e2edd3ced6a980ca9cfe,Gurulu... guru? Piacere di conoscerti!
 1946815512,be1a4748a4ee8fdc4c4d90ed85fc180430e43b72666ac1ea28bcfc54661063ce,L'Hatchinator è invaso da altri.
-1946826310,b4f8326f7edac548cc89fddaf0bb9c7b8a0d0f75100e1e9a8bbb7f06033aa382,Può essere riscattato una volta soddisfatti sia i requisiti di progresso totale sia quelli di progresso personale ottenuti nel <style=Hint_BgL>Parco attuale</style>.
+1946826310,5f930d9c8b830cd12499f55d4730c04efedd7951067fd1b29140cdb4de486e4f,Può essere riscattato una volta soddisfatti sia il requisito di progresso complessivo sia quello di progresso personale ottenuto nel <style=Hint_BgL>Parco attuale</style>.
 1946827374,1e78ab48217dbc280f8b6d8d62ba037344c119af1ba76a4a00c86ddb944bd289,Addestramento Terra
 1946833075,8ffe42df3d2264f2342af7f87648f187663cabdb0a512d5e58933cb285a2451c,Uovo Bocciolo Incredibile
 1946837758,94e95a7ad25ede3b427e01493cfb86018373e081e7ed98ea14769a2d24560d40,Porta il camper al livello 15.
@@ -118257,7 +118257,7 @@ Gratis per il festival!"
 1949803982,48c38fea6a32ad210201ab1ce0f5546722b567a502f08a2d2fd6483ce042357c,Camper Liv. 4
 1949813830,969b59da20d3c16e7519f8cbb88699b6d818122fb2de368e6ef441f2fc99dded,Nome Segnaposto
 1949815774,7ff469af6661dd60f063ea3faaf7e4df84415c6b51c98140918cf3344ce8fb3a,"Cambio Rapido Giorno/Notte: 1 Alba, 2 Mezzogiorno, 3 Tramonto, 4 Notte"
-1949816501,91e2cc77f58358ac9bb5f2d39f8de557c193c962cfa8a809840911c5141a110b,"Il bagliore delle lanterne tremola, le ombre dei rampicanti ondeggiano, disperdendo l'oscurità e cullando la brezza serale."
+1949816501,4845425bf4abb75d1782d7a36683559bfd860569bd9a7288b5896724b7da084d,"Uno splendore dorato luccica nello specchio. La luce ruota con l'ombra, e l'ombra nasce dalla luce."
 1949818275,b452daf13080571ac08761ed3247ec69e79cd882cb56776e4881f0bc05e207ea,Pioggia di Benedizione
 1949818408,f5a3c880f312a1e43796899298ff283b3d0bfa30579a37e3c4819cd6a1883817,Impossibile sbloccare nello stato attuale.
 1949821313,7eb023b9ead6c4aa2b505ee780c2e7f5536938a7dd0d0c54c675e60a6ce80cdd,ATT M
@@ -119610,7 +119610,7 @@ Continua a danzare!"
 1960983334,cf708092f34ab41f44ddbfb23438510de332e230e0cb9fea5743c986f4f58c29,Anche i Guardiani possono dormire troppo?
 1960986623,1fa17604be19928686a22de890dd7f638a9df304cf9358c65e7e5094367b9bff,Troppi Aniimo nella Base.
 1960996380,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
-1961015087,1fe00679a5364aa3a3cfc97ea31b74e1fb27996f16d2c81b964e3f900b82d2f4,Moltiplicatori del Contrattacco elementale speciale degli Aniimo aumentati
+1961015087,5bd9259985328d3dc3fd4a4ebdd90dfe7c896906a2ae674fe06cae1af354e00a,Aumento del moltiplicatore di contrattacco elementale degli Aniimo speciali
 1961041884,82a0d8bbffc243d4f2806d2f8e2bae0316048461d64350e17b7fa895aac51275,"Fiori a forma di farfalla ricoprono gli steli. Un Aniimo si accuccia lì accanto e li osserva attentamente, aspettando che uno di loro spicchi il volo."
 1961045436,4f7463a4762bcf7354618e84fca5b4b6b377d35824e763e8c46f5c2f88defb59,Battaglia Elite
 1961048973,234c9a06bd024b4734b19908ae0bd7e634273e415d179790df2df41da077774f,Itsy
@@ -123917,7 +123917,7 @@ Andiamo a chiedere anche ai Celestis che cosa ne pensano!"
 1996347247,0185327f289634b828bb07ea12359c603e26370fb7c34e97050c61b46592cc43,Segnaposto Descrizione
 1996366149,d47051eedf4ee8c9525e0cd70dc79eb20d977b8fa4f84c6019e9f90dcc9e9473,"Lancia un Budino Rimbalzante. Dopo essere atterrato, rimbalza una volta; se colpisce un bersaglio o raggiunge la distanza massima, esplode infliggendo danni. Il bersaglio al centro dell'esplosione viene avvolto saldamente dal budino ed entra in stato di <style=Hint_BgL><link=""source_8160""><u>[Stordimento]</u></link></style> per <style=Hint_BgL><customRichText(buffConfigData,915940105,duration)></style> s."
 1996371885,ab205b3f629484f176fa1e20dfa3f4d5e491971e187521dd017de9e1b5a00d40,Infuso
-1996380604,18fc673c4e83c1892ed38bbc4a2b59cba16281f4fc363af9353c0b197a9bccb9,Ricompense Costruiamo Insieme
+1996380604,905f5b0fd797fbfff38f856f96335acc1267ffba4477916ae5477fe5e4d3f135,Ricompense di co-costruzione
 1996385812,029fab0b711223a95d3e9e555105fef88f60f5b44252f96a993107e6a495f457,Hedo
 1996389280,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1996391519,384e0add5afd1babe8892bf9a7cf660e687ed4f1dec44bde40f519871b419576,Lyrelle
@@ -127665,7 +127665,7 @@ Pensaci ancora."
 2026598320,1d4e0e4f3718a25ce558bc6c7a067c927ec123612fd4f1fba5180c5e92f097a4,Sfida degli Esploratori
 2026607222,8d8419076a2275480890bc74b8f096d3cc177b22ed7d9ad1c97ffd6237a9a768,Alcuni materiali richiedono la giusta <style=Hint_BgL>temperatura</style> o <style=Hint_BgL>illuminazione</style> prima di poter essere prodotti. Puoi controllare questi requisiti impostando la produzione.
 2026608731,378d83808237a4459f234bbfbf1380fff27049305cb4235819c3091f5856ba5f,Forziere
-2026623131,500a09e976b27eedf9728900330a6c259dd5d2e19e8ee6c6b85496a7db5c9f69,Possiedi 1 Aniimo con Risonanza portata al Grado Stellare 6
+2026623131,992e60a150b4c481102543df589bc3f59cf44da8aaddb0b1324b8d0f3925d9f5,Possiedi 1 Aniimo con Risonanza al Grado 6.
 2026630029,13d8da1b2d5c70650e223e00e75625e550e7502b1b00527d3937ec116e699224,Un semplice tavolino con un cassetto appena abbastanza capiente da nasconderci qualche piccola preoccupazione.
 2026633333,23bc586d4c6b5adbafc80d7a9f60d976ac9bf3a035b40e57230ef881d144b109,*sospira*... Chissà chi ha perso il cuscino?
 2026635593,4c21abe0f7a33e83e8080021199dfcc935e627685f7de173c53a8b4fbfb1bbbc,Bonus alla Probabilità di Colpire
@@ -128898,7 +128898,7 @@ Ma sta vedendo qualcosa...?"
 2036799482,638d053052e7797e0928f7e422fbcaf2b92be4a87d591a42b172d91b71fc7d08,Trascrivi
 2036804267,5d397f28c93179e2d282d59bed0add792ff958b1b01bc869191de26a3ad13eea,Lavazar Goloso
 2036812219,27e63f1e604c29464cefb17054c7bad6a962b335a5d35c45fd176a874f0273ec,Descrizione oggetto descrizione oggetto descrizione oggetto descrizione oggetto descrizione oggetto descrizione oggetto descrizione oggetto descrizione oggetto oggetto 66666
-2036832163,a6a8cf8b9d95b51f6276dfa3688cf33577aea55cc0de6380280d93a1b18dc922,Offerta al Dio Zucca
+2036832163,2e71b63200d340b5cf62a9f1b8a3740cbd0eafe8b9840a8ec232e104f4c98692,Fai un'offerta al Dio Zucca
 2036864785,5ae9bcfbeba8a0b9e1fa467717fba4b7d3f4e2f7616c85be1121525d295996a4,Helmwhelp Amichevole
 2036864854,ab5002e0a7469562284dc991e3dbbef2d00c45610139da60635fb84048013606,Devi impegnarti di più e trovare anche i caschi!
 2036865479,b981c7dc26acdcdff3231b2021df9409bd950cb072f9fd9f0ffacc82599be581,"Mmm, proprio come previsto: un profumo così ricco. Una base perfetta!"
@@ -130391,7 +130391,7 @@ Qui fa davvero troppo caldo..."
 2049272931,21258b10fe0e7f6ffec7f6d54ee5d79b6c473fdabdf05f8d1d6967d0f763f787,Segnaposto Scheda
 2049285032,08e01f7677ed2a88d8f7c5ead82d162e8d69c2b35d9b8a1e03d59fc3407e1c8c,"Spine nutrite solo dalle lacrime diventano dure, ma perdono il profumo. Se l'ex Prima Spina Letale l'avesse capito prima, il suo apprendista sarebbe forse cresciuto meglio... e avrebbe causato meno guai."
 2049308982,8a1c3c535b5f8c27543d6bdd4628a4e9587fadc0899429bf8bef6c3f182c8192,Notte
-2049309991,963242fe760cfabd96b283e768258e6dbf94f9d2d70e88851e7a07db147f2cb9,I danni finali subiti aumentano del 25%.
+2049309991,ab517dd5ce93ad14b66ae8f6b3e9af2d78e311d9f38e74201629a05d956844a6,I danni finali subiti aumentano del 15%.
 2049314728,b6d9eba233e43eb9670732bfa609c0ec4e91897e8d2780240025e9273a18d245,Chirpi
 2049326181,1dcdc371712ba47addec5682d8149330b889cfb47c443e9842f3fefd5adb1f8d,Ci siamo incontrati su questa splendida isola. Non può che essere l'inizio di una leggenda epica!
 2049345588,2160558e8649e30c392fc7a66c97792445f705a6e79dd691d0bac49247bc71b8,BINI #9
@@ -131367,9 +131367,9 @@ Usa questa abilità su un <style=Hint_BgL>blocco di ghiaccio</style> per afferra
 2057089331,0fb91f93907b41e1c5bd03e854bc366696cc8146b52ff3179eb55af07128bf6a,RIGEN +4%
 2057097820,37ef1e21db3299f70b76d235e43f3388491abae2aaf8562781c858cf5371cb06,Sblocca capitolo
 2057106084,fb88425e392bddaa68cd5b3b27ac15244499fb29a88720a5520eca71b2c8a6dd,Usa Ora
-2057108519,a05e59eb2987f645a60172bd89751c95d507e076f4b6b2fe979108f3f68c4653,"È nato un potente Aniimo leggendario, che ha concentrato l'energia della Vena fino a formare una strana Fenditura d'Energia.
-Tuttavia, l'attività della Vena è entrata in uno Stato Anomalo, rendendo Furenti gli Aniimo leggendari coinvolti.
-Esploratore, recati immediatamente a indagare sulla Fenditura d'Energia. Usa il coraggio e un Cuore curativo per placare gli Aniimo fuori controllo e sedare questa anomalia."
+2057108519,1714b661bd1f702ad0aa5cfd6b6f0b934e8d72669bade291540305fbf4db2db6,"È nato un potente Aniimo leggendario, che raduna l'energia della Vena e forma una strana fenditura.
+Tuttavia la Vena sta pulsando in modo anomalo, e l'Aniimo leggendario coinvolto è diventato furioso.
+Esploratore, indaga immediatamente sulla fenditura d'energia. Con coraggio e un cuore colmo di cure, placa l'Aniimo infuriato e metti fine a questo scompiglio."
 2057123685,679031b34b90ba6909ce861dde7b3fdb10857cc0d2a121acdc43501a292e9847,Semplicità e Serenità
 2057133385,d105983f9cef0c844a6d1471fe2b338ae187391a5f80271683095192debd7e36,Lavazar a Riposo
 2057148119,23abeabfe3872ac65c832f46f2cee61358e10875a9faa060c11d52927753d236,Sblocca tutti i Safari
@@ -132567,7 +132567,7 @@ Il Glynsera Prismana, il Melloblum Prismana, il Waleetle Prismana e l'Inferlupa 
 2066904958,e6abd26de363b68aeb33fd80d6f54dffd4ffec0077b496a93cef07332aa9f08f,Test Descrizione Ambientazione Oggetto Tenuto 3
 2066905197,fff0b8231c327d077d0ea5c098112754d071b22cef9c9fa230fae9432e4de7c7,Uh? Guarda! Cosa stanno facendo quegli Aniimo?
 2066906558,15631b253cbb6ad3c243783226c79679e25ff2b38c8ad2c995a1654cd0514c88,Inferlupa
-2066925728,49126d5a9fc488e32591f44703de74b06f81fc216e36ad30392af4d64a33277a,Completa la Storia richiesta
+2066925728,6ceeedda7da87210d990b4a93325906c3abd2097899648de3331df41dcb80f02,Completa la storia richiesta
 2066926544,79683a0bb13246d9234705eb4ba12e24cc451bffc7a2ce8099b899283a26769f,Usa per sbloccare l'accesso a <style=Hint_BgL>Notte delle Meraviglie · Caramella Culich</style>.
 2066938860,075e75d9bf832015e15cc98bff40470225373babaa2d84bc5d254011e3398119,B - Flameruff di tipo Fuoco
 2066940891,c31160a5292841aafa9432ffaeaeb905b93cff57a303abc8e6aa683bbe98092c,Boschetto Assolato
@@ -134035,7 +134035,7 @@ Il tuono risponde, risuonando sulla terra."
 2078913522,ad5b433f01b517ddc7ce7ce3b91cf713962acf1f4d88fe044fb880adb1ede83c,ATT
 2078923720,e68a2f40de33c74c8b2ecb28fe7a825682e97dd8d27d0dcc6c0e9f34e5e1a998,Capriccio notturno
 2078931987,bb6c2ec728c8c0574ac2ab4cdc57c000528b39eaba57f9dcfc2572044b7f0dcc,"Ma Lyle era sparito, zzip."
-2078939389,9e9e6ce03da45bff7fd0f6ea7be4d0e9e95e4efee3bad0755b3c7396eebaaf5e,"L'elenco degli Oggetti Tenuti leggendari è il seguente. Dopo averlo aperto, potrai scegliere 1 oggetto."
+2078939389,3154bf27043f23dea40290bbaf57d69499abe9e1887a42146ec5c2b76ddd68f4,Apri per scegliere 1 tra gli Oggetti Tenuti leggendari elencati di seguito.
 2078946587,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 2078964274,d219ec57f2820a3e6971c96b89b966ff485db6e9012b2f285ac2d685fab4b717,Bagnabile
 2078967151,727b69ab06c6fb66973ed4954457d28ccf900926dfcca8790e9e82f4bacc53da,"Rimuovi tutti gli Aniimo, poi riacquisisci tutti quelli ufficiali"
@@ -134642,7 +134642,7 @@ Contiene energia abbondante e può trasformare qualsiasi Aniimo in un Aniimo sci
 2083885958,5c956faf15651551f8fe4d5f618032c7bb6794db2ac89c4049b27cacaffdccc6,Sono proprio accanto a te!
 2083887429,8a6bdb6b18da586fe7f2acbd8f1055533f2cd97a3681b3652bcd712224df45c3,Carico
 2083889886,8c8afc60a3d5ed00fc921f9e4372671ffe6f99f17edbd8261097f4852ac1cbe4,100.000 crediti
-2083901451,97ef7e2868b6298baf090ef3042b0c01cf020a6c17c3e721411a615e2b1f1205,"Olio abbronzante mescolato con chissà cosa. Ha un indescrivibile profumo d'erbe e si stende in modo liscio e brillante, ma abbronzerà davvero?"
+2083901451,c89f3f194b3e14fb650859160a7638d626b52512ccd95f65c81105141ee4782d,Olio abbronzante mescolato con ingredienti sconosciuti. Emana un profumo terroso difficile da descrivere e lascia la pelle lucida... ma farà davvero scurire la pelle?
 2083908310,fd911d955581e6b21ac8f35f8fae1fb59419aa7b108d6ac5148c159bfe40975a,"10.000 crediti... D'accordo. Per questo distintivo, mi toccherà tirare la cinghia questo mese."
 2083923087,9e4a6a62575509b6440f10aa1b35ec127c1d8da8b17494fc2e6b54b2a6c4f742,(BREAK) Usa il potere del vento per attaccare bersagli dalla distanza.
 2083937917,9bca9af7ef71d61d1d0280ac02e74269d3a15a592586aeb0e1f008d362fbc300,"Quando gli Aniimo lavorano al Mulino a carosello o alla Pentola a cottura lenta, la loro efficienza lavorativa aumenta del 20%."
@@ -135445,7 +135445,7 @@ Con un chip installato, <style=Hint_BgL>aumenta leggermente la capacità di cari
 2090563436,c86e933647ccd9f58f75ea6dde90003e5744794740ed5ed22463668dd5bf0867,Cornice Avatar Base
 2090567082,296448c98134e01b1dd805fc4ccd3e7c2de615f6d0956a28218369f39b3af190,"Quando il profumo è pronto, riaffiorano i ricordi: la Vena si spezza e il colore abbandona queste terre. Stavolta Aeolus non compare, come se persino le sue forze si fossero esaurite. Il ricordo rivela la scelta di Irelia: restituire i propri colori alla terra e usare le sue radici per ricomporre la Vena. Velouria confessa infine che questo è ciò che voi chiamate Festival della Fioritura."
 2090576331,9436e83d59c6403821ef7f3ab39d1e3876b3e4483ad23344f6c99145f934a756,Testo Titolo Segnaposto
-2090576611,d3cd4188c83cc72a64e6c0fd06069baaed8618eb111693f418949b8b235b505b,Usa questo oggetto quando catturi un Alfa per consumare il doppio di Primergia e ricevere ricompense doppie.
+2090576611,8c2791d1162b7ebdd632e4d487f1b13bd4ebe5506356e8725f0ea1b47ad95b75,Usa questo oggetto quando catturi un Alfa per spendere il doppio di Primergia e ricevere ricompense doppie.
 2090596325,559ca35c2ca66be98ef8a6e179a0fa911800773a201524641dded9f5d55890e0,"Gli Aniimo si trovano in tutto il mondo aperto. Usa la <link=""appearHelp_103""><color=#5090df><u>Mappa</u></color></link> per vedere dove appaiono."
 2090598840,c99009092061ba6081409d45c208a08b77525277d8116f5fa9a46811cc9a8a4b,Si sblocca al Livello 7 del Modulo Cucina
 2090602445,92748cf16edf66cc28328b0960f8faac257a96f99416f40366891e67d40386d9,"Questo è il <style=Hint_BgD>Mare di Fiori</style>, la dimora degli Iris e dei Flutternym."
@@ -137047,7 +137047,7 @@ Torna a chiedere a quel Preside o all'Istruttore."
 2103498422,67b576eb6c7e1347a80d4b573c98ff3fd67db30ebaee03ed1c7eaf9fff5cff22,Attiva Registro Variazioni Improvvise di Allerta/Percezione (TopLogo)
 2103498697,17ea06e16144b41d58b000666a8c16e43b9a2cc62b3c858aa93bce0cc87b9b29,"Ah! Aria fresca! Il mio naso funziona di nuovo!
 Voglio salire in un posto alto e sentire il vento! Voglio mangiare Starine con altri Celestises!"
-2103507442,c5b14729cf79418cd14faba1121594a3f95db51b889f8a99e7b9f5248887b0c2,"Quando infliggi al bersaglio lo [Stato di rottura], aumenta il Danno finale subito dal bersaglio del 15% per 15 s. Se il danno che innesca questo [Stato di rottura] è un CRIT, aumenta invece il Danno finale subito del 25%."
+2103507442,b833eb863488861571422df524129b4c02e350a139f6c6697ce06849f61d3e62,"Quando mandi un bersaglio in [Stato di rottura], aumenta il Danno finale che subisce del 10% per 15 s. Se il colpo che innesca questo [Stato di rottura] è un CRIT, l'aumento diventa invece del 15%."
 2103530973,f4ef6ceb23147847f92ce5c0677513bc2eebcb0e412da8cc6cbcd4ec9e784616,Squarcio del Gelo
 2103532042,e6ad135e4ae61ea5eb4672c43fa239829b4552a1cb8867bd65bc68468bc10923,Dolce e Carino
 2103538889,addccceac8d2908686b9bf011b23946cb17c54ada2e407ec2d38767c2a0b3362,Acero Rosso
@@ -138045,7 +138045,7 @@ Buona fortuna. Attendo con interesse i tuoi prossimi progressi."
 2111961118,959876cef8d229d80b3031387b2c4d3b261f7f26f924804eb7264d3be75928a1,Porta il camper al livello 4.
 2111961468,21258b10fe0e7f6ffec7f6d54ee5d79b6c473fdabdf05f8d1d6967d0f763f787,Segnaposto Scheda
 2111963271,b648eb16d21ed1a24cdd41c3a8e8c6b152c2d83c031b75604ee6b6e8d95b2e86,Evviva! I grumi di melma dolce sono spariti tutti! Sei incredibile! Vieni a ballare con noi!
-2111964422,c4b27e2fc9e7ae803786871e9be4903a7c9e305cb1599f0740af7d87839233b8,I danni finali subiti aumentano del 15%.
+2111964422,58cfd7b4adb8912d4571e74cdda3000c8c470dcf5c547e17c6c535f5735d4d16,I danni finali subiti aumentano del 10%.
 2111976563,52c5bf9feac3a19bd20897241cf489ca4d5a062e09f1eccb17e25583c115793f,Porta il camper al livello 12.
 2111981834,0840e337e8d447eda444003229b86147e89f554346e67013f1d6ae5115fddcd4,Dentro la bolla si sta più tranquilli e comodi che mai.
 2112004094,340bd752472413cbe10a5b9c42152075700e56198eba9cdbdb51e7cf5baeb30d,Allenamento Elite
@@ -138689,7 +138689,7 @@ Finalmente libero, il Morphling si mise in viaggio.
 2117015192,8d8bf6d6b7b2705359835e2155bece418ae08337a71cb3864363790df572910f,Bubbeep saggio
 2117016657,94cc9f46bf992e957f216569603f546f483d9546a4842b831f87675d8205e721,Apri Costruzione.
 2117021973,8c7f157583e93926499a64f8a190c3c62331d8add42fe0208f5463b0859d3e60,Raccogli tutto il Lumin
-2117024798,1e7199cf30caa9c84a4e283adc7966b07cf0a3d349bb28de1124313de257f34e,"Toccati dall'energia del Dio Zucca, questi semi di zucca eccezionalmente fragranti sono irresistibilmente invitanti. Conservali con cura: non lasciare che qualche Aniimo ingordo ne fiuti l'odore."
+2117024798,9033a0a1acc49fed59ed613672f71602fb4d16d2bbd60de7496d20af88a4ad3c,"Il Fruttolanterna dorato si ammanta di un velo di garza rossa mentre un tenue profumo aleggia nell'aria, e un sapore dimenticato da tempo riaffiora silenziosamente nei ricordi del Dio Zucca."
 2117026881,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 2117030997,3d8ad693755ff00a75fe706cd54864e5343e5612984483defadb81b512112c2d,Dina
 2117050679,d0d3222b187c1c798a1d5a0b3b4d1d5c47d8e71a18cab8a4802862e0257e8488,Elvira maneggia le fiale con destrezza e presto completa il profumo.
@@ -140906,7 +140906,7 @@ Claire e Lin Shuang stanno preparando il caffè: non disturbare!"
 2133968184,8e59d476cb29cea648ff281fc9748fe068a5cc8909783cf586fbe0d0254106d5,Comunità Ufficiale
 2133975330,efd49d598116ccf8a5c389b2c1161a295d31e9f4e1d7073a4a755c45b49d2772,"Carta da parati grigio chiaro decorata con motivi a stella, per ambienti tranquilli e rilassanti."
 2133995652,15d44d1ff3334302a21f21fda2437c2e4273e82f8af8d642fa5f1f0f19ceb054,Ottenuto
-2133995773,8f5f6bef78721217d5245e2f9e89f1f41f4a725fae03b448364a986962d9e580,La preoccupazione di Royalby
+2133995773,19fd0e98bafcecf9e2ca13fae1494c374258159f3caf2d28702c0a59aaa19d08,La preoccupazione di Royalby
 2133998910,258ab4d90756afc518a3386248627e8773199094201b1241ca00fa15e51e657c,Lozione
 2134000558,5eedece0481236a4f2618db3f52c9c0c894c6595b6d79669b67b4e37d9517a93,"Un fiore formato dalla convergenza degli elementi Fuoco sulla cima delle Russet Highlands. Emana un aroma speziato. Cress, la profumiera di Bloomville, lo sta cercando per creare un profumo leggendario."
 2134007874,1b9d014ca5e401c4a61ae2920570ccaa5de94f44304c845a8d651c532964370b,Negozio Timbri

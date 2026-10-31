@@ -13,15 +13,15 @@
 > **[⬇ Scarica Gioca in Italiano](https://github.com/Sici29/gioca-in-italiano/releases/latest/download/GiocaInItaliano.exe)** · gratis, per Windows 10 e 11
 <!-- gioca-in-italiano:fine -->
 
-## Release client Steam — 1.0.3846247.0
+## Release client Steam — 1.0.3857679.0
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3846247, patch 1.0.3846247.0) — Autumn Wonderfest & Halloween Update, verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3857679, patch 1.0.3857679.0), verificata e funzionante in gioco.**
 
-- Traduzione completa per **134.277 / 134.277 chiavi (100,00%)** con 0 stringhe mancanti e 0 fallback.
-- **Supporto all'aggiornamento Steam 3846247**: piena compatibilità con l'espansione *Autumn Wonderfest & Halloween Update* rilasciata il 29 ottobre 2026.
-- **Grandi novità di contenuto**: Festival delle Meraviglie Autunnale, eventi di Halloween con l'Aeon Zucca, Parco camper (RV Park), nuove aree esplorabili (Cascate Sfioranubi, Gola delle Acque Selvagge, Faglia di Squarciocielo), nuove creature Aniimo e boss Alfa/Omega.
+- Traduzione completa per **134.274 / 134.274 chiavi (100,00%)** con 0 stringhe mancanti e 0 fallback.
+- **Supporto all'aggiornamento Steam 3857679**: piena compatibilità con l'hotfix rilasciato su Steam il 31 ottobre 2026.
+- **Aggiornamenti di contenuto e bilanciamento**: tradotte le nuove descrizioni del reset del Risveglio Capacità con le Carte azzeramento potenziale e rimborso materiali al 100%, ribilanciamento abilità (Jeburst, Pennywisp, Dominio della Regina, effetti Break State), estensione finestre eventi e connettività KCP.
 - **Risoluzione disallineamenti storici nel catalogo (Issue #25)**: corrette 105 chiavi con traduzioni scambiate o non pertinenti (titoli missioni, descrizioni chip ed oggetti temporanei, decorazioni Susuta, avvisi di sistema).
 - **Risoluzione blocco download pendente (Issue #23)**: corretto il controllo dell'archivio cache attivo, evitando falsi blocchi causati dai file base depot di Steam.
 - **Avviso dedicato per versioni non-Steam (Pawprint o standalone)**: avviso esplicito che informa che la traduzione è sviluppata e testata unicamente per la versione Steam.
@@ -45,7 +45,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3846247.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3846247.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3857679.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3857679.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>

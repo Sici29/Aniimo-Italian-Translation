@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3857679.0 - 2026-10-31
+
+- **Supporto alla build Steam 3857679**: catalogo aggiornato ad **134.274 chiavi** con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
+- **Risveglio Capacità e azzeramento potenziale**: tradotte tutte le nuove regole per il reset del Risveglio Capacità (per Aniimo di livello 60+), con le Carte azzeramento potenziale, il rimborso al 100% degli oggetti investiti e l'esenzione iniziale offerta dall'Istituto.
+- **Ribilanciamento e descrizioni abilità**: aggiornate le descrizioni di combattimento per Jeburst, Pennywisp, Dominio della Regina, riduzione danni, effetti del Break State e bonus contro i boss Alfa.
+- **Miglioramenti di rete e connettività**: aggiornata la documentazione e i testi dell'opzione di connessione KCP per la riduzione degli scatti su reti instabili.
+- **Eventi autunnali e Halloween**: estese le finestre dei check-in a 14 giorni, aggiornate le descrizioni del Fruttolanterna dorato e le offerte al Dio Zucca.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3857679 con 0 fallback.
+
 ## 1.0.3846247.0 - 2026-10-29
 
 - **Supporto alla grande espansione Steam 3846247 (Autumn Wonderfest & Halloween Update)**: catalogo aggiornato ad **134.277 chiavi** (+21.859 tra nuove voci e modifiche) con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
