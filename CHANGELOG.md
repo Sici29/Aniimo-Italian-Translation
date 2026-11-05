@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.3880756.0 - 2026-11-05
+
+- **Supporto alla build Steam 3880756**: catalogo aggiornato ad **134.297 chiavi** con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
+- **Rinominazione valuta della Base (Wishstar)**: aggiornata e armonizzata la terminologia della valuta abitativa prodotta dagli Aniimo nell'Area Residenziale, ora ufficialmente denominata **Stelle dei Desideri** (*Wishstars*) e il relativo contenitore **Barattolo delle Stelle dei Desideri** (*Wishstar Jar*).
+- **Disconnessione e gestione account**: tradotti tutti i nuovi avvisi per lo scollegamento dell'account dalle varie piattaforme (Steam, Epic Games, WeGame, Heybox e TapTap) e le istruzioni per il recupero del personaggio originale tramite associazione e-mail o numero di telefono.
+- **Ambra Lumin e Fiori della Vena**: tradotte le nuove descrizioni per l'Ambra infusa del potere Lumin, l'Ambra fuggiasca, la raccolta Lumin e l'attivazione dei Rami prima di nutrire i Fiori della Vena.
+- **Forzieri misteriosi e segreti antichi**: tradotti i testi sui forzieri misteriosi disseminati nel continente di Idyll, sui segreti celati dalle antiche statue e sulla ricerca del Respiro delle Vene.
+- **Allineamento PNG e correzioni dialoghi**: aggiornato il nome dell'istruttore e ricercatore **Dr. Lewis** in tutti i dialoghi narrativi e di valutazione in cui compariva il vecchio identificatore non allineato, e corretto il formatting dei tag di sblocco delle pagine del Magazzino e del reset del Potenziale.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3880756 con 0 fallback.
+
 ## 1.0.3857679.0 - 2026-10-31
 
 - **Supporto alla build Steam 3857679**: catalogo aggiornato ad **134.274 chiavi** con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
