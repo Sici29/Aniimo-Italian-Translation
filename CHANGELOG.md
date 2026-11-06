@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3887621.0 - 2026-11-06
+
+- **Supporto alla build Steam 3887621**: catalogo aggiornato ad **134.298 chiavi** con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
+- **Normalizzazione tipografica completa**: recepito il cambio globale adottato dagli sviluppatori che sostituisce i punti mediani `·` con il trattino standard ` - ` nei titoli di arredi, sfide, capitoli di storia e registri.
+- **Allineamento PNG Lilipole 'Itsy'**: uniformato ufficialmente il nome della piccola Lilipole in **Itsy** (precedentemente riportata come Tiny o Mimi in alcune stringhe) in tutti i dialoghi, archivi del Festival degli Schizzi d'Acqua e finali narrativi.
+- **Rinominazione Club Polaris**: aggiornati i riferimenti istituzionali in **Club Polaris** per lettere e menu di riscatto ricompense.
+- **Correzioni descrizioni e oggetti cosmetici**: aggiornato il set *Elegia del Crepuscolo* maschile con l'indicazione corretta delle *Scarpe Notturno Scarlatto* al posto dei pantaloni, rifinite le descrizioni di *Fruttobimbo* (*Verde e Aspro*), delle note di formula *Fruttolanterna del Ricordo* e dei suoni di gelatina (*Gel!*).
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3887621 con 0 fallback.
+
 ## 1.0.3880756.0 - 2026-11-05
 
 - **Supporto alla build Steam 3880756**: catalogo aggiornato ad **134.297 chiavi** con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.

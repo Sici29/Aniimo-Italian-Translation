@@ -13,20 +13,19 @@
 > **[⬇ Scarica Gioca in Italiano](https://github.com/Sici29/gioca-in-italiano/releases/latest/download/GiocaInItaliano.exe)** · gratis, per Windows 10 e 11
 <!-- gioca-in-italiano:fine -->
 
-## Release client Steam — 1.0.3880756.0
+## Release client Steam — 1.0.3887621.0
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3880756, patch 1.0.3880756.0), verificata e funzionante in gioco.**
+**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3887621, patch 1.0.3887621.0), verificata e funzionante in gioco.**
 
-- Traduzione completa per **134.297 / 134.297 chiavi (100,00%)** con 0 stringhe mancanti e 0 fallback.
-- **Supporto all'aggiornamento Steam 3880756**: piena compatibilità con l'aggiornamento rilasciato su Steam il 5 novembre 2026.
+- Traduzione completa per **134.298 / 134.298 chiavi (100,00%)** con 0 stringhe mancanti e 0 fallback.
+- **Supporto all'aggiornamento Steam 3887621**: piena compatibilità con l'aggiornamento rilasciato su Steam il 6 novembre 2026.
 - **Aggiornamenti di contenuto e terminologia**:
-  - Rinominazione ufficiale della valuta della Base in **Stelle dei Desideri** (*Wishstars*) e del relativo contenitore in **Barattolo delle Stelle dei Desideri** (*Wishstar Jar*).
-  - Nuovi avvisi e procedure di disconnessione account (Steam, Epic Games, WeGame, Heybox, TapTap).
-  - Nuove descrizioni per l'Ambra Lumin, l'Ambra fuggiasca, la raccolta Lumin e la cura dei Fiori della Vena.
-  - Testi dei forzieri misteriosi di Idyll, statue antiche e Respiro delle Vene.
-  - Allineamento del nome del ricercatore **Dr. Lewis** in tutti i dialoghi e correzione sintattica nei tag del Magazzino e del reset potenziale.
+  - Normalizzazione tipografica dei titoli e descrizioni (allineamento dei trattini separatori ` - ` al posto dei punti mediani `·`).
+  - Allineamento ufficiale del nome della piccola Lilipole in **Itsy** (precedentemente Tiny/Mimi in alcune stringhe) in tutti i dialoghi e gli archivi.
+  - Rinominazione istituzionale in **Club Polaris**.
+  - Correzioni cosmetiche per il completo *Elegia del Crepuscolo* maschile (*Scarpe Notturno Scarlatto*), *Fruttobimbo - Verde e Aspro* e note di formula *Fruttolanterna del Ricordo*.
 - **Risoluzione disallineamenti storici nel catalogo (Issue #25)**: corrette 105 chiavi con traduzioni scambiate o non pertinenti (titoli missioni, descrizioni chip ed oggetti temporanei, decorazioni Susuta, avvisi di sistema).
 - **Risoluzione blocco download pendente (Issue #23)**: corretto il controllo dell'archivio cache attivo, evitando falsi blocchi causati dai file base depot di Steam.
 - **Avviso dedicato per versioni non-Steam (Pawprint o standalone)**: avviso esplicito che informa che la traduzione è sviluppata e testata unicamente per la versione Steam.
@@ -50,7 +49,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3880756.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3880756.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3887621.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3887621.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>
