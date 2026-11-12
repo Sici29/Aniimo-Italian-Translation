@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3934365.0 - 2026-11-12
+
+- **Supporto alla build Steam 3934365**: catalogo aggiornato ad **136.037 chiavi** (+1.804 nuove chiavi, 778 aggiornate, 65 obsolete rimosse) con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
+- **Nuove missioni narrative e indagini al Villaggio di Marespecchio**: tradotti tutti i nuovi dialoghi, obiettivi e registri riguardanti *Chompy lo Squarrel*, *Reefish Sognatore*, *Marilla*, *Dora*, *Fannie* e l'Olio di Coda di Squarrel.
+- **Opzioni estetiche personalizzate e camper**: integrate le nuove voci per le opzioni personalizzate del viso, voci di parcheggio camper e completi speciali.
+- **Rifinitura abilità ed equipaggiamenti**: aggiornate descrizioni, percentuali, colpi elementali e condizioni di sblocco in *Operazione: Furto d'Uova* e *Santuario Perduto*.
+- **Normalizzazione tipografica completa**: allineate le virgolette dritte nei registri, note di ricerca e dialoghi sincronizzati con i file ufficiali di gioco.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3934365 con 0 fallback.
+
 ## 1.0.3887621.0 - 2026-11-06
 
 - **Supporto alla build Steam 3887621**: catalogo aggiornato ad **134.298 chiavi** con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
