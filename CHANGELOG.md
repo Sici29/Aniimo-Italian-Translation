@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.3973445.0 - 2026-11-18
+
+- **Supporto alla build Steam 3973445**: catalogo aggiornato ad **136.024 chiavi** (+3 nuove chiavi, 19 aggiornate, 16 obsolete rimosse) con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
+- **Nuove chiavi aggiunte**: tradotte le nuove voci (*Chompy*, *Dora* e limite massimo accettazione ordini).
+- **Coppa di Breezy Plains ed evento Prismana Scintillanti**: aggiornati i termini (*Aniimo da Corsa*), i tag orari dinamici `<timeAutoChangeServer>` e tutti gli obiettivi fotografici Scintillanti.
+- **Rifinitura oggetti e abilità**: allineate le descrizioni di trucchi, *Polvere di Gemma Premium*, formula per *Banco da Lavoro*, tortine di velocità e negozio a tempo limitato.
+- **Suite di test e verifica**: 161 test unitari superati con successo e verifica d'installazione reale al 100% su build 3973445 con 0 fallback.
+
 ## 1.0.3934365.0 - 2026-11-12
 
 - **Supporto alla build Steam 3934365**: catalogo aggiornato ad **136.037 chiavi** (+1.804 nuove chiavi, 778 aggiornate, 65 obsolete rimosse) con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.

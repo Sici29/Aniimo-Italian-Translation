@@ -18214,11 +18214,11 @@ Quando te la senti, torna pure a cercarmi."
 1130583951,3f5491cf54d693b714f59cf3c7ae87bac0248773031c45a86615195f550f6dd4,Efficienza di produzione di tutti i <style=Hint_BgD>Castelli di Sabbia Tidewhisper</style> nella tua Base aumentata del <style=Hint_BgD>100%</style>.
 1130592829,e03112b3005d969f7623b240ef9d385c5c0e078ede08720f66e78c85ad73f3a3,Nicole
 1130600926,926721a332fec10ba848a38a016d0c50b1414efcb35ef8e97711f548014ff53b,Info Modalità di gioco
-1130604946,4460cacfd1a4c1d91d95b0f8d57ae5c8172e639ccfa4d7c24192a8a493cbd695,"La Coppa di Breezy Plains è un torneo di corse Aniimo ricorrente che si tiene in tutta Idyll. Durante l'evento, gli Esploratori devono entrare in sincronia con gli Aniimo per completare sfide di corsa sui tracciati designati.
+1130604946,ca92efb11bd6dc01f33fbd207c4b67055f3e93ff77f2eca181b7f4d7eeea67a8,"La Coppa di Breezy Plains è un torneo di corse Aniimo ricorrente che si tiene in tutta Idyll. Durante l'evento, gli Esploratori devono entrare in sincronia con gli Aniimo per completare sfide di corsa sui tracciati designati.
 
 Regole dell'evento:
 1. Durante l'evento verranno sbloccati tre tracciati in sequenza: Greenfield Shallows, Gullcove Cliffs e Redrock Trail.
-2. Nella schermata di selezione del tracciato, gli Esploratori possono impostare la propria squadra di Aniimo. Ogni squadra è composta da 4 Aniimo nella Squadra da Combattimento e 3 Aniimo Attivi. Le configurazioni della squadra sono indipendenti tra diverse modalità e tracciati. Questa squadra non sovrascriverà la tua squadra del mondo aperto e verrà utilizzata solo per gli eventi di corsa.
+2. Nella schermata di selezione del tracciato, gli Esploratori possono impostare la propria squadra di Aniimo. Ogni squadra è composta da 4 Aniimo nella Squadra da Combattimento e 3 Aniimo da Corsa. Le configurazioni della squadra sono indipendenti tra diverse modalità e tracciati. Questa squadra non sovrascriverà la tua squadra del mondo aperto e verrà utilizzata solo per gli eventi di corsa.
 3. Gli Esploratori non possono interrompere la Sincronia durante una gara e possono gareggiare solo nei panni degli Aniimo della propria squadra. Le abilità di combattimento degli Aniimo sono disattivate, pertanto gli Esploratori dovranno affidarsi alle abilità di mobilità dei loro Aniimo per competere.
 4. Nelle modalità di corsa, tutti gli Esploratori dispongono della stessa quantità di Vigore e le abilità di mobilità hanno tempi di recupero ridotti. Queste modifiche si applicano solo nelle modalità di corsa.
 5. Prima di ogni corsa, gli Esploratori possono selezionare un bonus che potenzia una specifica abilità di esplorazione.
@@ -18230,7 +18230,7 @@ Coppa di Breezy Plains - A Tutto Gas: Modalità Corsa in Solitaria
 1. Disponibile tutto il giorno durante l'evento.
 2. Sfida te stesso e continua a stabilire nuovi record personali per ottenere la miglior valutazione possibile.
 Coppa di Breezy Plains - Sfida di Velocità: Modalità Corsa di Gruppo
-1. Disponibile tutti i giorni dalle 18:00 alle 24:00.
+1. Disponibile tutti i giorni dalle <timeAutoChangeServer>18:00</timeAutoChangeServer> alle <timeAutoChangeServer>00:00</timeAutoChangeServer>.
 2. Fino a 8 Esploratori possono gareggiare insieme.
 3. Durante una corsa, gli Esploratori possono contendersi le Scatole Oggetti casuali e utilizzare strategicamente gli oggetti ottenuti per darsi battaglia per il primo posto."
 1130617308,4af984d27ee00d0c1aeba52d2346dbf5b0d18aa33bc507259d8ce2196ad185fc,Chip di Accelerazione Avanzato
@@ -20624,7 +20624,6 @@ e ti regalo anche un <style=Hint_BgD>Buono Coilstrike</style>!"
 1150076324,9dbaf4f53cd4feebbde99fc4b659d3a2e39bcc97ada078091e62d0aeb95da1ee,Cattura un Aniimo Alpha
 1150095493,5a955b3f4447d1460c30198d4c52c9e488d5e770fcaceb2069cda3b78cb3b37f,Durante il Raduno Notturno.
 1150103199,d17d84a604994b722db37b35860b1ac7e8d9e43e725d0eb50702a9f7228a2999,Esci
-1150112530,9f6621bc72b72bbdd835da20948c6cf739dbc078c089cd9cc6dd619ff7dfd403,NASCE UN ANIIMO – CONCORSO DI CO-SVILUPPO
 1150120184,da22910f33aa26ca1c138d377a0624c0ba6682d6a112a3ace2bf438e7fd43fd5,Soia Colorata
 1150124098,904dfd63add9c16b1c0d7a949d0542431b656deeeda35cf694ef1e62098c8b1f,Camper Liv. 5
 1150124427,d345dba279027861dbb9e4bd3668d7bbce469a9e2c2e07881e3f235c6f8cb413,"Sembra davvero incompleta. Manda dice sempre che una poesia dovrebbe esprimere qualcosa, ma io non ci capisco né capo né coda."
@@ -24603,10 +24602,6 @@ Richiesta di comunicazione in arrivo... da Dr. Lewis."
 1181125161,9c23102d58be5eb762eb96ffce9414094f879d3e2ae8d29b02f1d802a27a7990,Percorso delle Prove
 1181141188,9540d7ea9b9b989fbc36c9bb0bda47982b684e3016f3825d540c92c823526c54,"Presto, la fotocamera! I Bulblies stanno eseguendo una coreografia!"
 1181143064,1a54d62bfa8692916c6992f99cdb49e014796d12bd557e7b353fa611f770024a,Oggetto test
-1181150552,44986e6454fc006a3d52f47472408e9a3ec46c93be912070e47d33cf7bf3e77a,"1. Durante l'evento, Jaguaraun apparirà nel mondo aperto per un periodo limitato. Completa le missioni designate in [Indagine Fantasia] per riscattare le ricompense corrispondenti. (Consiglio del Polaris Institute: quando sei in Modalità Compagno, qualsiasi Jaguaraun catturato dai tuoi amici conta per le relative missioni di cattura!)
-2. Completa tutte le missioni di [Indagine Fantasia] per ottenere la Formula d'offerta dell'Aniimo in primo piano di questo periodo di evento.
-3. Come ottenere i Marchi Fantasia: completa missioni specifiche in ciascuna [Indagine Fantasia] per ricevere 1 Marchio Fantasia.
-4. Riscattare vecchie formule: se hai perso un evento precedente, puoi scambiare 1 Marchio Fantasia presso il Mercante dell'evento con 1 Formula d'offerta per un Aniimo comparso in un evento passato. Controlla il Mercante dell'evento per le formule disponibili."
 1181155444,a8c19027c307b0717461896fd2519b5b48bf4eef0a50b248162eb3c3053a6091,Testo schermata nera
 1181170980,a04a7bae7ba70ee77cb305aa62db7d9500f7af2d362e7239a28b2bf41dbd5295,Glameep
 1181194877,90179504b10cc68c125094f2d7b15d2331fb2101b93f609a6c491d2d22a96e3c,Certo! Una nuova abilità non fa mai male!
@@ -27296,7 +27291,6 @@ Tra queste isole sorge la grande città di Azureville."
 1204361990,45be2f93b44f9012b96d9096e04c0ee90badbab99e256abc4997a766915e87fa,【Happy Stamp Rally】Ricompense distribuite automaticamente
 1204376421,ad32d6a383557065fe1cf7ef0d04242ee86b6b12f08bebbcbd3f1219a0de91f1,Canna da Zucchero
 1204386746,1c945ea0c6e24c67616f6aa99f7239bc3fc520a39aa573790a61289a72a9e799,Omega
-1204388650,aa49d7dffbc31e1826b092586dd922695c2eaeb5681f6f2285f3a4d03f5d0c91,"Consulta il sito ufficiale per i dettagli, le ricompense e il regolamento dell'evento."
 1204391457,5ae2d57b3786b5ff44bedf7b201c3ab697b36eba7c8e66e159a456a782d288b7,In Conto Vendita
 1204392083,e7f5d4066c9f8195959866aa6915027679384f97ed822a03b8b1b3ce4ecfae5b,Rocky
 1204401072,0ba1a5a836697ae52b19c83346ee8de1c8eed7d19492c11450392fc278a9fdd7,Un pozzo per attingere acqua nella tua Base.
@@ -29949,7 +29943,7 @@ Gli Aniimo di qualsiasi <style=Hint_BgL>Livello Fuoco</style> possono bruciarle.
 1225398082,7eb295be1d29e056b6298e199c6e4811826caa255357d834a8ba7e23897b03f5,"Già... Sono un po' sprovveduta. Rido sempre, non penso mai fino in fondo... e così combino spesso guai."
 1225402978,40a997fdbc8dc5be2c2927eb65d6cc62bb95457f8ab84247ef902abf778eb558,Campo 1
 1225407134,79e98e1062b574135f338517c2400bb0556c3401708025847a91fa0442d27181,Sconfiggi Sugartini alfa
-1225418446,d676cd6864c5cafd5b4cc2b3819b68fec62f887385c2754b5b3d2c02b4353588,Polvere di Gemme Avanzata
+1225418446,e5a299417cc52dd1ece88ad177929776b6aa39a1fe2325576df08a97831f12d3,Polvere di Gemma Premium
 1225419083,e32c9b3a3ded00da9a0ac3bed86e008d6bcee646aaf96dc3ca2cc4663910f61e,Modalità Comando
 1225425586,18b766f399573b49d7f37890c90aac92024d768fc167eca8d5378015f11f4a84,Per realizzare i pavimenti della tua Base.
 1225431451,804ff095e718a76a58fcd00099cedfe831dc0eaf32f3ce4323aaea1b85c35942,"Catturare Aniimo permette effettivamente di ottenere molte risorse, ma purtroppo gli Oggetti Tenuti non sono tra queste.
@@ -33223,7 +33217,7 @@ Le persone di Bloomville che lo portano con sé riceveranno la Benedizione dell'
 1251843429,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
 1251843756,912f195d7f83dc2b8df16b8865adaee83547a82e6b92e4120727794b2c341e5f,"Un tappeto a forma di Bulbly, come se la sua ampia ombrella distesa fosse diventata un comodo sedile."
 1251846110,953fdb5e7194528de70f73faae489a8a4585437397e2557c5c9559273995d048,【NUOVO】Hedo
-1251876444,657cbb18cf6e9419faec188a9d72f8709f084075d9f2bd325e6b159a510ff40f,Conferisce l'oggetto cosmetico indicato.
+1251876444,0c70942fad34523ead4ef6fc80df4467b3c2a42cf9654c3dedf701746895665a,Conferisce il trucco indicato.
 1251887199,49e71e87090b010ba7d61029f24fe8e235cd551a4f26029045d77257851ce60e,"Le <style=Hint_BgL>colture mutate</style>, prodotte raramente dai campi della tua Base, possono essere raccolte, regalate agli amici o vendute nel negozio indicato a un prezzo più alto."
 1251897597,3c6a8bec4bbce7d7d15119548a784480d9d166353d4b4d9272441bc8a6ec4d35,Dissodamento - Controlla lo Stato di Sincronizzazione di UserData
 1251899777,0695d56c3814ce56b14c4c710464ed295899a1539368ac8c9a031fba754a6260,Sfida di nuovo gli avversari che hai già sconfitto! Schiereranno Aniimo ancora più forti e daranno il massimo! Dimostra quanto vali e ottieni ricche ricompense.
@@ -33364,7 +33358,6 @@ Tuttavia, il fenomeno non si è più ripetuto e nessuno dei nostri dispositivi �
 1253016796,02fa6e2a525109224acba4a57083573b897647420b1b1c877e8b9f00f3542144,"A-Anche se hai una forza incredibile... non avrai comunque il nostro Miele dorato, squit! Ci abbiamo messo un'eternità a rubarlo!"
 1253018076,be04ceaacdb8b54d0285dfa4dbcaa2188240539d5b2cf4ff5933dc431ccc95a2,"Un condimento fresco e leggero, perfetto per accompagnare riso e piatti principali."
 1253030201,071ef83d3612dbac64168fd92358567545ab8240a78414dc5921c0df26c564fb,Lin Xia
-1253045879,aa49d7dffbc31e1826b092586dd922695c2eaeb5681f6f2285f3a4d03f5d0c91,"Consulta il sito ufficiale per i dettagli, le ricompense e il regolamento dell'evento."
 1253054307,51a0112330644dbab242954e45d67fdd95cb5cb9bef728a06e2621f53b6fcd57,Aniimo Catturati
 1253064301,dab48baf74bede21da0964e97805db112fec2b45e2cd740c222a7265a38fb76a,Eliminazione in sospeso
 1253068497,e36186131e0ba7545cab2c6c3f04cb9eaac44ac2759f6fafcf0a3543d2d73caa,Non mi interessa
@@ -43524,7 +43517,6 @@ A quanto pare non vuoi fare il modello. Vuoi fare il fattorino, sfrecciando sopr
 1333755136,80d1e2609664539b98f6038f9ec04e3a6a3b60e02fd3938d0018b7c9e475ed84,Raggiunto livello 30 (Segnaposto)
 1333767737,945514c3c741f9a03df7727c857a11fd5e11bdf28da579d892b33d3a851bb04b,Recas
 1333772544,2974ce332268d665b4dca29ceb05be7a33a335793ea49c904995df4b3d5f646a,Generazione Aniipod Gravità
-1333785799,b578eb5194124b070d563287a784adc108d129c0e1289eb4f968b9635d54ea6d,"A caccia di tuoni, con la sua lunga coda che crepita di fulmini: Jaguaraun balza dritto fuori dall'immaginazione per approdare a Idyll!"
 1333786092,e4ace1dfe147e67d82295838786749431bd7c608b13932a87847ddebf6e1ea9d,Vera
 1333786739,1420e1d119a3fff57b9059c5fa879e4d6832605f420129b8ae74ab8aa492f1b5,Ormai nulla mi sorprende più.
 1333833417,8cde920d09ee70b5e5131a2dd89ada1306adc53feead5d9a2309bbbfe1da9589,"Davvero? Quel Pranky sembrava diretto a valle. <style=Hint_BgD>Segui il fiume e attraversa la cascata</style>, e dovresti trovarlo."
@@ -44952,7 +44944,6 @@ Ricordati di <style=Hint_BgD>passare regolarmente a ritirare le Stelle dei Desid
 1346055096,cb6b23f533bc5f16a7ea713906f340689fbe48792dde2531356826230f94bdf6,Joff
 1346074408,5115fce6451b502d9459a9607b00378bd574f4081437fb0788b315b5c0606424,Sconfiggi tutti i bersagli.
 1346090953,c91c74220c0eb76467245b440eabd1ed64f3d79432cd5da46dd33d35492a8b5b,Sottotitolo Nome (Segnaposto)
-1346101245,f0dfa96d91ac62e970320e261a5e60a405749fd7af1a0da6353a015212c29f74,Vai Ora
 1346103210,f6d0d9971d93d8f79f6dc279dc5b1b0d2e5bf4798513e152f0c2fd7fc347b21d,Thesseo
 1346105691,2a72dbe5bab64b3a60af7bc5fd2d3d5e16841a0ce2c2811a5dbff2b49723cb48,"0,9-1,2 m"
 1346116384,1fc5dfc458c916d2e5c664a33dc96bf0eadc4301364a38e3859544021607d50e,Allenamento ad Alta Difficoltà
@@ -47007,7 +46998,7 @@ La sicurezza è chiaramente aumentata. Forse solo i membri della <style=Hint_BgD
 1362414915,5735ea1ae1755da2f0264eac5e778b10abb1508ce7518cf25f061ed229c54cbd,Configurazione completata. Console di ricerca attivata. Il teletrasporto all'avamposto è ora disponibile.
 1362418144,59c7ffc57663ab01c4b0b645bcf9e9dafe92171c72038a5d3a75a7ac773024d6,"Vuoi saltare il filmato ""L'ira della principessa""?"
 1362419674,e03112b3005d969f7623b240ef9d385c5c0e078ede08720f66e78c85ad73f3a3,Nicole
-1362419723,657cbb18cf6e9419faec188a9d72f8709f084075d9f2bd325e6b159a510ff40f,Conferisce l'oggetto cosmetico indicato.
+1362419723,0c70942fad34523ead4ef6fc80df4467b3c2a42cf9654c3dedf701746895665a,Conferisce il trucco indicato.
 1362424766,6b73191a0a4b67420e61d51c9f207c35277eaf18fbbf5beb52a320a23fe09653,Colore
 1362425337,82fb0de39bc117cb6a496e0642f7be34152fa6f1412d2361137c89b5a32d2a56,Addestramento del Fulmine - Prova
 1362426062,97ea67cbce1f2d05dae098e46fac21b0cf2e2328642d8b7d4f3324bb54e00b6e,Impossibile {1} durante {0}.
@@ -47549,7 +47540,7 @@ Registrato nel database, in attesa di caricamento."
 1366821881,45df542cda73e5eaa9954feae5420aed0516c246fbbeb1f09f8a300cb508d827,Seleziona la scheda [<style=Hint_BgL>Abilità</style>].
 1366831467,deff23e923507304d651b0667405db0a2ce8a602231f8b4be39adea8ca248b69,Ingombro (rame)
 1366835831,6c49e63fcdbfb4b3ba73bb6dbd2839216cac797684991cdea911b74293bff8d6,Tiredor
-1366844085,b5adcba5109e3421c4390d7708634b2c53d01dc3ed3baad80b7d76c696645823,Cattura uno Scintillante Abbagliante o uno Scintillante d'Ombra.
+1366844085,e87611ac496450d664b2997bf6066298ca8dbe7c9d4c0eb29833fac87ebc7e4c,Fotografa un Aniimo con Scintillante Abbagliante o Scintillante d'Ombra.
 1366845009,1966e08ba9b3c63d945dde5d13d98e385fad2a3fffd44252effc62c79bd102d5,Catapulta - BONUS
 1366851130,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1366856432,a4ba6469a6c114fc00b5b6f53a2d517a838b3b1b8b114eb32fd1286a6e2183e2,Bonus Ricerca Forme
@@ -57008,6 +56999,7 @@ Ma le risposte corrette dovrebbero essere più di una. Vediamo le altre opzioni.
 1443365527,888a3033fd7a25c21ada117cc06a2fb8cfdc75b7dad63c3946dec1a641939feb,"Ai vincitori veniva concesso l'onore e la flotta offriva loro il proprio invito... eppure, persino questo non bastava a completare davvero le tre prove controcorrente."
 1443373073,db7ef410ccb14af199db6a8ae4dfa4e1c300b289f54049dfa9a99a68d27f3bf8,Livello Gratuito Manuale Compagni 14
 1443379777,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
+1443395178,784f655d855b08730d1eb416476cc3e81d1c7f82ce4b274487cab2171bdcf2a0,Chompy
 1443415328,8425580015090380ae6e50f75e024f0c54474361592d9bd226b919bd8bbf67b6,Notte delle meraviglie - Ciotola ridente
 1443417561,d5e029325b05230f70bf1cbfc9350107111a6b38f95532e82567da94601012ea,"Le tre anime di Inferlupa si rivelano essere i leggendari Guerriero Perduto, Guerriero Immortale e Guerriero Imbattuto. Dopo aver ascoltato le storie del mondo esterno, ritrovano il loro spirito combattivo e ti sfidano a un'autentica battaglia finale."
 1443428497,e53a8fd97906f748782fcc7c8f094b208c2d5ce8a2a8469e89f608937740e4b6,"Lungo la via verso la vetta, la terza prova è la vittoria~♪"
@@ -58913,6 +58905,7 @@ Installando un chip, <style=Hint_BgL>la difesa aumenta considerevolmente</style>
  -  Tipi di negozio:
 ※ Negozio Settimanale: l'assortimento si rinnova <style=Hint_BgL>ogni lunedì alle 4:00 del mattino</style>.
 ※ Negozio a Tempo Limitato: l'assortimento si rinnova <style=Hint_BgL>all'inizio di ogni Parte</style>."
+1458490397,3174efdaff7d059b46c35cdd556908c72d2317293c479751f4995844a5ccc93d,Dora
 1458505949,86cf73abef9d2dd048312587001537db5dbc33ab047a37ea27e351c3c811a69c,Mmm... Mmm-mm! Mwaah...
 1458509052,fda5884cc58317979816d14469ec2b6730939bcbec3e657a7af963e9a13ff1d4,Vigore della Vita
 1458514554,97eac4ff5b16ce1df6d126defcc6968a8c5c892388383a7989c1db566de6b0d3,Posiziona Aniimo
@@ -59609,7 +59602,7 @@ Sono ingredienti fondamentali per i profumi, quindi ricorda di scegliere un arom
 1464053220,aaeb18a1aa00f67c146a187fad69334c87096bbc4bd0275241680fbd40d9e906,Lezioni introduttive di base
 1464053969,03f82bc6a108d3bfa36a12f6e39cbeb97d4525c304af2e479c80c68d64b37626,Livello Aniilog
 1464054434,f0b166270005e10221967d1d05f0b80918318ecb5a75247744af36546fe2798d,Titolare Distintivo Stella della Notte Oscura
-1464055385,78c908d560a14c95c0ec4a8f03b70bf5c48189280cee6e914af766d6d25bafc9,Cattura 5 tipi diversi di Scintillante normale.
+1464055385,88c2d71be45ec8c67479ae16bbb6f3b445ff0d49b3c443c6dc3bcbaf1c67a9b7,Fotografa 5 tipi diversi di Scintillante normale.
 1464073900,f6c03d0da6a553569ee9aff5a821e9817415bfa65e2ac07d4a945ae05b7c3bac,Pronto? Nonna? Quella che ha seguito la corrente fino al Mondo delle Meraviglie?
 1464074207,a631282438489f3b1d1a1e772e4a5b40f235a119f7796795bbcd9f1dea1c6855,"Ora che l'avventura frenetica si è presa una pausa, perché non riposare sotto la luce delle stelle con il tuo Aniimo?"
 1464075642,ac9ff4dc17552448d9ab01bc58ade35dea656340fcbccc1588b72b417aa60824,ID Oggetto Tenuto
@@ -60828,7 +60821,6 @@ Gli Idylliani si sono adattati ai loro ambienti e hanno sviluppato attività pro
 1474336064,15d44d1ff3334302a21f21fda2437c2e4273e82f8af8d642fa5f1f0f19ceb054,Ottenuto
 1474336543,cb08aaacc64a6eeb7c3822a32a01921dbf02a81c02cd9505cb225c38bd14cc3e,Riordina magazzino
 1474341408,f33ac31a7b3560b2ef9c2b6dc576958bb4bf7b0c869d2aa6ed4903bcf9e15de1,Cattura tanti Aniimo durante l'Impeto Selvaggio
-1474350620,aa49d7dffbc31e1826b092586dd922695c2eaeb5681f6f2285f3a4d03f5d0c91,"Consulta il sito ufficiale per i dettagli, le ricompense e il regolamento dell'evento."
 1474371610,592e8bac052d82acefd00c72da4bd23f9aff9c46abdbc82acc8095c97ad1e76f,Le nuove strutture sono finalmente arrivate! Meglio installarle in fretta~
 1474373623,f2514a30092e97b0bcdca90e89d0e8cb60f99fbd7a13b093cbfecc6e9a3f4eb8,Accessori personaggio
 1474375851,92d3def5cfbe6709672f0265101c5b52b1e5b6cfe2a858882502651132e9f305,Lontano
@@ -62378,7 +62370,7 @@ Proprio quando le cose stanno per sfuggire completamente di mano..."
 1487471299,fb33063cf521a3881fbe6165ccd37016fd118f358e4971ac86e6434ebbe32352,Quei pessimi Susutas?
 1487491539,a15e0c9614123b9fbdcc519cf93a761b37684f1b7240886da72ce3e7b290f4e9,"Perché ho mandato in frantumi il ghiaccio che galleggiava sul lago, ed era il suo ""amico di ghiaccio""."
 1487499596,3fd0f67a1c614506ef81b5cd9358a91754fc9e7918c7ee3853d97243bd995130,"Un morbido e soffice tappetino da bagno, di un allegro giallo limone. Basta un passo per asciugare all'istante le zampette bagnate degli Aniimo!"
-1487525481,78c908d560a14c95c0ec4a8f03b70bf5c48189280cee6e914af766d6d25bafc9,Cattura 5 tipi diversi di Scintillante normale.
+1487525481,88c2d71be45ec8c67479ae16bbb6f3b445ff0d49b3c443c6dc3bcbaf1c67a9b7,Fotografa 5 tipi diversi di Scintillante normale.
 1487529066,5be5c70187aff06ce8a4dddbcf84f47e656d2028eee7679bdfc9e1ba915eb6d9,Attiva SRDebugger
 1487533435,4241e14e16caaf9218b05d336b0e1c3f05c4e5c3ab9a65a062412e24202c6d10,"Gli Sparki attirano i Flutternym sfruttando la loro attrazione per la luce, poi fingono di bruciare loro le ali per scherzo."
 1487548747,4b7d16b5ad2666022a5516b5bc09ab6e43bcc4d100595521c8605725b3e8379a,Complimenti! Hai ottenuto
@@ -67645,7 +67637,7 @@ Un chip per Amplificatore d'Attacco che aumenta leggermente i danni, permettendo
 1529352948,0b15ccb0344aae0dbfe5a79f761460fa2e68af8a5896338e3b0b5f692b8ffd34,Potenza BREAK
 1529357899,7b9c39631f3ee00c6b8e85424341fa4cb4b6ecf659edd1ab288eb577525079ac,Layout Pulsanti
 1529375978,19766ed6ccb2f4a32778eed80d1928d2c87a18d7c275ccb163ec6709d3eb2e27,Annulla
-1529387577,9519a06b269f92af6fa41e3c9753a13c872d45cf3491fe4288b817acdc0e729d,"Per ogni <style=Hint_BgL><customRichText(getConfigData,random_buff_data, 2041003,param0)></style> punti di DIF F e DIF M, ottieni <style=Hint_BgL><customRichText(getConfigData,random_buff_data, 2041003,param1)></style> punti di Riduzione Danni Fissa."
+1529387577,8a687f72f11917bb9e645805466ea91e272cb210e7b7276bea137686a310d59c,"Per ogni <style=Hint_BgL><customRichText(getConfigData,random_buff_data, 2041003,param0)></style> punti di DIF F e DIF M, ottiene <style=Hint_BgL><customRichText(getConfigData,random_buff_data, 2041003,param1)></style> punto/i di Riduzione Danni Fissa."
 1529397940,9b4600a64f4040c1611e0188e62bc38a7205a6a8312f748df068697ac36e327e,Elimina un’unità
 1529402351,d638caa477eb120ae7fcb8647ed3fe4f5d10e4207a02a22e2482e1a24b76dca8,Camper Liv. 9
 1529407055,ddb33b74d544a669d7a329c7be81b4e248e8ad6f2754ba70ec1f66d11bba22fe,Selens
@@ -77328,7 +77320,6 @@ Portalo al <style=Hint_BgL>Misuratore di Forza Coilstrike</style> all'ingresso d
 1606527826,0144345fd43c6e073ce49f93825e4afde1b38182daf85b723e7382d33b40d34e,18x
 1606529143,4a0daccd0a585821ba2d49ccf5973350add9027a1da5b023e0614cf1c18ea7d1,Il pesce che aspetta la marea
 1606568496,fee43407980446e420d7f63a41d8b95f6cabe35d63f9fd24984bbbc79af383d2,"Lo sento! Il profumo della tristezza è quasi sparito, e guarda: ci stanno sbirciando!"
-1606569994,aa49d7dffbc31e1826b092586dd922695c2eaeb5681f6f2285f3a4d03f5d0c91,"Consulta il sito ufficiale per i dettagli, le ricompense e il regolamento dell'evento."
 1606573362,1d5aa3fde75bf92975be913af237f91656cb6147737eb225da880e7fec700b34,Corazzato
 1606575157,b8b1d894c683725260dcd78f8ed64f979331a1ab61fc8311e9ccfc300fd5de20,Categorie
 1606581046,559ad5e0216505a2abcfefa0ec0d1bd5a40f0d241c6f3fce1cebf8eec0e6baae,Si sblocca al Lv. 7 del Rilevatore Minerali.
@@ -82482,7 +82473,7 @@ Con un chip installato, <style=Hint_BgL>aumenta leggermente la difesa, la capaci
 1648124300,43b3748dede0d3301249ec356e12aa78a9de4b796af27c783bdfe145104c1005,【Test】Cattura Aniimo
 1648125730,6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760,240
 1648133411,5bea3ab36d884792954cfa0f3bae76334d75580b675b56b7877ae8fc3339efa2,Abbigliamento
-1648134533,b5adcba5109e3421c4390d7708634b2c53d01dc3ed3baad80b7d76c696645823,Cattura uno Scintillante Abbagliante o uno Scintillante d'Ombra.
+1648134533,e87611ac496450d664b2997bf6066298ca8dbe7c9d4c0eb29833fac87ebc7e4c,Fotografa un Aniimo con Scintillante Abbagliante o Scintillante d'Ombra.
 1648134586,d3ffae284914558f2fbfafaeee02b3995e273abde4acd643b46f589420eb4363,Glub... N-non mi ricordo bene... Ma Kiki si ricorda tutto. Kiki si prende sempre cura di noi.
 1648140449,b3b39116c267eca4f1a4a7ac728e6f79c7087e8bad6aa623e1c354f1f80bea6d,Abbandonato
 1648143407,421acf13c1cb044e40e0fe1c1e88656e604113be888d92b2ecbb136252023b17,Cura
@@ -88337,8 +88328,8 @@ Componenti camper acquistabili: <link=""item_4040017""><color=#5090df><u>Modulo 
 1695798818,5e9371b3a9618f5b2f6b4256f606b92644f9a932417396a5d3ea56bc50e9267a,"Il mio negozio apre domani, ricordati di venire!"
 1695801109,171dfb6c097da0ab0c25e4ee9f72e8ef19719697d57cdae657573845d5ba816d,Questa è... l'uniforme del Polaris Institute?
 1695808493,1523bd1a9e5a4c415004b6288e6442100a8f40a129917a6c2796d8877fe8da43,Pomawk Intrappolato
-1695817330,365e8967f6bb1dab56f6e5e096a3451c62671d22cc5d3ed39cbc0eaf10b541de,"Ricordo che il manuale di esplorazione dell'Istituto menzionava un materiale strano chiamato...
-Meglio chiamare <style=Hint_BgD>Dr. Lewis</style> e chiedere."
+1695817330,9bafd6e26f55477045ee9fa01dd333b5fb8a9d071d47d7dd07a7a9c4f749812e,"Ricordo che il manuale dell'Istituto sull'esplorazione di Idyll menzionava un materiale strano chiamato...
+Meglio chiamare il <style=Hint_BgD>Dr. Lewis</style> e chiedere."
 1695826987,02cec789fdb66d157709a52d59f1150e7263a0fb69c550e26b176d879dcf204e,Una morbida benda che protegge gli occhi.
 1695836176,e1cf59de33d351711d7095b3b607132f2238ff7f056d4c79b35721388a2ffb13,<style=Hint_BgL>Prodotti lavorati</style> ottenuti dal Banco da Lavoro nella tua Base. Puoi venderli nel negozio indicato o lavorarli ulteriormente.
 1695837038,a94af88730a5c9de716291400d6a676b4d9af6c2f1f18e6ff037fe95b57f3d76,Livello Premium Manuale Compagni 43
@@ -90104,7 +90095,6 @@ Controlla il <style=Hint_BgD>pannello informazioni</style> dell'Aniimo e vedrai 
 1710539617,21258b10fe0e7f6ffec7f6d54ee5d79b6c473fdabdf05f8d1d6967d0f763f787,Segnaposto Scheda
 1710546685,6cb19ce33db743c40a1f470118290937c90ac474544a5aed6010805a45396ecb,Progetto Arredi: Luna del Raccolto - Verdure dell’Orto
 1710550939,739593801f9fc982014b41dd60de952a9644238b604ff85f19dc77140bfe8858,Possiedi un Aniimo Elite
-1710556650,9f6621bc72b72bbdd835da20948c6cf739dbc078c089cd9cc6dd619ff7dfd403,NASCE UN ANIIMO – CONCORSO DI CO-SVILUPPO
 1710571187,fe6561bd915ea2034de68c188c8b5432143073aa5bfb73dfea8acede70040a2e,"So che eri solo arrabbiata, ma sei stata un po' dura... Si suppone che noi Mireling siamo gli insetti più maturi. Siamo cresciuti insieme e abbiamo promesso di restare uniti per tutta la vita..."
 1710576322,e758a2458180a3c02de71b504439b185ac8c9a0454a8145ad010c16887a80000,Il profumo delle pietanze arrosto riempie l'aria e attira chi vuole rubare un boccone. Ma la fretta gioca brutti scherzi: basta una presa mancata per restare a bocca asciutta.
 1710585619,27ac9986ca0a97341cb8e0560c698b0ca1facfa5c71906c0533a117ffe20ab32,"Ci penso io, preside!"
@@ -91494,7 +91484,7 @@ Sunia, tu ci capisci qualcosa?"
 1721673708,81971b89dff2b6507e07a6760f8531374308396a6855a9959d709e6d062e3d78,Storia-Trigger Cattura Hummin
 1721676357,585e65449b47b51f228301a2ad46326ee714a6a54f462575e754d314d8ab8cec,"È l'unico Avversario che riconosco. Aspetto che mi porti nuove cicatrici con le sue fiamme più Brucianti, ma purtroppo..."
 1721692303,ba6cf32e13fecf7689e44086ac7d41e49d35c85f814ffe3c4cad855f5d8bc313,Dagli un consiglio
-1721692530,67b549625d37e99ed1c9a530a2091141124d845a0c3d03c23500779bb4219b85,Ogni sfumatura di Prismana merita il suo momento sotto i riflettori. Immortala i diversi tipi Scintillanti dell'Aniimo Prismana in primo piano per riscattare fantastiche ricompense!
+1721692530,a806b00e24694d67c157dc894f572a5726db67dcf86f13b4598e6085a6b875de,Ogni sfumatura di Prismana merita un posto nelle tue foto. Fotografa i diversi tipi Scintillanti dell'Aniimo Prismana protagonista di questa fase per riscattare fantastiche ricompense!
 1721704007,449f5a775762cdc561ee231300af1b02be67c56b81e503058a1c777ea1dc8b55,Parla
 1721707224,8868a50d64a511f1f5e7ea38a42302e1d07dde923bc212d3eda04b96bdfa22ee,Funzione bloccata
 1721723591,af3ee554e6e70c5a1a7f6dd9eb3b224cacba9faed9a1d57ff56d0cffdc473ed4,Carrello Vuoto
@@ -91851,7 +91841,6 @@ Non c'è bisogno di agitarsi. Se sbagli qualcosa, puoi riprovare in qualsiasi mo
 1725035850,b8b956bcc9a8e832f21968c545c1055548c7b56e45e8eb9bebedb13f460eedb9,Quasi... ma non proprio...
 1725041235,d3db00da5e2cee7796b6cc8356e1b071cb310499667a4dbc120f24f6839f8d27,Nimbi colmo di attesa
 1725067281,ddcd2779294a61f056090b2bbc47444816ff791ed0cf9ec295821e82a384ef81,Riscattato
-1725091504,4f535e1e67c1af8d27394a751bf3454c68cc1e19d9c5cf5eae54c9e936e761be,Festa del Tè Sotto Cattiva Stella
 1725104305,7a61f3b583669ed185eba30503e84edee2a95d2f3f5df10b7502ef36df228711,Può essere usato per personalizzare il tuo personaggio e i tuoi Aniimo.
 1725118268,9fd728c66c9a256b121472dabf32a34317aed01d8427d70ec830289cf23a7cc8,Aggiungi
 1725129439,f6d0d9971d93d8f79f6dc279dc5b1b0d2e5bf4798513e152f0c2fd7fc347b21d,Thesseo
@@ -92371,7 +92360,7 @@ Ecco perché alcuni allievi riferivano che comunicare con i Bulbly era difficile
 1729015731,1cb919703678b20001d493bead36971074feece5763b02b5a602a09856c7d43d,Punte Capelli
 1729016954,87fec9d57c825e1db3e5a94306f33b4eb10937ec231489c2c83c9b2899631917,Vedremo l'Irisalis?
 1729017614,dc6fd59dbe4a1474e11a71d5028921f31b333f76039ba22a2be14cf085d6ece2,DIF M
-1729025583,78c908d560a14c95c0ec4a8f03b70bf5c48189280cee6e914af766d6d25bafc9,Cattura 5 tipi diversi di Scintillante normale.
+1729025583,88c2d71be45ec8c67479ae16bbb6f3b445ff0d49b3c443c6dc3bcbaf1c67a9b7,Fotografa 5 tipi diversi di Scintillante normale.
 1729028717,5b2f06b283d192a93603a2c5cad0a6b19d3fb80a0ecc18022915c06ae4780303,Ingombro (bambù)
 1729035464,b72d0a7b63eaa39466b9a59696b4b228808e3f1f475e74631eac3631ba551229,Bel tentativo. Ma non me la bevo.
 1729037124,6d3b491cc4b3b8c942decedece5f1f363e8f996b489f995acb320c18f73b3ca5,Difesa
@@ -94191,6 +94180,7 @@ Pesciolino, tu mettiti in mezzo. Il mare di corallo sarà splendido e, una volta
 1743886996,f93c2bc58a46c06e932cc03f873805fc96eb1e5f2eed9610edddf40e09af9b7f,"Allora, ci sei per lo scontro finale?"
 1743888057,ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46,...
 1743888739,462c0c72ee8f08a229ada4567b1853ff1e2fe832a3589612c8d203dedb14dba5,Salabask vivace
+1743895291,b946e3c8059c547a0d08bdf3ce0415cd12e5c2f1eb6f4c337a9c2f98b3817b66,Hai raggiunto il limite massimo di ordini che puoi accettare.
 1743911435,7113e623658a165d0686cface8df4dc4f69f628b428d8f04cb5ae25c7494947d,Raggiungi il 70% dei progressi Collezione Aniimo a Blitzwood
 1743912505,925007e9dbd61f75ace0cff01c868df00c72528ed0acadea7c731ef497855273,Dicono che questo negozio gacha nasconda premi segreti di Celestis.
 1743926226,b87dc90108eb154f349da0188bbb88e3cb637bac82f90a1e915e22f35db432a9,Lanciatore Fuochi d'Artificio
@@ -100433,7 +100423,7 @@ Con i chip installati, <style=Hint_BgL>aumenta notevolmente la difesa</style>."
 1793067792,479ad21ac9096236e921c228a511f12cc84758e21d9edda03ae82c501d367c93,Basso
 1793073251,9bb0aacc6d51f1408ed983b84c42e941fca204de70ff5595a4d1b7cff8b22815,Testa
 1793090010,30c0bed4c41653d4187398a05d90f3ca6f1c67f29802bc8e72fa276c2d19253a,Aeon Zucca
-1793091604,77a00ad3170cb7c2cc5e023bd714cf07a3bcc177c26bec041228524afe0a2cfb,"Ogni giorno dalle <timeAutoChangeServer>18:00</timeAutoChangeServer> alle <timeAutoChangeServer>2:00</timeAutoChangeServer> (ora locale), goditi oggetti e vantaggi in edizione limitata!"
+1793091604,d1aff386d6379a873002555cc4cd2430395e049e15ca56e0dd4064777ab2b1ec,Questo negozio offre oggetti e vantaggi in edizione limitata!
 1793114946,27fc9944b0c52b5799815a33ba14ab594935079bb2a06b0ab21895e36c283d5f,Di chi è questa palla di fango?
 1793117751,3521c4b84bdbb6d5713621874de88751d9092bc34d21d64d27a3feb34a97d652,Vedo che la curiosità non ti manca. Bene. Questa storia risale... a più di cento anni fa.
 1793124206,74a883a037bc227f91891ab654a753d3a99f31ab06ae5b5d2b6e594a692b41f8,Impostazioni
@@ -100654,7 +100644,7 @@ custodiscono nel cuore lo stesso sentimento."
 1794726045,2d3acb6814bda843489d185046f52fb5974c044d44afc261b349593974cf574d,Lancia Fuochi Fentuft
 1794727036,e03112b3005d969f7623b240ef9d385c5c0e078ede08720f66e78c85ad73f3a3,Nicole
 1794765772,45f38feae328bacea1be6a866c06f4b197043fcba6998e7c64b1408430201067,Puoi consumare Primegy per creare il Cristallo di Rugiada di Lunara
-1794776904,d973b104d0fb056474a280f43d197e69f3c10e59f1773ebe2904af478867298e,"Raccogliendolo conferisce 1 accumulo di Rapidità, fino a 5 accumuli. Subire colpi fa perdere gli accumuli di Rapidità accumulati."
+1794776904,14dae1edeb78d0238ece6b5bcfa85997dbf6ff5b97f247caae1691c2cbbfe529,"Ogni tortina che mangi conferisce 1 accumulo di aumento velocità, fino a 5 accumuli. Quando subisci un colpo, puoi perdere fino a 2 accumuli."
 1794788243,4507d5ebc31ff675b8969709d365cd9d1646dcf794f7fd486681b2951e28c385,BREAK +1%
 1794789168,a99f8c6d6352b3829f9e157ff95ed7f85e43d00a1e24c36625e378f44b440feb,"Un mucchio di palle di neve rotonde, grandi e piccole, tutte raccolte insieme. Impilale per creare un pupazzo di neve, oppure lanciale in aria e dai inizio al divertimento invernale."
 1794790350,b6fb1c286b88b03c6656d36f3f05fa32dd889a5da6249c3350e1ddc030c710ad,Lo farò.
@@ -101781,7 +101771,7 @@ E dopo un lungo viaggio, la nostalgia che emerge potrebbe essere la stessa per t
 1803896180,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1803915569,53df1c53da2ae363d22f0dbf0d61f9d71bbfa3c06848ec41a3681c3e2edffba7,"È ancora all'estremità della pista. Pessimo carattere, quell'insetto. Ruggisce e carica sempre dappertutto!"
 1803918028,f81145a10718c4476f1cbc6c2138b46b8e4a279f2d50859a90a2405c469943e8,Dr. Lewis
-1803919151,657cbb18cf6e9419faec188a9d72f8709f084075d9f2bd325e6b159a510ff40f,Conferisce l'oggetto cosmetico indicato.
+1803919151,0c70942fad34523ead4ef6fc80df4467b3c2a42cf9654c3dedf701746895665a,Conferisce il trucco indicato.
 1803924711,bd996a593d9261e14213ae040460d3c39545f967a90a3ed171e8be39de10a98c,Speciale?
 1803935998,d4be3940d09f146c19edc1c1053d8983abda0f6933246f8df1d06e1ff8f24295,Download Completato
 1803938163,8a5aef4e3a0be2ce48253f81f7c8cd3e39fa0ffd34e46cccae9b2f55135b5f89,In attesa...
@@ -108274,7 +108264,7 @@ Vieni qui!"
 1856252037,9ad6c638c896d289ef60a07d04d2fca2530895f6aa5e50737da784ad682ba364,Potresti accendere i falò qui intorno? Sto congelando!
 1856252686,6881cbc0f4871506c1bfba7a4ebf454b618423de0f51e755d4d3883b472e0369,Holo-Core
 1856252721,6b1744adce4e19bc040632d3370b3d7fd59e6897dc61600908736d6e4f65991d,Starine
-1856255303,b5adcba5109e3421c4390d7708634b2c53d01dc3ed3baad80b7d76c696645823,Cattura uno Scintillante Abbagliante o uno Scintillante d'Ombra.
+1856255303,e87611ac496450d664b2997bf6066298ca8dbe7c9d4c0eb29833fac87ebc7e4c,Fotografa un Aniimo con Scintillante Abbagliante o Scintillante d'Ombra.
 1856263957,bf97dd713147e17105b8f09d8b4e7a4a9cbb806dd277d1d30fc83f7b42fb4d01,"Fin dall'epoca dell'antica Idyll, i pochi in grado di entrare in sincronia con gli Aniimo sono chiamati Esploratori. Il Polaris Institute rende più stabile la sincronia grazie all'allenamento e a dispositivi tecnologici, ma le ragioni alla base di questo fenomeno sono ancora da studiare."
 1856270333,e33621ae0e4f374b83877e393bd9647e113799c7dd99a82faa96636e58708333,Relax alle Terme
 1856284879,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
@@ -109574,10 +109564,6 @@ Con un chip installato, <style=Hint_BgL>aumenta leggermente la difesa, la capaci
 1866261300,e3ef84b0daaf38d7f2ec1b3b37da5ee58812aca65df5e65d66d9913f096e0221,Sono nell'aria dopo la pioggia.
 1866267028,41cf11c54834f95032c58ac96a1772982bf1d2220729cd7e3b05301ce2a44d2f,Collezionista d'Eccezione
 1866287265,0d8a0602098b24525f8207ee99f5c0a662a051b6678dc15e5901e199ae744cdc,Usa le abilità supreme
-1866287543,44986e6454fc006a3d52f47472408e9a3ec46c93be912070e47d33cf7bf3e77a,"1. Durante l'evento, Jaguaraun apparirà nel mondo aperto per un periodo limitato. Completa le missioni designate in [Indagine Fantasia] per riscattare le ricompense corrispondenti. (Consiglio del Polaris Institute: quando sei in Modalità Compagno, qualsiasi Jaguaraun catturato dai tuoi amici conta per le relative missioni di cattura!)
-2. Completa tutte le missioni di [Indagine Fantasia] per ottenere la Formula d'offerta dell'Aniimo in primo piano di questo periodo di evento.
-3. Come ottenere i Marchi Fantasia: completa missioni specifiche in ciascuna [Indagine Fantasia] per ricevere 1 Marchio Fantasia.
-4. Riscattare vecchie formule: se hai perso un evento precedente, puoi scambiare 1 Marchio Fantasia presso il Mercante dell'evento con 1 Formula d'offerta per un Aniimo comparso in un evento passato. Controlla il Mercante dell'evento per le formule disponibili."
 1866289428,eeadf131376afa528ac25554aee0e49a12004288e916cb2bbaac91e0ccc67338,Scatola di Palloncini: I
 1866308988,e03112b3005d969f7623b240ef9d385c5c0e078ede08720f66e78c85ad73f3a3,Nicole
 1866309234,5b7a8ad544fb36d134b792654780fc2e092cc1b3f2663f7903dda529c7867f8d,Tessiluce
@@ -110656,10 +110642,6 @@ Potrai viaggiare in luoghi più lontani e sfidare più incognite di questo mondo
 1874884638,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
 1874906474,f87f25e880d49db4015d7d43668b55012e301ed0e6bd91d649261cf2412e7bc2,"Così alto■■■■Se avessi un corpo■■anch'io potrei giocare sull'altalena, vero?"
 1874908853,d30af076b0dc85cc5b0074b403f74770b73af84a70c2f77f7a3609d0db23112e,Io
-1874910720,44986e6454fc006a3d52f47472408e9a3ec46c93be912070e47d33cf7bf3e77a,"1. Durante l'evento, Jaguaraun apparirà nel mondo aperto per un periodo limitato. Completa le missioni designate in [Indagine Fantasia] per riscattare le ricompense corrispondenti. (Consiglio del Polaris Institute: quando sei in Modalità Compagno, qualsiasi Jaguaraun catturato dai tuoi amici conta per le relative missioni di cattura!)
-2. Completa tutte le missioni di [Indagine Fantasia] per ottenere la Formula d'offerta dell'Aniimo in primo piano di questo periodo di evento.
-3. Come ottenere i Marchi Fantasia: completa missioni specifiche in ciascuna [Indagine Fantasia] per ricevere 1 Marchio Fantasia.
-4. Riscattare vecchie formule: se hai perso un evento precedente, puoi scambiare 1 Marchio Fantasia presso il Mercante dell'evento con 1 Formula d'offerta per un Aniimo comparso in un evento passato. Controlla il Mercante dell'evento per le formule disponibili."
 1874916644,eebdd24a77d9ad32222660c07777163bf5f6732df2b172351f3f8d5783e4f529,Conferma
 1874944466,3b30eb0c36ecb19f8a43a8232f626fd9292debf2c8c0bd900dcc9e709c24e233,Completa 2 percorsi evolutivi
 1874961375,6f97c8f23d2cac8019af0a92e4431b5a07a2ac12f6fe46161b2047a83cc99a4d,"Sono io a spingere la palla di fango, o è la palla d'argilla a spingere me?"
@@ -114845,10 +114827,6 @@ Restare sincronizzati è un ottimo modo per avvicinarsi ai Nimbi."
 1908919244,a7f1f15589bb3b1a1517220ee3a6c3a1e6a37d55f04beb98104008bf59e0d5fe,Camper Liv. 13
 1908919507,0e599fea5feecc0e41a82e6db52bad3cd81b09eb01afcea50e0c113e1bed75da,Ricompensa primo completamento
 1908924566,2e6707e3c33e9f73dd6d238da090f2d0759c40045517c599776717da76f8668c,"In realtà, oltre a presentare l’evento, scovo nuovi talenti per professione. Ho notato per caso Bonesky a Northside: si è piazzato secondo, ma contro di te ha perso. Che delusione!"
-1908924720,44986e6454fc006a3d52f47472408e9a3ec46c93be912070e47d33cf7bf3e77a,"1. Durante l'evento, Jaguaraun apparirà nel mondo aperto per un periodo limitato. Completa le missioni designate in [Indagine Fantasia] per riscattare le ricompense corrispondenti. (Consiglio del Polaris Institute: quando sei in Modalità Compagno, qualsiasi Jaguaraun catturato dai tuoi amici conta per le relative missioni di cattura!)
-2. Completa tutte le missioni di [Indagine Fantasia] per ottenere la Formula d'offerta dell'Aniimo in primo piano di questo periodo di evento.
-3. Come ottenere i Marchi Fantasia: completa missioni specifiche in ciascuna [Indagine Fantasia] per ricevere 1 Marchio Fantasia.
-4. Riscattare vecchie formule: se hai perso un evento precedente, puoi scambiare 1 Marchio Fantasia presso il Mercante dell'evento con 1 Formula d'offerta per un Aniimo comparso in un evento passato. Controlla il Mercante dell'evento per le formule disponibili."
 1908931238,bb3fedb452425af4dfe6edd5df31e571e19b517ec5b7fa00c82535ceac5fe0ee,"Forza! Basta andare verso l'alberello... Oh, giusto, adesso è un grande albero... e poi svoltare. Saremo lì in men che non si dica."
 1908934100,67a7ab8772d747474461d8fd404df5cde4088f34a200f8af6b24de382af33c91,Test Helmut
 1908940233,0eb615679d552c9b6cd4a515b83853fb08a7a7276d2a84b038396ce33c1f6cf8,Budsquire Piangente
@@ -120321,7 +120299,6 @@ Aria condizionata all'aperto, nel bel mezzo del nulla?"
 1953513972,ce07ae9a7cbfe80ebdccb87a5615eea8912f03344f9fcbf5fa0c4450bcf0d465,Porta il camper al livello 16.
 1953515218,157e0005e93ba57288a21ad7a756d820783a72aa97412257d81aee5e08f22eb3,Oswen
 1953520238,a068f75b7d8344edd971153dbcf17562290601f899c1f47456f03a0fa54c790d,Tieni premuto per annullare l'aggancio
-1953522900,a4fe9a9d12aa8623f91cd07b466c374cb522f058ce89fef9f747b56ee918fd40,Disegna il tuo Aniimo originale per avere la possibilità di vincere ricchi premi e gadget ufficiali! I design più straordinari potrebbero persino essere inclusi nel gioco!
 1953525727,6052ff2248e631d84845d3057ff64eddb5aac531117fee4677b855b32a5e1fec,"C'è così tanto da fare, hrrmoo! Mi fa male la mia zucca da basker! Dobbiamo trovare un <style=Hint_BgD>buon posto</style>, e alla svelta!"
 1953530521,9f8de05677357c0af02d70a8434f8a3b92839c09e2c0ece3d04b6d445a1b365b,Ho fretta.
 1953569923,15f40a50c95954e7e4e4e43ca27c2e11afa0c7ff44864084006ddb5859e50bd7,Per realizzare le finestre della tua Base.
@@ -123273,7 +123250,6 @@ Un tempo gli Aniimo aiutavano... ma ora nemmeno loro funzionano..."
 1977789807,a20d5242e65a7e1035d2a4ca93b49978791a84f72fec97e746fcc7cf20aecda2,Peperoncino Luna Crescente Scintillante Variopinto Gigante
 1977797365,5b4cd3a7f0698dafc3267aad68dcf439acdb2b7d0bccb134a3d3ec677f5f8625,Cattura
 1977800540,3798a475c0c6cc2852d1bac1348d55f3c381afc11da16f2bd8901735feaa9ac1,"Non così in fretta. Prima c'è ancora una questione importante da sistemare. Con la tua esperienza e le tue capacità attuali, il tuo titolo può essere promosso di un rango."
-1977820640,0a0cba645b9ab49837d48e40bc8367f2db9af82f70a4c82bad8eebb6fb4bb051,Fantasia di Risonanza
 1977821371,9d2008caf1af524a34c284efbb13bd99f97c9552d9d347e58fadaae426d92276,Lasciami sprofondare lentamente.
 1977825712,c6e872a6a8e0998b84fc41b2dc5734f43c37b17556e8bea6c5e736b43e31026f,Una trama ispirata alle terre aride e un taglio che ripara da polvere e vento.
 1977826039,0e1555db90ba207915ed0a69efa704a8c038c1fa94e2a1e4b796482b3eb006cb,Una pianta per decorare la tua Base.
@@ -128976,13 +128952,13 @@ Visto che questo strano poliedro non mi servirà, credo proprio che lo consegner
 2023216536,cc96de67c2a0e9ece5c8ffbd024d52bdf3277cc9593515874cb1afe956a8953e,"Usando Bilaterale, una parte della visuale frontale viene ostruita."
 2023221256,5f1da0bc87747b4dcdc9603093adc9749194c760abe4ffa6bd3f9964d7483a8c,Riduzione danni +10% durante la Sincronia con un Uovo
 2023227529,ce79a34d51241774a66a9675bd67023f10c0d507b3e5c9951ba38d634f7d41fd,"Analizza con precisione la composizione e la quantità delle risorse, individuando rapidamente quelle di qualità superiore."
-2023243812,5c64fe21762ae31188917701d72992cb618bfca4a39391be9011924c9dcf533b,"1. Ciascun evento ha come protagonista un Aniimo Prismana designato. Usa la funzione Snap di gioco per immortalare i suoi diversi tipi Scintillanti e avanzare nell'evento.
+2023243812,eab63020b4dd505c501517afe29795528b5d0ca0cb28bb09cac1a6335c2d440e,"1. Ogni fase dell'evento ha come protagonista un Aniimo Prismana designato. Usa la funzione Snap di gioco per fotografare i suoi diversi tipi Scintillanti e avanzare nell'evento.
 
-2. Scatti normali: puoi riscattare una ricompensa per ciascuno dei primi 5 diversi tipi Scintillanti normali che immortali durante un evento. Immortalali tutti e 5 per ottenere un'ulteriore ricompensa di completamento. Eventuali tipi Scintillanti normali immortalati oltre i primi 5 non verranno conteggiati ai fini dei progressi e non forniranno ricompense.
+2. Scatti normali: puoi riscattare una ricompensa fotografica per ciascuno dei primi 5 diversi tipi Scintillanti normali che fotografi durante una fase. Fotografali tutti e 5 per riscattare un'ulteriore ricompensa di completamento. Eventuali tipi Scintillanti normali fotografati oltre i primi 5 non verranno conteggiati ai fini dei progressi e non forniranno ricompense.
 
-3. Scatti speciali: immortala per la prima volta un tipo Scintillio Abbagliante o Scintillio d'Ombra per riscattare la ricompensa corrispondente. Immortalare uno qualsiasi dei due tipi conferisce anche un'ulteriore ricompensa Scatto speciale, che può essere riscattata una sola volta per evento. I tipi Scintillanti speciali non vengono conteggiati ai fini dei progressi di raccolta dei 5 tipi per gli Scatti normali.
+3. Scatti speciali: fotografa per la prima volta un tipo Scintillio Abbagliante o Scintillio d'Ombra per riscattare la ricompensa fotografica corrispondente. Fotografare uno qualsiasi dei due tipi ti permette anche di riscattare un'ulteriore ricompensa Scatto speciale, riscattabile una sola volta per fase. I tipi Scintillanti speciali non vengono conteggiati ai fini dei progressi di raccolta dei 5 tipi per gli Scatti normali.
 
-4. Immortalare più volte lo stesso tipo Scintillante non aumenterà i progressi né conferirà ricompense aggiuntive."
+4. Fotografare più volte lo stesso tipo Scintillante non aumenterà i progressi né conferirà ricompense aggiuntive."
 2023250525,e582b1bc0121ae8dcfe28d94c2da097bdec5624055988ec26c6761151d7f8870,Pilastro d'Acqua
 2023271061,ce07ae9a7cbfe80ebdccb87a5615eea8912f03344f9fcbf5fa0c4450bcf0d465,Porta il camper al livello 16.
 2023276508,f7c7a30d5577fdf4d65826e4baa819acae8259b0ee9d608bb6e0224895c9cc15,Area Boschiva (Livello 4)
@@ -129868,7 +129844,7 @@ Il suo canto risuona ancora, ma la sua solitudine è svanita."
 2030068799,d6c728ad02657ca17cc3093e86afe42f7ebd39f721638e0b171cec40480085ce,Bonesky Irrequieto
 2030074210,07693bed0d885bdf2f64c6e6ad5ac9e2d58c8f1b4f066800213882e4eb2eb829,"Una reliquia di un'antica civiltà. Ripristina una quantità moderata di energia all'Unità BINI, ma ne riduce anche la durabilità."
 2030080304,1dc68c60b8c111e6222e7a29c20b7b0432095f412a4030434bbea9876fe0a2a4,"Tofu scottato in salsa di soia. Croccante fuori, setoso dentro. Ricco di sapore."
-2030094318,657cbb18cf6e9419faec188a9d72f8709f084075d9f2bd325e6b159a510ff40f,Conferisce l'oggetto cosmetico indicato.
+2030094318,0c70942fad34523ead4ef6fc80df4467b3c2a42cf9654c3dedf701746895665a,Conferisce il trucco indicato.
 2030097903,e6bb7ea12cbcb9d00e9333e9aa47616ef24bfa3fa084747c17eb9d82bf9d9d56,Bonus Area Camper ottenuto
 2030111602,d428500e55e7c374da0b35bd0f676238039efc42bda88541cdcea6d2a06551a8,Robot d'Attacco
 2030113240,dcde2778fd29dfb2283ee3726904fc0488eb72a8b90d64fd884b13bfe3505ac7,Robot offensivo
@@ -133818,7 +133794,6 @@ Ritrovarsi con gli amici è la cosa più bella che ci sia, e di sicuro lo pensan
 2062456739,d34611f9b5634a02cea90fd8c762869cb1029395563c1f3725487d5086c8ad80,Nuovi completi sono arrivati al Club Coilstrike!
 2062458308,38cc91595d5c8f00fa712624ca674618b0edb31b5bf6b7d743b9525c8ee3834f,Esplorazione a fasi
 2062458874,ebeb9bde8b6eb4ea464d22b8cf2e803d08f72172c36b10f3cb52c5b30823102c,Evolvi
-2062461769,15d44d1ff3334302a21f21fda2437c2e4273e82f8af8d642fa5f1f0f19ceb054,Ottenuto
 2062465584,11ab847cebb81f4531d3ee8f535e67eb1623fd0c7c11654d5b9f43ea67642076,Planata della Stella Cadente
 2062468600,f6d0d9971d93d8f79f6dc279dc5b1b0d2e5bf4798513e152f0c2fd7fc347b21d,Thesseo
 2062473157,4c9ada68aa14e3f33f625cb130251fda5ccca825a8216a3800fd6ca7bcc989e7,Teh-la! Teh-laba!
@@ -138168,7 +138143,7 @@ Il Devoto Helmut ti ha fermato proprio mentre stavi per prendere l'Elmo Dorato."
 2097698434,af3107fa3b5cccf9832a5afb48747f2e391df9a808d0439ea24dd14061e4579e,Sì... Ma quasi tutti conoscono soltanto Lady Irelia. Io l'ho saputo dall'anziano mentre preparavo la cerimonia.
 2097707492,60f7e0d37e178bbad3c0442f558166284b251a9532fc268b4a85236f41827f0b,posa
 2097722211,906707fc63834be869b822d564a8d5a3684d1e2cf1f02b3ad7531a6613b05491,Sembra che il mio piano di risparmio salti anche questo mese...
-2097732249,d7f6ec91dc544082a6cc4e8fc3d75b03b63b64520c8db91a606009ec591c8e9a,"Nella Base, sblocca al <link=""item_4040024""><style=Hint_BgL><u>Banco da Lavoro</u></style></link> la nuova formula <link=""item_4020077""><style=Hint_BgL><u>Polvere di Gemma Premium</u></style></link>."
+2097732249,e2eaa8f5abe7fc43778db36b27cf5220717382d1539929eaf18c6aa488829ad3,"Nella Base, sblocca la nuova formula <link=""item_4020077""><style=Hint_BgL><u>Polvere di Gemma Premium</u></style></link> per il <link=""item_4040024""><style=Hint_BgL><u>Banco da Lavoro</u></style></link>."
 2097737121,d84aab866aa52be6be2fec4afa1441c6aaef24ceee94d9c51b4f6c3300dd27f4,Morfan
 2097742095,e2b6e079b1990191db694508ff5cfcd39873f27235a7360c128633949c69867e,"Riduce i danni da Luce subiti del <customRichText(calcData,buff,6003023,param0,3,%d)>%."
 2097758488,fc8fe9f0f0554ceedb8fff9ea78a46505280600b51c6524c5bfe0deed00f88e8,"Un banco da lavoro che conserva ogni sorta di piccolo attrezzo, permettendoti di dare vita alle tue idee con le tue mani."
