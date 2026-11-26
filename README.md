@@ -17,7 +17,7 @@
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-La release supporta **Aniimo 4047363 (build Steam 26925568)**. Il catalogo contiene 135.604 voci italiane su 138.096 (98,20%). Le 2.492 voci ancora da revisionare mantengono il testo originale.
+La release supporta **Aniimo 4047363 (build Steam 26925568)**. Tutte le **138.096 chiavi** dello slot Inglese sono coperte, senza ricorrere al testo originale per voci mancanti. Nomi propri e identificatori tecnici possono restare invariati.
 
 - L'aggiornamento del 26 novembre 2026 aggiunge 2.110 chiavi, ne modifica 567 e ne rimuove 40 rispetto alla build precedente.
 - Installazione e ripristino verificati su una copia isolata dei file Steam. La resa grafica in gioco resta da verificare.
@@ -50,7 +50,7 @@ L'installer crea un backup automatico. Per tornare agli originali, chiudi il gio
 
 **Modifica file locali del client; non è un loader esterno.** Traduzione amatoriale non ufficiale. L'EXE non è firmato digitalmente e Windows può mostrare SmartScreen.
 
-[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.3973445.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.3973445.0.md)
+[Segnala un problema](https://github.com/Sici29/Aniimo-Italian-Translation/issues) · [Note di rilascio](docs/versioni/RELEASE_NOTES_1.0.4047363.0.md) · [Verifiche tecniche](docs/versioni/BUILD_QA_1.0.4047363.0.md)
 
 <details>
 <summary>Documentazione storica delle versioni Closed Beta — non applicabile al client finale</summary>

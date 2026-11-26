@@ -48,13 +48,13 @@
   "tested_game_revision": "16213a21c4cbacd177c9e50d6166ecdb",
   "tested_archive_sha256": "4f5b1cc9be850c51df8529a9449eb548fe3b409281d57e4ebda67c1fd67a22ea",
   "tested_date": "2026-11-26",
-  "coverage": "135604/138096 Italian entries, 2492 original fallbacks",
+  "coverage": "138096/138096 Italian entries, 0 original fallbacks",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game, or pick another language slot with menu option 8 to keep English available. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "Steam build 26925568. 2492 entries use current original text."
+    "Steam build 26925568. 0 entries use current original text."
   ],
   "known_source_content_sha256": "5a6e1f3ea695a6ec118cdc482ee8292d6addb9c6341d914c63d6a8a748d73e38",
   "runtime_profile": "final-native-text-only",

@@ -11,7 +11,7 @@ class FinalDeliveryTests(unittest.TestCase):
             r=csv.DictReader(f); self.assertEqual(r.fieldnames, ["key","source_sha256","it"]); rows=list(r)
         self.assertEqual(len(rows), 138096)
         self.assertEqual(len({r["key"] for r in rows}), 138096)
-        self.assertEqual(sum(not r["it"] for r in rows), 2492)
+        self.assertEqual(sum(not r["it"].strip() for r in rows), 0)
         self.assertTrue(all(len(r["source_sha256"])==64 for r in rows))
 
     def test_known_source_with_empty_italian_is_counted_as_untranslated(self):

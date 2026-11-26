@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4047363.0 - 2026-11-26
+
+- Aggiornamento per il client Steam 4047363, build Steam 26925568: 2.110 chiavi aggiunte, 567 modificate e 40 rimosse.
+- Completati dialoghi, missioni, eventi e descrizioni di abilità rimasti senza testo italiano nel primo pacchetto, poi ritirato.
+- Verificato l'installer a file unico: 138.096 chiavi rilette, zero fallback nel pacchetto e ripristino identico dei file su copia isolata. La resa in gioco non è stata verificata.
+
 ## 1.0.3973445.0 - 2026-11-18
 
 - **Supporto alla build Steam 3973445**: catalogo aggiornato ad **136.024 chiavi** (+3 nuove chiavi, 19 aggiornate, 16 obsolete rimosse) con copertura professionale al **100,00%** e **0 stringhe mancanti (0 fallback)**.
