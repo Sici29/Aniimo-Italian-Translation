@@ -9,10 +9,19 @@ class FinalDeliveryTests(unittest.TestCase):
     def test_public_payload_has_hashes_not_original_sources(self):
         with (ROOT / "data/translation_it.csv").open(encoding="utf-8", newline="") as f:
             r=csv.DictReader(f); self.assertEqual(r.fieldnames, ["key","source_sha256","it"]); rows=list(r)
-        self.assertEqual(len(rows),136024)
-        self.assertEqual(len({r["key"] for r in rows}),136024)
-        self.assertEqual(sum(not r["it"] for r in rows),0)
+        self.assertEqual(len(rows), 138096)
+        self.assertEqual(len({r["key"] for r in rows}), 138096)
+        self.assertEqual(sum(not r["it"] for r in rows), 2492)
         self.assertTrue(all(len(r["source_sha256"])==64 for r in rows))
+
+    def test_known_source_with_empty_italian_is_counted_as_untranslated(self):
+        catalog = {"1": {"source_sha256": hashlib.sha256(b"Hello").hexdigest(), "it": ""}}
+        manifest = {"known_source_key_count": 1, "known_source_key_sha256": installer.sha256_keys(["1"])}
+        result = installer.classify_text_resources([{"key": "1", "text": "Hello"}], catalog, manifest)
+        self.assertTrue(result["supported"])
+        self.assertFalse(result["is_100pct_compatible"])
+        self.assertEqual(result["untranslated_count"], 1)
+        self.assertEqual(result["unknown_text_count"], 0)
 
     def test_final_workflow_records_remain_byte_identical(self):
         raw=b'[{"id":1,"workflow_state":"no_translation"}]'

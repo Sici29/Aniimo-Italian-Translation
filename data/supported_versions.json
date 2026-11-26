@@ -1,13 +1,14 @@
 {
   "project": "Aniimo Italian Translation",
-  "translation_version": "1.0.3973445.0",
+  "translation_version": "1.0.4047363.0",
   "github_repo": "Sici29/Aniimo-Italian-Translation",
   "github_releases_url": "https://github.com/Sici29/Aniimo-Italian-Translation/releases",
   "locale": "it-IT",
   "default_target_language_slot": "en",
-  "known_source_key_count": 136024,
-  "known_source_key_sha256": "df82b92b8ffc33c2aa923e257feb2e86bf2c550585e636f9368e10f9ed832b7c",
+  "known_source_key_count": 138096,
+  "known_source_key_sha256": "ff7f88a3d1e83b206ecb24141c36ecb010323dfc104baec05c9dac651fbd1c2e",
   "supported_game_updates": [
+    "4047363",
     "3973445",
     "3934365",
     "3887621",
@@ -29,7 +30,7 @@
     3535596,
     3509129
   ],
-  "latest_supported_game_update": "3973445",
+  "latest_supported_game_update": "4047363",
   "supported_game_revisions": [
     "680016f12fe1cfcaffb3c142e27abfdb",
     "aa93c4cd128e0b3fafb955fe526424ec",
@@ -43,24 +44,19 @@
     "7e7dc7895ca2725a52d92fa4ac6cf807",
     "0ac01a330f8a64fc13e86bdaf0afdcb2"
   ],
-  "tested_game_update": "3973445",
-  "tested_game_revision": "680016f12fe1cfcaffb3c142e27abfdb",
-  "tested_archive_sha256": "09642fd222f371965835967c2c2f1df5695b1b99dc8f7e6f04f17f3fa4ee35c5",
-  "tested_date": "2026-11-18",
-  "coverage": "136024/136024 keys translated (100.00%)",
+  "tested_game_update": "4047363",
+  "tested_game_revision": "16213a21c4cbacd177c9e50d6166ecdb",
+  "tested_archive_sha256": "4f5b1cc9be850c51df8529a9449eb548fe3b409281d57e4ebda67c1fd67a22ea",
+  "tested_date": "2026-11-26",
+  "coverage": "135604/138096 Italian entries, 2492 original fallbacks",
   "github_project_url": "https://github.com/Sici29/Aniimo-Italian-Translation",
   "github_issues_url": "https://github.com/Sici29/Aniimo-Italian-Translation/issues",
   "support_url": "https://buymeacoffee.com/sici29",
   "install_hint": "Close Aniimo and its launcher. Open this EXE and press Enter. Select English in game, or pick another language slot with menu option 8 to keep English available. If not detected, move this EXE next to Aniimo.exe.",
   "notes": [
-    "Aggiornamento per la build Steam 3973445 (patch 1.0.3973445.0) con copertura di traduzione al 100% (136,024 chiavi).",
-    "Traduzione delle 3 nuove chiavi aggiunte (Chompy, Dora, limite accettazione ordini) e aggiornamento delle 19 chiavi modificate.",
-    "Aggiornamento regole Coppa di Breezy Plains ('Aniimo da Corsa', orari dinamici <timeAutoChangeServer>) ed evento fotografico Prismana Scintillanti.",
-    "Allineamento terminologia trucchi, oggetti negozio a tempo limitato, tortine di velocità, Polvere di Gemma Premium e riferimenti link Banco da Lavoro.",
-    "Preservazione assoluta di tutti i tag di formattazione nativi, codici colore, placeholder di genere e formattazione rich text.",
-    "Compatibilità garantita con Steam e verifica automatica della cache LuaCacheVer.txt."
+    "Steam build 26925568. 2492 entries use current original text."
   ],
-  "known_source_content_sha256": "9a8e751b70bbc3f1d1d392c79a057f7237fd88ec1eed5a0b33678742b9196c9e",
+  "known_source_content_sha256": "5a6e1f3ea695a6ec118cdc482ee8292d6addb9c6341d914c63d6a8a748d73e38",
   "runtime_profile": "final-native-text-only",
   "runtime_validation": "verified_in_game",
   "native_font_bundles": [
@@ -87,6 +83,10 @@
     {
       "relative": "Aniimo_Data/StreamingAssets/cvs/res/uab/win/DefaultPackage/xpt21_ar_xgui_3f711bf8_ui_font_8d5437b3_ass_0_738f345503b2ccb4462e1d7db165f74f.uab",
       "sha256": "a15ede5a0a9fe623c45214d870946af90e55cbfc46ace17f20cf4566c10c0639"
+    },
+    {
+      "relative": "Aniimo_Data/StreamingAssets/cvs/res/uab/win/DefaultPackage/xpt21_ar_xgui_3f711bf8_ui_font_8d5437b3_ass_0_ab374b8a2dddf67649f51d1eb0941c27.uab",
+      "sha256": "66735b130e016c7749eab244d209deb384a7a40867543bce9a3e19a08706e54e"
     }
   ]
 }

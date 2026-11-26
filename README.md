@@ -13,14 +13,16 @@
 > **[⬇ Scarica Gioca in Italiano](https://github.com/Sici29/gioca-in-italiano/releases/latest/download/GiocaInItaliano.exe)** · gratis, per Windows 10 e 11
 <!-- gioca-in-italiano:fine -->
 
-## Release client Steam — 1.0.3973445.0
+## Release client Steam — 1.0.4047363.0
 
 [☕ **Offrimi un caffè e sostieni il progetto**](https://buymeacoffee.com/sici29)
 
-**Traduzione italiana completa al 100,00% per Aniimo (build Steam 3973445, patch 1.0.3973445.0), verificata e funzionante in gioco.**
+La release supporta **Aniimo 4047363 (build Steam 26925568)**. Il catalogo contiene 135.604 voci italiane su 138.096 (98,20%). Le 2.492 voci ancora da revisionare mantengono il testo originale.
 
-- Traduzione completa per **136.024 / 136.024 chiavi (100,00%)** con 0 stringhe mancanti e 0 fallback.
-- **Supporto all'aggiornamento Steam 3973445**: piena compatibilità con l'aggiornamento rilasciato su Steam il 18 novembre 2026 (+3 nuove chiavi, 19 aggiornate, 16 obsolete rimosse).
+- L'aggiornamento del 26 novembre 2026 aggiunge 2.110 chiavi, ne modifica 567 e ne rimuove 40 rispetto alla build precedente.
+- Installazione e ripristino verificati su una copia isolata dei file Steam. La resa grafica in gioco resta da verificare.
+
+### Modifiche delle versioni precedenti
 - **Aggiornamenti di contenuto e terminologia**:
   - Nuove voci per *Chompy*, *Dora* e l'avviso sul limite accettazione ordini.
   - Aggiornamento regole **Coppa di Breezy Plains** (*Aniimo da Corsa* e tag orari `<timeAutoChangeServer>`) e testi dell'evento fotografico Prismana Scintillanti.

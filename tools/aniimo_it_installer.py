@@ -425,6 +425,18 @@ def lua_cache_build(archive: LuaArchivePaths) -> str | None:
     return tail if tail.isdigit() else None
 
 
+def lua_archive_build(archive: LuaArchivePaths) -> str | None:
+    """Read the archive's own version when Steam left an older cache marker."""
+    try:
+        index = read_json(archive.xdt)
+        version = str(index.get("CMVersion", ""))
+        if version.isdigit() and index.get("CMDataLen") == archive.xdf.stat().st_size:
+            return version
+    except (OSError, ValueError, AttributeError):
+        pass
+    return lua_cache_build(archive)
+
+
 def pending_cvs_download(paths: GamePaths) -> dict:
     """Detect a game folder whose text tables are older than the installed build.
 
@@ -443,7 +455,7 @@ def pending_cvs_download(paths: GamePaths) -> dict:
     if newest is not None:
         archives = iter_lua_archives(paths)
         primary_archive = archives[0]
-        primary_build = lua_cache_build(primary_archive)
+        primary_build = lua_archive_build(primary_archive)
         if primary_build and int(primary_build) >= newest:
             return {
                 "pending": False,
@@ -451,7 +463,7 @@ def pending_cvs_download(paths: GamePaths) -> dict:
                 "stale_archives": [],
             }
         for archive in archives:
-            cache_build = lua_cache_build(archive)
+            cache_build = lua_archive_build(archive)
             if cache_build and int(cache_build) < newest:
                 stale.append({
                     "relative_dir": str(archive_relative_dir(paths, archive)),
@@ -1127,19 +1139,11 @@ def resolve_paths(game_dir: Path) -> GamePaths:
     game_update = int(game_update_str) if game_update_str and game_update_str.isdigit() else 0
 
     def is_stale_cache(candidate: LuaArchivePaths) -> bool:
-        cache_ver_file = candidate.lua_dir / "LuaCacheVer.txt"
-        if not cache_ver_file.is_file():
-            return False
         try:
-            content = cache_ver_file.read_text(encoding="utf-8-sig", errors="replace").strip()
-            match = re.search(r"\b(\d{7,})\b", content)
-            if match and game_update:
-                cache_ver = int(match.group(1))
-                if cache_ver < game_update:
-                    return True
+            archive_build = lua_archive_build(candidate)
+            return bool(archive_build and game_update and int(archive_build) < game_update)
         except OSError:
-            pass
-        return False
+            return False
 
     candidates.sort(key=lambda c: 1 if is_stale_cache(c) else 0)
     primary = candidates[0]
@@ -1609,6 +1613,11 @@ def classify_text_resources(
             modified_keys.append(key)
 
     unknown_keys = new_keys + modified_keys
+    unknown_set = set(unknown_keys)
+    untranslated_count = sum(
+        1 for key in current_by_key
+        if key in catalog and not italian_by_key[key] and key not in unknown_set
+    )
     total = len(catalog_keys)
     italian_match_ratio = italian_matches / total if total else 0.0
     is_final = manifest.get("runtime_profile") == "final-native-text-only"
@@ -1643,7 +1652,10 @@ def classify_text_resources(
         mode = "fallback_partial"
         supported = True
 
-    is_100pct = (len(unknown_keys) == 0 and supported and mode in {"official_exact", "italian_exact", "known_mix"})
+    is_100pct = (
+        not unknown_keys and not untranslated_count
+        and supported and mode in {"official_exact", "italian_exact", "known_mix"}
+    )
 
     return {
         "supported": supported,
@@ -1662,6 +1674,7 @@ def classify_text_resources(
         "italian_matches": italian_matches,
         "italian_match_ratio": italian_match_ratio,
         "unknown_text_count": len(unknown_keys),
+        "untranslated_count": untranslated_count,
         "unknown_keys": unknown_keys[:10],
         "new_keys": new_keys,
         "modified_keys": modified_keys,
@@ -2729,12 +2742,16 @@ def cmd_check(args: argparse.Namespace) -> int:
     print("Digest locale (diagnostico):", version_info["revision"] or "non disponibile")
     print("Build già testate:", ", ".join(supported_game_updates(local_manifest())) or "non specificate")
     print("Stringhe:", status["key_count"])
-    print("Controllo contenuti:", compatibility_mode_label(status["mode"]))
+    pending_count = status.get("untranslated_count", 0)
+    print("Controllo contenuti:", "Copertura italiana parziale" if pending_count
+          else compatibility_mode_label(status["mode"]))
+    if pending_count:
+        print(f"Voci senza traduzione nel pacchetto: {pending_count}")
     if status.get("unknown_text_count", 0) > 0:
         print(f"Testi nuovi o modificati (fallback inglese): {status['unknown_text_count']}")
         print(f"Avviso: {status['unknown_text_count']} stringhe non saranno tradotte; attendere un update dell'installer.")
     else:
-        print("Testi nuovi o modificati: 0 (100% compatibile)")
+        print("Testi nuovi o modificati: 0")
     print("Strutture tecniche:", "compatibili" if technical["supported"] else "da aggiornare")
     if technical["issues"]:
         print("Componenti da verificare:", ", ".join(technical["issues"]))
@@ -2845,8 +2862,10 @@ def cmd_install(args: argparse.Namespace) -> int:
         print("Sarà necessario attendere un aggiornamento dell'installer per la traduzione completa.")
         print("!" * 58)
         print()
-    else:
+    elif not v_check.get("untranslated_count"):
         print("✓ Traduzione 100% compatibile applicata con successo!")
+    if v_check.get("untranslated_count"):
+        print(f"Voci mantenute nella lingua originale: {v_check['untranslated_count']}")
     print("Patch installata.")
     if target_slot == ENGLISH_SLOT.code:
         print("Lingua da selezionare in gioco: Inglese")
@@ -2856,7 +2875,7 @@ def cmd_install(args: argparse.Namespace) -> int:
               f"{language_slot(target_slot).label}.")
     if final_text_profile():
         print("Font nativi invariati. Date e timer conservano il formato originale del gioco.")
-        print("Build di prova: la resa grafica deve ancora essere confermata in gioco.")
+        print("La resa grafica deve ancora essere confermata in gioco.")
     else:
         print("Font accentato: ✓ English usa il font vietnamita incluso in Aniimo")
     print("Statistiche:", json.dumps(stats.get("languages", {}), ensure_ascii=False))

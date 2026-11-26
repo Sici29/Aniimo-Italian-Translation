@@ -263,6 +263,20 @@ class PendingCvsDownloadTests(unittest.TestCase):
             paths = self._game(tmp, "3616231", "3616231")
             self.assertFalse(installer.pending_cvs_download(paths)["pending"])
 
+    def test_steam_archive_version_overrides_stale_cache_marker(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = self._game(tmp, "3989635", "3973445")
+            streaming = paths.game_dir / "Aniimo_Data/StreamingAssets/cvs/res/lua"
+            streaming.mkdir(parents=True)
+            (streaming / "LuaCacheVer.txt").write_text("1.0.3973445,123,abc", encoding="utf-8")
+            (streaming / "LuaScripts.xdf").write_bytes(b"new")
+            installer.write_json(streaming / "LuaScripts.xdt", {
+                "CMVersion": 3989635, "CMDataLen": 3,
+            })
+            resolved = installer.resolve_paths(paths.game_dir)
+            self.assertEqual(resolved.lua_dir, streaming)
+            self.assertFalse(installer.pending_cvs_download(resolved)["pending"])
+
     def test_cache_newer_than_verlist_is_a_finished_download(self) -> None:
         # Observed in the wild: after the patcher runs, LuaCacheVer.txt is on the
         # new build while verlist.txt still names the previous one. Comparing for
